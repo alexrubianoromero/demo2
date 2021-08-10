@@ -146,13 +146,14 @@ include('../colocar_links2.php');
 
 <div id = "divorden">
 
-  <form name = "actualizarorden" action="actualizar_orden_honda.php" method="post">
+  <!-- <form name = "actualizarorden" action="actualizar_orden_honda.php" method="post"> -->
     <table border = "1"  width = "75%">
       <tr>
         <td colspan="2" rowspan="4"><img src="<?php  echo $ruta_imagen    ?>" width="318" height="104"></td>
         <td colspan="2"><h3>ORDEN DE REPARACION.. </h3></td>
         <td >
                  <input name="orden" id = "orden" type="text" size="20" value = "<? echo $datos[0]['orden']  ?>" onfocus = "blur()" >
+				 <input type="hidden" id = "id_orden2" value = "<? echo $_REQUEST['idorden']  ?>" >
                 <input name="orden_numero" id = "orden_numero"  type="hidden" size="20" value = "<? echo $_REQUEST['idorden']  ?>"  >  
 				 <input name="id_orden" id = "id_orden"  type="hidden" size="20" value = "<? echo $datos[0]['id']  ?>"  >         </td>
       </tr>
@@ -431,7 +432,7 @@ REFERENCIA
  </td>
 </tr>
 </table>
-  </form>
+  <!-- </form> -->
 <?php
 }// fin de si la orden si se deja modificar osea else de si filas = 0
 ?>
@@ -758,6 +759,7 @@ function busque_estado($tabla26,$id_estado,$id_empresa,$conexion)
 
 <script>
 function valida_envia(){ 
+	// alert("click en valida");
    	//valido el nombre 
 	/*
    	if (document.actualizarorden.abono.value.length==0){ 
@@ -768,9 +770,45 @@ function valida_envia(){
 	*/
 	
 //el formulario se envia 
-   	alert("Muchas gracias por enviar el formulario"); 
-   	document.actualizarorden.submit(); 
+   	// alert("Muchas gracias por enviar el formulario"); 
+   	//  document.actualizarorden.submit(); 
+
+	   var data =  'orden=' + $("#orden").val();
+	   data += '&orden_numero=' + $("#id_orden2").val();
+	   data += '&id_orden=' + $("#id_orden").val();
+	   data += '&clave=' + $("#clave").val();
+	   data += '&fecha=' + $("#fecha").val();
+	   data += '&fecha_entrega=' + $("#fecha_entrega").val();
+	   data += '&placa=' + $("#placa").val();
+	   data += '&documentos_recibidos=' + $("#cladocumentos_recibidosve").val();
+	   data += '&nueva_placa=' + $("#nueva_placa").val();
+	   data += '&telefono=' + $("#telefono").val();
+	   data += '&email=' + $("#email").val();
+	   data += '&kilometraje=' + $("#kilometraje").val();
+	   data += '&kilometraje_cambio=' + $("#kilometraje_cambio").val();
+	   data += '&factupan=' + $("#factupan").val();
+	   data += '&mecanico=' + $("#mecanico").val();
+	   data += '&mecanico_nuevo=' + $("#mecanico_nuevo").val();
+	   data += '&descripcion=' + $("#descripcion").val();
+	   data += '&input_buscar_codigo=' + $("#input_buscar_codigo").val();
+	   data += '&input_buscar_marca=' + $("#input_buscar_marca").val();
+	   data += '&input_buscar_referencia=' + $("#input_buscar_referencia").val();
+	   data += '&codigopan=' + $("#codigopan").val();
+	   data += '&descripan=' + $("#descripan").val();
+	   data += '&costo_producto=' + $("#costo_producto").val();
+	   data += '&valor_unit=' + $("#valor_unit").val();
+	   data += '&cantipan=' + $("#cantipan").val();
+	   data += '&iva=' + $("#iva").val();
+	   data += '&estado=' + $("#estado").val();
+	   $.post('actualizar_orden_honda.php',data,function(a){
+	   //$(window).attr('location', '../index.php);
+	   $("#divorden").html(a);
+	   	//alert(data);
+	   });	
+
 }
+
+
 </script>
 
 

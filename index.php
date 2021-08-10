@@ -49,7 +49,6 @@
 </style>
 </head>
 <body  background="imagenes/fondo.jpg">
-
 <div id="container">
 <form action="verificar_usuario.php" method="post">
   <div class="row">

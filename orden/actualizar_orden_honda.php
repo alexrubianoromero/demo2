@@ -1,11 +1,12 @@
 <?php
 session_start();
-/*
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-echo '---------------------------------------------------------------------------';
-*/
+
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
+// die();
+// echo '---------------------------------------------------------------------------';
+
 /*
 echo '<pre>';
 print_r($_REQUEST);
@@ -171,11 +172,11 @@ if ($_POST['enviar_correo'] > 0)
 /////////////////////
 $body = '
 
-¡MOTORCYCLE ROOM!
+ï¿½MOTORCYCLE ROOM!
 
-De antemano queremos agradecer tu confianza en nosotros, y en respuesta a ello hemos dispuesto de los mejores técnicos, insumos y experiencia, para satisfacer completamente tus requerimientos hacia nuestro servicio. 
+De antemano queremos agradecer tu confianza en nosotros, y en respuesta a ello hemos dispuesto de los mejores tï¿½cnicos, insumos y experiencia, para satisfacer completamente tus requerimientos hacia nuestro servicio. 
 
-Hemos creado una orden con la siguiente información.
+Hemos creado una orden con la siguiente informaciï¿½n.
 
 
 Placa: '.$_REQUEST['placa'].' Orden Numero : '.$_REQUEST['orden_numero'].' 
@@ -188,7 +189,7 @@ MOTORCYCLE ROOM
 Taller Multimarca 
 3142536548 
 
-O envíanos un E-mail a motorcycleroom@gmail.com <br>
+O envï¿½anos un E-mail a motorcycleroom@gmail.com <br>
 Recuerda, estamos ubicados en la Av. calle 80 20c- 49.
 ';
 
@@ -216,7 +217,7 @@ MOTORCYCLE ROOM
 Taller Multimarca 
 3142536548 
 
-O envíanos un E-mail a motorcycleroom@gmail.com <br>
+O envï¿½anos un E-mail a motorcycleroom@gmail.com <br>
 Recuerda, estamos ubicados en la Av. calle 80 20c- 49.
 	';
 	//echo '<br>Se enviara el correo de que esta lista <br>';
@@ -244,7 +245,7 @@ $body= '
 Taller Multimarca 
 
 
-O envíanos un E-mail a sportracing134@gmail.com <br>
+O envï¿½anos un E-mail a: <br>
 Recuerda, estamos ubicados en la  Cll 134 No 45B-37
 	';
 	//echo '<br>Se enviara el correo de que esta lista <br>';
