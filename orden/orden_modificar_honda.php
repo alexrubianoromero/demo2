@@ -802,9 +802,11 @@ function valida_envia(){
 	   data += '&estado=' + $("#estado").val();
 	   $.post('actualizar_orden_honda.php',data,function(a){
 	   //$(window).attr('location', '../index.php);
-	   $("#divorden").html(a);
-	   	//alert(data);
-	   });	
+
+	//    $("#divorden").html(a);
+	//    	//alert(data);
+	    });	
+	   $( "#divorden" ).load( "muestre_orden_sin_modif.php" );
 
 }
 

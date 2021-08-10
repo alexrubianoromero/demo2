@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-/*
-echo '<pre>';
-print_r($_REQUEST);
-echo '</pre>';
-*/
-//exit();
+
+// echo '<pre>';
+// print_r($_REQUEST);
+// echo '</pre>';
+// die();
 
 include('../valotablapc.php');
 ///////////////////
@@ -209,7 +208,7 @@ $cuerpo_correo .=  'Trabajo a realizar '.$_POST['descripcion'];
 */
 /*
 $cuerpo_correo = " 
-Hemos creado una orden con la siguiente información.
+Hemos creado una orden con la siguiente informaciï¿½n.
 
 Orden Numero : ".$ordenpan."
 Placa: ".$_POST['placa']."
@@ -229,11 +228,11 @@ $body = '
 </style>
 </head>
 <body id="cuerpo"  >
-<h3  style="color:blue;">¡Te damos la bienvenida a MOTORCYCLE ROOM!</h3>
+<h3  style="color:blue;">ï¿½Te damos la bienvenida a MOTORCYCLE ROOM!</h3>
 <p id="cuerpo">
-De antemano queremos agradecer tu confianza en nosotros, y en respuesta a ello hemos dispuesto de los mejores técnicos, insumos y experiencia, para satisfacer completamente tus requerimientos hacia nuestro servicio. 
+De antemano queremos agradecer tu confianza en nosotros, y en respuesta a ello hemos dispuesto de los mejores tï¿½cnicos, insumos y experiencia, para satisfacer completamente tus requerimientos hacia nuestro servicio. 
 <br><br>
-Hemos creado una orden con la siguiente información.
+Hemos creado una orden con la siguiente informaciï¿½n.
 </p>
 <p>
 Placa: '.$_POST['placa'].' Orden Numero : '.$ordenpan.' 
@@ -248,14 +247,14 @@ MOTORCYCLE ROOM <br>
 Taller Multimarca <br>
 3142536548 
 <br>
-O envíanos un E-mail a motorcycleroom@gmail.com <br>
+O envï¿½anos un E-mail a motorcycleroom@gmail.com <br>
 Recuerda, estamos ubicados en la Av. calle 80 20c- 49.
 </div>
 </p>
 </body>
 </html>
 ';
- y en respuesta a ello hemos dispuesto de los mejores técnicos, insumos y experiencia, para satisfacer completamente tus requerimientos hacia nuestro servicio. 
+ y en respuesta a ello hemos dispuesto de los mejores tï¿½cnicos, insumos y experiencia, para satisfacer completamente tus requerimientos hacia nuestro servicio. 
 o quieres conocer mas del proceso que estamos llevando a tu motocicleta, claro que puedes contactarnos!
 
 */

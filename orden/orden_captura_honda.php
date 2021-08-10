@@ -92,7 +92,7 @@ include('../colocar_links2.php');
 
 
 <div id ="divorden">
-<form name = "capturaordenonda" method = "post"  action ="grabar_orden_honda.php">
+<!-- <form name = "capturaordenonda" method = "post"  action ="grabar_orden_honda.php"> -->
     <table border = "1" width = <?php echo $ancho_tabla; ?>>
       
       <tr>
@@ -123,7 +123,7 @@ include('../colocar_links2.php');
         <td rowspan="5">Documentos Recibidos<br><textarea name="documentos_recibidos"  id = "documentos_recibidos" cols="40" rows="4" class="fila_llenar" ></textarea></td>
       </tr>
       <tr>
-        <td>EMAIL:<? echo $datos[0]['email'];  ?><input name="email" type="hidden" value ="<?php  echo $datos[0]['email'];  ?>"></td>
+        <td>EMAIL:<? echo $datos[0]['email'];  ?><input id = "email" name="email" type="hidden" value ="<?php  echo $datos[0]['email'];  ?>"></td>
       </tr>
       <tr>
         <td>KMS-MILLAS-HORAS: <select name="tipo_medida" id= "tipo_medida" class="fila_llenar" >
@@ -139,8 +139,8 @@ include('../colocar_links2.php');
           <input name="kilometraje_cambio" id = "kilometraje_cambio" type="text" size="10" class="fila_llenar" > </td>
       </tr>
       <tr>
-        <td>mecanico<select name="mecanico" id = "mecanico" class="fila_llenar">
-		  <option value = ""   >   </option>
+        <td>mecanico<select name="mecanico" id = "mecanico" name ="mecanico" class="fila_llenar">
+		  <option value = ""   >...</option>
 		
 		<?php
 		while($mecanicos = mysql_fetch_assoc($consulta_operarios))
@@ -297,7 +297,7 @@ include('../colocar_links2.php');
 	
 	</table>
 
-</form>
+<!-- </form> -->
 	
 </div>  <!--  de divorden -->
 
@@ -315,6 +315,7 @@ include('../colocar_links2.php');
 });//fin de la funcion principal 
 
 function valida_envia(){ 
+	// alert('valida envia');
 	//valido fecha de entrega 
    /*
    	if (document.capturaordenonda.fecha_entrega.value.length==0){ 
@@ -324,11 +325,27 @@ function valida_envia(){
    	} 
 */
    	//valido el nombre 
-   	if (document.capturaordenonda.kilometraje.value.length==0){ 
-      	alert("Tiene que escribir kilometraje") 
-      	document.capturaordenonda.kilometraje.focus() 
-      	return 0; 
-   	} 
+   	// if (document.capturaordenonda.kilometraje.value.length==0){ 
+    //   	alert("Tiene que escribir kilometraje") 
+    //   	document.capturaordenonda.kilometraje.focus() 
+    //   	return 0; 
+	// } 
+		if($("#tipo_medida").val().length ==  0){
+		alert("Tiene que escoger el tipo de medida Kms Millas Horas") ;
+		return 0; 
+		}
+	   if($("#kilometraje").val().length ==  0){
+		 alert("Tiene que escribir kilometraje") ;
+		 return 0; 
+	   }
+	   if($("#mecanico").val().length ==  0){
+		 alert("Tiene que escoger el mecanico") ;
+		 return 0; 
+	   }
+	   if($("#descripcion").val().length ==  0){
+		 alert("Tiene que escribir la  descripcion") ;
+		 return 0; 
+	   }
 		//valido el nombre 
     /*
    	if (document.capturaordenonda.mecanico.value.length==0){ 
@@ -346,11 +363,30 @@ function valida_envia(){
    	} 
 	*/
 
-   	////////////////////////////el formulario se envia 
-   	alert("Muchas gracias por enviar el formulario"); 
-   	document.capturaordenonda.submit(); 
-	
-	
+   	//////////////////////////el formulario se envia 
+   	// alert("Muchas gracias por enviar el formulario"); 
+   	// document.capturaordenonda.submit(); 
+
+	   var data =  'fecha=' + $("#fecha").val();
+	   data += '&fecha_entrega=' + $("#fecha_entrega").val();
+	   data += '&orden_numero_ante=' + $("#orden_numero_ante").val();
+	   data += '&placa=' + $("#placa").val();
+	   data += '&marca=' + $("#marca").val();
+	   data += '&documentos_recibidos=' + $("#documentos_recibidos").val();
+	   data += '&email=' + $("#email").val();
+	   data += '&tipo_medida=' + $("#tipo_medida").val();
+	   data += '&kilometraje=' + $("#kilometraje").val();
+	   data += '&kilometraje_cambio=' + $("#kilometraje_cambio").val();
+	   data += '&mecanico=' + $("#mecanico").val();
+	   data += '&descripcion=' + $("#descripcion").val();
+	   
+	   $.post('grabar_orden_honda.php',data,function(a){
+	    $("#divorden").html(a);
+	    });	
+
+	//    $( "#divorden" ).load( "muestre_orden_sin_modif.php" );
+
 }
+	
 </script>
 

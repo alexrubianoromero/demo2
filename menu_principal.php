@@ -31,8 +31,8 @@ exit();
 <script src="js/jquery.js"></script>  
 <link rel="stylesheet" href="css/style_menu_navegacion.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/fontello.css">
- <script type="text/javascript" src="js/cssrefresh.js"></script>
+<!-- <link rel="stylesheet" href="css/fontello.css"> -->
+ <!-- <script type="text/javascript" src="js/cssrefresh.js"></script> -->
 <style>
 body{
 background-color: #FCAB65;	
