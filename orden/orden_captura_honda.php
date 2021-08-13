@@ -156,18 +156,22 @@ include('../colocar_links2.php');
       </tr>
     </table>
 	
-
-
+   
+    <!-- aqui termina la parte 1 -->
 
 	 <table border = "1" width = <?php echo $ancho_tabla; ?> >
       <tr>
-        <td colspan="11"><div align="center">DESCRIPCION-TRABAJOS POR REALIZAR </div></td>
+        <td colspan="11"><div align="left">DESCRIPCION-TRABAJOS POR REALIZAR </div></td>
       </tr>
       <tr>
         <td height="134" colspan="10"><label>
-          <textarea name="descripcion"  id = "descripcion" cols="90" rows="7" class="fila_llenar" ></textarea>
- </td>
-        <td>        <input type="button" id="btn_grabar" value="GRABAR ORDEN" onClick="valida_envia()" size ="75%"></td>
+          <textarea name="descripcion"  id = "descripcion" cols="90" rows="4" class="fila_llenar" ></textarea>
+ 		</td>
+		</tr>
+		<tr>
+           <td>       
+			 <input type="button" id="btn_grabar" value="GRABAR ORDEN" onClick="valida_envia()" size ="75%">
+			</td>
       </label>
       </tr>
     </table>
