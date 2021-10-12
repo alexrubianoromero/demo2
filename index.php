@@ -65,7 +65,7 @@
         </div>  
         <div class=" col-md-3  col-xs-12 text-center" id="bordesito">
           <div id="izquierda">
-             <input type="text" name="usuario" id="caja_input"  size="12px"/>
+             <input type="text" name="usuario" id="caja_input"  size="12px" value = "admin"/>
            </div>
        </div>  
   </div> 
@@ -80,7 +80,7 @@
       </div>  
         <div class="  col-md-3  col-xs-12 text-center" id="bordesito">
            <div id="izquierda">
-         <input type="password" name="clave" id="caja_input" size="12px"/>
+         <input type="password" name="clave" id="caja_input" size="12px" value = "1234"/>
        </div>
       </div>  
   </div> 

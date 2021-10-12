@@ -18,7 +18,7 @@ if($filas < 1 ){
 else
 {
 	echo 'placa si existe';
-	include('../orden/orden_captura_honda.php');
+	include('../orden/orden_captura_honda_nueva.php');
 
 }
 ?>
