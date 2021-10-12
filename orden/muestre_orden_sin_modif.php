@@ -151,9 +151,14 @@ echo '<table border= "1">';
 				echo '</h3></td>';
 				}
 
-				echo  '<td><h3>';
-				echo '<a href="orden_imprimir.php?idorden='.$ordenes['0'].'"  target="_blank" >Imprimir</a>';
-				echo '</h3></td>'; 
+				echo  '<td>';
+				echo '<h3>';
+				echo '<a href="orden_imprimir_honda_cero_sin_sesion.php?idorden='.$ordenes['0'].'"  target="_blank" >Media_Hoja</a>';
+				echo '</h3>';
+				echo '<h3>';
+				echo '<a href="orden_imprimir.php?idorden='.$ordenes['0'].'"  target="_blank" >Hoja_Completa</a>';
+				echo '</h3>';
+				echo '</td>'; 
 					//////////////////
 					/*
 					echo  '<td><h3>';
