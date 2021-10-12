@@ -60,10 +60,13 @@ $filas = mysql_num_rows($consulta_facturas);
 */
 //echo 'filas ='.$filas;
 //exit();
+
+
 $sql_empresa = "select * from $tabla10 where id_empresa = ".$_SESSION['id_empresa']." ";
 $consulta_empresa = mysql_query($sql_empresa,$conexion); 
 $datos_empresa = mysql_fetch_assoc($consulta_empresa);
 $ruta_imagen = '../logos/'.$datos_empresa['ruta_imagen'];
+
 /*
 echo '<pre>';
 print_r($datos_empresa);
@@ -71,7 +74,8 @@ echo '</pre>';
 exit(); 
 */
 
-
+$razon_social = $datos_empresa['razon_social'];
+// die($razon_social);
 $sql_placas = "select cli.nombre as nombre ,cli.identi as identi ,cli.direccion as direccion,cli.telefono as telefono
 ,cli.email ,car.placa as placa,car.marca,car.modelo,car.color,car.tipo,
  o.fecha,o.observaciones,o.radio,o.antena,o.repuesto,o.herramienta,o.otros,o.iva as iva ,o.orden,o.kilometraje,o.mecanico,o.kilometraje_cambio,o.documentos_recibidos,o.fecha_entrega,o.tipo_medida_kms_millas_horas as tipo_medida
@@ -116,7 +120,7 @@ if($arreglo_datos['tipo_medida'] == 1){$medida = "HORAS" ;}
 <table width="<?php echo $ancho_tabla; ?>" border="0" style="font-size:<?php echo $tamano_encabezado; ?>">
   <tr>
     <td><div align="center"><img src="<?php  echo $ruta_imagen    ?>" width="108" height="80"></div></td>
-    <td><div align="center">Servicio especializado medio y alto cilindraje
+    <td><div align="center">Servicio especializado
 	    <br>
 	    <?php echo $datos_empresa['direccion'];?>
 	    <br>
@@ -206,9 +210,9 @@ $total_orden = $subtotal_mano_de_obra + $subtotal_repuestos;
 <table width="<?php echo $ancho_tabla; ?>" border="1" style="font-size:<?php echo $tamano_letra; ?>">
   <tr>
     <td width="601" rowspan="4"><div id="condiciones">CONTRATO DE SERVICIO<BR>
-	Autorizo a: SERVICE BIKES; a realizar las reparaciones aqui detalladas y suministrar los repuestos necesarios.
-	<br>SPORTRACING no responde en caso que las autoridades soliciten documentos de propiedad y estos no sean entregados oportunamente.
-	<br>SPORTRACING queda facultado para retener el vehiculo objeto de esta reparacion, hasta que los valores causados por las mismas sean cancelados en su totalidad. si despues de tres(3) dias de terminada la reparacion del vehiculo, este no es retirado , 
+	Autorizo a: <?php echo $razon_social;  ?>; a realizar las reparaciones aqui detalladas y suministrar los repuestos necesarios.
+	<br><?php echo $razon_social;  ?> no responde en caso que las autoridades soliciten documentos de propiedad y estos no sean entregados oportunamente.
+	<br><?php echo $razon_social;  ?> queda facultado para retener el vehiculo objeto de esta reparacion, hasta que los valores causados por las mismas sean cancelados en su totalidad. si despues de tres(3) dias de terminada la reparacion del vehiculo, este no es retirado , 
 	SPORTRACING cobrara por concepto de ocupacion de espacio de trabajo el valor de un(1) salario minimo diario vigente, igualmente cuando la permanencia en el establecimiento sea por responsabilidad del cliente.</div>
 	</td>
     <td width="132">MANO DE OBRA </td>
