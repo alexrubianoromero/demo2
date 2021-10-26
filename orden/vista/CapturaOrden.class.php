@@ -2,7 +2,7 @@
 
 Class CapturaOrden{
 
-   public function infoMoto(){
+   public function infoMoto($datosMoto){
         ?>
           <table>
                      <tr>
@@ -11,55 +11,52 @@ Class CapturaOrden{
                      </tr>
                      <tr>
                          <td>Placa:</td>
-                         <td></td>
+                         <td><?php echo $datosMoto['placa'] ?></td>
                      </tr>
                      <tr>
                          <td>Marca:</td>
-                         <td></td>
+                         <td><?php echo $datosMoto['marca'] ?></td>
                      </tr>
                      <tr>
                          <td>Linea:</td>
-                         <td></td>
+                         <td><?php echo $datosMoto['tipo'] ?></td>
                      </tr>
                      <tr>
                          <td>Modelo:</td>
-                         <td></td>
+                         <td><?php echo $datosMoto['modelo'] ?></td>
                      </tr>
                      <tr>
                          <td>Color:</td>
-                         <td></td>
+                         <td><?php echo $datosMoto['color'] ?></td>
                      </tr>
                   </table>
         <?php
     }
   
-    public function infoPersona(){
+    public function infoPersona($datosCliente){
           ?>
            <table>
                       <tr>
                           <td>Nombre:</td>
-                          <td></td>
+                          <td><?php echo  $datosCliente['nombre']; ?></td>
                       </tr>
                       <tr>
                           <td>Cedula:</td>
-                          <td></td>
+                          <td><?php echo  $datosCliente['identi']; ?></td>
                       </tr>
                       <tr>
                           <td>Direccion:</td>
-                          <td></td>
+                          <td><?php echo  $datosCliente['direccion']; ?></td>
                       </tr>
                       <tr>
-                          <td>Teletono:</td>
-                          <td></td>
+                          <td>Telefono:</td>
+                          <td><?php echo  $datosCliente['telefono']; ?></td>
                       </tr>
                       <tr>
                           <td>Email:</td>
-                          <td></td>
+                          <td><?php echo  $datosCliente['email']; ?></td>
                       </tr>
-                      <tr>
-                          <td>NOmbre:</td>
-                          <td></td>
-                      </tr>
+                    
                   </table>
           <?php
     }

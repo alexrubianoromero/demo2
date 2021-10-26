@@ -20,6 +20,10 @@
             font-size: 30px;
             margin: 10px;
         }
+        .resultadosValidacion{
+            border:1px solid black;
+            font-size: 20px;
+        }
     }
     </style>
 </head>
@@ -27,10 +31,11 @@
     <div id= "principal_responsivo" class="container" align = "center">
         <h1>CREAR ORDEN</h1>
         <h2>DIGITE LA PLACA </h2>
-        <input type="text" class = "ingresoInformacion"> 
+        <input type="text" class = "ingresoInformacion" id="placa" value = "QJT42F"> 
         <br><BR>
-        <button class="btn btn-primary botonResponsivo">CONSULTAR</button>
-
+        <button class="btn btn-primary botonResponsivo" id = "consultarOrden" onclick="valide();">CONSULTAR</button>
+        <div id="resultadosValidacion" class="resultadosValidacion"></div>
     </div>
 </body>
 </html>
+<script src="../orden/js/orden.js"></script>

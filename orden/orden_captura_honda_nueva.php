@@ -1,13 +1,9 @@
 <?php
 session_start();
 date_default_timezone_set('America/Bogota');
-// include('../valotablapc.php');  
-// include('../funciones.php'); 
-include('../orden/vista/CapturaOrden.class.php'); 
-include('../orden/modelo/OrdenesModelo.class.php'); 
+require_once('../orden/vista/CapturaOrden.class.php'); 
 $formulario = new CapturaOrden();
-$ordenesModelo = new OrdenesModelo();
-$ordenesModelo->verificarPlaca(); 
+
 ?>
 <!DOCTYPE html>
 <html lang="es"  class"no-js">
