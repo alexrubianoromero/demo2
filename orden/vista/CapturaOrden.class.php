@@ -49,8 +49,7 @@ Class CapturaOrden{
                           <td><?php echo  $datosCliente['telefono']; ?></td>
                       </tr>
                       <tr>
-                          <td><label>Email:</label></td>
-                          <td><?php echo  $datosCliente['email']; ?></td>
+                          <td colspan="2"><?php echo  $datosCliente['email']; ?></td>
                       </tr>
                     
                   </table>

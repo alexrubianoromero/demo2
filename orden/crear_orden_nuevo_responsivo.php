@@ -9,11 +9,11 @@
     <style>
      @media (max-width: 600px) {
         .ingresoInformacion {
-            font-size: 30px;
+            font-size: 28px;
             width: 35%;
             background-color: transparent;
             color:black;
-            border-color: white; 
+            border-color: black; 
             margin:10px;
         }
         .botonResponsivo{
@@ -23,6 +23,7 @@
         .resultadosValidacion{
             border:1px solid black;
             font-size: 20px;
+            margin:10px;
         }
     }
     </style>
@@ -34,7 +35,9 @@
         <input type="text" class = "ingresoInformacion" id="placa" value = "QJT42F"> 
         
         <button class="btn btn-primary botonResponsivo" id = "consultarOrden" onclick="valide();">CONSULTAR</button>
-        <div id="resultadosValidacion" class="resultadosValidacion" align = "left"></div>
+        <div id="resultadosValidacion" class="resultadosValidacion" align = "left">
+            
+        </div>
     </div>
 </body>
 </html>
