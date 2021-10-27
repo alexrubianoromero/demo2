@@ -16,10 +16,6 @@ class orden_captura_honda_nueva{
     public function mostrarFormulario($datos,$tabla3,$tabla4,$conexion)
     {   
         $datosCliente =  $this->clientes->traerDatosClienteId($datos['propietario'],$tabla3,$conexion);
-                // echo '<pre>';
-                // print_r($datosCliente);
-                // echo '</pre>';
-                // die();
         echo '    
             <!DOCTYPE html>
             <html lang="es"  class"no-js">
@@ -30,12 +26,12 @@ class orden_captura_honda_nueva{
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="../css/bootstrap.min.css">
                 </head>
-                <body>
+        <body>
             <div id="div_total">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 linea" align="left">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 linea" align="left">
                         '.  $this->formulario->infoMoto($datos).'
-                        </div>
+                    </div>
 
                     <div class="col-sm-12 col-md-6 linea" align="left">
                     '
@@ -43,8 +39,10 @@ class orden_captura_honda_nueva{
                      .
                     '
                     </div>
-                    
-                    </div> 
+                </div> 
+                <div>
+                  <button >CREAR ORDEN</button>
+                </div>
             </div>
         </body>
         </html>';

@@ -17,7 +17,7 @@
             margin:10px;
         }
         .botonResponsivo{
-            font-size: 30px;
+            font-size: 20px;
             margin: 10px;
         }
         .resultadosValidacion{
@@ -29,12 +29,12 @@
 </head>
 <body>
     <div id= "principal_responsivo" class="container" align = "center">
-        <h1>CREAR ORDEN</h1>
-        <h2>DIGITE LA PLACA </h2>
+        <h2>CREAR ORDEN PLACA</h2>
+        <!-- <h3>DIGITE LA PLACA </h3> -->
         <input type="text" class = "ingresoInformacion" id="placa" value = "QJT42F"> 
-        <br><BR>
+        
         <button class="btn btn-primary botonResponsivo" id = "consultarOrden" onclick="valide();">CONSULTAR</button>
-        <div id="resultadosValidacion" class="resultadosValidacion"></div>
+        <div id="resultadosValidacion" class="resultadosValidacion" align = "left"></div>
     </div>
 </body>
 </html>

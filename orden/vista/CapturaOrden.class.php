@@ -4,29 +4,25 @@ Class CapturaOrden{
 
    public function infoMoto($datosMoto){
         ?>
-          <table>
+          <table border="1" class="table">
                      <tr>
-                         <td>Fecha Recibida:</td>
-                         <td></td>
-                     </tr>
-                     <tr>
-                         <td>Placa:</td>
+                         <td><label>Placa:</label></td>
                          <td><?php echo $datosMoto['placa'] ?></td>
-                     </tr>
-                     <tr>
-                         <td>Marca:</td>
+                         <td><label>Marca:</label></td>
                          <td><?php echo $datosMoto['marca'] ?></td>
                      </tr>
+                     <!-- <tr>
+                     </tr> -->
                      <tr>
-                         <td>Linea:</td>
+                         <td><label>Linea:</label></td>
                          <td><?php echo $datosMoto['tipo'] ?></td>
-                     </tr>
-                     <tr>
-                         <td>Modelo:</td>
+                         <td><label>Modelo:</label></td>
                          <td><?php echo $datosMoto['modelo'] ?></td>
                      </tr>
+                     <!-- <tr>
+                     </tr> -->
                      <tr>
-                         <td>Color:</td>
+                         <td><label>Color:</label></td>
                          <td><?php echo $datosMoto['color'] ?></td>
                      </tr>
                   </table>
@@ -35,25 +31,25 @@ Class CapturaOrden{
   
     public function infoPersona($datosCliente){
           ?>
-           <table>
+           <table border="1" class="table">
                       <tr>
-                          <td>Nombre:</td>
+                          <td> <label>Nombre:</label></td>
                           <td><?php echo  $datosCliente['nombre']; ?></td>
                       </tr>
-                      <tr>
-                          <td>Cedula:</td>
+                      <tr></label>
+                          <td><label>Cedula:</label></td>
                           <td><?php echo  $datosCliente['identi']; ?></td>
                       </tr>
                       <tr>
-                          <td>Direccion:</td>
+                          <td><label>Direccion:</label></td>
                           <td><?php echo  $datosCliente['direccion']; ?></td>
                       </tr>
                       <tr>
-                          <td>Telefono:</td>
+                          <td><label>Telefono:</label></td>
                           <td><?php echo  $datosCliente['telefono']; ?></td>
                       </tr>
                       <tr>
-                          <td>Email:</td>
+                          <td><label>Email:</label></td>
                           <td><?php echo  $datosCliente['email']; ?></td>
                       </tr>
                     
