@@ -26,6 +26,9 @@
             font-size: 20px;
             margin:10px;
         }
+        #motivoOrden{
+            
+        }
     }
     </style>
 </head>

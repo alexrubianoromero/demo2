@@ -1,5 +1,5 @@
 <?php 
-require_once('../orden/modelo/OrdenesModelo.class.php');
+require_once('../vehiculos/modelo/VehiculosModelo.php');
 require_once('../orden/vista/orden_captura_honda_nueva.php');
 // require_once('./orden_captura_honda_nueva.php');
 class ordenControlador {
@@ -8,11 +8,11 @@ class ordenControlador {
 
     public function __construct()
     {
-        $this->modelo = new OrdenesModelo();
+        $this->modelo = new VehiculosModelo();
         $this->vista = new orden_captura_honda_nueva();
     }
-    public function verificarPlaca($tabla4,$conexion,$tabla3){
-       $resultado =   $this->modelo->verificarPlaca($tabla4,$conexion);
+    public function verificarPlaca($tabla4,$conexion,$tabla3,$placa){
+       $resultado =   $this->modelo->verificarPlaca($conexion,$placa);
        $filas = mysql_num_rows($resultado);
         if($filas==0)
         {

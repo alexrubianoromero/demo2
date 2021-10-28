@@ -1,11 +1,13 @@
 <?php
+
+echo '<pre>';
+print_r($_REQUEST);
+echo '</pre>';
+die();
+
 session_start();
 
 
-// echo '<pre>';
-// print_r($_REQUEST);
-// echo '</pre>';
-// die();
 
 include('../valotablapc.php');
 ///////////////////

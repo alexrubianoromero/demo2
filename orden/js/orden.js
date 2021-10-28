@@ -32,7 +32,6 @@ function pregunteDatosOrden(){
 				// alert(respuesta[0]+' '+ respuesta[1]);
 // //		document.getElementById("tipooperacion").text = respuesta[1];
            document.getElementById("resultadosValidacion").innerHTML  = this.responseText;
-           
         }
     };
     http.open("POST",url);
@@ -42,20 +41,36 @@ function pregunteDatosOrden(){
 }
 
 
-function traertecnicos(){
+
+function grabarordenMovil(){
+    placa = document.querySelector('#placa');
+    fecha = document.querySelector('#fecha').value;  
+    orden_numero_ante = document.querySelector('#orden_numero_ante').value;  
+    marca = document.querySelector('#marca').value;  
+    email = document.querySelector('#marca').email;  
+    
+    
     const http=new XMLHttpRequest();
-    const url = '../tecnicos/tecnicos.php';
+    const url = '../orden/grabar_orden_honda.php';
     http.onreadystatechange = function(){
         if(this.readyState == 4 && this.status ==200){
-             console.log(this.responseText);
+            //  console.log(this.responseText);
              //var respuesta = JSON.parse(this.responseText);
             // console.log(respuesta.marca);
 				// alert(respuesta[0]+' '+ respuesta[1]);
 // //		document.getElementById("tipooperacion").text = respuesta[1];
-            // document.getElementById("pruebaValores").innerHTML  = this.responseText;
+           document.getElementById("resultadosValidacion").innerHTML  = this.responseText;
+           
         }
     };
     http.open("POST",url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send('placa='+ '1234');
+    http.send('placa='+ placa.value
+    +'&fecha='+fecha 
+    +'&orden_numero_ante='+orden_numero_ante 
+    +'&marca='+marca
+  
+    
+    );
+
 }

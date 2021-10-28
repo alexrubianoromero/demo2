@@ -3,17 +3,22 @@
 require_once('CapturaOrden.class.php'); 
 require_once('../clientes/modelo/ClientesModelo.class.php'); 
 require_once('../tecnicos/modelo/TecnicosModelo.php'); 
+require_once('../empresa/controlador/EmpresaController.php'); 
+require_once('../vehiculos/modelo/VehiculosModelo.php'); 
 // $formulario = new CapturaOrden();
 
 class orden_captura_honda_nueva{
     private $formulario;
     private $clientes;
     private $tecnicos; 
+    private $vehiculo;
 
     public function __construct(){
        $this->formulario =  new CapturaOrden();   
        $this->clientes = new ClientesModelo(); 
        $this->tecnicos = new TecnicosModelo(); 
+       $this->empresa  = new EmpresaController(); 
+       $this->vehiculo  = new VehiculosModelo(); 
     }
     
     public function mostrarFormulario($datos,$tabla3,$tabla4,$conexion)
@@ -36,12 +41,8 @@ class orden_captura_honda_nueva{
                     <div class="col-sm-12 col-md-6 linea" align="left">
                         <?php echo $this->formulario->infoMoto($datos) ?>
                     </div>
-
                     <div class="col-sm-12 col-md-6 linea" align="left">
-                    
                      <?php  echo $this->formulario->infoPersona($datosCliente) ?>
-                     
-                    
                     </div>
                 </div> 
                 <div align="center">
@@ -61,15 +62,35 @@ class orden_captura_honda_nueva{
             <div class="modal-body">
                 
                 <div>
+                    <?php
+                             $fechapan =  time();
+                             $fechapan =  date ( "Y/m/j" , $fechapan );
+                             echo '<input type="hidden" id="fecha" value = "'.$fechapan.'" >';
+                             $datos_empresa = $this->empresa->traerInfoEmpresa($conexion);
+                             $siguiente_numero = $datos_empresa['contaor'] +1;
+                             echo '<input type="text" id="orden_numero_ante" value = "'.$siguiente_numero.'" >';
+                             $datosVehiculo = $this->vehiculo->verificarPlaca($conexion,$_REQUEST['placa']);
+                             $datosVehiculo = mysql_fetch_assoc($datosVehiculo);
+                             echo '<input type="text" id="marca" value = "'.$datosVehiculo['marca'].'" >';
+                             echo '<input type="text" id="email" value = "'.$datosCliente['email'].'" >';
+                    ?>
                     <table>
                         <tr>
-                            <td>  KILOMETRAJE:</td> </td>
-                            <td> <input type="text" size="6px"></td>
+                            <td>  KLM:</td> </td>
+                            <td><select id="tipo_medida">
+                                   <option value = "1" selected > Klm</option> 
+                                   <option value = "2"> Millas</option> 
+                                   <option value = "3"> Horas</option> 
+                            </select> 
+                            <input type="text" size="6px"></td>
                             </tr>
                         <tr>  
                             <td>  MECANICO:</td> </td>
                             <td> <select id ="mecanicos" >
                                 <?php
+                               
+
+
                                 $consulta_mecanicos =  $this->tecnicos->traerTecnicos($conexion);
                                 echo '<option value="-1"  >...</option>';
                                 while($mecanicos = mysql_fetch_assoc($consulta_mecanicos))
@@ -87,7 +108,7 @@ class orden_captura_honda_nueva{
                         <tr> 
                             <div>
 
-                                <td colspan="2"><textarea cols = "70%" rows="5"></textarea></td>
+                                <td colspan="2"><textarea  id ="motivoOrden" cols = "25%" rows="5"></textarea></td>
                             </div>  
                         </tr>
                     </table>
@@ -95,7 +116,7 @@ class orden_captura_honda_nueva{
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Grabar Orden</button>
+              <button type="button" class="btn btn-primary " data-dismiss="modal" onclick= "grabarordenMovil()">Grabar Orden</button>
             </div>
           </div>
         </div>
