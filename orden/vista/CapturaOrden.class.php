@@ -4,26 +4,26 @@ Class CapturaOrden{
 
    public function infoMoto($datosMoto){
         ?>
-          <table border="1" class="table">
+          <table border="0" class="table">
                      <tr>
                          <td><label>Placa:</label></td>
-                         <td><?php echo $datosMoto['placa'] ?></td>
+                         <td><?php echo strtoupper($datosMoto['placa']) ?></td>
                          <td><label>Marca:</label></td>
-                         <td><?php echo $datosMoto['marca'] ?></td>
+                         <td><?php echo strtoupper($datosMoto['marca']) ?></td>
                      </tr>
                      <!-- <tr>
                      </tr> -->
                      <tr>
                          <td><label>Linea:</label></td>
-                         <td><?php echo $datosMoto['tipo'] ?></td>
+                         <td><?php echo strtoupper($datosMoto['tipo']) ?></td>
                          <td><label>Modelo:</label></td>
-                         <td><?php echo $datosMoto['modelo'] ?></td>
+                         <td><?php echo strtoupper($datosMoto['modelo']) ?></td>
                      </tr>
                      <!-- <tr>
                      </tr> -->
                      <tr>
                          <td><label>Color:</label></td>
-                         <td><?php echo $datosMoto['color'] ?></td>
+                         <td><?php echo strtoupper($datosMoto['color']) ?></td>
                      </tr>
                   </table>
         <?php
@@ -31,10 +31,10 @@ Class CapturaOrden{
   
     public function infoPersona($datosCliente){
           ?>
-           <table border="1" class="table">
+           <table border="0" class="table">
                       <tr>
                           <td> <label>Nombre:</label></td>
-                          <td><?php echo  $datosCliente['nombre']; ?></td>
+                          <td><?php echo  strtoupper($datosCliente['nombre']); ?></td>
                       </tr>
                       <tr></label>
                           <td><label>Cedula:</label></td>
@@ -42,7 +42,7 @@ Class CapturaOrden{
                       </tr>
                       <tr>
                           <td><label>Direccion:</label></td>
-                          <td><?php echo  $datosCliente['direccion']; ?></td>
+                          <td><?php echo  strtoupper($datosCliente['direccion']); ?></td>
                       </tr>
                       <tr>
                           <td><label>Telefono:</label></td>

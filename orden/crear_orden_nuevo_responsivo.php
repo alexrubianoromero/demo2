@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">  
+    <script src="https://kit.fontawesome.com/6f07c5d6ff.js" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
      @media (max-width: 600px) {
@@ -16,7 +17,7 @@
             border-color: black; 
             margin:10px;
         }
-        .botonResponsivo{
+        .botonResponsivo1{
             font-size: 20px;
             margin: 10px;
         }
@@ -30,15 +31,17 @@
 </head>
 <body>
     <div id= "principal_responsivo" class="container" align = "center">
-        <h2>CREAR ORDEN PLACA</h2>
-        <!-- <h3>DIGITE LA PLACA </h3> -->
-        <input type="text" class = "ingresoInformacion" id="placa" value = "QJT42F"> 
         
-        <button class="btn btn-primary botonResponsivo" id = "consultarOrden" onclick="valide();">CONSULTAR</button>
+        <input type="text" class = "ingresoInformacion" id="placa" VALUE = "QJT42F" placeholder="PLACA"> 
+        <button class="btn btn-primary botonResponsivo1" id = "consultarOrden" onclick="valide();">
+        <i class="fas fa-search"></i>
+        </button>
+
         <div id="resultadosValidacion" class="resultadosValidacion" align = "left">
-            
         </div>
     </div>
 </body>
 </html>
+<script src = "../js/jquery-2.1.1.js"> </script>    
+<script src="../js/bootstrap.min.js"></script>
 <script src="../orden/js/orden.js"></script>
