@@ -47,7 +47,11 @@ function grabarordenMovil(){
     fecha = document.querySelector('#fecha').value;  
     orden_numero_ante = document.querySelector('#orden_numero_ante').value;  
     marca = document.querySelector('#marca').value;  
-    email = document.querySelector('#marca').email;  
+    email = document.querySelector('#email').value;  
+    tipo_medida = document.querySelector('#tipo_medida').value;  
+    kilometraje = document.querySelector('#kilometraje').value;  
+    mecanico = document.querySelector('#mecanico').value;  
+    descripcion = document.querySelector('#descripcion').value;  
     
     
     const http=new XMLHttpRequest();
@@ -69,8 +73,12 @@ function grabarordenMovil(){
     +'&fecha='+fecha 
     +'&orden_numero_ante='+orden_numero_ante 
     +'&marca='+marca
-  
-    
+    +'&email='+email
+    +'&tipo_medida='+tipo_medida
+    +'&kilometraje='+kilometraje
+    +'&mecanico='+mecanico
+    +'&descripcion='+descripcion
+    +'&desdemovil='+'1'
     );
 
 }

@@ -68,25 +68,28 @@ class orden_captura_honda_nueva{
                              echo '<input type="hidden" id="fecha" value = "'.$fechapan.'" >';
                              $datos_empresa = $this->empresa->traerInfoEmpresa($conexion);
                              $siguiente_numero = $datos_empresa['contaor'] +1;
-                             echo '<input type="text" id="orden_numero_ante" value = "'.$siguiente_numero.'" >';
+                             echo '<input type="hidden" id="orden_numero_ante" value = "'.$siguiente_numero.'" >';
                              $datosVehiculo = $this->vehiculo->verificarPlaca($conexion,$_REQUEST['placa']);
                              $datosVehiculo = mysql_fetch_assoc($datosVehiculo);
-                             echo '<input type="text" id="marca" value = "'.$datosVehiculo['marca'].'" >';
-                             echo '<input type="text" id="email" value = "'.$datosCliente['email'].'" >';
+                             echo '<input type="hidden" id="marca" value = "'.$datosVehiculo['marca'].'" >';
+                             echo '<input type="hidden" id="email" value = "'.$datosCliente['email'].'" >';
                     ?>
                     <table>
                         <tr>
-                            <td>  KLM:</td> </td>
-                            <td><select id="tipo_medida">
+                            <td>
+                                <select id="tipo_medida">
                                    <option value = "1" selected > Klm</option> 
-                                   <option value = "2"> Millas</option> 
-                                   <option value = "3"> Horas</option> 
-                            </select> 
-                            <input type="text" size="6px"></td>
-                            </tr>
+                                   <option value = "2"> Mil</option> 
+                                   <option value = "3"> Hor</option> 
+                                </select> 
+                            </td>
+                            <td>
+                                <input id="kilometraje"type="text" size="6px">
+                            </td>
+                        </tr>
                         <tr>  
                             <td>  MECANICO:</td> </td>
-                            <td> <select id ="mecanicos" >
+                            <td> <select id ="mecanico" >
                                 <?php
                                
 
@@ -108,7 +111,7 @@ class orden_captura_honda_nueva{
                         <tr> 
                             <div>
 
-                                <td colspan="2"><textarea  id ="motivoOrden" cols = "25%" rows="5"></textarea></td>
+                                <td colspan="2"><textarea  id ="descripcion" cols = "25%" rows="5"></textarea></td>
                             </div>  
                         </tr>
                     </table>
