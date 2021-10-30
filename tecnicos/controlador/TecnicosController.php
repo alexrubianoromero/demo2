@@ -15,7 +15,9 @@ class TecnicosController{
        $arregloTecnicos = $this->tecnicos->traerTecnicos($conexion);
         if(mysql_num_rows($arregloTecnicos)>0);
         {
-                $this->vista->mostrarTecnicos($arregloTecnicos);
+        
+            echo json_encode()
+                // $this->vista->mostrarTecnicos($arregloTecnicos);
         }
      
 

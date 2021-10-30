@@ -301,14 +301,19 @@ $cuerpo_correo="crecion de orden";
 //mail($_REQUEST['email'],'MOTORCYCLE ROOM',$body,$headers); 
 include('enviar_correo.php');
 
-echo "<br><br><br><h2>ORDEN No ".$ordenpan."   GRABADA </h2>";
-
-//echo "<br><a href='../menu_principal.php' >Pagina Principal</a>";
-//echo "<br><a href='index.php' >Menu Ordenes</a>";
-echo '<br><h2><a href="orden_modificar_honda.php?idorden='.$id_orden['id'].'">ADICIONAR ITEMS A ESTA ORDEN DE ENTRADA</a></h2>';
-
-//include('orden_modificar_honda.php');
-include('../colocar_links2.php');
-//<a href="#">#</a>
+if($_REQUEST['desdemovil'] == '1'){
+    ?>
+     <div id="div_orden_grabada">
+		 ORDEN No <?php echo $ordenpan; ?>CREADA
+		 <br>
+		 <button id="btnAdicionarItems" >Adicionar_Items</button>
+	 </div>
+	<?php
+}
+else{
+	echo "<br><br><br><h2>ORDEN No ".$ordenpan."   GRABADA </h2>";
+	echo '<br><h2><a href="orden_modificar_honda.php?idorden='.$id_orden['id'].'">ADICIONAR ITEMS A ESTA ORDEN DE ENTRADA</a></h2>';
+	//include('../colocar_links2.php');
+}	
 
 ?>

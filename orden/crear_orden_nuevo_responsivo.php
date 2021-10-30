@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">  
+    <link rel="stylesheet" href="../css/estilosresponsivos.css">  
     <script src="https://kit.fontawesome.com/6f07c5d6ff.js" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
-     @media (max-width: 600px) {
+     /* @media (max-width: 600px) {
         .ingresoInformacion {
             font-size: 28px;
             width: 35%;
@@ -29,7 +30,7 @@
         #motivoOrden{
             
         }
-    }
+    } */
     </style>
 </head>
 <body>

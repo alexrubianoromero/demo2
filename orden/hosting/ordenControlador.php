@@ -1,22 +1,16 @@
 <?php 
 require_once('../vehiculos/modelo/VehiculosModelo.php');
 require_once('../orden/vista/orden_captura_honda_nueva.php');
-require_once('../orden/vista/ConsultaOrdenesVista.php');
-require_once('../orden/modelo/OrdenesModelo.class.php');
+// require_once('./orden_captura_honda_nueva.php');
 class ordenControlador {
     private $modelo; 
     private $vista;
-    private $vistaConsuOrden;
-    private $modeloOrdenes;
 
     public function __construct()
     {
         $this->modelo = new VehiculosModelo();
         $this->vista = new orden_captura_honda_nueva();
-        $this->vistaConsuOrden = new ConsultaOrdenesVista();
-        $this->modeloOrdenes = new OrdenesModelo();
     }
-
     public function verificarPlaca($tabla4,$conexion,$tabla3,$placa){
        $resultado =   $this->modelo->verificarPlaca($conexion,$placa);
        $filas = mysql_num_rows($resultado);
@@ -34,20 +28,8 @@ class ordenControlador {
         }
     }
 
-    
-    public function pantallaConsultas($conexion){
-        $arregloOrdenes = $this->modeloOrdenes->traerOrdenes($conexion);
-        $this->vistaConsuOrden->pantallaInicial($arregloOrdenes);
-    }
-    
-    public function mostrarInfoOrden($id,$conexion){
-        $arregloOrden = $this->modeloOrdenes->traerOrdenId($id,$conexion);
-        // echo '<pre>';
-        // print_r($arregloOrden);
-        // echo '</pre>';
-        // die();
-        $this->vistaConsuOrden->mostrarInfoOrden($arregloOrden);
-    }
+
+
 }
 
 
