@@ -54,7 +54,7 @@ class ConsultaOrdenesVista
          
          for ($i=0; $i <= sizeof($arregloOrdenes);$i++ ){
             echo '<tr>';
-            echo '<td><button  onclick="muestreDetalleOrden('.$arregloOrdenes[$i]['id'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">'.$arregloOrdenes[$i]['id'].'</button></td>';
+            echo '<td><button  onclick="muestreDetalleOrden('.$arregloOrdenes[$i]['id'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">'.$arregloOrdenes[$i]['orden'].'</button></td>';
             // echo '<td><button  onclick="muestreDetalleOrden('.$arregloOrdenes[$i]['id'].');" class="btn btn-primary" >'.$arregloOrdenes[$i]['orden'].'</button></td>';
             echo '<td>'.$arregloOrdenes[$i]['fecha'].'</td>';
             echo '<td>'.$arregloOrdenes[$i]['placa'].'</td>';
@@ -92,8 +92,53 @@ class ConsultaOrdenesVista
 
 
        public function mostrarInfoOrden($arregloOrden){
-           echo 'buenaaaaaaaaaaaa';
-             echo 'Orden '.$arregloOrden['orden'];
+            //  echo $arregloOrden['observaciones'];
+            //  die();
+            ?>
+                <div id = "div_detalle_orden">
+                        <div id="div_info_moto">
+
+                        </div>
+                        <div id="div_info_orden">
+                             <table class="table table-striped">
+                                 <tr>
+                                     <td>Orden No</td>
+                                     <td><?php echo $arregloOrden['orden']; ?></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Fecha</td>
+                                     <td><?php echo $arregloOrden['fecha']; ?></td>
+                                 </tr>
+                            
+                                 <tr>
+                                     <td>Telefono</td>
+                                     <td><?php echo $arregloOrden['telefono']; ?></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Kilometraje</td>
+                                     <td><?php echo $arregloOrden['kilometraje']; ?></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Mecanico</td>
+                                     <td><?php echo $arregloOrden['mecanico']; ?></td>
+                                 </tr>
+                                 <tr>
+                                     <td colspan= "2" align="center">Observaciones</td>
+                                 </tr>
+                                 <tr>
+                                     <td colspan="2">
+                                                 <?php echo $arregloOrden['observaciones']; ?>
+                                    </td>
+                                 </tr>
+                             </table>
+                        </div>
+                </div>
+                <div></div>
+            <?php
+
+       }
+       public function mostrarItems(){
+
        }
 
 }

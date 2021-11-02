@@ -27,12 +27,15 @@ Class OrdenesModelo{
 
 
      public function traerOrdenId($id,$conexion){
-        $sql = " SELECT * FROM ordenes o 
+        $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico FROM ordenes o 
                  LEFT JOIN carros c on c.placa = o.placa
+                 LEFT JOIN cliente0 cli on cli.idcliente = c.propietario 
+                 LEFT JOIN tecnicos t on t.idcliente = o.mecanico
                  WHERE  o.id = '".$id."'
                  ORDER BY  o.id DESC 
         ";
         // echo '<br>'.$sql;
+        // die();
         $consulta = mysql_query($sql,$conexion);
         $arreglo= mysql_fetch_assoc($consulta);
         return $arreglo;
