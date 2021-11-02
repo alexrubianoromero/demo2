@@ -1,8 +1,11 @@
 <?php
-
+require_once('../orden/modelo/itemsOrdenModelo.php');
 class ConsultaOrdenesVista
 {
+    private $itemsOrden;
+
     public function __construct(){
+        $this->itemsOrden = new itemsOrdenModelo();
     }
 
      public function pantallaInicial($arregloOrdenes){
@@ -23,7 +26,7 @@ class ConsultaOrdenesVista
                         <h3>LISTADO ORDENES</h3>
                     </div>
                     <div id="div_mostrar_ordenes " class = "resultadosValidacion">
-                        <table class="table">
+                        <table class="table table-striped">
                            <thead> 
                             <tr>
                                 <td>No</td>        
@@ -91,9 +94,13 @@ class ConsultaOrdenesVista
        }
 
 
-       public function mostrarInfoOrden($arregloOrden){
+       public function mostrarInfoOrden($arregloOrden,$conexion){
             //  echo $arregloOrden['observaciones'];
             //  die();
+        //     echo '<pre>';
+        // print_r($arregloOrden);
+        // echo '</pre>';
+        // die();
             ?>
                 <div id = "div_detalle_orden">
                         <div id="div_info_moto">
@@ -133,12 +140,48 @@ class ConsultaOrdenesVista
                              </table>
                         </div>
                 </div>
-                <div></div>
+                <div  id="div_items_orden">
+                    <p>ITEMS ORDEN </p>
+                        <?php 
+                      
+                        $this->mostrarItemsOrden($arregloOrden['id'],$conexion);  
+                        ?>
+                </div>
             <?php
 
        }
-       public function mostrarItems(){
+       public function mostrarItemsOrden($id,$conexion){
+         $items =  $this->itemsOrden->traerItemsOrdenId( $id,$conexion);
+        // echo '<pre>';
+        // print_r($items);
+        // echo '</pre>';
+        // die();
+            ?>
+            <table class="table table-striped">
+                <thead>
 
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Descripcion</td>
+                        <td>Valor Unitario</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    for($i=0;$i<=(sizeof($items));$i++)
+                    {
+                        echo '<tr>';
+                        echo '<td>'.$items[$i]["codigo"].'</td>';
+                         echo '<td>'.$items[$i]["descripcion"].'</td>';
+                        echo '<td>'.$items[$i]["valor_unitario"].'</td>';
+                        echo '</tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+            <?php
        }
 
 }
