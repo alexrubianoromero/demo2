@@ -4,7 +4,7 @@
 class itemsOrdenModelo{
        
     public function traerItemsOrdenId($id,$conexion){
-                $sql = "SELECT i.no_factura,i.id_item, i.codigo,p.descripcion,i.cantidad,i.total_item
+                $sql = "SELECT i.no_factura,i.id_item, i.codigo,p.descripcion,i.cantidad,i.total_item,i.valor_unitario
                 FROM item_orden i 
                 LEFT OUTER JOIN  productos p on p.codigo_producto = i.codigo 
                 WHERE  i.no_factura = '".$id."'  ";
@@ -18,7 +18,8 @@ class itemsOrdenModelo{
                     $arreglo[$i]['codigo'] = $resul['codigo'];
                     $arreglo[$i]['descripcion'] = $resul['descripcion'];
                     $arreglo[$i]['cantidad'] = $resul['cantidad'];
-                    $arreglo[$i]['valor_unitario'] = $resul['total_item'];
+                    $arreglo[$i]['valor_unitario'] = $resul['valor_unitario'];
+                    $arreglo[$i]['total_item'] = $resul['total_item'];
                     $i++;
              }
                 return $arreglo; 

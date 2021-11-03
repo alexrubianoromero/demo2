@@ -141,7 +141,7 @@ class ConsultaOrdenesVista
                         </div>
                 </div>
                 <div  id="div_items_orden">
-                    <p>ITEMS ORDEN </p>
+                    <p align="center" id="letrero_items">ITEMS ORDEN </p>
                         <?php 
                       
                         $this->mostrarItemsOrden($arregloOrden['id'],$conexion);  
@@ -163,19 +163,32 @@ class ConsultaOrdenesVista
                     <tr>
                         <td>Codigo</td>
                         <td>Descripcion</td>
-                        <td>Valor Unitario</td>
+                        <td>Vr.Unit</td>
+                        <td>Cant.</td>
+                        <td>Vr.Total</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                    $sumaItems = 0;
                     for($i=0;$i<=(sizeof($items));$i++)
                     {
-                        echo '<tr>';
-                        echo '<td>'.$items[$i]["codigo"].'</td>';
+                         echo '<tr>';
+                         echo '<td>'.$items[$i]["codigo"].'</td>';
                          echo '<td>'.$items[$i]["descripcion"].'</td>';
-                        echo '<td>'.$items[$i]["valor_unitario"].'</td>';
-                        echo '</tr>';
+                         echo '<td align="right">'.$items[$i]["valor_unitario"].'</td>';
+                         echo '<td>'.$items[$i]["cantidad"].'</td>';
+                         echo '<td align="right">'.$items[$i]["total_item"].'</td>';
+                         echo '</tr>';
+                         $sumaItems += $items[$i]["total_item"];
                     }
+                    echo '<tr>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '<td align="right">Total</td>';
+                    echo '<td></td>';
+                    echo '<td align="right">'.$sumaItems.'</td>';
+                    echo '</tr>';
                     ?>
                 </tbody>
             </table>
