@@ -1,0 +1,27 @@
+body{
+    background-image: url('../imagenes/fondo.jpg');
+	background-repeat: no-repeat;
+}
+@media (max-width: 600px) {
+
+
+    .botoninicio{
+        background-color:transparent;
+        color:black;
+         height: 55px;
+         width: 70%;
+         font-size: 35px;
+        
+    }
+
+    .imagenesinicio{
+        width: 50%;
+    }
+    .bontoningresar{
+        background-color: #D52B1E;
+        color:white;
+        height: 55px;
+        width: 70%;
+        font-size: 35px;
+    }
+}
