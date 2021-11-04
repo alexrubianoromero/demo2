@@ -26,14 +26,13 @@ class ordenControlador {
        $filas = mysql_num_rows($resultado);
         if($filas==0)
         {
-            echo '<h1 style="color:red">Esta placa no existe por favor verifique</h1>';
+            echo '<h1 style="color:red">Esta placa no existe</h1>';
+            //deberia preguntar si desea crear la placa 
+            echo '<button class="btn btn-primary" onclick="crearVehiculo();">CREAR VEHICULO</button>';
         }
         else {
             $datos_placa = mysql_fetch_assoc($resultado);
             echo $this->vista->mostrarFormulario($datos_placa,$tabla3,$tabla4,$conexion);
-            //pintar el formulario
-            // require_once('vista/orden_captura_honda_nueva.php');
-
             // echo  (json_encode($datos_placa));
         }
     }
@@ -59,7 +58,10 @@ class ordenControlador {
 
     }
 
+    public function crearPlaca(){
+        //aqui llega cuando la palca no esta creada 
 
+    }
 }
 
 

@@ -70,7 +70,7 @@ function grabarordenMovil()
     };
     http.open("POST",url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send('placa='+ placa.value
+    http.send('placa='+ placa
     +'&fecha='+fecha 
     +'&orden_numero_ante='+orden_numero_ante 
     +'&marca='+marca
@@ -103,5 +103,29 @@ function muestreDetalleOrden(id){
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send('consultarOrden=1'
         +'&id='+id);
+
+}
+function crearVehiculo(){
+    placa = document.querySelector('#placa').value;
+    
+    const http=new XMLHttpRequest();
+    const url = '../vehiculos/crearVehiculo.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            //  console.log(this.responseText);
+             //var respuesta = JSON.parse(this.responseText);
+            // console.log(respuesta.marca);
+				// alert(respuesta[0]+' '+ respuesta[1]);
+         //		document.getElementById("tipooperacion").text = respuesta[1];
+           document.getElementById("resultadosValidacion").innerHTML  = this.responseText;
+           
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('placa='+ placa.value
+    +'&fecha='+fecha 
+    +'&orden_numero_ante='+orden_numero_ante 
+    );
 
 }
