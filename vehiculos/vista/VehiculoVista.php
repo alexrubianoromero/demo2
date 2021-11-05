@@ -61,7 +61,8 @@ class VehiculoVista{
 
     public function verVehiculos($datosVehiculos){
         //    funciones::pintarTabla($datosVehiculos,1); 
-           funciones::draw_table($datosVehiculos,1); 
+        //    funciones::draw_table($datosVehiculos,1); 
+        
     }
 
 }
