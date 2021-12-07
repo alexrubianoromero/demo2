@@ -38,7 +38,7 @@ $empresas_externas = "empresas_externas";
 $servidor = "localhost";
 $usuario = "root";
 $clave  = "peluche2016";
-$nombrebase = "base_demo";
+$nombrebase = "base_demo2";
 
 
 /*

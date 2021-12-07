@@ -19,6 +19,10 @@ class ordenControlador {
         $this->vistaConsuOrden = new ConsultaOrdenesVista();
         $this->modeloOrdenes = new OrdenesModelo();
         $this->itemsOrdenModelo = new itemsOrdenModelo();
+
+        // if(!isset($_REQUEST['opcion']) || $_REQUEST['opcion']=='consultar'){
+        //     $this->pantallaInicial($this->conexion);
+        // }
     }
 
     public function verificarPlaca($tabla4,$conexion,$tabla3,$placa){

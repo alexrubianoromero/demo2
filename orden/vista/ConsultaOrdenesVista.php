@@ -26,7 +26,7 @@ class ConsultaOrdenesVista
                         <h3>LISTADO ORDENES</h3>
                     </div>
                     <div id="div_mostrar_ordenes " class = "resultadosValidacion">
-                        <table class="table table-striped">
+                        <table class="table" >
                            <thead> 
                             <tr>
                                 <td>No</td>        

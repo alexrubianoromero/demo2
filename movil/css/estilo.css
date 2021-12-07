@@ -1,5 +1,13 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3/05/2021, 09:34:15 AM
+    Author     : Alex Rubiano <arubiano@almagrario.com>
+*/
 
-@media (max-width: 600px) {
 #div_prueba_respuestas{
 	border: 1px solid black;
 }
@@ -100,7 +108,22 @@ select:focus{ outline: none;}
 		font-size: 25px;
 		border-radius:10px;
 }
+.bontonesmenuinternos{
+	position:relative;
+	 height:40px;
+	background-color: #D52B1E;
+	 margin: 15px;
+	font-size: 20px;
+	border-radius:10px;
+	color :white;
+}
+.bontonesmenuinternos:hover{
+	color:black;
+}
 
+/* #divBotonesPrincipales{
+	width: 45%;
+} */
 	.bontonsalir{
 					color:#606060;
 					 margin: 15px;
@@ -128,8 +151,9 @@ select:focus{ outline: none;}
 	background-color: #D52B1E;
 	color: black; }
 body{
-	background-image: url('../imagenes/fondo.jpg');
-	background-repeat: no-repeat;
+	/* background-image: url('../imagen/fondo.jpg');
+	background-repeat: no-repeat; */
+	background-color: black;
 }
 #div_titulo_resumen_referencias{
 	display:none;
@@ -167,8 +191,12 @@ body{
 
         }
         .imagenesinicio{
-            width: 30%;
+            width: 40%;
+			font-size: 30px;
         }
+		#slogankaymo{
+			color:white;
+		}
         button,select{
             position:relative;
             width: 95%;
@@ -186,8 +214,12 @@ body{
 			padding: 2px;
 		}
         .imagenesinicio{
-                 width: 95%;
+                 width: 60%;
              }
+			 #slogankaymo{
+				color:white;
+				font-size: 20px;
+			}
       .sinmargen{
 			margin:0px;  
 		}
@@ -204,4 +236,3 @@ body{
                     width: 50%;
                 }
           }*/
-		}

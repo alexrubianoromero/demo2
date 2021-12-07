@@ -1,12 +1,25 @@
 <?php
-require_once('../vehiculos/modelo/VehiculosModelo.php');
 require_once('../funciones.class.php');
+
 class VehiculoVista{
 
 
     public function pantallaCreacionVehiculo(){
         ?>
-               <!DOCTYPE html>
+            <div>
+                <?php $this->infoMoto($datosMoto); ?>
+                    <button class="btn btn-default">GRABAR VEHICULO</button>
+                </div>
+
+            </body>
+        <?php
+
+    }
+
+
+    public function pantallainicialVehiculos($datosVehiculos){
+        ?>
+           <!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -17,19 +30,18 @@ class VehiculoVista{
                 <title>Document</title>
             </head>
             <body>
-                <div>
-                    <?php $this->infoMoto($datosMoto); ?>
-                    <button class="btn btn-default">GRABAR VEHICULO</button>
-
+            <div id="div_vehiculos" class="container">
+                <div id="divBotonesvehiculo"></div>
+                <div align = ""center id="divResultadosVehiculos">
+                    <?php   $this->verVehiculos($datosVehiculos);  ?>        
                 </div>
-
+            </div>
             </body>
             </html>
             <script src = "../js/jquery-2.1.1.js"> </script>    
             <script src="../js/bootstrap.min.js"></script>
-            <script src="../orden/js/orden.js"></script>    
-        <?php
-
+            <script src="../vehiculos/js/vehiculos.js"></script>
+        <?php        
     }
 
     public function infoMoto($datosMoto){
@@ -60,9 +72,37 @@ class VehiculoVista{
     }
 
     public function verVehiculos($datosVehiculos){
-        //    funciones::pintarTabla($datosVehiculos,1); 
-        //    funciones::draw_table($datosVehiculos,1); 
-        
+        // echo '<pre>';
+        // print_r($datosVehiculos);
+        // echo '</pre>';
+        if($datosVehiculos['filas']>0)
+        {
+            ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>PLACA</th>
+                        <th>MARCA</th>
+                        <th>LINEA</th>
+                        <th>NOMBRE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($datosVehiculos['datos'] as $vehi){
+                            echo '<tr>';
+                            echo '<td>'.strtoupper($vehi['placa']).'</td>';
+                            echo '<td>'.strtoupper($vehi['marca']).'</td>';
+                            echo '<td>'.strtoupper($vehi['tipo']).'</td>';
+                            echo '<td>'.strtoupper($vehi['nombre']).'</td>';
+                            echo '</tr>';
+                        }
+                        ?>
+                </tbody>
+                
+            </table>
+            <?php
+        }
     }
 
 }
