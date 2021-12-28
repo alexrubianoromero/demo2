@@ -16,6 +16,11 @@ class OrdenesVista{
                <link rel="stylesheet" href="../orden/css/ordenes.css">  
                <script src="https://kit.fontawesome.com/6f07c5d6ff.js" crossorigin="anonymous"></script>
                <title>Document</title>
+               <style>
+                   #div_pedir_datos_orden{
+                       font-size: 20px;
+                   }
+               </style>
            </head>
            <body class="container">
                <div align = "center" id = "div_general_modulo_ordenes">   
@@ -143,7 +148,7 @@ class OrdenesVista{
                   <div class="modal-content">
                   <div class="modal-header" id="headerNuevaOrden">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Creacion de Orden</h4>
+                      <h4 class="modal-title" id="myModalLabel">CREACION DE ORDEN </h4>
                   </div>
                   <div id="cuerpoModalDatosOrden" class="modal-body">
                       
@@ -302,12 +307,14 @@ class OrdenesVista{
       ?>
         <div id="div_pedir_datos_orden">
 
-        <div></div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="">Placa : </label>
+                    <?php echo $placa;  ?>
+                </div>
+            </div>
         <table>
-                        <tr>
-                            <td>Placa:</td>
-                            <td><?php echo $placa;  ?></td>
-                        </tr>
+                      
                         <tr>
                             <td>
                                 <select id="tipo_medida">
@@ -345,7 +352,7 @@ class OrdenesVista{
                         </tr>
                     </table>
                     
-                    <button class = "btn btn-primary btn-block" onclick="grabarordenMovil();">GRABAR ORDEN </button>
+                    <button class = "btn btn-primary btn-block btn-lg" onclick="grabarordenMovil();">GRABAR ORDEN </button>
 
         </div>
 

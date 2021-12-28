@@ -195,7 +195,7 @@ body{
 			font-size: 30px;
         }
 		#slogankaymo{
-			color:white;
+			/* color:white; */
 		}
         button,select{
             position:relative;
