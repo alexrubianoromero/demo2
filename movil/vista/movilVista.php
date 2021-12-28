@@ -54,6 +54,9 @@ class movilVista{
     <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/nuevo.js"></script>
+    <script src="../orden/js/orden.js"></script>
+    <script src="../clientes/js/clientes.js"></script>
+    <script src="../vehiculos/js/vehiculos.js"></script>
     <?php
   }
   public function htmlLogueo(){

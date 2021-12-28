@@ -5,9 +5,11 @@ and open the template in the editor.
 */
 /* 
     Created on : 3/05/2021, 09:34:15 AM
-    Author     : Alex Rubiano <arubiano@almagrario.com>
+    Author     : Alex Rubiano 
 */
-
+#myModalClientes{
+	background-color: #c0c0c0;
+}
 #div_prueba_respuestas{
 	border: 1px solid black;
 }
@@ -151,9 +153,7 @@ select:focus{ outline: none;}
 	background-color: #D52B1E;
 	color: black; }
 body{
-	/* background-image: url('../imagen/fondo.jpg');
-	background-repeat: no-repeat; */
-	background-color: black;
+	/* background-color: black; */
 }
 #div_titulo_resumen_referencias{
 	display:none;

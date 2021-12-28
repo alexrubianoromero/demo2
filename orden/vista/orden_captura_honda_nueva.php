@@ -1,5 +1,4 @@
 <?php
-
 require_once('CapturaOrden.class.php'); 
 require_once('../clientes/modelo/ClientesModelo.class.php'); 
 require_once('../tecnicos/modelo/TecnicosModelo.php'); 
@@ -21,9 +20,13 @@ class orden_captura_honda_nueva{
        $this->vehiculo  = new VehiculosModelo(); 
     }
     
-    public function mostrarFormulario($datos,$tabla3,$tabla4,$conexion)
+    public function mostrarFormulario($datos,$conexion)
     {   
-        $datosCliente =  $this->clientes->traerDatosClienteId($datos['propietario'],$tabla3,$conexion);    
+        $datosCliente =  $this->clientes->traerDatosClienteId($datos['propietario'],$conexion);    
+        // echo '<pre>';
+        // print_r($datosCliente);
+        // echo '</pre>';
+        // die();
         
         ?>
             <!DOCTYPE html>
@@ -61,68 +64,14 @@ class orden_captura_honda_nueva{
             </div>
             <div class="modal-body">
                 
-                <div>
-                    <?php
-                             $fechapan =  time();
-                             $fechapan =  date ( "Y/m/j" , $fechapan );
-                             echo '<input type="hidden" id="fecha" value = "'.$fechapan.'" >';
-                             $datos_empresa = $this->empresa->traerInfoEmpresa($conexion);
-                             $siguiente_numero = $datos_empresa['contaor'] +1;
-                             echo '<input type="hidden" id="orden_numero_ante" value = "'.$siguiente_numero.'" >';
-                             $datosVehiculo = $this->vehiculo->verificarPlaca($conexion,$_REQUEST['placa']);
-                             $datosVehiculo = mysql_fetch_assoc($datosVehiculo);
-                             echo '<input type="hidden" id="marca" value = "'.$datosVehiculo['marca'].'" >';
-                             echo '<input type="hidden" id="email" value = "'.$datosCliente['email'].'" >';
-                    ?>
-                    <table>
-                        <tr>
-                            <td>
-                                <select id="tipo_medida">
-                                   <option value = "1" selected > Klm</option> 
-                                   <option value = "2"> Mil</option> 
-                                   <option value = "3"> Hor</option> 
-                                </select> 
-                            </td>
-                            <td>
-                                <input id="kilometraje"type="text" size="6px">
-                            </td>
-                        </tr>
-                        <tr>  
-                            <td>  MECANICO:</td> </td>
-                            <td> <select id ="mecanico" >
-                                <?php
-                               
-
-
-                                $consulta_mecanicos =  $this->tecnicos->traerTecnicos($conexion);
-                                echo '<option value="-1"  >...</option>';
-                                while($mecanicos = mysql_fetch_assoc($consulta_mecanicos))
-			                    {
-			                        echo  '<option value = "'.$mecanicos['idcliente'].'"   > '.$mecanicos['nombre'].'  </option>';
-			                    }
-		                        ?>
-
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">MOTIVO ORDEN</td>
-                        </tr>
-                        <tr> 
-                            <div>
-
-                                <td colspan="2"><textarea  id ="descripcion" cols = "25%" rows="5"></textarea></td>
-                            </div>  
-                        </tr>
-                    </table>
-                </div>
+             
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary " data-dismiss="modal" onclick= "grabarordenMovil()">Grabar Orden</button>
+              <button type="button" class="btn btn-primary "  onclick= "grabarordenMovil()">Grabar Orden</button>
             </div>
           </div>
-        </div>
+         </div>
        </div>
 
         </body>

@@ -40,6 +40,7 @@ if ($_POST['herramienta']== 'undefined'){$_POST['herramienta'] = 0;}
 
 /////////////////
 
+
 ///////////////
 
 $sql_maxima_remision  = "select contaor from $tabla10  where id_empresa = '".$_SESSION['id_empresa']."'  ";
@@ -48,6 +49,7 @@ $sql_maxima_remision  = "select contaor from $tabla10  where id_empresa = '".$_S
 		 
 		 $ordenpan = $maximoid['contaor'] + 1 ;  
 				$_SESSION['ordenpan']= $ordenpan;
+
 
 ////////////////////////////////////////
 $sql_actualizar_contaor = "update $tabla10 set  contaor = '".$ordenpan."'  where   id_empresa = '".$_SESSION['id_empresa']."' "; 
@@ -122,11 +124,10 @@ $consulta_actualizar_items = mysql_query($sql_actualizar_id_orden_item,$conexion
 ////CONSULTA PARA TRAER LOS ITEMS DE TEMPORAL Y LUEGO CON UN CICLO LOS VAMOS GUARDANDO UNO A UNO EN LA UBICACION DEFINITIVA
 
 $sql_traer_items_temporal = "select * from $tabla18    where  no_factura =  '".$_POST['orden_numero']."'   and id_empresa = '".$_SESSION['id_empresa']."' order by id_item ";
+
 $consulta_temporal_definitivo = mysql_query($sql_traer_items_temporal,$conexion);
 while($items  =  mysql_fetch_array($consulta_temporal_definitivo))
 		{
-
-			//echo '<br>'.$items[3];
 			$sql_grabar_items = " insert into $tabla15   (no_factura,codigo,descripcion,cantidad,total_item,valor_unitario,id_empresa,estado) 
 			values ('".$id_orden['id']."','".$items[2]."','".$items[3]."','".$items[4]."','".$items[5]."','".$items[7]."','".$items[8]."','0')";
 			$consulta_trasladar_item = mysql_query($sql_grabar_items,$conexion);
@@ -136,21 +137,10 @@ while($items  =  mysql_fetch_array($consulta_temporal_definitivo))
 			//echo '<br>'.$sql_valor_existente;
 			$consulta_valor_inventario = mysql_query($sql_valor_existente,$conexion); 
 			$valor_actual_inventario = mysql_fetch_assoc($consulta_valor_inventario);
-			
-/*
-			echo '<pre>';
-			print_r($valor_actual_inventario);
-			echo '</pre>';	
-			*/
-	// echo '<br>cantidad base'.$valor_actual_inventario['cantidad'];
-  // echo '<br>cantidad item '.$items[4];
-
 
 			$valor_final_inventario = $valor_actual_inventario['cantidad']  -  $items[4];
 			$sql_actualizar_inventario = "update $tabla12 set cantidad = '".$valor_final_inventario."'   
 					 where codigo_producto = '".$items[2]."'  and id_empresa = '".$_SESSION['id_empresa']."'  ";
-					
-      //echo '<br>consulta '.$sql_actualizar_inventario;
 
 					$actualizar_inventario = mysql_query($sql_actualizar_inventario,$conexion);  
 		} // temina el proceso de los items
@@ -304,7 +294,7 @@ include('enviar_correo.php');
 if($_REQUEST['desdemovil'] == '1'){
     ?>
      <div id="div_orden_grabada">
-		 ORDEN No <?php echo $ordenpan; ?>CREADA
+		 <h2>ORDEN No <?php echo $ordenpan; ?> CREADA</h2>
 		 <br>
 		 <button id="btnAdicionarItems" >Adicionar_Items</button>
 	 </div>

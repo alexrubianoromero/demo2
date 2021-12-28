@@ -18,14 +18,16 @@ class ConsultaOrdenesVista
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="../css/bootstrap.min.css">  
                 <link rel="stylesheet" href="../css/estilosresponsivos.css">  
+                <script src="https://kit.fontawesome.com/6f07c5d6ff.js" crossorigin="anonymous"></script>
                 <title>Document</title>
             </head>
-            <body>
-                <div align = "center">   
+            <body class="container">
+                <div align = "center" id = "div_general_modulo_ordenes">   
                     <div id="titulo">
-                        <h3>LISTADO ORDENES</h3>
+                        <h3>ORDENES <button onclick = "iraCraerOrden();"  id= "btnCrearOrden">CREAR ORDEN</button></h3>
                     </div>
-                    <div id="div_mostrar_ordenes " class = "resultadosValidacion">
+                    
+                    <div id="div_mostrar_ordenes" class = "resultadosValidacion">
                         <table class="table" >
                            <thead> 
                             <tr>

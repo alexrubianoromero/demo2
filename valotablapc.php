@@ -41,12 +41,12 @@ $clave  = "peluche2016";
 $nombrebase = "base_demo2";
 
 
-/*
-$servidor = "localhost";
-$usuario = "ctwtvsxj_admin";
-$clave  = "ElMejorProgramador***";
-$nombrebase = "ctwtvsxj_base_demo";
-*/
+
+// $servidor = "localhost";
+// $usuario = "ctwtvsxj_admin";
+// $clave  = "ElMejorProgramador***";
+// $nombrebase = "ctwtvsxj_base_demo";
+
 
 $conexion =mysql_connect($servidor,$usuario,$clave);
 $la_base =mysql_select_db($nombrebase,$conexion);
