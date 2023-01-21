@@ -152,6 +152,9 @@ echo '<table border= "1">';
 				}
 
 				echo  '<td>';
+				echo '<h3>'; 
+				echo '<a>Pdf</a>';
+				echo '</h3>';
 				echo '<h3>';
 				echo '<a href="orden_imprimir_honda_cero_sin_sesion.php?idorden='.$ordenes['0'].'"  target="_blank" >Media_Hoja</a>';
 				echo '</h3>';

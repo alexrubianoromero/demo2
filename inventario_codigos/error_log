@@ -682,3 +682,121 @@
 [26-Dec-2020 02:10:03 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
 [26-Dec-2020 02:10:03 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
 [26-Dec-2020 02:10:03 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:08 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 15:45:08 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 15:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:45:26 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 15:48:49 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 15:48:53 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 15:48:53 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 15:48:53 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:48:53 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:48:53 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:48:53 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:48:53 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 15:48:53 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 17:12:07 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 17:12:07 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[07-Aug-2021 17:12:07 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 17:12:07 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 17:12:07 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 17:12:07 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 17:12:07 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[07-Aug-2021 17:12:07 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:02:51 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:02:51 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:02:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:02:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:02:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:02:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:02:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:02:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:22 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:22 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:22 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:22 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:22 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:22 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:22 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:22 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:30 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:30 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:40 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:40 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:48 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:48 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:03:54 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:54 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:58 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:03:58 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:04:04 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:04:04 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:04:04 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:04:04 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:04:04 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:04:04 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:04:04 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:04:04 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[10-Aug-2021 16:04:07 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:04:07 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:04:12 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[10-Aug-2021 16:04:12 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[12-Oct-2021 14:11:48 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[12-Oct-2021 14:11:48 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[12-Oct-2021 14:11:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[12-Oct-2021 14:11:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[12-Oct-2021 14:11:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[12-Oct-2021 14:11:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[12-Oct-2021 14:11:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[12-Oct-2021 14:11:48 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[24-Oct-2021 03:29:44 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[23-Mar-2022 18:36:33 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[23-Mar-2022 18:37:07 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[24-Mar-2022 13:29:49 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[24-Mar-2022 13:29:51 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[24-Mar-2022 13:29:51 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[24-Mar-2022 13:29:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[24-Mar-2022 13:29:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[24-Mar-2022 13:29:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[24-Mar-2022 13:29:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[24-Mar-2022 13:29:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[24-Mar-2022 13:29:51 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:31:34 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[03-Dec-2022 13:33:52 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[03-Dec-2022 13:33:52 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[03-Dec-2022 13:33:52 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:33:52 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:33:52 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:33:52 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:33:52 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:33:52 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:34:06 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[03-Dec-2022 13:34:06 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ctwtvsxj/public_html/demo2/empresa.php on line 7
+[03-Dec-2022 13:35:41 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[03-Dec-2022 13:35:41 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[03-Dec-2022 13:35:41 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:35:41 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:35:41 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:35:41 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:35:41 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[03-Dec-2022 13:35:41 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[06-Jan-2023 16:44:46 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[06-Jan-2023 16:44:46 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[06-Jan-2023 16:44:46 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[06-Jan-2023 16:44:46 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[06-Jan-2023 16:44:46 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[06-Jan-2023 16:44:46 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[06-Jan-2023 16:44:46 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[06-Jan-2023 16:44:46 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/inventario_codigos/traer_codigos.php on line 75
+[13-Jan-2023 01:41:51 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51

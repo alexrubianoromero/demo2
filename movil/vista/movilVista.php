@@ -24,7 +24,7 @@ class movilVista{
             }
         </style>
     </head>
-    <body >
+    <body class="fondoPrograma">
         <div id="divTotal" align="center" class="container">
         <div id="imagenInicial" >
             <img class="imagenesinicio" src="imagen/logonuevo.png">

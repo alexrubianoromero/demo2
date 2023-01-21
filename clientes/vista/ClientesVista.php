@@ -14,9 +14,10 @@ class CLientesVista{
              <meta name="viewport" content="width=device-width, initial-scale=1.0">
              <link rel="stylesheet" href="../css/bootstrap.min.css">  
              <link rel="stylesheet" href="../css/estilosresponsivos.css">  
+             <link rel="stylesheet" href="../../movil/css/estilo.css">  
              <title>Document</title>
          </head>
-         <body>
+         <body class="fondoPrograma">
          <div id="div_clientes" class="container"  align="center">
              <div id=" row divBotonesClientes">
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -46,7 +47,7 @@ class CLientesVista{
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
          Launch demo modal
          </button> -->
-          <div  class="modal fade" id="myModalClientes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div  class="modal fade " id="myModalClientes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                   <div class="modal-header" id="headerNuevoCliente">
@@ -177,7 +178,8 @@ class CLientesVista{
     }    
 
     public function propietarioGrabado(){
-        echo 'La informacion del propietario se guardo de forma exitosa';
+        
+        echo '<div class= "avisoGrabado">La informacion del propietario se guardo de forma exitosa</div>';
     }
 
 }

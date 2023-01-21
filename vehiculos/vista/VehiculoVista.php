@@ -151,11 +151,24 @@ class VehiculoVista{
                 </div>
                 <div class="col-xs-4">
                 
-                    <input class = "form-control" type="text" id="placaPeritaje" size="3" value="" size = "10">
+                    <input 
+                        class = "form-control" 
+                        type="text" 
+                        id="placaPeritaje" 
+                        size="3" 
+                        value="" 
+                        size = "10"
+                        placeholder = 'PLACA'
+                        >
                 </div>
                 <div class="col-xs-4">
-                    <button  onclick="buscarPlacaPeritaje();"  id="btnBuscarPlaca">
-                    Verificar
+                    <button 
+                        class="btn btn-primary " 
+                        onclick="buscarPlacaPeritaje();"  
+                        id="btnBuscarPlaca"
+                        placeholder = "PLACA"
+                        >
+                    <i class="fas fa-search"></i>
                     <!-- <i class="fas fa-search"></i> -->
                     </button>
                 </div>

@@ -263,22 +263,25 @@ $filas_ordenes_placa = mysql_num_rows($con_ordenes_Placa);
 
 if($filas_ordenes_placa  < 2)
 {
-      $body .='Te damos la bienvenida a KAYMO SOFTWARE
-De antemano queremos agradecer tu confianza en nosotros, ';
+      $body .='Te damos la bienvenida a KAYMO SOFTWARE <br>
+De antemano queremos agradecer tu confianza en nosotros, <br> ';
+}
+else{
+	$body .='Es todo un placer contar con tu confianza y poderte atender nuevamente <br>';
 }
 
 
-
 $body .='
-Hemos creado una orden con la siguiente informacion. 
-Placa: '.$_POST['placa'].' Orden No : '.$ordenpan.' 
 
-TRABAJO A REALIZAR : '.$_POST['descripcion'].'
+Hemos creado una orden con la siguiente informacion! <br>
+Placa: '.$_POST['placa'].' Orden No : '.$ordenpan.' <br>
 
-TALLER DE MOTOS..
-Taller  
-E-mail:  alexrubianoromero@gmail.com 
-Direccion:  Bogota';
+TRABAJO A REALIZAR : '.$_POST['descripcion'].' <br>
+
+TALLER DE MOTOS<br>
+Taller: KAYMO  <br>
+E-mail:  alexrubianoromero@gmail.com <br>
+Direccion:  Bogota '; 
 
 /*
 $body="prueba envio correo11:24";
@@ -289,7 +292,8 @@ $cuerpo_correo="crecion de orden";
 //////////////////////////////////////////////////////////////////	
 /////////////////enviar el correo 
 //mail($_REQUEST['email'],'MOTORCYCLE ROOM',$body,$headers); 
-include('enviar_correo.php');
+// include('enviar_correo.php');
+include('enviar_correo_phpmailer.php');
 
 if($_REQUEST['desdemovil'] == '1'){
     ?>

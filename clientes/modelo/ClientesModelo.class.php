@@ -37,8 +37,13 @@ class ClientesModelo{
               $sql = "SELECT * FROM cliente0 WHERE identi = '".$identi."'   ";
               $consulta = mysql_query($sql,$conexion); 
               $filas = mysql_num_rows($consulta);
-              // echo $filas;
-              // die();
+            //   $arregloRespuesta = mysql_fetch_assoc($consulta);
+            //   $respu['filas']=$filas;
+            //   $respu['info'] = $arregloRespuesta;
+            //   echo '<pre>'; 
+            //   print_r($respu);
+            //   echo '</pre>';
+            //   die();
               return $filas;
           }
 

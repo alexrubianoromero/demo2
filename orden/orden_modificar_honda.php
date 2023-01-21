@@ -307,7 +307,7 @@ REFERENCIA
       <input name="codigopan" type="text" id = "codigopan" size="5" class= "fila_llenar" />
     </label></td>
     <td width="149"><input type="text" name="descripan" id = "descripan" class= "fila_llenar" /> <div id = "descripcion"></div></td>
-     <td width="82"><input type="text" name="costo_producto" id = "costo_producto" size = "10"  onfocus="blur();"/></td>
+     <td width="82"><input type="text" name="costo_producto" id = "costo_producto" size = "10" /></td>
     <td width="82"><input type="text" name="valor_unit" id = "valor_unit" size = "10" class= "fila_llenar" /></td>
     <td width="87"><input name="exispan" type="text" id = "exispan" size="5" disabled /></td>
 
@@ -421,7 +421,7 @@ REFERENCIA
 		</h3></td>
       </tr>
     </table>
-	
+	<div id="informacion_correo"></div>
 		<table border = "1"  width = "75%">
 <tr>
 <td><h2>
@@ -743,8 +743,8 @@ function busque_estado($tabla26,$id_estado,$id_empresa,$conexion)
 					 $("#enviar_correo_items_123").click(function(){
 							var data =  'idorden=' + $("#orden_numero").val();
 							data += '&placa=' + $("#placa").val();
-							data += '&descripcion=' + $("#descripcion_orden").val();
-							data += '&orden=' + $("#orden123").val();
+							data += '&descripcion=' + $("#descripcion").val();
+							data += '&orden=' + $("#orden").val();
 							$.post('generar_correo_items.php',data,function(a){
 							//$(window).attr('location', '../index.php);
 							$("#informacion_correo").html(a);

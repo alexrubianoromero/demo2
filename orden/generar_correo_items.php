@@ -1,9 +1,9 @@
 <?php
-/*
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-*/
+
+// echo '<pre>';
+// print_r($_REQUEST);
+// echo '</pre>';
+
 include('../valotablapc.php');
 
 $sql_correo = "select cli.email as email from $tabla14 o

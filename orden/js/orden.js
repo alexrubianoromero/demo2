@@ -76,6 +76,9 @@ function grabarordenMovil()
         // +'&desdemovil='+'1'
         +'&opcion='+'grabarOrden'
         );
+
+        //aqui se podria decir que llame el programa que envia el correo 
+        //o en el controlador para la accion grabarOrden 
     }
 
 }
@@ -157,7 +160,6 @@ function muestreDetalleOrden(id){
 }
 function crearVehiculo(){
     placa = document.querySelector('#placa').value;
-    
     const http=new XMLHttpRequest();
     const url = '../vehiculos/crearVehiculo.php';
     http.onreadystatechange = function(){
@@ -178,6 +180,12 @@ function crearVehiculo(){
     +'&orden_numero_ante='+orden_numero_ante 
     );
 
+}
+
+function  convertMayusculas(){
+    var placa =  document.getElementById("placaPeritaje");
+    var mayusculas =  placa.value.toUpperCase();
+    document.getElementById("placaPeritaje").value = mayusculas;
 }
 
 function iraCraerOrden(){
@@ -343,6 +351,27 @@ function grabarVehiculoDesdeOrden()
              
      }
      //debe ir a validar placa o algo asi 
+     
+    }
+    function pregunteItems(){
+    //    alert('digfame el item ');
+       //muestre ventana apara introducir nuevo item 
+       divPregunteNuevoItem
+       var idOrden =  document.getElementById("idOrden").value;
+       const http=new XMLHttpRequest();
+       const url = '../orden/ordenes.php';
+       http.onreadystatechange = function(){
+           if(this.readyState == 4 && this.status ==200){
+               document.getElementById("divPregunteNuevoItem").innerHTML = this.responseText;
+           }
+       };
+
+       http.open("POST",url);
+       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+       http.send("opcion=pregunteNuevoItemOrden"
+               + "&idOrden="+idOrden
+           );
 
 
- }
+
+    }

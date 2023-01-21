@@ -1,10 +1,8 @@
 <?php
 Class OrdenesModelo{
-  
-
     public function __construct(){
-    }
 
+    }
 
      public function traerOrdenes($conexion){
          $sql = " SELECT o.id,o.orden,o.fecha,o.placa,c.tipo FROM ordenes o 
@@ -24,7 +22,6 @@ Class OrdenesModelo{
          }
          return $arreglo;
      }   
-
 
      public function traerOrdenId($id,$conexion){
         $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico,o.id 
@@ -51,8 +48,6 @@ Class OrdenesModelo{
         $consulta = mysql_query($sql,$conexion);
         $arreglo = mysql_fetch_assoc($consulta);
         $contaor = $arreglo['contaor'];
-        // echo '<br>'.$contaor;
-        // die();
         return $contaor;
     } 
     public function actualizarContadorOrdenes($conexion,$siguienteNumero){
@@ -63,15 +58,7 @@ Class OrdenesModelo{
     } 
     
     public function grabarOrden($conexion,$datos){
-        // echo '<pre>';
-        // print_r($datos);
-        // echo '</pre>';
-        // die();
         $datosEmpresa = $this->traerDatosEmpresa($conexion);
-        // echo '<pre>';
-        // print_r($datosEmpresa);
-        // echo '</pre>';
-        // die();
         $id_empresa = $datosEmpresa['id_empresa'];
         $numeroActual = $this->traerNumeroOrdenActual($conexion);
         $siguienteNumero =  $numeroActual + 1;
@@ -96,36 +83,8 @@ Class OrdenesModelo{
             // die();
             $consulta = mysql_query($sql,$conexion);    
             $this->actualizarContadorOrdenes($conexion,$siguienteNumero);  
-            $this->enviar_correo($siguienteNumero,$datosEmpresa,$body,$datos,$conexion);
             return $siguienteNumero; 
         }
-        
-
-    public function enviar_correo($siguienteNumero,$datosEmpresa,$body,$datos,$conexion){
-        $email = $this->traerEmailCLiente($placa,$conexion);
-        $body .='
-        Hemos creado una orden con la siguiente informacion. 
-        Placa: '.$datos['placa'].' Orden No : '.$siguienteNumero.' 
-        
-        TRABAJO A REALIZAR : '.$datos['descripcion'].'
-    
-        '.$datosEmpresa['razon_social'].'
-        Taller
-        E-mail:      '.$datosEmpresa['email_empresa'].'
-        Direccion: '.$datosEmpresa['direccion'];
-            
-
-
-        $headers .= "From: 	".$datosEmpresa['razon_social']." <ventas@alexrubiano.com>\r\n"; 
-        //$headers .= "From: 	KAYMO SOFTWARE <alexrubianoromero@gmail.com>\r\n"; 
-        // echo '<br>'.$datosEmpresa['razon_social'];
-        // echo '<br>'.$body;
-        // echo '<br>'.$email;
-        // die();
-
-        mail($email,"BIENVENIDA",$body,$headers); 
-    }
-
 
     public function traerEmailCLiente($placa,$conexion){
           $sql  = "SELECT  cli.email as email FROM  carros ca 

@@ -7,6 +7,24 @@ and open the template in the editor.
     Created on : 3/05/2021, 09:34:15 AM
     Author     : Alex Rubiano 
 */
+.alerta1{
+	color:red;
+}
+.fondoPrograma{
+	background-color: black;
+	color:white;
+}
+#placaPeritaje{
+	background-color:transparent;
+	color:white;
+	border: 1px solid;
+}
+#div_pregunte_datos_propietario,#myModalLabel,#div_pedir_datos_orden,#cuerpoModalDatosOrden,#div_detalle_orden,#div_items_orden{
+	color:black;
+}
+.avisoGrabado{
+	color:black;
+}
 #myModalClientes{
 	background-color: #c0c0c0;
 }

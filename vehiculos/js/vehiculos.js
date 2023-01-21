@@ -12,6 +12,11 @@ function nuevaPlaca(){
 	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	http.send("opcion=nuevo");
 }
+function  convertMayusculas(){
+    var placa =  document.getElementById("placaPeritaje");
+    var mayusculas =  placa.value.toUpperCase();
+    document.getElementById("placaPeritaje").value = mayusculas;
+}
 
 function mostrarVehiculos(){
     const http=new XMLHttpRequest();
@@ -29,17 +34,21 @@ function mostrarVehiculos(){
 
 function buscarPlacaPeritaje(){
     var placa = document.getElementById("placaPeritaje").value;
-    const http=new XMLHttpRequest();
-	const url = '../vehiculos/vehiculos.php';
-	http.onreadystatechange = function(){
-		if(this.readyState == 4 && this.status ==200){
-			console.log(this.responseText);
-			document.getElementById("divResultadobusqueda").innerHTML = this.responseText;
-		}
-	};
-	http.open("POST",url);
-	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	http.send("opcion=buscarPlaca"+ "&placa="+placa);
+    if(placa=="" || placa.length <6){
+        alert('Digite una placa')
+    }else{
+        const http=new XMLHttpRequest();
+        const url = '../vehiculos/vehiculos.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                console.log(this.responseText);
+                document.getElementById("divResultadobusqueda").innerHTML = this.responseText;
+            }
+        };
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=buscarPlaca"+ "&placa="+placa);
+    }
 }
 
 

@@ -26,13 +26,14 @@ $total_costo_producto = $_REQUEST['cantipan'] * $_REQUEST['costo_producto']  ;
 
 $sql_grabar_item = "insert into $tabla15 
 (no_factura,codigo,descripcion,cantidad,total_item,valor_unitario,id_empresa,estado,id_mecanico,
-	porcentaje_mecanico,costo_producto,total_costo_producto)
+	porcentaje_mecanico,costo_producto,total_costo_producto,fecha)
 
 values ('".$_POST['orden_numero']."','".$_POST['codigopan_']."','".$_POST['descripan']."','".$_POST['cantipan']."',
 '".$total_item."','".$_POST['valor_unit']."','".$_SESSION['id_empresa']."','0','".$_POST['id_mecanico']."'
 ,'".$_POST['porcentaje_mecanico']."'
 ,'".$_POST['costo_producto']."'
 ,'".$total_costo_producto."'
+,now()
 )";
 
 $consulta_grabar_item  = mysql_query($sql_grabar_item,$conexion);

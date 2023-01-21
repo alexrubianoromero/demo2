@@ -172,9 +172,9 @@ class OrdenesVista{
     // echo '</pre>';
     // die();
         ?>
-            <div id = "div_detalle_orden">
+            <div id = "div_detalle_orden" >
+                    <input type="hidden" id = "idOrden" value ="<?php echo $arregloOrden['id'];   ?>">
                     <div id="div_info_moto">
-
                     </div>
                     <div id="div_info_orden">
                          <table class="table table-striped">
@@ -210,8 +210,11 @@ class OrdenesVista{
                          </table>
                     </div>
             </div>
+            <div>
+                <p align="center" id="letrero_items">ITEMS ORDEN <button onclick="pregunteItems();">Agregar Item</button></p>
+            </div>
+            <div id="divPregunteNuevoItem"></div>
             <div  id="div_items_orden">
-                <p align="center" id="letrero_items">ITEMS ORDEN </p>
                     <?php 
                     // echo $resultados['filas'] ;
                     // die();
@@ -273,7 +276,7 @@ class OrdenesVista{
                echo '<td></td>';
                echo '<td align="right">Total</td>';
                echo '<td></td>';
-               echo '<td align="right">'.$sumaItems.'</td>';
+               echo '<td align="right">'.number_format($sumaItems, 0, ',', '.').'</td>';
                echo '</tr>';
                ?>
            </tbody>
@@ -291,7 +294,11 @@ class OrdenesVista{
       ?> 
       <br><br>
          Placa:
-          <input type="text" class = "ingresoInformacion" id="placaPeritaje" VALUE = "QJT42F" placeholder="PLACA"> 
+          <input type="text" class = "ingresoInformacion" 
+            id="placaPeritaje" VALUE = "" 
+            placeholder="PLACA" 
+            onkeyup="convertMayusculas();"
+            > 
         <!-- <button class="btn btn-primary" id = "consultarOrden" onclick="buscarPlacaPeritaje();"> -->
         <button class="btn btn-primary" id = "consultarOrden" onclick="buscarPlacaPeritajeDesdeOrden();">
         <i class="fas fa-search"></i>
@@ -309,7 +316,7 @@ class OrdenesVista{
 
             <div class="row">
                 <div class="form-group">
-                    <label for="">Placa : </label>
+                    <label for="">Placa</label>
                     <?php echo $placa;  ?>
                 </div>
             </div>
@@ -358,7 +365,34 @@ class OrdenesVista{
 
       <?php
   }
-
+  public function pregunteNuevoItem($id){
+    ?>
+    <input type = "hidden" value= "<?php echo $id ?>">
+    Codigo:<input type="text" id = "codpan">
+    <br>
+    Descripcion : <input type="text" id = "descripan">
+    <br>
+    Valor Unit: <input type="text" id = "valorpan">
+    <br>
+    Cantidad: <input type="text" id = "cantipan">
+    <br>
+    <button class="btn btn-primary" id = "agregarItemOrden">Agregar Item</button>
+    <!-- <table class="table table-striped">
+        <tr>
+            <td>Codigo</td>
+            <td>Descrip</td>
+            <td>Vr.Unit</td>
+            <td>Cantidad</td>
+        </tr>
+        <tr>
+            <td><input type="text" id = "codpan"></td>
+            <td><input type="text" id = "descripan"></td>
+            <td><input type="text" id = "valorpan"></td>
+            <td><input type="text" id = "cantipan"></td>
+        </tr>
+    </table> -->
+    <?php
+  }
 }
 
 
