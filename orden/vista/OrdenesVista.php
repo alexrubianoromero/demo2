@@ -70,6 +70,7 @@ class OrdenesVista{
            <script src="../orden/js/orden.js"></script>
            <script src="../vehiculos/js/vehiculos.js"></script>
            <script src="../clientes/js/clientes.js"></script>
+           <script src="../inventario_codigos/js/codigosInventario.js"></script>
 
         <?php
     }
@@ -213,7 +214,7 @@ class OrdenesVista{
             <div>
                 <p align="center" id="letrero_items">ITEMS ORDEN <button onclick="pregunteItems();">Agregar Item</button></p>
             </div>
-            <div id="divPregunteNuevoItem"></div>
+            <div id="divPregunteNuevoItem" style="color:black"></div>
             <div  id="div_items_orden">
                     <?php 
                     // echo $resultados['filas'] ;
@@ -366,31 +367,17 @@ class OrdenesVista{
       <?php
   }
   public function pregunteNuevoItem($id){
-    ?>
-    <input type = "hidden" value= "<?php echo $id ?>">
-    Codigo:<input type="text" id = "codpan">
-    <br>
-    Descripcion : <input type="text" id = "descripan">
-    <br>
-    Valor Unit: <input type="text" id = "valorpan">
-    <br>
-    Cantidad: <input type="text" id = "cantipan">
-    <br>
-    <button class="btn btn-primary" id = "agregarItemOrden">Agregar Item</button>
-    <!-- <table class="table table-striped">
-        <tr>
-            <td>Codigo</td>
-            <td>Descrip</td>
-            <td>Vr.Unit</td>
-            <td>Cantidad</td>
-        </tr>
-        <tr>
-            <td><input type="text" id = "codpan"></td>
-            <td><input type="text" id = "descripan"></td>
-            <td><input type="text" id = "valorpan"></td>
-            <td><input type="text" id = "cantipan"></td>
-        </tr>
-    </table> -->
+    ?> 
+        <input type = "hidden" value= "<?php echo $id ?>">
+        Codigo:<input type="text" id = "codNuevoItem" onchange="verifiqueCodigo();">
+        <br>
+        Descripcion : <input type="text" id = "descripan">
+        <br>
+        Valor Unit: <input type="text" id = "valorpan">
+        <br>
+        Cantidad: <input type="text" id = "cantipan">
+        <br>
+        <button class="btn btn-primary" id = "agregarItemOrden" onclick="agregarItemOrden();">Agregar Item</button>
     <?php
   }
 }

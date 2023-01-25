@@ -375,3 +375,17 @@ function grabarVehiculoDesdeOrden()
 
 
     }
+
+    function agregarItemOrden()
+    {
+        validacionCamposItem();
+        alert('agregart item');
+    }
+    
+    function validacionCamposItem()
+    {
+        if()
+        return 0;   
+    }
+
+    
