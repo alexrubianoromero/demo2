@@ -369,15 +369,16 @@ class OrdenesVista{
   public function pregunteNuevoItem($id){
     ?> 
         <input type = "hidden" value= "<?php echo $id ?>">
-        Codigo:<input type="text" id = "codNuevoItem" onchange="verifiqueCodigo();">
+        Codigo:<input type="text" id = "codNuevoItem" onblur="verifiqueCodigo();">
         <br>
-        Descripcion : <input type="text" id = "descripan">
+        Descripcion : <input type="text" id = "descripan" >
         <br>
         Valor Unit: <input type="text" id = "valorpan">
         <br>
         Cantidad: <input type="text" id = "cantipan">
         <br>
         <button class="btn btn-primary" id = "agregarItemOrden" onclick="agregarItemOrden();">Agregar Item</button>
+
     <?php
   }
 }

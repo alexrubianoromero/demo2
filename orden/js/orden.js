@@ -384,8 +384,8 @@ function grabarVehiculoDesdeOrden()
     
     function validacionCamposItem()
     {
-        if()
-        return 0;   
+        // if()
+        // return 0;   
     }
 
-    
+
