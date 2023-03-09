@@ -184,7 +184,7 @@ body{
 
  #btn_cerrar_div_mostrar_imagenes_ref{
             display:none;
-        }
+ }
         #div_mostrar_imagenes_ref{
             display:none;
         }
@@ -232,7 +232,7 @@ body{
 			padding: 2px;
 		}
         .imagenesinicio{
-                 width: 60%;
+                 width: 40%;
              }
 			 #slogankaymo{
 				color:white;
@@ -254,3 +254,9 @@ body{
                     width: 50%;
                 }
           }*/
+
+		  @media (max-width: 600px) {
+				.imagenesinicio{
+					width: 10%;
+				}
+			}

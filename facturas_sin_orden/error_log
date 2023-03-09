@@ -928,3 +928,61 @@
 [24-Mar-2022 13:29:40 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
 [29-Mar-2022 16:25:12 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
 [29-Mar-2022 16:25:12 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[11-Feb-2023 11:57:33 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'razon_social' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 168
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'identi' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 168
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'resolucion' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 169
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'regimen' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 188
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'recibe_tarjetas' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 194
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'razon_social' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'identi' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'direccion' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'telefonos' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'email_empresa' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 221
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'numero_factura' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 226
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'fecha_factura' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 227
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'fecha_vencimiento' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 227
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'nombre' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 233
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'modelo' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 236
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'direccioncli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 240
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'identicli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 246
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'motor' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 248
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'telefonocli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 252
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'emailcli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 258
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'chasis' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 260
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'id_orden' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 283
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'resolucion' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 283
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'condiciones_factura' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 289
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'subtotalfac' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 291
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 291
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  Illegal string offset 'totalfac' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 299
+[11-Feb-2023 11:57:33 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 299
+[14-Feb-2023 22:58:17 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'razon_social' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 168
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'identi' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 168
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'resolucion' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 169
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'regimen' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 188
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'recibe_tarjetas' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 194
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'razon_social' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'identi' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'direccion' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'telefonos' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 220
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'email_empresa' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 221
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'numero_factura' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 226
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'fecha_factura' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 227
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'fecha_vencimiento' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 227
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'nombre' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 233
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'modelo' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 236
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'direccioncli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 240
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'identicli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 246
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'motor' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 248
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'telefonocli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 252
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'emailcli' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 258
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'chasis' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 260
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'id_orden' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 283
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'resolucion' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 283
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'condiciones_factura' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 289
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'subtotalfac' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 291
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 291
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  Illegal string offset 'totalfac' in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 299
+[14-Feb-2023 22:58:17 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/facturas_sin_orden/factura_imprimir.php on line 299

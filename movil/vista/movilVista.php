@@ -109,6 +109,14 @@ class movilVista{
             <i class="fas fa-tools"></i>
         </button>
         <br><br>
+        <button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
+            <!-- <i class="fas fa-boxes"></i> -->
+            <!-- <i class="fas fa-tools"></i> -->
+            <!-- <i class="fas fa-slack"></i> -->
+            <!-- <i class="fas fa-plus"></i> -->
+            <i class="fas fa-list"></i>
+        </button>
+        <br><br>
     
         <button class = "btn btn-default bontonsalir" id="btn_salir" onclick="salirSistema();">SALIR <i class="fas fa-sign-out-alt"></i></button>
         </div>
