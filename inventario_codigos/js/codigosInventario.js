@@ -102,3 +102,42 @@ function verifiqueCodigo()
 
         pantallaInventario();
     }
+
+    function aumentarInventario(id){
+        const http=new XMLHttpRequest();
+        const url = '../inventario_codigos/codigosInventario.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
+            }
+        };
+
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=aumentarInventario"
+        + "&id="+id
+        );
+    }
+
+    function grabarEntradaInventario(id)
+    {
+        var factura = document.getElementById("factura").value;
+        var cantidad = document.getElementById("cantidad").value;
+
+        const http=new XMLHttpRequest();
+        const url = '../inventario_codigos/codigosInventario.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
+            }
+        };
+
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=grabarEntradaInventario"
+        + "&id="+id
+        + "&factura="+factura
+        + "&cantidad="+cantidad
+        );
+
+    }

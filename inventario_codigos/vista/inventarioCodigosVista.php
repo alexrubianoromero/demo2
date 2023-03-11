@@ -19,7 +19,7 @@ class inventarioCodigosVista {
             <script src="https://kit.fontawesome.com/6f07c5d6ff.js" crossorigin="anonymous"></script>
             <title>Document</title>
         </head>
-        <body class = "container">
+        <body class = "container" width ="95%">
             <div >
                 <div>
                 <button data-toggle="modal" data-target="#myModalProducto" class="btn btn-primary" onclick="pregunteNuevoCodigo(); ">NUEVO CODIGO</button>
@@ -29,6 +29,7 @@ class inventarioCodigosVista {
             </div>
             <?php $this->modalClientes(); ?>
             <?php $this->modalProducto(); ?>
+            <?php $this->modalAumentarProducto(); ?>
         </body>
         </html>
 
@@ -43,7 +44,7 @@ class inventarioCodigosVista {
         echo '<th>Codigo</th>';
         echo '<th>Descripcion</th>';
         echo '<th>Cantidad</th>';
-        echo '<th>Adicionar</th>';
+        echo '<th>Accion</th>';
         // echo '<th>Descontar</th>';
         echo '</tr>';
         echo '</tbody>';
@@ -52,7 +53,7 @@ class inventarioCodigosVista {
             echo '<td align="right"><button onclick="mostrarInfoCodigo('.$codigo['id_codigo'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModalClientes">'.$codigo['codigo_producto'].'</button></td>';
             echo '<td>'.$codigo['descripcion'].'</td>';
             echo '<td>'.$codigo['cantidad'].'</td>';
-            echo '<td><button id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+            echo '<td><button onclick = "aumentarInventario('.$codigo['id_codigo'].'); "  data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>
             <button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button>
             </td>';
             // echo '<td><button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button></td>';
@@ -108,6 +109,32 @@ class inventarioCodigosVista {
                   <div class="modal-footer" id="footerNuevoCliente">
                       <button type="button" class="btn btn-default" data-dismiss="modal" onclick="verTalleres();">Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalAumentarProducto ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade " id="myModalAumentarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevoCliente">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Compra de inventario</h4>
+                  </div>
+                  <div id="cuerpoModalAumentarProducto" class="modal-body" style="color:black;">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pantallaInventario();">Cerrar</button>
                   </div>
                   </div>
               </div>
@@ -171,6 +198,43 @@ class inventarioCodigosVista {
             <br><br>
             <button data-dismiss="modal" class="btn btn-primary btn-block" id="btnProducto" onclick="grabarProducto();" >Grabar Producto</button>
         </div>
+        <?php
+    }
+
+    public function pregunteInfoAumentarInvent($infoCode){
+        ?>
+         <div >
+            <!-- <form> -->
+                <div class="row ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label>Codigo:</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <input class="form-control" onfocus="blur();"  value = "<?php echo $infoCode['descripcion']  ?>">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label>Factura No:</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <input class="form-control"  id = "factura">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label>Cantidad</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <input class="form-control"  id = "cantidad">
+                    </div>
+                </div>
+                    <br><br>
+                    <button class="btn btn-primary" onclick="grabarEntradaInventario(<?php  echo $infoCode['id_codigo']; ?>);">Grabar Movimiento</button>
+
+            <!-- </form> -->
+         </div>   
+
         <?php
     }
 }

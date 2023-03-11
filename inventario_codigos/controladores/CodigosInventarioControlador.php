@@ -3,10 +3,12 @@ $raiz = dirname(dirname(dirname(__file__)));
 
 require_once($raiz.'/inventario_codigos/vista/inventarioCodigosVista.php');
 require_once($raiz.'/inventario_codigos/modelo/CodigosInventarioModelo.php');
+// require_once($raiz.'/inventario_codigos/modelo/MovimientosInventarioModelo.php');
 
 class CodigosInventarioControlador{
     private $vista; 
     private $modelo;
+    // private $movimientosModelo;  
 
 
     public function __construct(){
@@ -17,6 +19,7 @@ class CodigosInventarioControlador{
         // die(); 
         $this->vista =  new inventarioCodigosVista();
         $this->modelo = new CodigosInventarioModelo();
+        // $this->movimientosModelo = new MovimientosInventarioModelo();
             if($_REQUEST['opcion'] == 'vistaPrincipalInventarios'){
                 $this->showVistaPrincipal();
             } 
@@ -30,10 +33,21 @@ class CodigosInventarioControlador{
             if($_REQUEST['opcion'] == 'grabarCodigo'){
                 $this->saveCode($_REQUEST);
             }
+            if($_REQUEST['opcion'] == 'aumentarInventario'){
+      
+                $this->moreInvent($_REQUEST);
+            }
+            if($_REQUEST['opcion'] == 'grabarEntradaInventario'){
+      
+                $this->saveMoreInvent($_REQUEST);
+            }
+
             
+         
     }
     public function showVistaPrincipal(){
         // echo 'llego a vista principal '; 
+        // die();
             $codigos = $this->modelo->mostrarCodigosInventarios();
             $this->vista->inventariosMainVista($codigos);
     } 
@@ -56,8 +70,19 @@ class CodigosInventarioControlador{
         {
             $infoCode = $this->modelo->saveCode($request);
         }
+        
+        public function moreInvent($request){
+            $infoCode = $this->modelo->getInfoCodeById($request['id']);
+            $this->vista->pregunteInfoAumentarInvent($infoCode);    
+        }
+
+        public function saveMoreInvent($request)
+        {
+            // echo 'llego aca savemore'; 
+            // die();
+            $this->modelo->saveMoreInvent($request);
+            // $this->movimientosModelo->registerMov($request,'1'); 
+        }
 }
-
-
 
 ?>

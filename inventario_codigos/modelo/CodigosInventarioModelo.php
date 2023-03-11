@@ -42,9 +42,27 @@ require_once($raiz.'/conexion/Conexion.php');
             ,'".$request['precioVenta']."'
             
             )";
-            // echo $sql;
             $consulta = mysql_query($sql,$conexion);
             echo 'Codigo Grabado'; 
+        }
+
+        public function saveMoreInvent($request)
+        {
+            $infoCode = $this->getInfoCodeById($request['id']);
+            // echo 'desde el modelo<pre>'; 
+            // print_r($infoCode);
+            // echo '</pre>';
+            // die();
+            $conexion = $this->connectMysql();
+            $infoActual = $this->getInfoCodeById($request['id']);
+            $saldo = $infoActual['cantidad'] +  $request['cantidad'];
+            $sql = "update productos set cantidad = '".$saldo ."' 
+            where id_codigo = '".$request['id']."'   "; 
+            // die($sql);
+    
+            $consulta = mysql_query($sql,$conexion);   
+
+            echo 'Saldo actualizado !!!!'; 
         }
 
     }
