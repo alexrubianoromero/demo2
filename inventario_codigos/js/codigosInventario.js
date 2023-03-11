@@ -114,16 +114,33 @@ function verifiqueCodigo()
 
         http.open("POST",url);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("opcion=aumentarInventario"
+        http.send("opcion=aumentarDisminuirInventario"
         + "&id="+id
+        + "&tipoMov=1"
+        );
+    }
+    function disminuirInventario(id){
+        const http=new XMLHttpRequest();
+        const url = '../inventario_codigos/codigosInventario.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
+            }
+        };
+        
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=aumentarDisminuirInventario"
+        + "&id="+id
+        + "&tipoMov=2"
         );
     }
 
-    function grabarEntradaInventario(id)
+    function grabarEntradaSalidaInventario(id)
     {
         var factura = document.getElementById("factura").value;
         var cantidad = document.getElementById("cantidad").value;
-
+        var tipo  = document.getElementById("tipo").value;
         const http=new XMLHttpRequest();
         const url = '../inventario_codigos/codigosInventario.php';
         http.onreadystatechange = function(){
@@ -134,10 +151,11 @@ function verifiqueCodigo()
 
         http.open("POST",url);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("opcion=grabarEntradaInventario"
+        http.send("opcion=grabarEntradaSalidaInventario"
         + "&id="+id
         + "&factura="+factura
         + "&cantidad="+cantidad
+        + "&tipo="+tipo
         );
 
     }

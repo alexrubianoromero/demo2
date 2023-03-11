@@ -53,8 +53,13 @@ class inventarioCodigosVista {
             echo '<td align="right"><button onclick="mostrarInfoCodigo('.$codigo['id_codigo'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModalClientes">'.$codigo['codigo_producto'].'</button></td>';
             echo '<td>'.$codigo['descripcion'].'</td>';
             echo '<td>'.$codigo['cantidad'].'</td>';
-            echo '<td><button onclick = "aumentarInventario('.$codigo['id_codigo'].'); "  data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>
-            <button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button>
+            echo '<td><button onclick = "aumentarInventario('.$codigo['id_codigo'].'); "  data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>';
+            echo  '<button id="btnRetirarExistencias" class="btn btn-info"
+                    onclick = "disminuirInventario('.$codigo['id_codigo'].'); "
+                    data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias"
+                    >
+                <i class="fas fa-minus"></i>
+                </button>
             </td>';
             // echo '<td><button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button></td>';
             echo '</tr>';
@@ -126,7 +131,7 @@ class inventarioCodigosVista {
                   <div class="modal-content">
                   <div class="modal-header" id="headerNuevoCliente">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Compra de inventario</h4>
+                      <h4 class="modal-title" id="myModalLabel">Inventario</h4>
                   </div>
                   <div id="cuerpoModalAumentarProducto" class="modal-body" style="color:black;">
                       
@@ -201,9 +206,20 @@ class inventarioCodigosVista {
         <?php
     }
 
-    public function pregunteInfoAumentarInvent($infoCode){
+    public function pregunteInfoAumentarInvent($infoCode,$tipo){
         ?>
          <div >
+            <input type="hidden" id="tipo" value = "<?php  echo $tipo ?>">
+            <h3>
+                <?php
+                if($tipo == 1){
+                       echo 'ENTRADA'; 
+                    }else{
+                        echo 'SALIDA'; 
+                }    
+
+                ?>    
+            </h3>
             <!-- <form> -->
                 <div class="row ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -215,7 +231,14 @@ class inventarioCodigosVista {
                 </div>
                 <div class="row ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label>Factura No:</label>
+                        <?php 
+                            if($tipo == 1){
+                                echo '<label>Factura No:</label>';
+                            }else{
+                                echo '<label>Venta No:</label>';
+                            } 
+
+                        ?>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                         <input class="form-control"  id = "factura">
@@ -230,7 +253,7 @@ class inventarioCodigosVista {
                     </div>
                 </div>
                     <br><br>
-                    <button class="btn btn-primary" onclick="grabarEntradaInventario(<?php  echo $infoCode['id_codigo']; ?>);">Grabar Movimiento</button>
+                    <button class="btn btn-primary" onclick="grabarEntradaSalidaInventario(<?php  echo $infoCode['id_codigo']; ?>);">Grabar Movimiento</button>
 
             <!-- </form> -->
          </div>   

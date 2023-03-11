@@ -46,7 +46,7 @@ require_once($raiz.'/conexion/Conexion.php');
             echo 'Codigo Grabado'; 
         }
 
-        public function saveMoreInvent($request)
+        public function saveMoreLessInvent($request)
         {
             $infoCode = $this->getInfoCodeById($request['id']);
             // echo 'desde el modelo<pre>'; 
@@ -55,7 +55,12 @@ require_once($raiz.'/conexion/Conexion.php');
             // die();
             $conexion = $this->connectMysql();
             $infoActual = $this->getInfoCodeById($request['id']);
-            $saldo = $infoActual['cantidad'] +  $request['cantidad'];
+            if($request['tipo']==1){
+                $saldo = $infoActual['cantidad'] +  $request['cantidad'];
+            }else{
+                $saldo = $infoActual['cantidad'] -  $request['cantidad'];
+            }
+
             $sql = "update productos set cantidad = '".$saldo ."' 
             where id_codigo = '".$request['id']."'   "; 
             // die($sql);

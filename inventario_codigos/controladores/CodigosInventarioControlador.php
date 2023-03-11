@@ -3,12 +3,12 @@ $raiz = dirname(dirname(dirname(__file__)));
 
 require_once($raiz.'/inventario_codigos/vista/inventarioCodigosVista.php');
 require_once($raiz.'/inventario_codigos/modelo/CodigosInventarioModelo.php');
-// require_once($raiz.'/inventario_codigos/modelo/MovimientosInventarioModelo.php');
+require_once($raiz.'/inventario_codigos/modelo/MovimientosInventarioModelo.php');
 
 class CodigosInventarioControlador{
     private $vista; 
     private $modelo;
-    // private $movimientosModelo;  
+    private $movimientosModelo;  
 
 
     public function __construct(){
@@ -19,7 +19,7 @@ class CodigosInventarioControlador{
         // die(); 
         $this->vista =  new inventarioCodigosVista();
         $this->modelo = new CodigosInventarioModelo();
-        // $this->movimientosModelo = new MovimientosInventarioModelo();
+        $this->movimientosModelo = new MovimientosInventarioModelo();
             if($_REQUEST['opcion'] == 'vistaPrincipalInventarios'){
                 $this->showVistaPrincipal();
             } 
@@ -33,13 +33,14 @@ class CodigosInventarioControlador{
             if($_REQUEST['opcion'] == 'grabarCodigo'){
                 $this->saveCode($_REQUEST);
             }
-            if($_REQUEST['opcion'] == 'aumentarInventario'){
+            if($_REQUEST['opcion'] == 'aumentarDisminuirInventario'){
       
-                $this->moreInvent($_REQUEST);
+                $this->moreLessInvent($_REQUEST);
             }
-            if($_REQUEST['opcion'] == 'grabarEntradaInventario'){
+         
+            if($_REQUEST['opcion'] == 'grabarEntradaSalidaInventario'){
       
-                $this->saveMoreInvent($_REQUEST);
+                $this->saveMoreLessInvent($_REQUEST);
             }
 
             
@@ -71,17 +72,18 @@ class CodigosInventarioControlador{
             $infoCode = $this->modelo->saveCode($request);
         }
         
-        public function moreInvent($request){
+        public function morelessInvent($request){
             $infoCode = $this->modelo->getInfoCodeById($request['id']);
-            $this->vista->pregunteInfoAumentarInvent($infoCode);    
+            $this->vista->pregunteInfoAumentarInvent($infoCode,$request['tipoMov']);   
         }
+     
 
-        public function saveMoreInvent($request)
+        public function saveMoreLessInvent($request)
         {
             // echo 'llego aca savemore'; 
             // die();
-            $this->modelo->saveMoreInvent($request);
-            // $this->movimientosModelo->registerMov($request,'1'); 
+            $this->modelo->saveMoreLessInvent($request);
+            $this->movimientosModelo->registerMov($request); 
         }
 }
 
