@@ -371,21 +371,103 @@ function grabarVehiculoDesdeOrden()
        http.send("opcion=pregunteNuevoItemOrden"
                + "&idOrden="+idOrden
            );
+    }
+    function mostrarItemsOrden(id){
+    //    alert('digfame el item ');
+       //muestre ventana apara introducir nuevo item 
+       divPregunteNuevoItem
+       var idOrden =  document.getElementById("idOrden").value;
+       const http=new XMLHttpRequest();
+       const url = '../orden/ordenes.php';
+       http.onreadystatechange = function(){
+           if(this.readyState == 4 && this.status ==200){
+               document.getElementById("div_items_orden").innerHTML = this.responseText;
+           }
+       };
 
-
-
+       http.open("POST",url);
+       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+       http.send("opcion=mostrarItemsOrden"
+               + "&idOrden="+idOrden
+           );
     }
 
-    function agregarItemOrden()
+
+    function grabarNuevoItem(idOrden)
     {
-        validacionCamposItem();
-        alert('agregart item');
+       $valida =  validacionCamposItem();
+       if($valida)
+       { 
+            // alert('agregart item');
+            //falta hacer el desarrollo
+            var codigo = document.getElementById("codNuevoItem").value;
+            var descripcion = document.getElementById("descripan").value;
+            var valorUnit = document.getElementById("valorUnitpan").value;
+            var cantidad = document.getElementById("cantipan").value;
+            var total = document.getElementById("totalItem").value;
+
+            const http=new XMLHttpRequest();
+            const url = '../orden/ordenes.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    document.getElementById("divPregunteNuevoItem").innerHTML = '';
+                    document.getElementById("div_items_orden").innerHTML = this.responseText;
+                }
+            };
+    
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("opcion=grabarNuevoItemOrden"
+                    + "&idOrden="+idOrden
+                    + "&codigo="+codigo
+                    + "&descripcion="+descripcion
+                    + "&valorUnit="+valorUnit
+                    + "&cantidad="+cantidad
+                    + "&total="+total
+                );
+       }        
     }
     
     function validacionCamposItem()
     {
-        // if()
-        // return 0;   
+        if( document.getElementById("codNuevoItem").value == '')
+        {
+            document.getElementById("codNuevoItem").focus();
+            alert('Por favor digitar Codigo');
+            return 0;
+        }
+        if( document.getElementById("descripan").value == '')
+        {
+            document.getElementById("descripan").focus();
+            alert('Por favor digitar Descripcion');
+            return 0;
+        }
+        if( document.getElementById("valorUnitpan").value == '')
+        {
+            document.getElementById("valorUnitpan").focus();
+            alert('Por favor digitar Valor Unitario');
+            return 0;
+        }
+        if( document.getElementById("cantipan").value == '')
+        {
+            document.getElementById("cantipan").focus();
+            alert('Por favor digitar la cantidad');
+            return 0;
+        }
+        if( document.getElementById("totalItem").value == '')
+        {
+            document.getElementById("totalItem").focus();
+            alert('Por favor digitar total');
+            return 0;
+        }
+
+        return 1;
+        
     }
 
+
+    function cerrarVentanaNuevoItem()
+    {
+        document.getElementById("divPregunteNuevoItem").innerHTML = '';
+    }
 

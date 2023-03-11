@@ -212,7 +212,14 @@ class OrdenesVista{
                     </div>
             </div>
             <div>
-                <p align="center" id="letrero_items">ITEMS ORDEN <button onclick="pregunteItems();">Agregar Item</button></p>
+                <div class="row">
+                    <div class="col-xs-12">
+               
+                        <button class="btn btn-primary" onclick="pregunteItems();">Agregar Item</button>
+                    
+                    </div>
+                   
+                </div>
             </div>
             <div id="divPregunteNuevoItem" style="color:black"></div>
             <div  id="div_items_orden">
@@ -220,7 +227,7 @@ class OrdenesVista{
                     // echo $resultados['filas'] ;
                     // die();
                         if($resultadoItems['filas'] > 0){
-                            $this->mostrarItemsOrden($arregloOrden['id'],$conexion,$resultadoItems['datos']);  
+                            $this->mostrarItemsOrden($arregloOrden['id'],$resultadoItems['datos']);  
                         }
 
                     ?>
@@ -228,7 +235,7 @@ class OrdenesVista{
         <?php
 
    }
-   public function mostrarItemsOrden($id,$conexion,$items){
+   public function mostrarItemsOrden($id,$items){
     // $items =  $this->itemsOrden->traerItemsOrdenId( $id,$conexion);
    // echo '<pre>';
    // print_r($items);
@@ -368,17 +375,61 @@ class OrdenesVista{
   }
   public function pregunteNuevoItem($id){
     ?> 
+    <div>
+        <br>
         <input type = "hidden" value= "<?php echo $id ?>">
-        Codigo:<input type="text" id = "codNuevoItem" onblur="verifiqueCodigo();">
-        <br>
-        Descripcion : <input type="text" id = "descripan" >
-        <br>
-        Valor Unit: <input type="text" id = "valorpan">
-        <br>
-        Cantidad: <input type="text" id = "cantipan">
-        <br>
-        <button class="btn btn-primary" id = "agregarItemOrden" onclick="agregarItemOrden();">Agregar Item</button>
-
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <!-- Codigo:<input type="text" id = "codNuevoItem" onblur="verifiqueCodigo();"> -->
+                <label >Codigo:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "codNuevoItem" ">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label >Descripcion:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "descripan" ">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label > Valor Unit:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "valorUnitpan" ">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label > Cantidad:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "cantipan" ">
+            </div>
+        </div>
+    
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label > Total:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "totalItem" ">
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-6">
+                <button class="btn btn-primary"  onclick="cerrarVentanaNuevoItem();">Cancelar</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary" id = "grabarNuevoItem" onclick="grabarNuevoItem(<?php echo $id ?>);">Grabar Item</button>
+            </div>
+        </div>
+    </div>
     <?php
   }
 }
