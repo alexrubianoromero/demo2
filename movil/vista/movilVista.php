@@ -80,7 +80,8 @@ class movilVista{
                 </div>
                 <br><br><br><br>
                 <div class = "form_group ">
-                    <button onclick ="menuPrincipal();"  id = "btn_ingresar" class = "btn btn-primary btn-block bontoningresar ">INGRESAR</button> 
+                    <!-- <button onclick ="menuPrincipal();"  id = "btn_ingresar" class = "btn btn-primary btn-block bontoningresar ">INGRESAR</button>  -->
+                    <button onclick ="verifiqueCredeciales();"  id = "btn_ingresar" class = "btn btn-primary btn-block bontoningresar ">INGRESAR</button> 
                                                 
                 </div>
             </div>  
