@@ -34,12 +34,13 @@ require_once($raiz.'/conexion/Conexion.php');
         }
         public function saveCode($request){
             $conexion = $this->connectMysql();
-            $sql = "insert into productos (codigo_producto,descripcion,cantidad,precio_compra,valorventa)   
+            $sql = "insert into productos (codigo_producto,descripcion,cantidad,precio_compra,valorventa,valor_unit)   
             values ('".$request['codigo']."'
             ,'".$request['descripcion']."'
             ,'".$request['cantidad']."'
             ,'".$request['precioCompra']."'
             ,'".$request['precioVenta']."'
+            ,'".$request['precioCompra']."'
             
             )";
             $consulta = mysql_query($sql,$conexion);

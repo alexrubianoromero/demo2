@@ -30,7 +30,8 @@ require_once($raiz.'/orden/EnviarCorreoPhpMailer.class.php');
 
 
 
-class ordenControlador {
+class ordenControlador 
+{
     private $vistaOrden;
     private $modeloOrden;
     private $itemsOrdenModelo;
@@ -89,13 +90,16 @@ class ordenControlador {
                 if($_REQUEST['opcion']=='mostrarItemsOrden'){
                     $this->mostrarItemsOrden($_REQUEST);
                 }
+                if($_REQUEST['opcion']=='verificarSiexisteCodigo'){
+                    $this->verificarSiexisteCodigo($_REQUEST);
+                }
 
 
-}
+    }
 
 
 
-public function mostrarFormularioOrden($conexion,$placa){
+    public function mostrarFormularioOrden($conexion,$placa){
         $consultaTecnicos = $this->tecnicos->traerTecnicos($conexion); 
         // $arreglotecnicos = funciones::table_assoc($consultaTecnicos);
 
@@ -244,15 +248,13 @@ public function mostrarFormularioOrden($conexion,$placa){
     {
         $resultadoItems = $this->itemsOrdenModelo->traerItemsOrdenId($request['idOrden']);
         $this->vistaOrden->mostrarItemsOrden($request['idOrden'],$resultadoItems['datos']); 
-
+    }
+    public function verificarSiexisteCodigo($request)
+    {
+           $result =  $this->itemsOrdenModelo->verifiqueCodigo($request['codigo']);
+           echo json_encode($result); 
+           exit();
     }
 
 }
-
-
-
-
-
-
-
 ?>

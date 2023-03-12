@@ -12,6 +12,25 @@ class itemsOrdenModelo extends Conexion
     public function __construct()
     {
     }
+
+    public function verifiqueCodigo($codigo)
+    {
+        $conexion = $this->connectMysql();
+        $sql = "select * from productos where codigo_producto = '".$codigo."' limit 1 "; 
+        $consulta = mysql_query($sql,$conexion);
+        $filas = mysql_num_rows($consulta);
+        if($filas > 0)
+        {
+            $arregloCodigo = mysql_fetch_assoc($consulta); 
+            $result['filas'] = $filas;
+            $result['data'] = $arregloCodigo;
+        }else{
+            $result['filas'] = 0;
+            $result['data'] = '';
+        }  
+        return $result;
+    }
+
     public function traerItemsOrdenId($id)
     {
                 $conexion = $this->connectMysql();
@@ -48,7 +67,7 @@ class itemsOrdenModelo extends Conexion
               ,'".$request['descripcion']."'
               ,'".$request['cantidad']."'
               ,'".$request['total']."'
-              ,'".$request['total']."'
+              ,'".$request['valorUnit']."'
               )  ";
         $consulta = mysql_query($sql,$conexion);
         // echo 'Item Grabado ';           

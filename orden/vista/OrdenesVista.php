@@ -380,11 +380,15 @@ class OrdenesVista{
         <input type = "hidden" value= "<?php echo $id ?>">
         <div class="row form-group">
             <div class="col-xs-3">
-                <!-- Codigo:<input type="text" id = "codNuevoItem" onblur="verifiqueCodigo();"> -->
                 <label >Codigo:</label>
             </div>
             <div class="col-xs-7">
-                <input class ="form-control" type="text" id = "codNuevoItem" ">
+                <!-- Codigo:<input type="text" id = "codNuevoItem" onblur="verifiqueCodigo();"> -->
+                <input class ="form-control" 
+                        type="text" 
+                        id = "codNuevoItem" 
+                        onblur="verificarSiExisteCodigo();"
+                >
             </div>
         </div>
         <div class="row form-group">
@@ -405,10 +409,15 @@ class OrdenesVista{
         </div>
         <div class="row form-group">
             <div class="col-xs-3">
-                <label > Cantidad:</label>
+                <label > Cantidad: <span id="existencias" style="color:green;"></span><input type ="hidden" id="inputexistencias"></label>
             </div>
             <div class="col-xs-7">
-                <input class ="form-control" type="text" id = "cantipan" ">
+
+                <input class ="form-control" 
+                    type="text" 
+                    id = "cantipan" 
+                    onblur="generarTotalItem();"
+                >
             </div>
         </div>
     
@@ -417,7 +426,7 @@ class OrdenesVista{
                 <label > Total:</label>
             </div>
             <div class="col-xs-7">
-                <input class ="form-control" type="text" id = "totalItem" ">
+                <input class ="form-control" type="text" id = "totalItem" onfocus="blur();" >
             </div>
         </div>
     
