@@ -1,21 +1,43 @@
 function verifiqueCodigo()
-    {
-        // alert('Proceso de verificacion de codigo  ');
-        //se debe verificar si existe este codigo 
-        //en caso de que exista se debe traer 
-
+{
+    // alert('Proceso de verificacion de codigo  ');
+    //se debe verificar si existe este codigo 
+    //en caso de que exista se debe traer 
+    var codigo = document.getElementById("inputCodigo").value;
+        
         const http=new XMLHttpRequest();
-        const url = '../inventario_codigos/codigosInventario.php';
+        const url = '../orden/ordenes.php';
         http.onreadystatechange = function(){
             if(this.readyState == 4 && this.status ==200){
-                document.getElementById("divPregunteNuevoItem").innerHTML = this.responseText;
+                var  resp = JSON.parse(this.responseText); 
+                if(resp.filas == 1)
+                {    
+                    document.getElementById("inputDescripcion").value = resp.data.descripcion;
+                    document.getElementById("inputCantidad").value = resp.data.cantidad;
+                    document.getElementById("inputPrecioCompra").value = resp.data.precio_compra;
+                    document.getElementById("inputPrecioVenta").value = resp.data.valorventa;
+                    document.getElementById("btnProducto").style.display = 'none';
+                    document.getElementById("divRespuCodigo").innerHTML  = 'Este Codigo ya existe, no se puede crear nuevamente';
+                    divRespuCodigo
+                }else{
+                    document.getElementById("inputDescripcion").value = '';
+                    document.getElementById("inputCantidad").value = '';
+                    document.getElementById("inputPrecioCompra").value = '';
+                    document.getElementById("inputPrecioVenta").value = '';
+
+                    document.getElementById("btnProducto").style.display = 'block';
+                    document.getElementById("divRespuCodigo").innerHTML  = '';
+
+                }
+
             }
         };
 
         http.open("POST",url);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("opcion=1234");
-        // + "&idOrden="+idOrden
+        http.send("opcion=verificarSiexisteCodigo"
+        + "&codigo="+codigo
+        );
         
 
     }

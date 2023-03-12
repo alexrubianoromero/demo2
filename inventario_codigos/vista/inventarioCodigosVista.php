@@ -168,8 +168,16 @@ class inventarioCodigosVista {
                     <div align="left"  class="col-md-9"><?php echo $datosCodigo['descripcion'] ?></div>
                 </div>
                 <div class="form-group" >
-                    <div align="left" class="col-md-3">Cantidad Inicial:</div>    
+                    <div align="left" class="col-md-3">Existencias</div>    
                     <div align="left"  class="col-md-9"><?php echo $datosCodigo['cantidad'] ?></div>
+                </div>
+                <div class="form-group" >
+                    <div align="left" class="col-md-3">Precio de compra</div>    
+                    <div align="left"  class="col-md-9"><?php echo $datosCodigo['precio_compra'] ?></div>
+                </div>
+                <div class="form-group" >
+                    <div align="left" class="col-md-3">Precio de venta</div>    
+                    <div align="left"  class="col-md-9"><?php echo $datosCodigo['valorventa'] ?></div>
                 </div>
 
             </div>
@@ -180,9 +188,14 @@ class inventarioCodigosVista {
     public function pantallaPregunteCodigo(){
         ?>
         <div>
+            <div id="divRespuCodigo" style="color:red;"></div>
             <div class="form-group">
                 <div class="col-md-3" >Codigo</div>
-                <div class="col-md-9" ><input type="text" id="inputCodigo"></div>
+                <div class="col-md-9" >
+                    <input type="text" 
+                        id="inputCodigo"
+                        onblur="verifiqueCodigo();"
+                    ></div>
             </div>
             <div class="form-group">
                 <div class="col-md-3" >Descripcion</div>
