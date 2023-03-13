@@ -15,14 +15,21 @@
             { $campo = 'facturacompra';}
             else{ $campo = 'id_factura_venta';}
             
-             $sql = "insert into movimientos_inventario 
-                    (fecha_movimiento,cantidad,tipo_movimiento,".$campo.",id_codigo_producto)
-                    values( now(), '".$data['cantidad']."','".$data['tipo']."'
-                    ,'".$data['factura']."'
-                    ,'".$data['id']."'
-                    ) "; 
+            $sql = "insert into movimientos_inventario 
+            (fecha_movimiento,cantidad,tipo_movimiento,".$campo.",id_codigo_producto)
+            values( now(), '".$data['cantidad']."','".$data['tipo']."'
+            ,'".$data['factura']."'
+            ,'".$data['id']."'
+            ) "; 
             $consulta = mysql_query($sql,$conexion);  
             echo '<br>Movimiento grabado';        
+        }
+        public function searchMovCode($idCode)
+        {
+            $conexion = $this->connectMysql();
+            $sql = "select * from movimientos_inventario where id_codigo_producto = '".$idCode."'  order by fecha_movimiento asc ";
+            $consulta = mysql_query($sql,$conexion);
+            return $consulta;
         }
 
 

@@ -30,6 +30,7 @@ class inventarioCodigosVista {
             <?php $this->modalClientes(); ?>
             <?php $this->modalProducto(); ?>
             <?php $this->modalAumentarProducto(); ?>
+            <?php $this->modalMovimientos(); ?>
         </body>
         </html>
 
@@ -43,7 +44,7 @@ class inventarioCodigosVista {
         echo '<tr>';
         echo '<th>Codigo</th>';
         echo '<th>Descripcion</th>';
-        echo '<th>Cantidad</th>';
+        echo '<th>Can/Mov</th>';
         echo '<th>Accion</th>';
         // echo '<th>Descontar</th>';
         echo '</tr>';
@@ -52,7 +53,7 @@ class inventarioCodigosVista {
             echo '<tr>'; 
             echo '<td align="right"><button onclick="mostrarInfoCodigo('.$codigo['id_codigo'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModalClientes">'.$codigo['codigo_producto'].'</button></td>';
             echo '<td>'.$codigo['descripcion'].'</td>';
-            echo '<td>'.$codigo['cantidad'].'</td>';
+            echo '<td><button class="btn btn-default" onclick ="verMovimientosPrueba('.$codigo['id_codigo'].');" data-toggle="modal" data-target="#myModalMovimientos" >'.$codigo['cantidad'].'</button></td>';
             echo '<td><button onclick = "aumentarInventario('.$codigo['id_codigo'].'); "  data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>';
             echo  '<button id="btnRetirarExistencias" class="btn btn-info"
                     onclick = "disminuirInventario('.$codigo['id_codigo'].'); "
@@ -146,6 +147,37 @@ class inventarioCodigosVista {
           </div>
         <?php
     }
+
+    public function modalMovimientos ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade " id="myModalMovimientos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevoCliente">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Movimientos</h4>
+                  </div>
+                  <div id="cuerpoModalMovimientos" class="modal-body" style="color:black;">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="verTalleres();">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+
+
+
+
     public function pantallaCodigo($datosCodigo)
     {
         ?>

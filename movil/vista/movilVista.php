@@ -58,6 +58,7 @@ class movilVista{
     <script src="../clientes/js/clientes.js"></script>
     <script src="../vehiculos/js/vehiculos.js"></script>
     <script src="../inventario_codigos/js/codigosInventario.js"></script>
+    <script src="../inventario_codigos/js/movimientos.js"></script>
     <?php
   }
   public function htmlLogueo(){
