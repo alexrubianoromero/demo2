@@ -43,7 +43,7 @@ class inventarioCodigosVista {
         echo '<tbody>';
         echo '<tr>';
         echo '<th>Codigo</th>';
-        echo '<th>Descripcion</th>';
+        echo '<th>Referencia</th>';
         echo '<th>Can/Mov</th>';
         echo '<th>Accion</th>';
         // echo '<th>Descontar</th>';
@@ -52,7 +52,7 @@ class inventarioCodigosVista {
         while($codigo = mysql_fetch_assoc($codigos)){
             echo '<tr>'; 
             echo '<td align="right"><button onclick="mostrarInfoCodigo('.$codigo['id_codigo'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModalClientes">'.$codigo['codigo_producto'].'</button></td>';
-            echo '<td>'.$codigo['descripcion'].'</td>';
+            echo '<td>'.$codigo['referencia'].'</td>';
             echo '<td><button class="btn btn-default" onclick ="verMovimientosPrueba('.$codigo['id_codigo'].');" data-toggle="modal" data-target="#myModalMovimientos" >'.$codigo['cantidad'].'</button></td>';
             echo '<td><button onclick = "aumentarInventario('.$codigo['id_codigo'].'); "  data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>';
             echo  '<button id="btnRetirarExistencias" class="btn btn-info"

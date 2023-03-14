@@ -2,7 +2,7 @@
 
 class cajaVista
 {
-    public function cajaVistaPrincipal()
+    public function cajaVistaPrincipal($saldoActual)
     {
         ?>
         <!DOCTYPE html>
@@ -16,6 +16,7 @@ class cajaVista
         <body>
             
             <div>
+                <h2> Saldo Actual : <?php  echo number_format($saldoActual,0,",","."); ?></h2>
                 <div id="divBotonesCaja">
                     <div class="row">
                         <div class="col-xs-3">
@@ -24,10 +25,14 @@ class cajaVista
                                 class ="btn btn-primary" onclick="entradaCaja(1);">Entradas</button>
                         </div>
                         <div class="col-xs-3">
-                            <button class ="btn btn-primary">Salidas</button>
-                        </div>
-                        <div class="col-xs-3">
-                            <button class ="btn btn-primary">Diario</button>
+                            <button 
+                               data-toggle="modal" data-target="#myModalCaja"   
+                               class ="btn btn-primary" onclick="entradaCaja(2);">Salidas</button>
+                            </div>
+                            <div class="col-xs-3">
+                                <button 
+                                data-toggle="modal" data-target="#myModalCajaMovimientos"   
+                            class ="btn btn-primary" onclick="mostrarMovimientosDia(1);">Diario</button>
                         </div>
                         <div class="col-xs-3">
                             <button class ="btn btn-primary">Gen</button>
@@ -42,6 +47,7 @@ class cajaVista
             </body>
             </html>
              <?php $this->modalCaja(); ?>   
+             <?php $this->modalCajaMovimientos(); ?>   
             <?php
     }
     
@@ -58,12 +64,38 @@ class cajaVista
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Caja</h4>
                   </div>
-                  <div id="cuerpoModalCaja" class="modal-body">
+                  <div id="cuerpoModalCaja" class="modal-body" style="color:black">
                       
                       
                   </div>
                   <div class="modal-footer" id="footerNuevoCliente">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pantallaPrincipalCaja();">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalCajaMovimientos ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade" id="myModalCajaMovimientos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevoCliente">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Caja</h4>
+                  </div>
+                  <div id="cuerpoModalCajaMovimientos" class="modal-body" style="color:black">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pantallaPrincipalCaja();">Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                   </div>
                   </div>
@@ -76,9 +108,11 @@ class cajaVista
     {
         if($request['tipo']==1){
             $titulo = 'Entrada';
+            $dequien = 'Recibido de:';
         }
         else{
             $titulo = 'Salida';
+            $dequien = 'Pagado a:';
         }
         ?>
         <div style="color:black">
@@ -89,7 +123,7 @@ class cajaVista
                 <div class="col-xs-8"><input type="text" id="txtValor" class ="form-control"></div>
             </div>
             <div class="row">
-                <div class ="col-xs-4"><label class ="form-control">Pagado a:</label></div>
+                <div class ="col-xs-4"><label class ="form-control"><?php  echo  $dequien;  ?></label></div>
                 <div class="col-xs-8"><input type="text" id="txtAquien" class ="form-control"></div>
             </div>
             <div class="row">
@@ -106,6 +140,43 @@ class cajaVista
         </div>
 
         <?php
+    }
+
+    public function mostrarRecibos($recibos)
+    {
+        
+           echo '<div class="row">';
+        echo '<table class="table" >';
+        echo '<tbody>';
+        echo '<tr>';
+        echo '<th>Fecha</th>';
+        echo '<th>Tipo</th>';
+        echo '<th>Nombre</th>';
+        echo '<th>Valor</th>';
+        // echo '<th>Descontar</th>';
+        echo '</tr>';
+        echo '</tbody>';
+        $total = 0;
+        while($recibo = mysql_fetch_assoc($recibos))
+        {
+            echo '<tr>';
+            echo '<td>'.$recibo['fecha_recibo'].'</td>';
+            echo '<td>'.$recibo['tipo_recibo'].'</td>';
+            echo '<td>'.$recibo['dequienoaquin'].'</td>';
+            echo '<td align="right">'.number_format($recibo['lasumade'],0,",",".").'</td>';
+            echo '</tr>';
+
+            $total = $total + $recibo['lasumade'];
+
+        }
+        echo '<tr>';
+        echo '<td colspan= "2"></td>';
+        echo '<td>Total:</td>';
+        echo '<td align="right">'.number_format($total,0,",",".").'</td>';
+        echo '</tr>';
+        
+        echo '</table>';
+        echo '</div>';
     }
 }
 

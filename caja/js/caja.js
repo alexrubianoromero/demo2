@@ -22,6 +22,7 @@ function entradaCaja(tipo)
     const url = '../caja/caja.php';
     http.onreadystatechange = function(){
         if(this.readyState == 4 && this.status ==200){
+        document.getElementById("cuerpoModalCaja").innerHTML  = '';
         document.getElementById("cuerpoModalCaja").innerHTML  = this.responseText;
         }
     };
@@ -42,6 +43,7 @@ function grabarRecibo()
     const url = '../caja/caja.php';
     http.onreadystatechange = function(){
         if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalCaja").innerHTML  = '';
         document.getElementById("cuerpoModalCaja").innerHTML  = this.responseText;
         }
     };
@@ -53,5 +55,25 @@ function grabarRecibo()
             + "&txtConcepto="+txtConcepto 
             + "&txtObservacion="+txtObservacion 
             + "&tipo="+tipo 
+    );
+}
+
+
+function mostrarMovimientosDia(tipoInforme)
+{
+    // var txtAquien = document.getElementById("txtAquien").value;
+  
+    const http=new XMLHttpRequest();
+    const url = '../caja/caja.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalCajaMovimientos").innerHTML  = '';
+        document.getElementById("cuerpoModalCajaMovimientos").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=informeCaja'
+            + "&tipoInforme="+tipoInforme 
     );
 }

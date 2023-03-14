@@ -14,7 +14,7 @@ class cajaController
 
         if($_REQUEST['opcion']=='menuPrincipalCaja')
         {
-            $this->vista->cajaVistaPrincipal();
+            $this->menuPrincipalCaja();
         }
         if($_REQUEST['opcion']=='pregunteEntradaCaja')
         {
@@ -24,12 +24,30 @@ class cajaController
         {
             $this->grabarRecibo($_REQUEST);
         }
+        if($_REQUEST['opcion']=='informeCaja')
+        {
+            $this->informeCaja($_REQUEST);
+        }
     }
 
+
+    public function menuPrincipalCaja()
+    {
+        $saldoActual = $this->model->traerSaldoActual();
+        $this->vista->cajaVistaPrincipal($saldoActual);
+    }
     public function grabarRecibo($request)
     {
         $this->model->grabarRecibo($request);
     }
+    
+    public function informeCaja($request)
+    {
+        $recibos = $this->model->informeCaja($request);
+        $this->vista->mostrarRecibos($recibos);
+        
+    }
+
 }
 ?>
 
