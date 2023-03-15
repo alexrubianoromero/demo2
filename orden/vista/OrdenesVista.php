@@ -376,6 +376,7 @@ class OrdenesVista{
   public function pregunteNuevoItem($id){
     ?> 
     <div>
+        <button ><i class="fas fa-search"></i></button>
         <br>
         <input type = "hidden" value= "<?php echo $id ?>">
         <div class="row form-group">
