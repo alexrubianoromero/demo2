@@ -1,10 +1,10 @@
 <?php
 
-// require_once('../funciones.class.php');
+$raiz = dirname(dirname(dirname(__file__)));
+require_once($raiz.'/vista/vista.php');
 
-
-
-class VehiculoVista{
+class VehiculoVista extends vista
+{
 
 
 
@@ -98,6 +98,8 @@ class VehiculoVista{
                 </div>
 
                 <?php  $this->modalClientes(); ?>
+                <?php  $this->modalHistoriales(); ?>
+                
 
             </div>
 
@@ -142,6 +144,55 @@ class VehiculoVista{
                   </div>
 
                   <div id="cuerpoModalClientes" class="modal-body">
+
+                      
+
+                      
+
+                  </div>
+
+                  <div class="modal-footer">
+
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+
+                  </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+        <?php
+
+    }
+    public function modalHistoriales(){
+
+        ?>
+
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+
+         Launch demo modal
+
+         </button> -->
+
+          <div class="modal fade" id="myModalHistoriales" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+              <div class="modal-dialog" role="document">
+
+                  <div class="modal-content">
+
+                  <div class="modal-header">
+
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                      <h4 class="modal-title" id="myModalLabel">Historiales</h4>
+
+                  </div>
+
+                  <div id="cuerpoModalHistoriales" class="modal-body">
 
                       
 
@@ -261,7 +312,11 @@ class VehiculoVista{
 
                             echo '<tr>';
 
-                            echo '<td>'.strtoupper($vehi['placa']).'</td>';
+                            echo '<td>
+                            <input type="hidden" id="histoPlaca" value = "'.$vehi['placa'].'">
+                            <button  
+                                data-toggle="modal" data-target="#myModalHistoriales"
+                                onclick ="mostrarHistorialVehiculo();" class = "btn btn-default" >'.strtoupper($vehi['placa']).'</button></td>';
 
                             echo '<td>'.strtoupper($vehi['marca']).'</td>';
 
@@ -672,6 +727,35 @@ class VehiculoVista{
         </html>
         <?php
 
+    }
+    public function mostrarHistorialvehiculo($ordenes)
+    {
+        echo '<div style="color:black;">';
+        // $this->draw_table($historial);
+            echo '<table class="table">'; 
+            echo '<tr>';
+            echo '<td>Fecha</td>'; 
+            echo '<td>Placa</td>'; 
+            echo '<td>Kilometraje</td>'; 
+            echo '<td>Observaciones</td>'; 
+            echo '</tr>';
+            foreach($ordenes as $orden)
+            {
+                echo '<tr>'; 
+                echo '<td><button conclick="muestreInfoOrden();"  >'.$orden['fecha'].'</button></td>';
+                echo '<td>'.$orden['placa'].'</td>';
+                echo '<td>'.$orden['kilometraje'].'</td>';
+                echo '<td>'.$orden['observaciones'].'</td>';
+                echo '</tr>';
+
+            }
+            echo '</table>';
+        echo '</div>';
+        ?>
+        <div>
+               
+        </div>
+        <?php
     }
 
 }
