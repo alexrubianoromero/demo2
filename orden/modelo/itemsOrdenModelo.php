@@ -33,6 +33,7 @@ class itemsOrdenModelo extends Conexion
 
     public function traerItemsOrdenId($id)
     {
+                // die('llego al modelo ');
                 $conexion = $this->connectMysql();
                 $sql = "SELECT i.no_factura,i.id_item, i.codigo,i.descripcion,i.cantidad,i.total_item,i.valor_unitario
                 FROM item_orden i 

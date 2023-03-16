@@ -426,6 +426,8 @@ function validacionesPropietario(){
 
 function pantallaBusdqueda(idCliente)
 {
+    // alert(idCliente)
+
     const http=new XMLHttpRequest();
     const url = '../clientes/clientesResponsivo.php';
     http.onreadystatechange = function(){
@@ -441,10 +443,10 @@ function pantallaBusdqueda(idCliente)
         );
 }
 
-function muestreHistorialVehiculo()
+function muestreHistorialVehiculo(placa)
 {
-    
-    var placa = document.getElementById("txtplaca").value;
+    // alert(placa); 
+    // var placa = document.getElementById("txtplaca").value;
     // alert('desde js'+placa);
     const http=new XMLHttpRequest();
     const url = '../vehiculos/vehiculos.php';
@@ -460,3 +462,4 @@ function muestreHistorialVehiculo()
             + "&placa="+placa
         );
 }
+

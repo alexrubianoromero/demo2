@@ -261,16 +261,16 @@ class CLientesVista extends vista
                 </thead>
                 <tbody>
                     <?php
-                        foreach($clientes['datos'] as $vehi){
+                        foreach($clientes['datos'] as $cli){
                             echo '<tr>';
                             echo '<td><button  class ="btn btn-default btn-sm" 
                                                 data-toggle="modal" data-target="#myModalClientesInfo" 
-                                                onclick ="pantallaBusdqueda('.$vehi['idcliente'].');"
+                                                onclick ="pantallaBusdqueda('.$cli['idcliente'].');"
                                                 >';
-                            echo strtoupper($vehi['identi']);
+                            echo strtoupper($cli['identi']);
                             echo '</button></td>';
-                            echo '<td>'.strtoupper($vehi['nombre']).'</td>';
-                            echo '<td>'.strtoupper($vehi['telefono']).'</td>';
+                            echo '<td>'.strtoupper($cli['nombre']).'</td>';
+                            echo '<td>'.strtoupper($cli['telefono']).'</td>';
                             // echo '<td>'.strtoupper($vehi['direccion']).'</td>';
                             // echo '<td>'.$vehi['email'].'</td>';
                             echo '</tr>';
@@ -499,21 +499,43 @@ class CLientesVista extends vista
             //   print_r($vehiculos);
             //   echo '</pre>';
             //   die();
+
+            //////////////
+
+
+            ///////////
         echo '<div style="color:black;">';
         echo '<table class ="table">';
         foreach($vehiculos as $vehiculo)
         {
             $placa = $vehiculo['placa'];
-            echo '<input type = "hidden" value ="'.$placa.'" id="txtplaca">';
+            // echo '<input type = "hidden" value ="'.$placa.'" id="txtplaca">';
             echo '<tr>'; 
             echo '</tr>';
-            echo '<td><button 
+            echo '<td>';
+            echo '
+            <button 
             data-toggle="modal" data-target="#myModalClientesHisto"
             class ="btn btn-primary"
-            onclick = "muestreHistorialVehiculo();"
+            onclick = "muestreHistorialVehiculo(\''.$placa.'\');"
+            
             >';
-            echo $vehiculo['placa'];
+            
+            // onclick = "muestreHistorialVehiculo('.$placa.');"
+            //////////////
+            // echo '<td><button  class ="btn btn-default btn-sm" 
+            // data-toggle="modal" data-target="#myModalClientesInfo" 
+            // onclick ="pantallaBusdqueda('.$cli['idcliente'].');"
+            // >';
+            // echo strtoupper($cli['identi']);
+
+            ///////////
+
+
+            echo $placa;
             echo '</button ></td>';
+
+
             echo '<td>'.$vehiculo['marca'].'</td>';
             echo '<td>'.$vehiculo['linea'].'</td>';
             echo '<td>'.$vehiculo['color'].'</td>';

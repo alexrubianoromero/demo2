@@ -161,7 +161,12 @@ class ClientesControlador{
     public function buscarClientePorId($request)
     {
         $infoCLiente = $this->modelo->traerDatosClienteIdNew($request['idCliente']);
+        
+        //voya a hacerla desde clientes haber
+
+        
         $vehiculos = $this->modelCar->traerVehiculosCliente($request['idCliente']);
+
         // echo 'veeeehiculos<pre>';
         //             print_r($vehiculos);
         //             echo '</pre>';

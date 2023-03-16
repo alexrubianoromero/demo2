@@ -99,6 +99,7 @@ class VehiculoVista extends vista
 
                 <?php  $this->modalClientes(); ?>
                 <?php  $this->modalHistoriales(); ?>
+                <?php  $this->modalItems(); ?>
                 
 
             </div>
@@ -217,6 +218,29 @@ class VehiculoVista extends vista
         <?php
 
     }
+    public function modalItems()
+    {
+
+        ?>
+          <div class="modal fade" id="myModalItems" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Historiales</h4>
+                  </div>
+                  <div id="cuerpoModalItems" class="modal-body">
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
 
     public function infoMoto($datosMoto){
 
@@ -307,25 +331,18 @@ class VehiculoVista extends vista
                 <tbody>
 
                     <?php
-
                         foreach($datosVehiculos['datos'] as $vehi){
-
                             echo '<tr>';
-
-                            echo '<td>
-                            <input type="hidden" id="histoPlaca" value = "'.$vehi['placa'].'">
-                            <button  
-                                data-toggle="modal" data-target="#myModalHistoriales"
-                                onclick ="mostrarHistorialVehiculo();" class = "btn btn-default" >'.strtoupper($vehi['placa']).'</button></td>';
-
+                            echo '<td>';
+                            echo '<button
+                                 class="btn btn-primary"
+                                 onclick = "prueba('.$vehi['placa'].');"
+                                    >'.$vehi['placa'].'</button>';
+                            echo '</td>';
                             echo '<td>'.strtoupper($vehi['marca']).'</td>';
-
                             echo '<td>'.strtoupper($vehi['tipo']).'</td>';
-
                             echo '<td>'.strtoupper($vehi['nombre']).'</td>';
-
                             echo '</tr>';
-
                         }
 
                         ?>
@@ -730,11 +747,16 @@ class VehiculoVista extends vista
     }
     public function mostrarHistorialvehiculo($ordenes)
     {
-        echo '<div style="color:black;">';
+        echo '<div id="divMostrarItemsOrden" style="color:black; ">';
+        echo '</div>';
+        echo '<div style="color:black; "
+        >';
+        // overflow-y: scroll;
         // $this->draw_table($historial);
             echo '<table class="table">'; 
             echo '<tr>';
             echo '<td>Fecha</td>'; 
+            echo '<td>Orden</td>'; 
             echo '<td>Placa</td>'; 
             echo '<td>Kilometraje</td>'; 
             echo '<td>Observaciones</td>'; 
@@ -742,7 +764,11 @@ class VehiculoVista extends vista
             foreach($ordenes as $orden)
             {
                 echo '<tr>'; 
-                echo '<td><button conclick="muestreInfoOrden();"  >'.$orden['fecha'].'</button></td>';
+                echo '<td><button 
+                        data-toggle="modal" data-target="#myModalItems"
+                        onclick="muestreItemsOrden123('.$orden['id'].');"  
+                        >'.$orden['fecha'].'</button></td>';
+                echo '<td>'.$orden['orden'].'</td>';
                 echo '<td>'.$orden['placa'].'</td>';
                 echo '<td>'.$orden['kilometraje'].'</td>';
                 echo '<td>'.$orden['observaciones'].'</td>';
@@ -750,6 +776,8 @@ class VehiculoVista extends vista
 
             }
             echo '</table>';
+
+
         echo '</div>';
         ?>
         <div>

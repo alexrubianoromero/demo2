@@ -176,16 +176,18 @@ class VehiculosModelo extends Conexion
                     return $arr;   
 
                 }   
-                // public function traerVehiculosCliente($idCliente)
-                // {
-                //     $sql ="select * from carros where propietario = '".$idCliente."'   ";
-                //     $consulta = mysql_query($sql,$this->connectMysql()); 
-                //     $vehiculos = get_table_assoc($consulta);
-                //     return $vehiculos;
-                // }
+                public function traerVehiculosCliente($idCliente)
+                {
+                    $sql ="select * from carros where propietario = '".$idCliente."'   ";
+                    $consulta = mysql_query($sql,$this->connectMysql()); 
+                    $vehiculos = get_table_assoc($consulta);
+                    return $vehiculos;
+                }
                 
                 public function buscarHistoriales($placa){
-                    $sql = "select fecha,placa,kilometraje,observaciones from ordenes where  placa = '".$placa."'  ";
+
+                    // echo 'llego al modelo vehiculos';
+                    $sql = "select fecha,placa,kilometraje,observaciones,id,orden from ordenes where  placa = '".$placa."' order by fecha desc ";
                     // $consulta = mysql_query($sql,$conexion);
                     $consulta = mysql_query($sql,$this->connectMysql()); 
                     $historiales = $this->get_table_assoc($consulta);

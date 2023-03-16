@@ -278,21 +278,44 @@ function validacionesCarro()
 
 }
 
-function mostrarHistorialVehiculo()
+function mostrarHistorialVehiculo(e)
 {
-    var placa = document.getElementById("histoPlaca").value 
-    // alert('historial vehiculo'+placa);
+    // var placa = document.getElementById("histoPlaca").value 
+     alert('historial vehiculo');
+    // const http=new XMLHttpRequest();
+    // const url = '../vehiculos/vehiculos.php';
+    // http.onreadystatechange = function(){
+    //     if(this.readyState == 4 && this.status ==200){
+    //         document.getElementById("cuerpoModalHistoriales").innerHTML = this.responseText;
+    //     }
+    // };
+    // http.open("POST",url);
+    // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // http.send("opcion=mostrarHistorialVehiculo"
+    // + "&placa="+placa
+    // );
+}
+
+function prueba(e)
+{
+    alert('prueba'+e)
+}
+function muestreItemsOrden123(id)
+{
+     
+    // var placa = document.getElementById("histoPlaca").value 
+    // alert('orden'+id);
     const http=new XMLHttpRequest();
-    const url = '../vehiculos/vehiculos.php';
+    const url = '../orden/itemsOrden.php';
     http.onreadystatechange = function(){
         if(this.readyState == 4 && this.status ==200){
-            document.getElementById("cuerpoModalHistoriales").innerHTML = this.responseText;
+            document.getElementById("divMostrarItemsOrden").innerHTML = this.responseText;
         }
     };
     http.open("POST",url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send("opcion=mostrarHistorialVehiculo"
-    + "&placa="+placa
+    http.send("opcion=verItemsOrden"
+    + "&id="+id
     );
 }
 

@@ -83,7 +83,7 @@ class vehiculoControlador{
         }
         if($_REQUEST['opcion']=='mostrarHistorialVehiculo'){
 
-            $this->mostrarHistorialVehiculo($conexion,$_REQUEST);
+            $this->mostrarHistorialVehiculo($_REQUEST);
 
         }
 
@@ -193,7 +193,7 @@ class vehiculoControlador{
         $this->buscarPlaca($conexion,$request['placa']);
     }
 
-    public function mostrarHistorialVehiculo($conexion , $request)
+    public function mostrarHistorialVehiculo($request)
     {
         $historiales = $this->vehiculoModelo->buscarHistoriales($request['placa']);
 

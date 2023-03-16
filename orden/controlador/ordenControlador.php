@@ -148,11 +148,8 @@ class ordenControlador
         // $items = self::traerItemsOrden($id,$conexion);  
         $resultadoItems = $this->itemsOrdenModelo->traerItemsOrdenId($id);
         // echo '<pre>';
-
         // print_r($arregloOrden);
-
         // echo '</pre>';
-
         // die();
         $this->vistaOrden->mostrarInfoOrden($arregloOrden,$conexion,$resultadoItems);
     }
