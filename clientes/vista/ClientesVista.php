@@ -40,29 +40,17 @@ class CLientesVista extends vista
          </head>
 
          <body class="fondoPrograma">
-
          <div id="div_clientes" class="container"  align="center">
-
              <div id=" row divBotonesClientes">
-
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-
                      CLIENTES
-
                  </div>
-
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-
                      <button class="btn btn-primary" onclick="mostrarClientes();">Listar</button>
-
                  </div>
-
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-
                      <button class="btn btn-primary" onclick="btnNuevoPropietario();"  data-toggle="modal" data-target="#myModalClientes">Nuevo</button>
-
                  </div>
-
              </div>
 
              <div align = "center" id="divResultadosClientes">
@@ -121,19 +109,27 @@ class CLientesVista extends vista
 
              <div id=" row divBotonesClientes">
 
-                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-                     CLIENTES
+                     <i class="fas fa-search" onclick="busquedaAvanzada();"  style="font-size:30px;" ></i>
+                    
+                     <input 
+                        type="text" 
+                        id="txtBuscarNombre" 
+                        placeholder="Nombre" 
+                        style="color:black; font-size:20px;" 
+                        onkeyup="buscarClientePorNombre();"
+                        >
 
                  </div>
 
-                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
 
                      <button class="btn btn-primary" onclick="mostrarClientes();">Listar</button>
 
                  </div>
 
-                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
 
                      <button class="btn btn-primary" onclick="btnNuevoPropietario();"  data-toggle="modal" data-target="#myModalClientes">Nuevo</button>
 

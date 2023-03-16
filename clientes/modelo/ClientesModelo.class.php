@@ -209,35 +209,44 @@ class ClientesModelo extends Conexion
             return $respuesta; 
 
         }
-
+        
         public function get_table_assoc($datos)
-
-		{
+        
+        {
 
 		 				$arreglo_assoc='';
 
-							$i=0;	
-
-							while($row = mysql_fetch_assoc($datos)){		
-
-								$arreglo_assoc[$i] = $row;
-
-								$i++;
-
+             $i=0;	
+             
+             while($row = mysql_fetch_assoc($datos)){		
+               
+               $arreglo_assoc[$i] = $row;
+               
+               $i++;
+               
 							}
-
-						return $arreglo_assoc;
-
-		}
-
+              
+              return $arreglo_assoc;
+              
+            }
+            
+            
+            
+            
+            
+  public function buscarClientePorNombre($nombre){
       
-
-
+      $sql="select * from cliente0 where nombre like '%".$nombre."%'  "; 
+              // echo '<br>'.$sql;
+              // die();
+      $consulta = mysql_query($sql,$this->connectMysql()); 
+      $filas = mysql_num_rows($consulta);
+      $datos = $this->get_table_assoc($consulta);
+      $respuesta['filas']= $filas;
+      $respuesta['datos']=  $datos;  
+      return $respuesta; 
+  }
 
 }
-
-
-
-
-
+          
 ?>

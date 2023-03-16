@@ -1,33 +1,16 @@
 function mostrarClientes(){
-
-    
-
     const http=new XMLHttpRequest();
-
     const url = '../clientes/clientesResponsivo.php';
-
     http.onreadystatechange = function(){
-
         if(this.readyState == 4 && this.status ==200){
-
               console.log(this.responseText);
-
            document.getElementById("divResultadosClientes").innerHTML  = this.responseText;
-
         }
-
     };
-
     http.open("POST",url);
-
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
     http.send("opcion=verClientes"
-
     );
-
-
-
 }
 
 
@@ -460,6 +443,30 @@ function muestreHistorialVehiculo(placa)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=mostrarHistorialVehiculo"
             + "&placa="+placa
+            );
+        }
+        
+        
+function buscarClientePorNombre()
+{
+    var nombre =  document.getElementById("txtBuscarNombre").value;
+    const http=new XMLHttpRequest();
+    const url = '../clientes/clientesResponsivo.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            console.log(this.responseText);
+            document.getElementById("divResultadosClientes").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(
+        "opcion=buscarClientePorNombre"
+        + "&nombre="+nombre
         );
 }
 
+function busquedaAvanzada()
+{
+    alert('avanzada');
+}
