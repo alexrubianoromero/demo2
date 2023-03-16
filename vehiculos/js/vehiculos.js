@@ -278,22 +278,21 @@ function validacionesCarro()
 
 }
 
-function mostrarHistorialVehiculo(e)
+function verHistorialVehiculo(placa)
 {
-    // var placa = document.getElementById("histoPlaca").value 
-     alert('historial vehiculo');
-    // const http=new XMLHttpRequest();
-    // const url = '../vehiculos/vehiculos.php';
-    // http.onreadystatechange = function(){
-    //     if(this.readyState == 4 && this.status ==200){
-    //         document.getElementById("cuerpoModalHistoriales").innerHTML = this.responseText;
-    //     }
-    // };
-    // http.open("POST",url);
-    // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // http.send("opcion=mostrarHistorialVehiculo"
-    // + "&placa="+placa
-    // );
+    //  alert('historial vehiculo'+placa);
+    const http=new XMLHttpRequest();
+    const url = '../vehiculos/vehiculos.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalHistoriales").innerHTML = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=mostrarHistorialVehiculo"
+    + "&placa="+placa
+    );
 }
 
 function prueba(e)

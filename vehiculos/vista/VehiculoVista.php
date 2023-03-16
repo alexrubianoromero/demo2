@@ -336,7 +336,8 @@ class VehiculoVista extends vista
                             echo '<td>';
                             echo '<button
                                  class="btn btn-primary"
-                                 onclick = "prueba('.$vehi['placa'].');"
+                                 data-toggle="modal" data-target="#myModalHistoriales" 
+                                 onclick = "verHistorialVehiculo(\''.$vehi['placa'].'\');"
                                     >'.$vehi['placa'].'</button>';
                             echo '</td>';
                             echo '<td>'.strtoupper($vehi['marca']).'</td>';
@@ -765,15 +766,16 @@ class VehiculoVista extends vista
             {
                 echo '<tr>'; 
                 echo '<td><button 
-                        data-toggle="modal" data-target="#myModalItems"
+                        class ="btn btn-default"
                         onclick="muestreItemsOrden123('.$orden['id'].');"  
                         >'.$orden['fecha'].'</button></td>';
-                echo '<td>'.$orden['orden'].'</td>';
-                echo '<td>'.$orden['placa'].'</td>';
-                echo '<td>'.$orden['kilometraje'].'</td>';
-                echo '<td>'.$orden['observaciones'].'</td>';
-                echo '</tr>';
-
+                        echo '<td>'.$orden['orden'].'</td>';
+                        echo '<td>'.$orden['placa'].'</td>';
+                        echo '<td>'.$orden['kilometraje'].'</td>';
+                        echo '<td>'.$orden['observaciones'].'</td>';
+                        echo '</tr>';
+                        
+                        // data-toggle="modal" data-target="#myModalItems"
             }
             echo '</table>';
 
