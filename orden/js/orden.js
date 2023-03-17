@@ -79,6 +79,8 @@ function grabarordenMovil()
 
         //aqui se podria decir que llame el programa que envia el correo 
         //o en el controlador para la accion grabarOrden 
+        //que muestre la opcion para ir colocando items apenas grabe la orden 
+
     }
 
 }
