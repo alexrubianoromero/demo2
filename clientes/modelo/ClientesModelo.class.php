@@ -246,6 +246,31 @@ class ClientesModelo extends Conexion
       $respuesta['datos']=  $datos;  
       return $respuesta; 
   }
+  public function buscarClientePorFiltros($request)
+  {
+       
+    $sql="select * from cliente0 where 1=1  ";
+    
+    if($request['identi'] != '')
+    {
+        $sql .= "  and identi like '%".$request['identi'] ."%'    "; 
+    }
+      
+    if($request['telefono'] != '')
+    {
+      $sql .= "  and telefono like '%".$request['telefono'] ."%'    "; 
+    }
+
+    // echo '<br>'.$sql;
+    //     die();
+    $consulta = mysql_query($sql,$this->connectMysql()); 
+    $filas = mysql_num_rows($consulta);
+    $datos = $this->get_table_assoc($consulta);
+    $respuesta['filas']= $filas;
+    $respuesta['datos']=  $datos;  
+    return $respuesta; 
+  }
+
 
 }
           

@@ -464,9 +464,44 @@ function buscarClientePorNombre()
         "opcion=buscarClientePorNombre"
         + "&nombre="+nombre
         );
-}
-
-function busquedaAvanzada()
-{
-    alert('avanzada');
-}
+    }
+    
+    function busquedaAvanzada()
+    {
+        // alert('avanzada');
+        const http=new XMLHttpRequest();
+        const url = '../clientes/clientesResponsivo.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                console.log(this.responseText);
+                document.getElementById("cuerpoModalClientesFiltro").innerHTML  = this.responseText;
+            }
+        };
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send(
+            "opcion=formuFiltroBusqueda"
+            );
+            
+        }
+        
+        function buscarClienteFiltros()
+        {
+            var identi =  document.getElementById("txtBuscarIdenti").value;
+            var telefono =  document.getElementById("txtBuscarTelefono").value;
+            const http=new XMLHttpRequest();
+            const url = '../clientes/clientesResponsivo.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    console.log(this.responseText);
+                    document.getElementById("divResultadosClientes").innerHTML  = this.responseText;
+                }
+            };
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send(
+                "opcion=buscarPorFiltros"
+                + "&identi="+identi
+                + "&telefono="+telefono
+                );
+            }

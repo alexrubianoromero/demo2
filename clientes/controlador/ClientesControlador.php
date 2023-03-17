@@ -95,6 +95,14 @@ class ClientesControlador{
             if($_REQUEST['opcion']=='buscarClientePorNombre'){
                 $this->buscarClientePorNombre($_REQUEST);
             }
+            if($_REQUEST['opcion']=='formuFiltroBusqueda'){
+                $this->formuFiltroBusqueda();
+            }
+            if($_REQUEST['opcion']=='buscarPorFiltros'){
+                $this->buscarPorFiltros($_REQUEST);
+            }
+
+
             
         }
         
@@ -180,6 +188,23 @@ class ClientesControlador{
     {
         $clientes = $this->modelo->buscarClientePorNombre($request['nombre']);
         $this->vista->verClientes($clientes);
+    }
+    
+    public function formuFiltroBusqueda()
+    {
+        $this->vista->formuFiltroBusqueda();
+        
+    }
+    
+    public function buscarPorFiltros($request)
+    {
+                    //   echo 'veeeehiculos<pre>';
+                    // print_r($request);
+                    // echo '</pre>';
+                    // die();
+        $clientes = $this->modelo->buscarClientePorFiltros($request);
+        $this->vista->verClientes($clientes);
+
     }
     
 }

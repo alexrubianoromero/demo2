@@ -111,7 +111,11 @@ class CLientesVista extends vista
 
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-                     <i class="fas fa-search" onclick="busquedaAvanzada();"  style="font-size:30px;" ></i>
+                     <i class="fas fa-search" 
+                            onclick="busquedaAvanzada();"  
+                            style="font-size:30px;" 
+                            data-toggle="modal" data-target="#myModalClientesFiltro" 
+                            ></i>
                     
                      <input 
                         type="text" 
@@ -119,6 +123,7 @@ class CLientesVista extends vista
                         placeholder="Nombre" 
                         style="color:black; font-size:20px;" 
                         onkeyup="buscarClientePorNombre();"
+                        size = "10px"
                         >
 
                  </div>
@@ -146,6 +151,9 @@ class CLientesVista extends vista
              <?php  $this->modalClientes(); ?>   
              <?php  $this->modalClientesInfo(); ?>   
              <?php  $this->modalClientesHisto(); ?>   
+             <?php  $this->modalClientesFiltro(); ?>   
+
+             
 
          </div>
 
@@ -235,6 +243,31 @@ class CLientesVista extends vista
           <script src="../clientes/js/clientes.js"></script>
         <?php
     }
+    public function modalClientesFiltro (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade " id="myModalClientesFiltro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevoCliente">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Filtros de busqueda </h4>
+                  </div>
+                  <div id="cuerpoModalClientesFiltro" class="modal-body">
+
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <script src="../clientes/js/clientes.js"></script>
+        <?php
+    }
 
 
 
@@ -262,6 +295,7 @@ class CLientesVista extends vista
                             echo '<td><button  class ="btn btn-default btn-sm" 
                                                 data-toggle="modal" data-target="#myModalClientesInfo" 
                                                 onclick ="pantallaBusdqueda('.$cli['idcliente'].');"
+                                                size="3px"
                                                 >';
                             echo strtoupper($cli['identi']);
                             echo '</button></td>';
@@ -544,7 +578,41 @@ class CLientesVista extends vista
         // $this->draw_table($vehiculos);
     }
 
+    public function formuFiltroBusqueda()
+    {
+        ?>
+         <div  style="color:black;">
+            <div class="row form-group">
 
+                <div class="col-xs-3" align="left">
+                    <label for="">Identificacion:</label>
+                </div>
+                <div class="col-xs-9" align="left">
+                    <input 
+                        class="form-control" 
+                        type="text"  
+                        id="txtBuscarIdenti">
+                </div>
+            </div>
+            <div class="row form-group">
+
+                <div class="col-xs-3" align="left">
+                    <label for="">Telefono:</label>
+                </div>
+                <div class="col-xs-9" align="left">
+                    <input class="form-control" type="text"  id="txtBuscarTelefono">
+                </div>
+            </div>
+            <div>
+                <button 
+                class = "btn btn-primary"
+                data-dismiss="modal"
+                    onclick="buscarClienteFiltros();">Buscar Filtro</button>
+            </div>
+          
+        </div>
+        <?php
+    }
 }
 
 
