@@ -45,9 +45,11 @@ class vehiculoControlador{
         }
 
         if($_REQUEST['opcion']=='muestreVehiculos' ){
-
             $this->muestreVehiculos($conexion);
-
+          }
+          
+        if($_REQUEST['opcion']=='muestreVehiculosPlaca' ){
+            $this->muestreVehiculosPlaca($_REQUEST);
           }
 
           
@@ -82,9 +84,7 @@ class vehiculoControlador{
 
         }
         if($_REQUEST['opcion']=='mostrarHistorialVehiculo'){
-
             $this->mostrarHistorialVehiculo($_REQUEST);
-
         }
 
     
@@ -202,7 +202,11 @@ class vehiculoControlador{
 
     }
 
-
+    public function muestreVehiculosPlaca($request)
+    {
+        $datosVehiculos = $this->vehiculoModelo->traerVehiculosPlaca($request['placa']);
+        $this->vehiculoVista->verVehiculos($datosVehiculos);
+    }
 }
 
 

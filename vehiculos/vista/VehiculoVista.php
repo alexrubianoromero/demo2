@@ -67,11 +67,20 @@ class VehiculoVista extends vista
 
                 <div id="divBotonesvehiculo">
 
-                    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-                        VEHICULOS
+                    <i class="fas fa-search" onclick="busquedaAvanzadaVehiculos();"  style="font-size:30px;" ></i>
 
-                    </div>
+                    <input 
+                    type="text" 
+                    id="txtBuscarPlaca" 
+                    placeholder="Placa" 
+                    style="color:black; font-size:20px;" 
+                    onkeyup="buscarVehiculoPorPlaca();"
+                    size='7px';
+                    >
+
+                </div>
 
                     <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
 

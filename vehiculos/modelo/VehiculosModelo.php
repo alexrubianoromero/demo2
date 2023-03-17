@@ -49,6 +49,20 @@ class VehiculosModelo extends Conexion
         return $resp;
 
     }
+    public function traerVehiculosPlaca($placa){
+
+        $sql = "SELECT  c.placa,c.marca,c.tipo,c.color,c.idcarro,cli.nombre  as nombre
+                FROM  carros  c
+                LEFT OUTER JOIN cliente0 cli ON cli.idcliente = c.propietario 
+                where placa like '%".$placa."%'
+                ORDER BY idcarro DESC";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $filas = mysql_num_rows($consulta);
+        $datos = funciones::table_assoc($consulta);
+        $resp['filas']=$filas;
+        $resp['datos']=$datos;
+        return $resp;
+    }
 
 
 
