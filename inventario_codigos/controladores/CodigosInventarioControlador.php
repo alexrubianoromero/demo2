@@ -50,6 +50,12 @@ class CodigosInventarioControlador{
       
                 $this->busqueCodigosConFiltro($_REQUEST);
             }
+            if($_REQUEST['opcion'] == 'verAlertasInventario'){
+      
+                $this->verAlertasInventario();
+            }
+
+            
             
          
     }
@@ -106,7 +112,12 @@ class CodigosInventarioControlador{
         {
             $codigos = $this->modelo->getInfoCodeFiltros($request);
             $this->vista->mostrarCodigos($codigos);
-
+            
+        }
+        public function verAlertasInventario()
+        {
+            $codigosAlertas = $this->modelo->codigosConAlertaInventario();
+            $this->vista->mostrarAlertas($codigosAlertas);
         }
     }
     

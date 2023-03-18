@@ -102,6 +102,18 @@ require_once($raiz.'/conexion/Conexion.php');
             echo 'Saldo actualizado !!!!'; 
         }
 
+        function codigosConAlertaInventario()
+        {
+            $sql = "select codigo_producto as COD,referencia as REF, cantidad as CANT from productos where cantidad = producto_minimo";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            $codigosAlerta = $this->get_table_assoc($consulta); 
+            // echo 'desde el modelo<pre>'; 
+            // print_r($codigosAlerta);
+            // echo '</pre>';
+            // die();
+            return $codigosAlerta;
+        }
+
     }
 
 

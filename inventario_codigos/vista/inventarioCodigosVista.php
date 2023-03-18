@@ -1,6 +1,9 @@
 <?php
+$raiz = dirname(dirname(dirname(__file__)));
+require_once($raiz.'/vista/vista.php');
 
-class inventarioCodigosVista {
+class inventarioCodigosVista extends vista
+{
 
     public function __construct(){
 
@@ -22,15 +25,26 @@ class inventarioCodigosVista {
         <body class = "container" width ="95%">
             <div >
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-4">
                         <button 
                             data-toggle="modal" data-target="#myModalFiltroCodigos"
                             class = "btn btn-default"
                             onclick = "pregunteFiltrosCodigo()"
                         >Filtros</button>
                     </div>
-                    <div class="col-xs-6">
-                        <button data-toggle="modal" data-target="#myModalProducto" class="btn btn-primary" onclick="pregunteNuevoCodigo(); ">NUEVO CODIGO</button>
+                    <div class="col-xs-4">
+                        <button 
+                            data-toggle="modal" data-target="#myModalProducto" 
+                            class="btn btn-primary" 
+                            onclick="pregunteNuevoCodigo(); "
+                        >NUEVO_COD</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button 
+                            data-toggle="modal" data-target="#myModalAlertas" 
+                            class="btn btn-primary" 
+                            onclick="verAlertasDeInventario(); "
+                        >Alertas</button>
                     </div>
                 </div>
                 <div id = "divResultadosInventarios"> <?php $this->mostrarCodigos($codigos); ?></div>
@@ -40,7 +54,7 @@ class inventarioCodigosVista {
             <?php $this->modalAumentarProducto(); ?>
             <?php $this->modalMovimientos(); ?>
             <?php $this->modalFiltroCodigos(); ?>
-
+            <?php $this->modalAlertas(); ?>
         </body>
         </html>
 
@@ -96,6 +110,32 @@ class inventarioCodigosVista {
                       <h4 class="modal-title" id="myModalLabel">Consultar</h4>
                   </div>
                   <div id="cuerpoModalClientes" class="modal-body" style="color:black;">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="verTalleres();">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalAlertas ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade " id="myModalAlertas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevoCliente">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Consultar</h4>
+                  </div>
+                  <div id="cuerpoModalAlertas" class="modal-body" style="color:black;">
                       
                       
                   </div>
@@ -427,6 +467,11 @@ class inventarioCodigosVista {
          
        </div>
        <?php
+    }
+
+    public function mostrarAlertas($codigosAlertas)
+    {
+        $this->draw_table($codigosAlertas);
     }
 }
 
