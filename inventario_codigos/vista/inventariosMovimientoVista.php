@@ -7,7 +7,7 @@ class inventariosMovimientoVista
         echo '<div>';
         echo '<h3>'.$datosCod['descripcion'];
         echo '<label style="color:green;">';
-        echo ' Saldo Act:'.$datosCod['cantidad'];
+        echo ' Saldo Act: '.$datosCod['cantidad'];
         echo '</h3>'; 
         echo '</label>';
         echo '</div>';
@@ -23,6 +23,10 @@ class inventariosMovimientoVista
             
             echo '<tr>';
             echo '<td>'.$mov['fecha_movimiento'].'</td>'; 
+            if($mov['tipo_movimiento']== 0)
+            {
+                $nombreMovimiento = 'Creacion Inicial';
+            }
             if($mov['tipo_movimiento']== 1)
             {
                 $nombreMovimiento = 'Entrada';

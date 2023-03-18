@@ -21,16 +21,26 @@ class inventarioCodigosVista {
         </head>
         <body class = "container" width ="95%">
             <div >
-                <div>
-                <button data-toggle="modal" data-target="#myModalProducto" class="btn btn-primary" onclick="pregunteNuevoCodigo(); ">NUEVO CODIGO</button>
-            
-            </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <button 
+                            data-toggle="modal" data-target="#myModalFiltroCodigos"
+                            class = "btn btn-default"
+                            onclick = "pregunteFiltrosCodigo()"
+                        >Filtros</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button data-toggle="modal" data-target="#myModalProducto" class="btn btn-primary" onclick="pregunteNuevoCodigo(); ">NUEVO CODIGO</button>
+                    </div>
+                </div>
                 <div id = "divResultadosInventarios"> <?php $this->mostrarCodigos($codigos); ?></div>
             </div>
             <?php $this->modalClientes(); ?>
             <?php $this->modalProducto(); ?>
             <?php $this->modalAumentarProducto(); ?>
             <?php $this->modalMovimientos(); ?>
+            <?php $this->modalFiltroCodigos(); ?>
+
         </body>
         </html>
 
@@ -44,6 +54,7 @@ class inventarioCodigosVista {
         echo '<tr>';
         echo '<th>Codigo</th>';
         echo '<th>Referencia</th>';
+        echo '<th>P.Venta</th>';
         echo '<th>Can/Mov</th>';
         echo '<th>Accion</th>';
         // echo '<th>Descontar</th>';
@@ -53,6 +64,8 @@ class inventarioCodigosVista {
             echo '<tr>'; 
             echo '<td align="right"><button onclick="mostrarInfoCodigo('.$codigo['id_codigo'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModalClientes">'.$codigo['codigo_producto'].'</button></td>';
             echo '<td>'.$codigo['referencia'].'</td>';
+            echo '<td>'.number_format($codigo['valorventa'], 0, '.', '').'</td>';
+
             echo '<td><button class="btn btn-default" onclick ="verMovimientosPrueba('.$codigo['id_codigo'].');" data-toggle="modal" data-target="#myModalMovimientos" >'.$codigo['cantidad'].'</button></td>';
             echo '<td><button onclick = "aumentarInventario('.$codigo['id_codigo'].'); "  data-toggle="modal" data-target="#myModalAumentarProducto" id="btnAdicionarExistencias" class="btn btn-primary"><i class="fas fa-plus"></i></button>';
             echo  '<button id="btnRetirarExistencias" class="btn btn-info"
@@ -113,7 +126,7 @@ class inventarioCodigosVista {
                       
                   </div>
                   <div class="modal-footer" id="footerNuevoCliente">
-                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="verTalleres();">Cerrar</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pantallaInventario();">Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                   </div>
                   </div>
@@ -175,6 +188,33 @@ class inventarioCodigosVista {
         <?php
     }
 
+    public function modalFiltroCodigos ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade " id="myModalFiltroCodigos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevoCliente">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Filtros</h4>
+                  </div>
+                  <div id="cuerpoModalFiltroCodigos" class="modal-body" style="color:black;">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="verTalleres();">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+
 
 
 
@@ -192,24 +232,41 @@ class inventarioCodigosVista {
         <body>
             <div class="row">
                 <div class="form-group" >
-                    <div align="left"class="col-md-3">Codigo:</div>    
-                    <div align="left" class="col-md-9"><?php echo $datosCodigo['codigo_producto'] ?></div>
+                    <div align="left"class="col-xs-4 col-md-3">Codigo:</div>    
+                    <div align="left" class="col-xs-8 col-md-9"><?php echo $datosCodigo['codigo_producto'] ?></div>
                 </div>
                 <div class="form-group" >
-                    <div align="left" class="col-md-3">Descripcion:</div>    
-                    <div align="left"  class="col-md-9"><?php echo $datosCodigo['descripcion'] ?></div>
+                    <div align="left" class="col-xs-4 col-md-3">Descripcion:</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo $datosCodigo['descripcion'] ?></div>
                 </div>
                 <div class="form-group" >
-                    <div align="left" class="col-md-3">Existencias</div>    
-                    <div align="left"  class="col-md-9"><?php echo $datosCodigo['cantidad'] ?></div>
+                    <div align="left" class="col-xs-4 col-md-3">Existencias</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo $datosCodigo['cantidad'] ?></div>
+                </div>
+
+                <div class="form-group" >
+                    <div align="left" class="col-xs-4 col-md-3">Precio_de_compra</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo  number_format($datosCodigo['precio_compra'], 0, ',', ' ') ?></div>
+                </div>
+                <br>    
+                <div class="form-group" >
+                    <div align="left" class="col-xs-4 col-md-3">Precio de venta</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo number_format($datosCodigo['valorventa'], 0, ',', ' ') ?></div>
                 </div>
                 <div class="form-group" >
-                    <div align="left" class="col-md-3">Precio de compra</div>    
-                    <div align="left"  class="col-md-9"><?php echo $datosCodigo['precio_compra'] ?></div>
-                </div>
-                <div class="form-group" >
-                    <div align="left" class="col-md-3">Precio de venta</div>    
-                    <div align="left"  class="col-md-9"><?php echo $datosCodigo['valorventa'] ?></div>
+                    <div align="left" class="col-xs-4 col-md-3">Tipo</div>    
+                    <div align="left"  class="col-xs-8 col-md-9">
+                        <?php 
+                         if($datosCodigo['repman']=='R')
+                         {
+                              echo 'Repuesto';  
+                         } 
+                        if($datosCodigo['repman'=='M'])
+                        {
+                            echo 'Mano de obra';  
+                        } 
+                        ?>
+                    </div>
                 </div>
 
             </div>
@@ -222,31 +279,54 @@ class inventarioCodigosVista {
         <div>
             <div id="divRespuCodigo" style="color:red;"></div>
             <div class="form-group">
-                <div class="col-md-3" >Codigo</div>
-                <div class="col-md-9" >
+                <div class="col-xs-3" >Codigo</div>
+                <div class="col-xs-9" >
                     <input type="text" 
                         id="inputCodigo"
                         onblur="verifiqueCodigo();"
+                        class="form-control"
                     ></div>
             </div>
             <div class="form-group">
-                <div class="col-md-3" >Descripcion</div>
-                <div class="col-md-9" ><input type="text" id="inputDescripcion"></div>
+                <div class="col-xs-3" >Referencia</div>
+                <div class="col-xs-9" ><input type="text" id="inputReferencia" class="form-control"></div>
             </div>
             <div class="form-group">
-                <div class="col-md-3" >Cantidad</div>
-                <div class="col-md-9" ><input type="text" id="inputCantidad"></div>
+                <div class="col-xs-3" >Descripcion</div>
+                <div class="col-xs-9" ><input type="text" id="inputDescripcion" class="form-control"></div>
             </div>
             <div class="form-group">
-                <div class="col-md-3" >Precio Compra</div>
-                <div class="col-md-9" ><input type="text" id="inputPrecioCompra"></div>
+                <div class="col-xs-3" >Cant.Ini</div>
+                <div class="col-xs-9" ><input type="text" id="inputCantidad" class="form-control"></div>
             </div>
             <div class="form-group">
-                <div class="col-md-3" >Precio Venta</div>
-                <div class="col-md-9" ><input type="text" id="inputPrecioVenta"></div>
+                <div class="col-xs-3" >P.Compra</div>
+                <div class="col-xs-9" ><input type="text" id="inputPrecioCompra" class="form-control"></div>
             </div>
-            <br><br>
-            <button data-dismiss="modal" class="btn btn-primary btn-block" id="btnProducto" onclick="grabarProducto();" >Grabar Producto</button>
+            <div class="form-group">
+                <div class="col-xs-3" >P.Venta</div>
+                <div class="col-xs-9" ><input type="text" id="inputPrecioVenta" class="form-control"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-3" >Tipo</div>
+                <div class="col-xs-9" >
+                    <select id="tipo" class="form-control">
+                        <option  value = "">Seleccione...</option>
+                        <option value="Repuesto">Repuesto</option>
+                        <option value="Mano de Obra">Mano de obra</option>
+                    </select>
+                </div>
+            </div>
+            <br><br><br>
+            <div>
+                <!-- data-dismiss="modal"  -->
+                <button 
+                class="btn btn-primary btn-block" 
+                id="btnProducto" 
+                onclick="grabarProducto();" 
+                >Grabar Producto
+               </button>
+            </div>
         </div>
         <?php
     }
@@ -304,6 +384,49 @@ class inventarioCodigosVista {
          </div>   
 
         <?php
+    }
+
+    public function formuFiltrosInventario()
+    {
+        ?>
+        <div  style="color:black;">
+           <div class="row form-group">
+
+               <div class="col-xs-3" align="left">
+                   <label for="">Referencia:</label>
+               </div>
+               <div class="col-xs-9" align="left">
+                   <input 
+                       class="form-control" 
+                       type="text"  
+                       id="txtReferencia"
+                       onkeyup="busqueCodigosConFiltro(); "
+                       >
+                    </div>
+                </div>
+                <div class="row form-group">
+                    
+                    <div class="col-xs-3" align="left">
+                        <label for="">Descripcion</label>
+                    </div>
+                    <div class="col-xs-9" align="left">
+                        <input 
+                        class="form-control" 
+                        type="text"  
+                        id="txtBuscarDescrip"
+                        onkeyup="busqueCodigosConFiltro(); "
+                    >
+               </div>
+           </div>
+           <div>
+               <!-- <button 
+               class = "btn btn-primary"
+               data-dismiss="modal"
+                   onclick="buscarClienteFiltros();">Buscar Filtro</button> -->
+           </div>
+         
+       </div>
+       <?php
     }
 }
 

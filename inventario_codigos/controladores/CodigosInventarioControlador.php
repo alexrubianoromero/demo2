@@ -42,7 +42,14 @@ class CodigosInventarioControlador{
       
                 $this->saveMoreLessInvent($_REQUEST);
             }
-
+            if($_REQUEST['opcion'] == 'formuFiltrosInventario'){
+      
+                $this->formuFiltrosInventario($_REQUEST);
+            }
+            if($_REQUEST['opcion'] == 'busqueCodigosConFiltro'){
+      
+                $this->busqueCodigosConFiltro($_REQUEST);
+            }
             
          
     }
@@ -69,15 +76,19 @@ class CodigosInventarioControlador{
         
         public function saveCode($request)
         {
-            $infoCode = $this->modelo->saveCode($request);
+            $this->modelo->saveCode($request);
+            $id_codigo = $this->modelo->traerIdCodeConCode($request['codigo']);
+            //registrtrar el movimiento de creacion del codigo 
+            $this->movimientosModelo->registerMovInicial($request,$id_codigo); 
+
         }
         
         public function morelessInvent($request){
             $infoCode = $this->modelo->getInfoCodeById($request['id']);
             $this->vista->pregunteInfoAumentarInvent($infoCode,$request['tipoMov']);   
         }
-     
-
+        
+        
         public function saveMoreLessInvent($request)
         {
             // echo 'llego aca savemore'; 
@@ -85,6 +96,20 @@ class CodigosInventarioControlador{
             $this->modelo->saveMoreLessInvent($request);
             $this->movimientosModelo->registerMov($request); 
         }
-}
+        
+        public function formuFiltrosInventario()
+        {
+            $this->vista->formuFiltrosInventario();
+        }
+        
+        public function busqueCodigosConFiltro($request)
+        {
+            $codigos = $this->modelo->getInfoCodeFiltros($request);
+            $this->vista->mostrarCodigos($codigos);
 
-?>
+        }
+    }
+    
+    
+    
+    ?>

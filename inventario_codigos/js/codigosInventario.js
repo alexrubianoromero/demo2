@@ -98,31 +98,87 @@ function verifiqueCodigo()
     }
     function grabarProducto()
     {
-        var codigo = document.getElementById("inputCodigo").value;
-        var descripcion = document.getElementById("inputDescripcion").value;
-        var cantidad = document.getElementById("inputCantidad").value;
-        var precioCompra = document.getElementById("inputPrecioCompra").value;
-        var precioVenta = document.getElementById("inputPrecioVenta").value;
+        var valida = validacionesNuevoCodigo();
+        if(valida)
+        {
+            var codigo = document.getElementById("inputCodigo").value;
+            var descripcion = document.getElementById("inputDescripcion").value;
+            var cantidad = document.getElementById("inputCantidad").value;
+            var precioCompra = document.getElementById("inputPrecioCompra").value;
+            var precioVenta = document.getElementById("inputPrecioVenta").value;
+            var tipoCod = document.getElementById("tipo").value;
+            var referencia = document.getElementById("inputReferencia").value;
 
-        const http=new XMLHttpRequest();
-        const url = '../inventario_codigos/codigosInventario.php';
-        http.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status ==200){
-                document.getElementById("cuerpoModalProducto").innerHTML = this.responseText;
+            inputReferencia
+
+            const http=new XMLHttpRequest();
+            const url = '../inventario_codigos/codigosInventario.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    document.getElementById("cuerpoModalProducto").innerHTML = this.responseText;
+                }
+            };
+
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("opcion=grabarCodigo"
+            + "&codigo="+codigo
+            + "&descripcion="+descripcion
+            + "&cantidad="+cantidad
+            + "&precioCompra="+precioCompra
+            + "&precioVenta="+precioVenta
+            + "&tipoCod="+tipoCod
+            + "&referencia="+referencia
+            );
+
+            // pantallaInventario();
+        }
+    }
+    function validacionesNuevoCodigo()
+    {
+            if(document.getElementById("inputCodigo").value=='')
+            {
+                alert('Por favor digite un codigo ');
+                document.getElementById("inputCodigo").focus();
+                return false;
             }
-        };
-
-        http.open("POST",url);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("opcion=grabarCodigo"
-        + "&codigo="+codigo
-        + "&descripcion="+descripcion
-        + "&cantidad="+cantidad
-        + "&precioCompra="+precioCompra
-        + "&precioVenta="+precioVenta
-        );
-
-        pantallaInventario();
+            if(document.getElementById("inputReferencia").value=='')
+            {
+                alert('Por favor digite una referencia');
+                document.getElementById("inputReferencia").focus();
+                return false;
+            }
+            if(document.getElementById("inputDescripcion").value=='')
+            {
+                alert('Por favor digite una descripcion ');
+                document.getElementById("inputDescripcion").focus();
+                return false;
+            }
+            if(document.getElementById("inputCantidad").value=='')
+            {
+                alert('Por favor digite cantidad ');
+                document.getElementById("inputCantidad").focus();
+                return false;
+            }
+            if(document.getElementById("inputPrecioCompra").value=='')
+            {
+                alert('Por favor digite costo ');
+                document.getElementById("inputPrecioCompra").focus();
+                return false;
+            }
+            if(document.getElementById("inputPrecioVenta").value=='')
+            {
+                alert('Por favor digite precio venta');
+                document.getElementById("inputPrecioVenta").focus();
+                return false;
+            }
+            if(document.getElementById("tipo").value=='')
+            {
+                alert('Por favor escoja un tipo ');
+                document.getElementById("tipo").focus();
+                return false;
+            }
+            return true;
     }
 
     function aumentarInventario(id){
@@ -170,7 +226,7 @@ function verifiqueCodigo()
                 document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
             }
         };
-
+        
         http.open("POST",url);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send("opcion=grabarEntradaSalidaInventario"
@@ -178,6 +234,55 @@ function verifiqueCodigo()
         + "&factura="+factura
         + "&cantidad="+cantidad
         + "&tipo="+tipo
+        );
+        
+    }
+    
+    
+    function pregunteFiltrosCodigo()
+    {
+        // alert('filtro codigos');
+        // divResultadosInventarios
+        const http=new XMLHttpRequest();
+        const url = '../inventario_codigos/codigosInventario.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("cuerpoModalFiltroCodigos").innerHTML = this.responseText;
+            }
+        };
+
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send(
+            "opcion=formuFiltrosInventario"
+            // + "&id="+id
+            // + "&factura="+factura
+            // + "&cantidad="+cantidad
+            // + "&tipo="+tipo
+            );
+            
+            
+        }
+        
+        function busqueCodigosConFiltro()
+        {
+            var referencia = document.getElementById("txtReferencia").value;
+            var descripcion = document.getElementById("txtBuscarDescrip").value;
+        // console.log(referencia);
+        // divResultadosInventarios
+        const http=new XMLHttpRequest();
+        const url = '../inventario_codigos/codigosInventario.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("divResultadosInventarios").innerHTML = this.responseText;
+            }
+        };
+        
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=busqueCodigosConFiltro"
+        + "&referencia="+referencia
+        + "&descripcion="+descripcion
         );
 
     }

@@ -13,7 +13,15 @@ require_once($raiz.'/conexion/Conexion.php');
         {
             $sql = "select * from productos where codigo = '".$codigo."'  ";
         }
-        
+        public function traerIdCodeConCode($code)
+        {
+            $sql ="select id_codigo from productos   where codigo_producto = '".$code."'  ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $arrCodigo = mysql_fetch_assoc($consulta);
+            $id_codigo = $arrCodigo['id_codigo']; 
+            return $id_codigo; 
+        }
+
         public function mostrarCodigosInventarios(){
             $conexion = $this->connectMysql();
             $sql = "select * from productos order by id_codigo desc ";
@@ -32,17 +40,40 @@ require_once($raiz.'/conexion/Conexion.php');
             return $infoCode; 
             
         }
+        public function getInfoCodeFiltros($request)
+        {
+            $conexion = $this->connectMysql();
+            $sql = "select * from productos where 1=1 ";
+            if($request['referencia'] != '' )
+            {
+               $sql .= "  and referencia like '%".$request['referencia']."%'   ";
+            }
+            
+            if($request['descripcion'] != '' )
+            {
+               $sql .= "  and descripcion like '%".$request['descripcion']."%'   ";
+            }
+            // die($sql); 
+            $consulta = mysql_query($sql,$conexion);
+            return $consulta; 
+        }
+
+
         public function saveCode($request){
             $conexion = $this->connectMysql();
-            $sql = "insert into productos (codigo_producto,descripcion,cantidad,precio_compra,valorventa,valor_unit)   
+            $sql = "insert into productos (codigo_producto,descripcion,cantidad,cantidad_inicial,precio_compra,valorventa,valor_unit,repman,referencia)   
             values ('".$request['codigo']."'
             ,'".$request['descripcion']."'
+            ,'".$request['cantidad']."'
             ,'".$request['cantidad']."'
             ,'".$request['precioCompra']."'
             ,'".$request['precioVenta']."'
             ,'".$request['precioCompra']."'
+            ,'".$request['tipoCod']."'
+            ,'".$request['referencia']."'
             
             )";
+            // die($sql); 
             $consulta = mysql_query($sql,$conexion);
             echo 'Codigo Grabado'; 
         }
