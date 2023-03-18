@@ -290,23 +290,29 @@ class inventarioCodigosVista extends vista
                 </div>
                 <br>    
                 <div class="form-group" >
-                    <div align="left" class="col-xs-4 col-md-3">Precio de venta</div>    
-                    <div align="left"  class="col-xs-8 col-md-9"><?php echo number_format($datosCodigo['valorventa'], 0, ',', ' ') ?></div>
-                </div>
-                <div class="form-group" >
                     <div align="left" class="col-xs-4 col-md-3">Tipo</div>    
                     <div align="left"  class="col-xs-8 col-md-9">
                         <?php 
                          if($datosCodigo['repman']=='R')
                          {
-                              echo 'Repuesto';  
-                         } 
-                        if($datosCodigo['repman'=='M'])
-                        {
-                            echo 'Mano de obra';  
-                        } 
-                        ?>
+                             echo 'Repuesto';  
+                            } 
+                            if($datosCodigo['repman'=='M'])
+                            {
+                                echo 'Mano de obra';  
+                            } 
+                            ?>
                     </div>
+                </div>
+                
+                <div class="form-group" >
+                    <div align="left" class="col-xs-4 col-md-3">Cant Minima</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo $datosCodigo['producto_minimo'] ?></div>
+                </div>
+                
+                <div class="form-group" >
+                    <div align="left" class="col-xs-4 col-md-3">Alerta</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo $datosCodigo['alerta'] ?></div>
                 </div>
 
             </div>
@@ -344,10 +350,6 @@ class inventarioCodigosVista extends vista
                 <div class="col-xs-9" ><input type="text" id="inputPrecioCompra" class="form-control"></div>
             </div>
             <div class="form-group">
-                <div class="col-xs-3" >P.Venta</div>
-                <div class="col-xs-9" ><input type="text" id="inputPrecioVenta" class="form-control"></div>
-            </div>
-            <div class="form-group">
                 <div class="col-xs-3" >Tipo</div>
                 <div class="col-xs-9" >
                     <select id="tipo" class="form-control">
@@ -357,6 +359,22 @@ class inventarioCodigosVista extends vista
                     </select>
                 </div>
             </div>
+            
+            <div class="form-group">
+                <div class="col-xs-3" >Cant Minima</div>
+                <div class="col-xs-9" ><input type="text" id="inputCantMinima" class="form-control"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-3" >Alerta</div>
+                <div class="col-xs-9" >
+                <select id="alerta" class="form-control">
+                        <option  value = "">Seleccione...</option>
+                        <option value="SI">SI</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+            </div>
+
             <br><br><br>
             <div>
                 <!-- data-dismiss="modal"  -->

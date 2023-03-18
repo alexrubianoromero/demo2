@@ -61,7 +61,8 @@ require_once($raiz.'/conexion/Conexion.php');
 
         public function saveCode($request){
             $conexion = $this->connectMysql();
-            $sql = "insert into productos (codigo_producto,descripcion,cantidad,cantidad_inicial,precio_compra,valorventa,valor_unit,repman,referencia)   
+            $sql = "insert into productos (codigo_producto,descripcion,cantidad,cantidad_inicial,
+                    precio_compra,valorventa,valor_unit,repman,referencia,producto_minimo,alerta)   
             values ('".$request['codigo']."'
             ,'".$request['descripcion']."'
             ,'".$request['cantidad']."'
@@ -71,6 +72,8 @@ require_once($raiz.'/conexion/Conexion.php');
             ,'".$request['precioCompra']."'
             ,'".$request['tipoCod']."'
             ,'".$request['referencia']."'
+            ,'".$request['cantidadMinima']."'
+            ,'".$request['alerta']."'
             
             )";
             // die($sql); 
@@ -104,11 +107,14 @@ require_once($raiz.'/conexion/Conexion.php');
 
         function codigosConAlertaInventario()
         {
-            $sql = "select codigo_producto as COD,referencia as REF, cantidad as CANT from productos where cantidad = producto_minimo";
+            $sql = "select codigo_producto as COD,referencia as REF, cantidad as CANT from productos 
+            where 1=1 
+            and alerta = 'SI'
+            and cantidad = producto_minimo";
             $consulta = mysql_query($sql,$this->connectMysql()); 
             $codigosAlerta = $this->get_table_assoc($consulta); 
             // echo 'desde el modelo<pre>'; 
-            // print_r($codigosAlerta);
+            // print_r($sql);
             // echo '</pre>';
             // die();
             return $codigosAlerta;

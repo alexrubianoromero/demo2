@@ -108,6 +108,8 @@ function verifiqueCodigo()
             var precioVenta = document.getElementById("inputPrecioVenta").value;
             var tipoCod = document.getElementById("tipo").value;
             var referencia = document.getElementById("inputReferencia").value;
+            var cantidadMinima = document.getElementById("inputCantMinima").value;
+            var alerta = document.getElementById("alerta").value;
 
             inputReferencia
 
@@ -129,6 +131,8 @@ function verifiqueCodigo()
             + "&precioVenta="+precioVenta
             + "&tipoCod="+tipoCod
             + "&referencia="+referencia
+            + "&cantidadMinima="+cantidadMinima
+            + "&alerta="+alerta
             );
 
             // pantallaInventario();
@@ -178,6 +182,19 @@ function verifiqueCodigo()
                 document.getElementById("tipo").focus();
                 return false;
             }
+            if(document.getElementById("inputCantMinima").value=='')
+            {
+                alert('Por favor indique cantidad minima ');
+                document.getElementById("inputCantMinima").focus();
+                return false;
+            }
+            if(document.getElementById("alerta").value=='')
+            {
+                alert('Por favor indique valor en alerta ');
+                document.getElementById("alerta").focus();
+                return false;
+            }
+
             return true;
     }
 
