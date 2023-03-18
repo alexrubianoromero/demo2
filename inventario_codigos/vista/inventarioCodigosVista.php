@@ -435,6 +435,16 @@ class inventarioCodigosVista extends vista
                         <input class="form-control"  id = "cantidad">
                     </div>
                 </div>
+                <div class="row ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label>Observaciones</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <textarea class ="form-control" id="observaciones" cols="20" rows="3"></textarea>
+                    </div>
+                </div>
+
+
                     <br><br>
                     <button class="btn btn-primary" onclick="grabarEntradaSalidaInventario(<?php  echo $infoCode['id_codigo']; ?>);">Grabar Movimiento</button>
 

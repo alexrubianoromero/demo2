@@ -233,29 +233,57 @@ function verifiqueCodigo()
 
     function grabarEntradaSalidaInventario(id)
     {
-        var factura = document.getElementById("factura").value;
-        var cantidad = document.getElementById("cantidad").value;
-        var tipo  = document.getElementById("tipo").value;
-        const http=new XMLHttpRequest();
-        const url = '../inventario_codigos/codigosInventario.php';
-        http.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status ==200){
-                document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
-            }
-        };
-        
-        http.open("POST",url);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("opcion=grabarEntradaSalidaInventario"
-        + "&id="+id
-        + "&factura="+factura
-        + "&cantidad="+cantidad
-        + "&tipo="+tipo
-        );
-        
+        var valida = validacionesGrabarMovInventario();
+        if(valida)
+        {
+            var factura = document.getElementById("factura").value;
+            var cantidad = document.getElementById("cantidad").value;
+            var tipo  = document.getElementById("tipo").value;
+            var observaciones  = document.getElementById("observaciones").value;
+            const http=new XMLHttpRequest();
+            const url = '../inventario_codigos/codigosInventario.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
+                }
+            };
+            
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("opcion=grabarEntradaSalidaInventario"
+            + "&id="+id
+            + "&factura="+factura
+            + "&cantidad="+cantidad
+            + "&tipo="+tipo
+            + "&observaciones="+observaciones
+            );
+        }  
     }
     
-    
+    function validacionesGrabarMovInventario()
+    {
+        if(document.getElementById("factura").value=='')
+        {
+            alert('Por favor digite un documento o factura de compra o de venta segun el caso  ');
+            document.getElementById("factura").focus();
+            return false;
+        }
+        if(document.getElementById("cantidad").value=='')
+        {
+            alert('Por favor digite cantidad ');
+            document.getElementById("cantidad").focus();
+            return false;
+        }
+        if(document.getElementById("observaciones").value=='')
+        {
+            alert('Por favor digite observaciones ');
+            document.getElementById("observaciones").focus();
+            return false;
+        }
+
+        return true;
+    } 
+
     function pregunteFiltrosCodigo()
     {
         // alert('filtro codigos');

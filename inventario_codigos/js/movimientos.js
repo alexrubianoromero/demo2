@@ -31,3 +31,4 @@ function verMovimientosPrueba(idCode)
                + "&idCode="+idCode
              );
 }
+

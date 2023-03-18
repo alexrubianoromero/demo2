@@ -32,15 +32,20 @@
 
         public function registerMov($data)
         {
+            
             $conexion = $this->connectMysql();
             if($data['tipo']==1)
             { 
-                $observaciones = 'Entrada Inventario';
+                $obseTipo= 'Entrada Inventario';
                 $campo = 'facturacompra';}
-                else{ 
-                    $observaciones = 'Salida  Inventario';
-                    $campo = 'id_factura_venta';
-                }
+            else{ 
+                $obseTipo = 'Salida  Inventario';
+                $campo = 'id_factura_venta';
+            }
+            
+            $observaciones = $obseTipo.': '.$data['observaciones'];
+
+
                 $sql = "insert into movimientos_inventario 
                 (fecha_movimiento,cantidad,tipo_movimiento,".$campo.",id_codigo_producto,observaciones)
                 values( now(), '".$data['cantidad']."','".$data['tipo']."'
@@ -48,6 +53,7 @@
                 ,'".$data['id']."'
                 ,'".$observaciones."'
                 ) "; 
+                // die($sql); 
                 $consulta = mysql_query($sql,$conexion);  
                 echo '<br>Movimiento grabado';        
         }

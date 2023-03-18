@@ -14,7 +14,7 @@ class inventariosMovimientoVista
         echo '<table class="table table-striped">';  
         echo '<tr>';
         echo '<th>Fecha</th>';
-        echo '<th>TipoMov</th>';
+        echo '<th>Observaciones</th>';
         echo '<th>Cant</th>';
         echo '<th>Doc</th>';
         echo '</tr>';
@@ -23,19 +23,20 @@ class inventariosMovimientoVista
             
             echo '<tr>';
             echo '<td>'.$mov['fecha_movimiento'].'</td>'; 
-            if($mov['tipo_movimiento']== 0)
-            {
-                $nombreMovimiento = 'Creacion Inicial';
-            }
-            if($mov['tipo_movimiento']== 1)
-            {
-                $nombreMovimiento = 'Entrada';
-            }
-            if($mov['tipo_movimiento']== 2)
-            {
-                $nombreMovimiento = 'Salida';
-            }
-            echo '<td>'.$nombreMovimiento.'</td>'; 
+            // if($mov['tipo_movimiento']== 0)
+            // {
+            //     $nombreMovimiento = 'Creacion Inicial';
+            // }
+            // if($mov['tipo_movimiento']== 1)
+            // {
+            //     $nombreMovimiento = 'Entrada';
+            // }
+            // if($mov['tipo_movimiento']== 2)
+            // {
+            //     $nombreMovimiento = 'Salida';
+            // }
+            // echo '<td>'.$nombreMovimiento.'</td>'; 
+            echo '<td>'.$mov['observaciones'].'</td>';    
             echo '<td>'.$mov['cantidad'].'</td>'; 
             if($mov['tipo_movimiento']== 1){
                 echo '<td>'.$mov['facturacompra'].'</td>'; 
@@ -43,7 +44,6 @@ class inventariosMovimientoVista
                 else{
                 echo '<td>'.$mov['id_factura_venta'].'</td>'; 
             }
-
             echo '</tr>';
         }      
         echo '</table>';
