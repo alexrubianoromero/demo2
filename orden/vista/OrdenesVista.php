@@ -251,6 +251,7 @@ class OrdenesVista{
                    <td>Vr.Unit</td>
                    <td>Cant.</td>
                    <td>Vr.Total</td>
+                   <td><i class="fas fa-trash"></i></td>
                </tr>
            </thead>
            <tbody>
@@ -275,6 +276,7 @@ class OrdenesVista{
                     else{
                         echo '<td></td>';
                     }
+                    echo '<td><i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
 
                     echo '</tr>';
                     $sumaItems += $items[$i]["total_item"];

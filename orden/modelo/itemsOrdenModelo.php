@@ -60,6 +60,7 @@ class itemsOrdenModelo extends Conexion
 
     public function grabarNuevoItem($request)
     {
+        $totalItem = $request['valorUnit'] *  $request['cantidad'];
         $conexion = $this->connectMysql();
         $sql="insert into item_orden (fecha,no_factura,codigo,descripcion,cantidad,total_item,valor_unitario)   
               values(now()
@@ -67,15 +68,34 @@ class itemsOrdenModelo extends Conexion
               ,'".$request['codigo']."'
               ,'".$request['descripcion']."'
               ,'".$request['cantidad']."'
-              ,'".$request['total']."'
+              ,'".$totalItem."'
               ,'".$request['valorUnit']."'
               )  ";
         $consulta = mysql_query($sql,$conexion);
         // echo 'Item Grabado ';           
     }
-
-
-
+    
+    public function eliminarItem($idItem)
+    {
+        $sql = "delete from item_orden where id_item =  '".$idItem."'   ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        echo 'Item Eliminado'; 
+    }
+    
+    public function traerInfoItemConIdItem($idItem)
+    {
+        $sql = "select * from item_orden where id_item = '".$idItem."' "; 
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $result = mysql_fetch_assoc($consulta);
+        return $result;
+    }
+    public function traerIdUltimoItemGrabado()
+    {
+        $sql = "select max(id_item) as id from item_orden ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $result = mysql_fetch_assoc($consulta);
+        return $result['id'];
+    }
 
 }
 

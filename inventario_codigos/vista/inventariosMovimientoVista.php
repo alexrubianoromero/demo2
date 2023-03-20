@@ -38,10 +38,12 @@ class inventariosMovimientoVista
             // echo '<td>'.$nombreMovimiento.'</td>'; 
             echo '<td>'.$mov['observaciones'].'</td>';    
             echo '<td>'.$mov['cantidad'].'</td>'; 
-            if($mov['tipo_movimiento']== 1){
+            if($mov['tipo_movimiento']== 1 || $mov['tipo_movimiento']== 3 )
+            {
                 echo '<td>'.$mov['facturacompra'].'</td>'; 
                 }
-                else{
+            if($mov['tipo_movimiento']== 2 || $mov['tipo_movimiento']== 4 )
+                {
                 echo '<td>'.$mov['id_factura_venta'].'</td>'; 
             }
             echo '</tr>';

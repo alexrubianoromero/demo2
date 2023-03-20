@@ -365,79 +365,79 @@ function grabarVehiculoDesdeOrden()
        http.onreadystatechange = function(){
            if(this.readyState == 4 && this.status ==200){
                document.getElementById("divPregunteNuevoItem").innerHTML = this.responseText;
-           }
-       };
-
-       http.open("POST",url);
-       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-       http.send("opcion=pregunteNuevoItemOrden"
-               + "&idOrden="+idOrden
-           );
+            }
+        };
+        
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=pregunteNuevoItemOrden"
+        + "&idOrden="+idOrden
+        );
     }
     function mostrarItemsOrden(id){
-    //    alert('digfame el item ');
-       //muestre ventana apara introducir nuevo item 
-       divPregunteNuevoItem
-       var idOrden =  document.getElementById("idOrden").value;
-       const http=new XMLHttpRequest();
-       const url = '../orden/ordenes.php';
-       http.onreadystatechange = function(){
-           if(this.readyState == 4 && this.status ==200){
-               document.getElementById("div_items_orden").innerHTML = this.responseText;
-           }
-       };
-
-       http.open("POST",url);
-       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-       http.send("opcion=mostrarItemsOrden"
+        //    alert('digfame el item ');
+        //muestre ventana apara introducir nuevo item 
+        divPregunteNuevoItem
+        var idOrden =  document.getElementById("idOrden").value;
+        const http=new XMLHttpRequest();
+        const url = '../orden/ordenes.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("div_items_orden").innerHTML = this.responseText;
+            }
+        };
+        
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=mostrarItemsOrden"
                + "&idOrden="+idOrden
            );
-    }
-
-
-    function grabarNuevoItem(idOrden)
-    {
-       $valida =  validacionCamposItem();
-       if($valida)
-       { 
-            // alert('agregart item');
-            //falta hacer el desarrollo
-            var codigo = document.getElementById("codNuevoItem").value;
-            var descripcion = document.getElementById("descripan").value;
-            var valorUnit = document.getElementById("valorUnitpan").value;
-            var cantidad = document.getElementById("cantipan").value;
-            var total = document.getElementById("totalItem").value;
-            
-            const http=new XMLHttpRequest();
-            const url = '../orden/ordenes.php';
-            http.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status ==200){
-                    document.getElementById("divPregunteNuevoItem").innerHTML = '';
-                    document.getElementById("div_items_orden").innerHTML = this.responseText;
-                }
-            };
-            
-            http.open("POST",url);
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.send("opcion=grabarNuevoItemOrden"
-            + "&idOrden="+idOrden
-            + "&codigo="+codigo
-            + "&descripcion="+descripcion
-            + "&valorUnit="+valorUnit
-                    + "&cantidad="+cantidad
-                    + "&total="+total
-                    );
-                }        
-            }
-            
-            function validacionCamposItem()
+        }
+        
+        
+        function grabarNuevoItem(idOrden)
+        {
+            $valida =  validacionCamposItem();
+            if($valida)
+            { 
+                // alert('agregart item');
+                //falta hacer el desarrollo
+                var codigo = document.getElementById("codNuevoItem").value;
+                var descripcion = document.getElementById("descripan").value;
+                var valorUnit = document.getElementById("valorUnitpan").value;
+                var cantidad = document.getElementById("cantipan").value;
+                var total = document.getElementById("totalItem").value;
+                
+                const http=new XMLHttpRequest();
+                const url = '../orden/ordenes.php';
+                http.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        document.getElementById("divPregunteNuevoItem").innerHTML = '';
+                        document.getElementById("div_items_orden").innerHTML = this.responseText;
+                    }
+                };
+                
+                http.open("POST",url);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.send("opcion=grabarNuevoItemOrden"
+                + "&idOrden="+idOrden
+                + "&codigo="+codigo
+                + "&descripcion="+descripcion
+                + "&valorUnit="+valorUnit
+                + "&cantidad="+cantidad
+                + "&total="+total
+                );
+            }        
+        }
+        
+        function validacionCamposItem()
+        {
+            if( document.getElementById("codNuevoItem").value == '')
             {
-                if( document.getElementById("codNuevoItem").value == '')
-                {
-                    document.getElementById("codNuevoItem").focus();
-                    alert('Por favor digitar Codigo');
-                    return 0;
-                }
+                document.getElementById("codNuevoItem").focus();
+                alert('Por favor digitar Codigo');
+                return 0;
+            }
                 if( document.getElementById("descripan").value == '')
                 {
                     document.getElementById("descripan").focus();
@@ -456,56 +456,77 @@ function grabarVehiculoDesdeOrden()
                     alert('Por favor digitar la cantidad');
                     return 0;
                 }
-        if( document.getElementById("totalItem").value == '')
-        {
-            document.getElementById("totalItem").focus();
-            alert('Por favor digitar total');
-            return 0;
-        }
-        
-        return 1;
-        
-    }
-    
-    
-    function cerrarVentanaNuevoItem()
-    {
-        document.getElementById("divPregunteNuevoItem").innerHTML = '';
-    }
-    
-    function verificarSiExisteCodigo()
-    {
-        var codigo = document.getElementById("codNuevoItem").value;
-        const http=new XMLHttpRequest();
-        const url = '../orden/ordenes.php';
-        http.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status ==200){
-                var  resp = JSON.parse(this.responseText); 
-                // alert('respuesta'+ resp.data.descripcion);
-                if(resp.filas == 1)
-                {    
-                    document.getElementById("descripan").value = resp.data.descripcion;
-                    document.getElementById("valorUnitpan").value = resp.data.precio_compra;
-                    document.getElementById("existencias").innerHTML = resp.data.cantidad;
-                    document.getElementById("inputexistencias").value = resp.data.cantidad;
-                    document.getElementById("valorUnitpan").value = resp.data.valor_unit;
+                if( document.getElementById("totalItem").value == '')
+                {
+                    document.getElementById("totalItem").focus();
+                    alert('Por favor digitar total');
+                    return 0;
                 }
+                
+                return 1;
+                
             }
-        };
- 
-        http.open("POST",url);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("opcion=verificarSiexisteCodigo"
+            
+            
+            function cerrarVentanaNuevoItem()
+            {
+                document.getElementById("divPregunteNuevoItem").innerHTML = '';
+            }
+            
+            function verificarSiExisteCodigo()
+            {
+                var codigo = document.getElementById("codNuevoItem").value;
+                const http=new XMLHttpRequest();
+                const url = '../orden/ordenes.php';
+                http.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        var  resp = JSON.parse(this.responseText); 
+                        // alert('respuesta'+ resp.data.descripcion);
+                        if(resp.filas == 1)
+                        {    
+                            document.getElementById("descripan").value = resp.data.descripcion;
+                            document.getElementById("valorUnitpan").value = resp.data.precio_compra;
+                            document.getElementById("existencias").innerHTML = resp.data.cantidad;
+                            document.getElementById("inputexistencias").value = resp.data.cantidad;
+                            document.getElementById("valorUnitpan").value = resp.data.valor_unit;
+                        }
+                    }
+                };
+                
+                http.open("POST",url);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.send("opcion=verificarSiexisteCodigo"
                 + "&codigo="+codigo
-            );
+                );
         
-    }
-
-    function generarTotalItem()
-    {
-        var valorUnitario =  document.getElementById("valorUnitpan").value;
-        var cantidad =  document.getElementById("cantipan").value;
-        var total = parseInt(valorUnitario) *  parseInt(cantidad);
-        document.getElementById("totalItem").value = total;
-    }
-    
+            }
+            
+            function generarTotalItem()
+            {
+                var valorUnitario =  document.getElementById("valorUnitpan").value;
+                var cantidad =  document.getElementById("cantipan").value;
+                var total = parseInt(valorUnitario) *  parseInt(cantidad);
+                document.getElementById("totalItem").value = total;
+            }
+            
+            function eliminarItemOrden(idItem)
+            {
+                // alert (idItem);
+                const http=new XMLHttpRequest();
+                const url = '../orden/ordenes.php';
+                http.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        // var  resp = JSON.parse(this.responseText); 
+                        // alert('respuesta'+ resp.data.descripcion);
+                        document.getElementById("divPregunteNuevoItem").innerHTML = '';
+                        document.getElementById("div_items_orden").innerHTML = this.responseText;
+                    }
+                };
+                http.open("POST",url);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.send("opcion=eliminarItem"
+                + "&idItem="+idItem
+                );
+            }
+            
+            

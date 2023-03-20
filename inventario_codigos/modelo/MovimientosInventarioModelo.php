@@ -34,11 +34,22 @@
         {
             
             $conexion = $this->connectMysql();
+            if($data['tipo']==4)
+            { 
+                $obseTipo= '';
+                $campo = 'facturacompra';
+            }        
+            if($data['tipo']==3)
+            { 
+                $obseTipo= '';
+                $campo = 'facturacompra';
+            }        
+
             if($data['tipo']==1)
             { 
                 $obseTipo= 'Entrada Inventario';
                 $campo = 'facturacompra';}
-            else{ 
+            if($data['tipo']==2){ 
                 $obseTipo = 'Salida  Inventario';
                 $campo = 'id_factura_venta';
             }

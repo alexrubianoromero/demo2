@@ -11,8 +11,13 @@ require_once($raiz.'/conexion/Conexion.php');
 
        public function getInfoCode($codigo,$conexion)
         {
-            $sql = "select * from productos where codigo = '".$codigo."'  ";
+            $sql = "select * from productos where codigo_producto = '".$codigo."'  ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $arrCodigo = mysql_fetch_assoc($consulta);
+            return $arrCodigo;
         }
+
+
         public function traerIdCodeConCode($code)
         {
             $sql ="select id_codigo from productos   where codigo_producto = '".$code."'  ";
@@ -52,10 +57,8 @@ require_once($raiz.'/conexion/Conexion.php');
         
         public function getInfoCodeById($id)
         {
-            $conexion = $this->connectMysql();
             $sql = "select * from productos where id_codigo = '".$id."'   ";
-            // die($sql); 
-            $consulta = mysql_query($sql,$conexion);
+            $consulta = mysql_query($sql,$this->connectMysql());
             $infoCode = mysql_fetch_assoc($consulta);
             return $infoCode; 
             
@@ -104,16 +107,14 @@ require_once($raiz.'/conexion/Conexion.php');
         public function saveMoreLessInvent($request)
         {
             $infoCode = $this->getInfoCodeById($request['id']);
-            // echo 'desde el modelo<pre>'; 
-            // print_r($infoCode);
-            // echo '</pre>';
-            // die();
             $conexion = $this->connectMysql();
             $infoActual = $this->getInfoCodeById($request['id']);
-            if($request['tipo']==1){
-                $saldo = $infoActual['cantidad'] +  $request['cantidad'];
-            }else{
+            if($request['tipo']==1 || $request['tipo']==3 ){
                 $saldo = $infoActual['cantidad'] -  $request['cantidad'];
+            }
+            if($request['tipo']==2 || $request['tipo']==4 )
+            {
+                $saldo = $infoActual['cantidad'] +  $request['cantidad'];
             }
 
             $sql = "update productos set cantidad = '".$saldo ."' 

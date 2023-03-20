@@ -17,6 +17,8 @@ require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php'); 
 require_once($raiz.'/funciones/funciones.class.php'); 
 require_once($raiz.'/orden/EnviarCorreoPhpMailer.class.php'); 
+require_once($raiz.'/inventario_codigos/modelo/CodigosInventarioModelo.php'); 
+require_once($raiz.'/inventario_codigos/modelo/MovimientosInventarioModelo.php'); 
 
 
 
@@ -35,6 +37,8 @@ class ordenControlador
     private $vistaOrden;
     private $modeloOrden;
     private $itemsOrdenModelo;
+    private $codigosModelo;
+    private $movimientosModelo;
     private $tecnicos;
     private $enviarCorreo;
 
@@ -44,6 +48,8 @@ class ordenControlador
         $this->vistaOrden = new OrdenesVista();
         $this->modeloOrden = new OrdenesModelo();
         $this->itemsOrdenModelo = new itemsOrdenModelo();
+        $this->codigosModelo = new CodigosInventarioModelo();
+        $this->movimientosModelo = new MovimientosInventarioModelo();
         $this->tecnicos = new TecnicosModelo(); 
         
 
@@ -84,15 +90,19 @@ class ordenControlador
             $this->pregunteNuevoItemOrden($_REQUEST['idOrden'],$conexion);
         }
         
-                if($_REQUEST['opcion']=='grabarNuevoItemOrden'){
-                    $this->grabarNuevoItemOrden($_REQUEST);
-                }
-                if($_REQUEST['opcion']=='mostrarItemsOrden'){
-                    $this->mostrarItemsOrden($_REQUEST);
-                }
-                if($_REQUEST['opcion']=='verificarSiexisteCodigo'){
-                    $this->verificarSiexisteCodigo($_REQUEST);
-                }
+        if($_REQUEST['opcion']=='grabarNuevoItemOrden'){
+            $this->grabarNuevoItemOrden($_REQUEST);
+         }
+        if($_REQUEST['opcion']=='mostrarItemsOrden'){
+             $this->mostrarItemsOrden($_REQUEST);
+        }
+        if($_REQUEST['opcion']=='verificarSiexisteCodigo'){
+            $this->verificarSiexisteCodigo($_REQUEST);
+         }
+        if($_REQUEST['opcion']=='eliminarItem'){
+            $this->eliminarItem($_REQUEST);
+        }
+    
 
 
     }
@@ -238,6 +248,24 @@ class ordenControlador
     
     public function grabarNuevoItemOrden($request){
         $this->itemsOrdenModelo->grabarNuevoItem($request);
+        $idItem = $this->itemsOrdenModelo->traerIdUltimoItemGrabado();
+        $infoItem = $this->itemsOrdenModelo->traerInfoItemConIdItem($idItem);
+        $infoCodigo = $this->codigosModelo->getInfoCode($infoItem['codigo'],'');
+        $infoOrden = $this->modeloOrden->traerOrdenId($infoItem['no_factura'],''); 
+        //si se esta adicionando se debe restar del inventario si existe
+        $request['id']= $infoCodigo['id_codigo'];
+        $request['tipo'] = 3;
+        $request['cantidad'] =  $infoItem['cantidad']; 
+        //actualizar inventario  
+        $this->codigosModelo->saveMoreLessInvent($request);
+        $data['tipo']= 3;
+        $data['cantidad'] = $infoItem['cantidad'];
+        $data['factura'] = ''; 
+        $data['id'] = $infoCodigo['id_codigo'];
+        $data['observaciones'] = 'Salida en  orden '.$infoOrden['orden']; 
+        //ahora graba el registro del movimiento 
+        $this->movimientosModelo->registerMov($data);
+        //registrar el movimiento de inclusion en la orden 
         $this->mostrarItemsOrden($request);
     }
     
@@ -251,6 +279,33 @@ class ordenControlador
            $result =  $this->itemsOrdenModelo->verifiqueCodigo($request['codigo']);
            echo json_encode($result); 
            exit();
+    }
+    public function eliminarItem($request)
+    {
+        //traer la informacion del item 
+        $infoItem = $this->itemsOrdenModelo->traerInfoItemConIdItem($request['idItem']);
+        $infoCodigo = $this->codigosModelo->getInfoCode($infoItem['codigo'],'');
+    //     echo '<pre>'; 
+    // print_r($infoCodigo);
+    // echo '</pre>';
+    // die();
+        $this->itemsOrdenModelo->eliminarItem($request['idItem']);
+        //traer numero de orden 
+        $infoOrden = $this->modeloOrden->traerOrdenId($infoItem['no_factura'],''); 
+        //si se esta eliminado se debe volver a sumar al inventario si existe
+        $request['id']= $infoCodigo['id_codigo'];
+        $request['tipo'] = 4;
+        $request['cantidad'] =  $infoItem['cantidad']; 
+        //aqui actualiza el inventario 
+        $this->codigosModelo->saveMoreLessInvent($request);
+        //ahora graba el registro del movimiento
+        $data['tipo']=4;
+        $data['cantidad'] = $infoItem['cantidad'];
+        $data['factura'] = ''; 
+        $data['id'] = $infoCodigo['id_codigo'];
+        $data['observaciones'] = 'Entrada Anulacion Item de orden '.$infoOrden['orden']; 
+        $this->movimientosModelo->registerMov($data);
+        $this->mostrarItemsOrden($request);
     }
 
 }

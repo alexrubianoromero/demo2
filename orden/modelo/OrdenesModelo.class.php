@@ -58,7 +58,8 @@ Class OrdenesModelo extends Conexion
                  WHERE  o.id = '".$id."'
                  ORDER BY  o.id DESC 
         ";
-        $consulta = mysql_query($sql,$conexion);
+        // $consulta = mysql_query($sql,$conexion);
+        $consulta = mysql_query($sql,$this->connectMysql());  
         $arreglo= mysql_fetch_assoc($consulta);
         return $arreglo;
     }
