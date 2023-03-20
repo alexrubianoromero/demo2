@@ -22,6 +22,26 @@ require_once($raiz.'/conexion/Conexion.php');
             return $id_codigo; 
         }
 
+        
+    public function verifiqueCodigoSiExiste($codigo)
+    {
+        $conexion = $this->connectMysql();
+        $sql = "select * from productos where codigo_producto = '".$codigo."' limit 1 "; 
+        $consulta = mysql_query($sql,$conexion);
+        $filas = mysql_num_rows($consulta);
+        if($filas > 0)
+        {
+            $arregloCodigo = mysql_fetch_assoc($consulta); 
+            $result['filas'] = $filas;
+            $result['data'] = $arregloCodigo;
+        }else{
+            $result['filas'] = 0;
+            $result['data'] = '';
+        }  
+        return $result;
+    }
+
+
         public function mostrarCodigosInventarios(){
             $conexion = $this->connectMysql();
             $sql = "select * from productos order by id_codigo desc ";
@@ -118,6 +138,27 @@ require_once($raiz.'/conexion/Conexion.php');
             // echo '</pre>';
             // die();
             return $codigosAlerta;
+        }
+
+        public function actualizarCodigo($request)
+        {
+                $sql = "
+                update productos set 
+                descripcion = '".$request['descripcion']."'
+                ,precio_compra = '".$request['precioCompra']."'
+                ,valor_unit = '".$request['precioCompra']."'
+                ,valorventa = '".$request['precioVenta']."'
+                ,repman = '".$request['tipoCod']."'
+                ,referencia = '".$request['referencia']."'
+                ,producto_minimo = '".$request['cantidadMinima']."'
+                ,alerta = '".$request['alerta']."'
+                where id_codigo = '".$request['idCodigo']."'
+                ";
+                $consulta = mysql_query($sql,$this->connectMysql()); 
+                // die($sql);
+
+                echo 'Producto Actualizado';
+
         }
 
     }

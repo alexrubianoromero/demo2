@@ -307,12 +307,20 @@ class inventarioCodigosVista extends vista
                 
                 <div class="form-group" >
                     <div align="left" class="col-xs-4 col-md-3">Cant Minima</div>    
-                    <div align="left"  class="col-xs-8 col-md-9"><?php echo $datosCodigo['producto_minimo'] ?></div>
+                    <div align="left"  class="col-xs-8 col-md-9">
+                        <?php echo $datosCodigo['producto_minimo'] ?>
+                    </div>
                 </div>
-                
+                <br>
                 <div class="form-group" >
                     <div align="left" class="col-xs-4 col-md-3">Alerta</div>    
                     <div align="left"  class="col-xs-8 col-md-9"><?php echo $datosCodigo['alerta'] ?></div>
+                </div>
+                <div >
+                    <button class="btn btn-primary"  
+                            onclick= "editarCodigo('<?php   echo $datosCodigo['id_codigo']  ?>');"
+                            >
+                            Editar Codigo</button>
                 </div>
 
             </div>
@@ -320,57 +328,113 @@ class inventarioCodigosVista extends vista
         </html>
         <?php
     }
-    public function pantallaPregunteCodigo(){
+    public function pantallaPregunteCodigo($infoCode=[], $valor=0){
+        //$valor = 0 captura codigo 
+        //$valor = 1 edicion de codigo y 
+        //este valor de 1 llegaria desde el controlador cuando llama la funcion 
+        // value= "<?php  echo  $infoCode['codigo_producto'];  "
         ?>
         <div>
             <div id="divRespuCodigo" style="color:red;"></div>
+            <div id="divRespuCodigo2" style="color:red;"></div>
             <div class="form-group">
                 <div class="col-xs-3" >Codigo</div>
                 <div class="col-xs-9" >
+                    <input type="hidden" id="inputIdCodigo" value = "<?php echo $infoCode['id_codigo'] ;  ?>">
                     <input type="text" 
                         id="inputCodigo"
-                        onblur="verifiqueCodigo();"
                         class="form-control"
-                    ></div>
+                        <?php   
+                            if($valor == 0){ echo 'onkeyup="verifiqueCodigo();"'; }
+                            if($valor == 1){ 
+                                echo 'onfocus="blur()"'; 
+                            }
+                        ?>
+                        value= "<?php  echo $infoCode['codigo_producto']  ?>"
+                    >
+                </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-3" >Referencia</div>
-                <div class="col-xs-9" ><input type="text" id="inputReferencia" class="form-control"></div>
+                <div class="col-xs-9" ><input type="text" 
+                                            id="inputReferencia" 
+                                            class="form-control" 
+                                            value = "<?php echo $infoCode['referencia'] ;  ?>"
+                                            >
+                                        </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-3" >Descripcion</div>
-                <div class="col-xs-9" ><input type="text" id="inputDescripcion" class="form-control"></div>
+                <div class="col-xs-9" ><input type="text" 
+                                            id="inputDescripcion" 
+                                            class="form-control"
+                                            value = "<?php echo $infoCode['descripcion'] ;  ?>"
+                                            ></div>
             </div>
+                            
             <div class="form-group">
                 <div class="col-xs-3" >Cant.Ini</div>
-                <div class="col-xs-9" ><input type="text" id="inputCantidad" class="form-control"></div>
+                <div class="col-xs-9" ><input type="text" 
+                                        id="inputCantidad" 
+                                        class="form-control"
+                                        <?php  
+                                           if($valor == 1){
+                                            echo 'onfocus="blur()"';
+                                           } 
+                                        ?>
+                                        value = "<?php echo $infoCode['cantidad_inicial'] ;  ?>"
+                                        ></div>
             </div>
+            
             <div class="form-group">
                 <div class="col-xs-3" >P.Compra</div>
-                <div class="col-xs-9" ><input type="text" id="inputPrecioCompra" class="form-control"></div>
+                <div class="col-xs-9" ><input type="text" id="inputPrecioCompra" 
+                                        class="form-control"
+                                        value = "<?php echo $infoCode['precio_compra'] ;  ?>"        
+                                        ></div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-3" >P.Venta</div>
+                <div class="col-xs-9" ><input type="text" id="inputPrecioVenta" class="form-control"
+                                        value = "<?php echo $infoCode['valorventa'] ;  ?>"  
+                                        ></div>
             </div>
             <div class="form-group">
                 <div class="col-xs-3" >Tipo</div>
                 <div class="col-xs-9" >
                     <select id="tipo" class="form-control">
                         <option  value = "">Seleccione...</option>
-                        <option value="Repuesto">Repuesto</option>
-                        <option value="Mano de Obra">Mano de obra</option>
+
+                        <option value="Repuesto" 
+                                <?php   if($infoCode['repman']== 'R') {echo 'selected';}?>
+                        >Repuesto</option>
+                        
+                        <option value="Mano de Obra"
+                        <?php   if($infoCode['repman']== 'M') {echo 'selected';}?>
+                        >Mano de obra</option>
+
                     </select>
                 </div>
             </div>
             
             <div class="form-group">
                 <div class="col-xs-3" >Cant Minima</div>
-                <div class="col-xs-9" ><input type="text" id="inputCantMinima" class="form-control"></div>
+                <div class="col-xs-9" ><input type="text" id="inputCantMinima" class="form-control"
+                                            value = "<?php echo $infoCode['producto_minimo'] ;  ?>"  
+                                        >
+               </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-3" >Alerta</div>
                 <div class="col-xs-9" >
                 <select id="alerta" class="form-control">
                         <option  value = "">Seleccione...</option>
-                        <option value="SI">SI</option>
-                        <option value="NO">NO</option>
+                        <option value="SI"
+                        <?php   if($infoCode['alerta']== 'SI') {echo 'selected';}?>
+                        >SI</option>
+                        <option value="NO"
+                        <?php   if($infoCode['alerta']== 'NO') {echo 'selected';}?>
+                        >NO</option>
                     </select>
                 </div>
             </div>
@@ -381,8 +445,12 @@ class inventarioCodigosVista extends vista
                 <button 
                 class="btn btn-primary btn-block" 
                 id="btnProducto" 
-                onclick="grabarProducto();" 
-                >Grabar Producto
+                <?php  if($valor == 0 ) { echo 'onclick="grabarProducto();" ';   } ?>
+                <?php  if($valor == 1 ) { echo 'onclick="actualizarProducto();" ';   } ?>
+                >
+                <?php  if($valor == 0 ) {echo '  Grabar Producto'; } ?>
+                <?php  if($valor == 1 ) {echo '  Actualizar Producto'; } ?>
+              
                </button>
             </div>
         </div>

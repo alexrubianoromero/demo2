@@ -54,6 +54,20 @@ class CodigosInventarioControlador{
       
                 $this->verAlertasInventario();
             }
+            if($_REQUEST['opcion'] == 'editarCodigo'){
+      
+                $this->editarCodigo($_REQUEST);
+            }
+            if($_REQUEST['opcion'] == 'verifiqueCodigo'){
+      
+                $this->verifiqueCodigo($_REQUEST);
+            }
+            if($_REQUEST['opcion'] == 'actualizarCodigo'){
+      
+                $this->actualizarCodigo($_REQUEST);
+            }
+
+
 
             
             
@@ -77,7 +91,7 @@ class CodigosInventarioControlador{
         
         public function askNewCode(){
             // die('llego aca');
-            $this->vista->pantallaPregunteCodigo();    
+            $this->vista->pantallaPregunteCodigo('',0);    
         }
         
         public function saveCode($request)
@@ -86,7 +100,7 @@ class CodigosInventarioControlador{
             $id_codigo = $this->modelo->traerIdCodeConCode($request['codigo']);
             //registrtrar el movimiento de creacion del codigo 
             $this->movimientosModelo->registerMovInicial($request,$id_codigo); 
-
+            
         }
         
         public function morelessInvent($request){
@@ -118,6 +132,21 @@ class CodigosInventarioControlador{
         {
             $codigosAlertas = $this->modelo->codigosConAlertaInventario();
             $this->vista->mostrarAlertas($codigosAlertas);
+        }
+        
+        public function editarCodigo($request){
+            $infoCode = $this->modelo->getInfoCodeById($request['idCodigo']);
+            $this->vista->pantallaPregunteCodigo($infoCode,1);    
+        }
+
+        public function verifiqueCodigo($request)
+        {
+            $infoCode =  $this->modelo->verifiqueCodigoSiExiste($request['codigo']);
+        }
+
+        public function actualizarCodigo($request)
+        {
+            $this->modelo->actualizarCodigo($request);
         }
     }
     
