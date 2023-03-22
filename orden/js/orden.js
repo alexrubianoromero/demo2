@@ -569,7 +569,7 @@ function formuFiltrosBusqueda(){
 function busqueCodigosConFiltroOrdenes()
 {
     var placa = document.getElementById("txtPlacaBuscar").value;
-    var nombre = document.getElementById("txtBuscarNombre").value;
+    // var nombre = document.getElementById("txtBuscarNombre").value;
     var idEstado = document.getElementById("idEstadoOrden").value;
 
     // console.log(referencia);
@@ -586,7 +586,7 @@ function busqueCodigosConFiltroOrdenes()
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=busqueOrdenesConFiltro"
     + "&placa="+placa
-    + "&nombre="+nombre
+    // + "&nombre="+nombre
     + "&idEstado="+idEstado
     );
 }

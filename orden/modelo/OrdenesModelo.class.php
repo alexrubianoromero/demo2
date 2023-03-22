@@ -198,7 +198,7 @@ Class OrdenesModelo extends Conexion
 
         if($request['placa'] != '')
         {
-            $sql .= "  and o.placa =  '".$request['placa']."'   "; 
+            $sql .= "  and o.placa like  '%".$request['placa']."%'   "; 
         }  
 
         if($request['idEstado'] != '')
