@@ -60,6 +60,9 @@ class ordenControlador
         if($_REQUEST['opcion']=='pintarOrdenes'){
             $this->pintarOrdenes($conexion);
         }
+        if($_REQUEST['opcion']=='pintarOrdenesNew'){
+            $this->pintarOrdenesNew();
+        }
 
         if($_REQUEST['opcion']=='verificarPlaca'){
             $this->verificarPlaca($conexion,$_REQUEST['placa']);
@@ -153,7 +156,7 @@ class ordenControlador
 
 
     public function pantallaConsultas($conexion){
-        $arregloOrdenes = $this->modeloOrden->traerOrdenes($conexion);
+        $arregloOrdenes = $this->modeloOrden->traerOrdenesNew($conexion);
         $this->vistaOrden->pantallaInicial($arregloOrdenes);
     }
 
@@ -209,6 +212,14 @@ class ordenControlador
         $arregloOrdenes = $this->modeloOrden->traerOrdenes($conexion);
 
         $this->vistaOrden->pintarOrdenes($arregloOrdenes);
+
+    }
+
+    public function pintarOrdenesNew(){
+
+        $arregloOrdenes = $this->modeloOrden->traerOrdenesNew();
+
+        $this->vistaOrden->pintarOrdenesNew($arregloOrdenes);
 
     }
 
@@ -315,11 +326,11 @@ class ordenControlador
     {
         $this->vistaOrden->formuFiltrosOrdenes();
     }
-    
+
     public function busqueOrdenesConFiltro($request)
     {
-        $ordenes = $this->modeloOrden->busqueOrdenesConFiltro($request);
-        $this->vistaOrden->pintarOrdenes($ordenes);
+        $ordenes = $this->modeloOrden->busqueOrdenesConFiltroNew($request);
+        $this->vistaOrden->pintarOrdenesNew($ordenes);
     }
 
 

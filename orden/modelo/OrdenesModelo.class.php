@@ -44,6 +44,18 @@ Class OrdenesModelo extends Conexion
 
      }   
 
+     public function traerOrdenesNew($request = []){
+         $sql = " SELECT o.id,o.orden,o.fecha,o.placa,c.tipo,o.estado,o.kilometraje,o.observaciones  
+                  FROM ordenes o 
+                  LEFT JOIN carros c on c.placa = o.placa 
+                  ORDER BY  o.id DESC 
+                  ";
+                //   die($sql);
+         $consulta = mysql_query($sql,$this->connectMysql());
+         $arreglo = $this->get_table_assoc($consulta);
+         return $arreglo;
+     }   
+
 
 
      public function traerOrdenId($id,$conexion){
@@ -171,19 +183,34 @@ Class OrdenesModelo extends Conexion
           return $email;            
     }
 
-    public function busqueOrdenesConFiltro($request)
+    public function busqueOrdenesConFiltroNew($request)
     {
                 // echo '<pre>';
                 // print_r($request);
                 // echo '</pre>';
                 // die();
-        $sql =" SELECT o.id,o.orden,o.fecha,o.placa,c.tipo FROM ordenes o 
-                LEFT JOIN carros c on c.placa = o.placa   where 1=1 "; 
+
+        $sql = " SELECT o.id,o.orden,o.fecha,o.placa,c.tipo,o.estado,o.kilometraje,o.observaciones  
+                FROM ordenes o 
+                LEFT JOIN carros c on c.placa = o.placa 
+                where 1=1 "; 
+
+
+        if($request['placa'] != '')
+        {
+            $sql .= "  and o.placa =  '".$request['placa']."'   "; 
+        }  
 
         if($request['idEstado'] != '')
         {
             $sql .= "  and o.estado =  '".$request['idEstado']."'   "; 
         }        
+
+        $sql .= " 
+                  ORDER BY  o.id DESC 
+                ";        
+
+
         // die($sql); 
         $consulta = mysql_query($sql,$this->connectMysql());  
 
@@ -192,19 +219,15 @@ Class OrdenesModelo extends Conexion
         $i=0;
 
         while($resul = mysql_fetch_assoc($consulta)){
-
                $arreglo[$i]['id'] = $resul['id'];
-
                $arreglo[$i]['orden'] = $resul['orden'];
-
                $arreglo[$i]['fecha'] = $resul['fecha'];
-
                $arreglo[$i]['placa'] = $resul['placa'];
-
                $arreglo[$i]['tipo'] = $resul['tipo'];
-
+               $arreglo[$i]['estado'] = $resul['estado'];
+               $arreglo[$i]['kilometraje'] = $resul['kilometraje'];
+               $arreglo[$i]['observaciones'] = $resul['observaciones'];
                $i++;
-
         }
         return $arreglo;
         

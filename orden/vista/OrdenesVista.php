@@ -1,6 +1,7 @@
 <?php
-
-class OrdenesVista{
+$raiz = dirname(dirname(dirname(__file__)));
+require_once($raiz.'/vista/vista.php');
+class OrdenesVista extends vista {
 
   
     public function pantallaInicial($arregloOrdenes){
@@ -32,17 +33,17 @@ class OrdenesVista{
                             > FILTROS</button>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <button class="btn btn-primary" onclick="pintarOrdenes();">Listar</button>
+                            <button class="btn btn-primary" onclick="pintarOrdenesNew();">Listar</button>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <button class="btn btn-primary" onclick = "iraCraerOrden();"  id= "btnCrearOrden">NUEVA</button>
                         </div>
                     </div>
-                   
+                   <br><br>
                    <div id="div_mostrar_ordenes" class = "resultadosValidacion">
                        <div>
                           
-                                    <?php  $this->pintarOrdenes($arregloOrdenes);  ?>
+                                    <?php  $this->pintarOrdenesNew($arregloOrdenes);  ?>
                          
                         </div>  
                     </div>
@@ -104,6 +105,69 @@ class OrdenesVista{
         </tbody>
         </table>
         ';
+    }
+    
+    public function pintarOrdenesNew($ordenes){
+        echo '<div style="color:black" table-responsive>';
+        echo '<table class = "table table-striped table-bordered table-hover">'; 
+
+        echo '<thead>'; 
+        echo '<tr  class="bontonesmenuinternos">'; 
+        echo '<th>ORDEN</th>';
+        echo '<th>FECHA</th>';
+        echo '<th>PLACA</th>';
+        echo '<th>LINEA</th>';
+        echo '<th>OBSERVACIONES</th>';
+        echo '<th>ESTADO</th>';
+        echo '</tr>';
+        echo '</thead>';
+        
+        foreach($ordenes as $orden ){
+            // $columna = '<tr>';
+            if($orden['estado']==0)
+            {
+                echo '<tr class="active">';
+            }
+            if($orden['estado']==1)
+            {
+                echo '<tr class="warning">';
+            }
+            if($orden['estado']==2)
+            {
+                echo '<tr class="success">';
+            }
+            if($orden['estado']==3)
+            {
+                echo '<tr class="danger">';
+            }
+
+            
+            echo '<td>
+            <button 
+                onclick="muestreDetalleOrden('.$orden['id'].');" 
+                class="btn btn-primary" 
+                data-toggle="modal" data-target="#myModal2"
+                size= "6px"
+                >'.$orden['orden'].'
+                
+            </button>
+            </td>';
+            echo '<td>'.$orden['fecha'].'</td>';
+            echo '<td>'.$orden['placa'].'</td>';
+            echo '<td>'.$orden['linea'].'</td>';
+            echo '<td>'.substr($orden['observaciones'],0,30).'</td>';
+            echo '<td>'.$orden['estado'].'</td>';
+            echo '</tr>';
+        
+            // echo '<td class="success">'.$orden['orden'].'</button></td>';
+            // echo '<td class="active">'.$orden['fecha'].'</td>';
+            // echo '<td  class="warning">'.$orden['placa'].'</td>';
+            // echo '<td class="danger">'.$orden['estado'].'</td>';
+            // echo '<td class="info">'.$orden['estado'].'</td>';
+            // echo '</tr>';
+        }
+        echo  '</div>';
+        echo '</table>'; 
     }
 
     public function modal (){
@@ -495,37 +559,41 @@ class OrdenesVista{
         <div  style="color:black;">
            <div class="row form-group">
 
-               <div class="col-xs-3" align="left">
-                   <label for="">Placa:</label>
-               </div>
-               <div class="col-xs-9" align="left">
-                   <input 
-                       class="form-control" 
-                       type="text"  
-                       id="txtPlacaBuscar"
-                       onkeyup="busqueCodigosConFiltroOrdenes(); "
-                       >
-                    </div>
+                <div class="col-xs-2" align="left">
+                    <label for="">Placa:</label>
                 </div>
-                <div class="row form-group">
-                    
-                    <div class="col-xs-3" align="left">
-                        <label for="">Nombre</label>
-                    </div>
-                    <div class="col-xs-9" align="left">
-                        <input 
+                <div class="col-xs-10" align="left">
+                    <input 
                         class="form-control" 
                         type="text"  
-                        id="txtBuscarNombre"
+                        id="txtPlacaBuscar"
                         onkeyup="busqueCodigosConFiltroOrdenes(); "
+                        >
+                </div>
+            </div>
+
+            <!-- <div class="row form-group">
+                
+                <div class="col-xs-2" align="left">
+                    <label for="">Nombre</label>
+                </div>
+                <div class="col-xs-10" align="left">
+                    <input 
+                    class="form-control" 
+                    type="text"  
+                    id="txtBuscarNombre"
+                    onkeyup="busqueCodigosConFiltroOrdenes(); "
                     >
-               </div>
+                </div>
+            </div> -->
+
+
                 <div class="row form-group">
                     
-                    <div class="col-xs-3" align="left">
+                    <div class="col-xs-2" align="left">
                         <label for="">Estado:</label>
                     </div>
-                    <div class="col-xs-9" align="left">
+                    <div class="col-xs-10" align="left">
                             <select id="idEstadoOrden"
                                 class="form-control"
                                 onchange="busqueCodigosConFiltroOrdenes(); "

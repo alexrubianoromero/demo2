@@ -229,6 +229,25 @@ function pintarOrdenes(){
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send('opcion=ordenes');
 }
+function pintarOrdenesNew(){
+    const http=new XMLHttpRequest();
+    // const url = '../orden/crear_orden_nuevo_responsivo.php';
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            //  console.log(this.responseText);
+             //var respuesta = JSON.parse(this.responseText);
+            // console.log(respuesta.marca);
+				// alert(respuesta[0]+' '+ respuesta[1]);
+         //		document.getElementById("tipooperacion").text = respuesta[1];
+           document.getElementById("div_mostrar_ordenes").innerHTML  = this.responseText;
+           
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=pintarOrdenesNew');
+}
 
 function buscarPlacaPeritajeDesdeOrden(){
     var placa = document.getElementById("placaPeritaje").value;
