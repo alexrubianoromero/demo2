@@ -26,7 +26,10 @@ class OrdenesVista{
                <div align = "center" id = "div_general_modulo_ordenes">   
                     <div id=" row divBotonesClientes">
                         <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            ORDENES
+                            <button 
+                            class="btn btn-default" data-toggle="modal" data-target="#myModalFiltrosOrdenes"
+                                onclick = "formuFiltrosBusqueda();"
+                            > FILTROS</button>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <button class="btn btn-primary" onclick="pintarOrdenes();">Listar</button>
@@ -38,19 +41,9 @@ class OrdenesVista{
                    
                    <div id="div_mostrar_ordenes" class = "resultadosValidacion">
                        <div>
-                            <table class="table" >
-                                <thead> 
-                                <tr>
-                                    <td>No</td>        
-                                    <td>Fecha</td>        
-                                    <td>Placa</td>        
-                                    <td>Linea</td>        
-                                </tr>
-                                </thead>
-                                <tbody>
+                          
                                     <?php  $this->pintarOrdenes($arregloOrdenes);  ?>
-                                </tbody>
-                            </table>
+                         
                         </div>  
                     </div>
                     <div id="fomularioCracionOrden">
@@ -61,6 +54,7 @@ class OrdenesVista{
                <?php  $this->modal(); ?>
                <?php  $this->modalClientes(); ?>
                <?php  $this->modalDatosOrden(); ?>
+               <?php  $this->modalFiltrosOrdenes(); ?>
 
 
            </body>
@@ -78,15 +72,38 @@ class OrdenesVista{
     
     public function pintarOrdenes($arregloOrdenes){
          
+        echo '
+        <table class="table" >
+        <thead> 
+        <tr>
+            <td>No</td>        
+            <td>Fecha</td>        
+            <td>Placa</td>        
+            <td>Linea</td>        
+        </tr>
+        </thead>
+        <tbody>
+        ';
         for ($i=0; $i <= sizeof($arregloOrdenes);$i++ ){
            echo '<tr>';
-           echo '<td><button  onclick="muestreDetalleOrden('.$arregloOrdenes[$i]['id'].');" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">'.$arregloOrdenes[$i]['orden'].'</button></td>';
+           echo '<td><button  
+                        onclick="muestreDetalleOrden('.$arregloOrdenes[$i]['id'].');" 
+                        class="btn btn-primary" 
+                        data-toggle="modal" data-target="#myModal2"
+                        >'
+                        .$arregloOrdenes[$i]['orden'].'
+                        </button></td>';
            // echo '<td><button  onclick="muestreDetalleOrden('.$arregloOrdenes[$i]['id'].');" class="btn btn-primary" >'.$arregloOrdenes[$i]['orden'].'</button></td>';
            echo '<td>'.$arregloOrdenes[$i]['fecha'].'</td>';
            echo '<td>'.$arregloOrdenes[$i]['placa'].'</td>';
            echo '<td>'.$arregloOrdenes[$i]['tipo'].'</td>';
            echo '</tr>';
         }
+
+        echo '
+        </tbody>
+        </table>
+        ';
     }
 
     public function modal (){
@@ -103,6 +120,31 @@ class OrdenesVista{
                   </div>
                   <div id="cuerpoModal" class="modal-body">
                       el modal 
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalFiltrosOrdenes (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div class="modal fade" id="myModalFiltrosOrdenes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Detalle Orden</h4>
+                  </div>
+                  <div id="cuerpoModalFiltrosOrdenes" class="modal-body">
+         
                       
                   </div>
                   <div class="modal-footer">
@@ -311,7 +353,7 @@ class OrdenesVista{
             > 
         <!-- <button class="btn btn-primary" id = "consultarOrden" onclick="buscarPlacaPeritaje();"> -->
         <button class="btn btn-primary" id = "consultarOrden" onclick="buscarPlacaPeritajeDesdeOrden();">
-        <i class="fas fa-search"></i>
+        BUSCAR PLACA <i class="fas fa-search"></i>
         </button>
         <div id = "divResultadobusqueda" >
 
@@ -444,6 +486,71 @@ class OrdenesVista{
     </div>
     <?php
   }
+
+  public function formuFiltrosOrdenes()
+  {
+    
+
+        ?>
+        <div  style="color:black;">
+           <div class="row form-group">
+
+               <div class="col-xs-3" align="left">
+                   <label for="">Placa:</label>
+               </div>
+               <div class="col-xs-9" align="left">
+                   <input 
+                       class="form-control" 
+                       type="text"  
+                       id="txtPlacaBuscar"
+                       onkeyup="busqueCodigosConFiltroOrdenes(); "
+                       >
+                    </div>
+                </div>
+                <div class="row form-group">
+                    
+                    <div class="col-xs-3" align="left">
+                        <label for="">Nombre</label>
+                    </div>
+                    <div class="col-xs-9" align="left">
+                        <input 
+                        class="form-control" 
+                        type="text"  
+                        id="txtBuscarNombre"
+                        onkeyup="busqueCodigosConFiltroOrdenes(); "
+                    >
+               </div>
+                <div class="row form-group">
+                    
+                    <div class="col-xs-3" align="left">
+                        <label for="">Estado:</label>
+                    </div>
+                    <div class="col-xs-9" align="left">
+                            <select id="idEstadoOrden"
+                                class="form-control"
+                                onchange="busqueCodigosConFiltroOrdenes(); "
+                            >    
+                                <option value = "">Seleccione...</option>
+                                <option value = "0">En Proceso</option>
+                                <option value = "1">Lista</option>
+                                <option value = "2">Facturada</option>
+                                <option value = "3">Entregada</option>
+                            </select>
+                    </div>        
+                      
+               </div>
+           </div>
+           <div>
+               <!-- <button 
+               class = "btn btn-primary"
+               data-dismiss="modal"
+                   onclick="buscarClienteFiltros();">Buscar Filtro</button> -->
+           </div>
+         
+       </div>
+       <?php
+    }
+
 }
 
 

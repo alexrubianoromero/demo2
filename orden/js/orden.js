@@ -529,4 +529,45 @@ function grabarVehiculoDesdeOrden()
                 );
             }
             
-            
+function formuFiltrosBusqueda(){
+
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            // var  resp = JSON.parse(this.responseText); 
+            // alert('respuesta'+ resp.data.descripcion);
+            document.getElementById("cuerpoModalFiltrosOrdenes").innerHTML = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=formuFiltrosOrdenes"
+    );
+    
+}
+
+function busqueCodigosConFiltroOrdenes()
+{
+    var placa = document.getElementById("txtPlacaBuscar").value;
+    var nombre = document.getElementById("txtBuscarNombre").value;
+    var idEstado = document.getElementById("idEstadoOrden").value;
+
+    // console.log(referencia);
+    // divResultadosInventarios
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("div_mostrar_ordenes").innerHTML = this.responseText;
+        }
+    };
+
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=busqueOrdenesConFiltro"
+    + "&placa="+placa
+    + "&nombre="+nombre
+    + "&idEstado="+idEstado
+    );
+}

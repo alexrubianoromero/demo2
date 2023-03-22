@@ -14,11 +14,8 @@ Class OrdenesModelo extends Conexion
      public function traerOrdenes($conexion){
 
          $sql = " SELECT o.id,o.orden,o.fecha,o.placa,c.tipo FROM ordenes o 
-
                   LEFT JOIN carros c on c.placa = o.placa 
-
                   ORDER BY  o.id DESC 
-
                   ";
 
          $consulta = mysql_query($sql,$conexion);
@@ -167,17 +164,50 @@ Class OrdenesModelo extends Conexion
     public function traerEmailCLiente($placa,$conexion){
 
           $sql  = "SELECT  cli.email as email FROM  carros ca 
-
                    INNER JOIN cliente0 cli ON  cli.idcliente = ca.propietario ";
-
           $consulta = mysql_query($sql,$conexion);
-
           $arreglo = mysql_fetch_assoc($consulta);
-
           $email = $arreglo['email']; 
-
           return $email;            
+    }
 
+    public function busqueOrdenesConFiltro($request)
+    {
+                // echo '<pre>';
+                // print_r($request);
+                // echo '</pre>';
+                // die();
+        $sql =" SELECT o.id,o.orden,o.fecha,o.placa,c.tipo FROM ordenes o 
+                LEFT JOIN carros c on c.placa = o.placa   where 1=1 "; 
+
+        if($request['idEstado'] != '')
+        {
+            $sql .= "  and o.estado =  '".$request['idEstado']."'   "; 
+        }        
+        // die($sql); 
+        $consulta = mysql_query($sql,$this->connectMysql());  
+
+        $arreglo= '';
+
+        $i=0;
+
+        while($resul = mysql_fetch_assoc($consulta)){
+
+               $arreglo[$i]['id'] = $resul['id'];
+
+               $arreglo[$i]['orden'] = $resul['orden'];
+
+               $arreglo[$i]['fecha'] = $resul['fecha'];
+
+               $arreglo[$i]['placa'] = $resul['placa'];
+
+               $arreglo[$i]['tipo'] = $resul['tipo'];
+
+               $i++;
+
+        }
+        return $arreglo;
+        
     }
 
 }

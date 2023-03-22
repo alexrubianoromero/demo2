@@ -102,9 +102,13 @@ class ordenControlador
         if($_REQUEST['opcion']=='eliminarItem'){
             $this->eliminarItem($_REQUEST);
         }
+        if($_REQUEST['opcion']=='formuFiltrosOrdenes'){
+            $this->formuFiltrosOrdenes();
+        }
     
-
-
+        if($_REQUEST['opcion']=='busqueOrdenesConFiltro'){
+            $this->busqueOrdenesConFiltro($_REQUEST);
+        }
     }
 
 
@@ -307,6 +311,17 @@ class ordenControlador
         $this->movimientosModelo->registerMov($data);
         $this->mostrarItemsOrden($request);
     }
+    public function formuFiltrosOrdenes()
+    {
+        $this->vistaOrden->formuFiltrosOrdenes();
+    }
+    
+    public function busqueOrdenesConFiltro($request)
+    {
+        $ordenes = $this->modeloOrden->busqueOrdenesConFiltro($request);
+        $this->vistaOrden->pintarOrdenes($ordenes);
+    }
+
 
 }
 ?>
