@@ -632,3 +632,67 @@ function actualizarInfoOrden(id)
     );
     pintarOrdenesNew();
 }
+
+function filtroBuscarCodigoIngresoOrden()
+{
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalFiltrosCodigos").innerHTML = this.responseText;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=formuFiltrosInventarioOrden"
+    // + "&nombre="+nombre
+    );
+}
+
+
+
+function busqueCodigosConFiltroOrden()
+{
+    var referencia = document.getElementById("txtReferencia").value;
+    var descripcion = document.getElementById("txtBuscarDescrip").value;
+    // console.log(referencia);
+    // divResultadosInventarios
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("divMuestreCodigosaBuscar").innerHTML = this.responseText;
+        }
+    };
+
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=busqueCodigosConFiltroOrden"
+    + "&referencia="+referencia
+    + "&descripcion="+descripcion
+    );
+}
+
+function colocarInfoCodigoEnItem(idCod)
+{
+    const http=new XMLHttpRequest();
+    const url = '../inventario_codigos/codigosInventario.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            var resp = JSON.parse(this.responseText);
+            console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            // document.getElementById("divMuestreCodigosaBuscar").innerHTML = this.responseText;
+            document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            document.getElementById("descripan").value = resp.descripcion;
+            document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
+
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=traerInfoCodeJson"
+    + "&idCod="+idCod
+    );
+}

@@ -115,6 +115,13 @@ class ordenControlador
         if($_REQUEST['opcion']=='actualizarOrden'){
             $this->actualizarOrden($_REQUEST);
         }
+        if($_REQUEST['opcion']=='formuFiltrosInventarioOrden'){
+            $this->formuFiltrosInventarioOrden();
+        }
+        if($_REQUEST['opcion']=='busqueCodigosConFiltroOrden'){
+            $this->busqueCodigosConFiltroOrden($_REQUEST);
+        }
+        
     }
 
 
@@ -338,11 +345,21 @@ class ordenControlador
     public function actualizarOrden($request)
     {
         
-//    echo '<pre>';
-//    print_r($request);
-//    echo '</pre>';
-//    die();
+        //    echo '<pre>';
+        //    print_r($request);
+        //    echo '</pre>';
+        //    die();
         $ordenes = $this->modeloOrden->actualizarOrdenId($request);
+    }
+    public function formuFiltrosInventarioOrden()
+    {
+        $this->vistaOrden->formuFiltrosInventarioOrden();
+    }
+
+    public function busqueCodigosConFiltroOrden($request)
+    {
+        $codigos = $this->codigosModelo->getInfoCodeFiltros($request);
+        $this->vistaOrden->mostrarCodigosBucadosFiltro($codigos);
     }
 
 }

@@ -56,6 +56,7 @@ class OrdenesVista extends vista {
                <?php  $this->modalClientes(); ?>
                <?php  $this->modalDatosOrden(); ?>
                <?php  $this->modalFiltrosOrdenes(); ?>
+               <?php  $this->modalFiltrosCodigos(); ?>
 
 
            </body>
@@ -208,6 +209,31 @@ class OrdenesVista extends vista {
                       <h4 class="modal-title" id="myModalLabel">Detalle Orden</h4>
                   </div>
                   <div id="cuerpoModalFiltrosOrdenes" class="modal-body">
+         
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalFiltrosCodigos (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div class="modal fade" id="myModalFiltrosCodigos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Filtros Codigos</h4>
+                  </div>
+                  <div id="cuerpoModalFiltrosCodigos" class="modal-body">
          
                       
                   </div>
@@ -535,7 +561,14 @@ class OrdenesVista extends vista {
   public function pregunteNuevoItem($id){
     ?> 
     <div>
-        <button  ><i class="fas fa-search" ></i> BUSCAR CODIGO</button>
+        <button  
+            onclick="filtroBuscarCodigoIngresoOrden();"
+            class="btn btn-primary" 
+            data-toggle="modal" data-target="#myModalFiltrosCodigos"
+        >
+            <i class="fas fa-search" ></i> 
+            BUSCAR CODIGO
+        </button>
         <br>
         <input type = "hidden" value= "<?php echo $id ?>">
         <div class="row form-group">
@@ -669,6 +702,86 @@ class OrdenesVista extends vista {
        </div>
        <?php
     }
+    public function formuFiltrosInventarioOrden()
+    {
+        ?>
+        <div  style="color:black;">
+           <div class="row form-group">
+
+               <div class="col-xs-3" align="left">
+                   <label for="">Referencia:</label>
+               </div>
+               <div class="col-xs-9" align="left">
+                   <input 
+                       class="form-control" 
+                       type="text"  
+                       id="txtReferencia"
+                       onkeyup="busqueCodigosConFiltroOrden(); "
+                       >
+                    </div>
+                </div>
+                <div class="row form-group">
+                    
+                    <div class="col-xs-3" align="left">
+                        <label for="">Descripcion</label>
+                    </div>
+                    <div class="col-xs-9" align="left">
+                        <input 
+                        class="form-control" 
+                        type="text"  
+                        id="txtBuscarDescrip"
+                        onkeyup="busqueCodigosConFiltroOrden(); "
+                    >
+               </div>
+           </div>
+           <div>
+               <!-- <button 
+               class = "btn btn-primary"
+               data-dismiss="modal"
+                   onclick="buscarClienteFiltros();">Buscar Filtro</button> -->
+           </div>
+           <div id="divMuestreCodigosaBuscar">
+
+           </div>
+         
+       </div>
+       <?php
+    }
+
+    
+    public function mostrarCodigosBucadosFiltro($codigos){
+        echo '<div class="row">';
+        echo '<table class="table" >';
+        echo '<tbody>';
+        echo '<tr>';
+        echo '<th>Codigo</th>';
+        echo '<th>Referencia</th>';
+        echo '<th>P.Venta</th>';
+        echo '<th>Can/Mov</th>';
+        // echo '<th>Descontar</th>';
+        echo '</tr>';
+        echo '</tbody>';
+        while($codigo = mysql_fetch_assoc($codigos)){
+            echo '<tr>'; 
+            echo '<td align="right">
+                <button 
+                    data-dismiss="modal"
+                    onclick="colocarInfoCodigoEnItem('.$codigo['id_codigo'].');" 
+                    class="btn btn-primary" 
+                    >'.$codigo['codigo_producto'].
+                    '</button></td>';
+            echo '<td>'.$codigo['referencia'].'</td>';
+            echo '<td>'.number_format($codigo['valorventa'], 0, '.', '').'</td>';
+
+            echo '<td>'.$codigo['cantidad'].'</td>';
+            // echo '<td><button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button></td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+        echo '</div>';
+    }
+
+
 
 }
 

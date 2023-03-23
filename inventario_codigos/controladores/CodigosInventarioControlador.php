@@ -66,6 +66,11 @@ class CodigosInventarioControlador{
       
                 $this->actualizarCodigo($_REQUEST);
             }
+            if($_REQUEST['opcion'] == 'traerInfoCodeJson'){
+      
+                $this->traerInfoCodeJson($_REQUEST);
+            }
+
 
 
 
@@ -147,6 +152,10 @@ class CodigosInventarioControlador{
         public function actualizarCodigo($request)
         {
             $this->modelo->actualizarCodigo($request);
+        }
+        public function traerInfoCodeJson($request)
+        {
+            $this->modelo->traerInfoCodeJson($request['idCod']);
         }
     }
     

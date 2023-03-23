@@ -51,7 +51,6 @@ require_once($raiz.'/conexion/Conexion.php');
             $conexion = $this->connectMysql();
             $sql = "select * from productos order by id_codigo desc ";
             $consulta = mysql_query($sql,$conexion);
-            
             return $consulta; 
         } 
         
@@ -62,6 +61,14 @@ require_once($raiz.'/conexion/Conexion.php');
             $infoCode = mysql_fetch_assoc($consulta);
             return $infoCode; 
             
+        }
+        public function traerInfoCodeJson($id)
+        {
+            $sql = "select * from productos where id_codigo = '".$id."'   ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $infoCode = mysql_fetch_assoc($consulta);
+            
+            echo json_encode($infoCode);            
         }
         public function getInfoCodeFiltros($request)
         {
