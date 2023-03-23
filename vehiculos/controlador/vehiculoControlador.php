@@ -95,8 +95,9 @@ class vehiculoControlador{
 
     public function verificarPlacaRespuestaJson($conexion,$placa){
 
-        $this->vehiculoModelo->verificarPlacaRespuestaJson($conexion,$placa);
-
+        $filas = $this->vehiculoModelo->verificarPlacaRespuestaJson($conexion,$placa);
+        // $respu['filas']= $filas;
+        echo json_encode($filas);
     }
 
     public function pantallainicialVehiculos($conexion){

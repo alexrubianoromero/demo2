@@ -60,6 +60,7 @@ Class OrdenesModelo extends Conexion
 
      public function traerOrdenId($id,$conexion){
         $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico,o.id 
+                 ,o.estado
                  FROM ordenes o 
                  LEFT JOIN carros c on c.placa = o.placa
                  LEFT JOIN cliente0 cli on cli.idcliente = c.propietario 
@@ -213,24 +214,34 @@ Class OrdenesModelo extends Conexion
 
         // die($sql); 
         $consulta = mysql_query($sql,$this->connectMysql());  
-
+        
         $arreglo= '';
-
+        
         $i=0;
-
+        
         while($resul = mysql_fetch_assoc($consulta)){
-               $arreglo[$i]['id'] = $resul['id'];
-               $arreglo[$i]['orden'] = $resul['orden'];
-               $arreglo[$i]['fecha'] = $resul['fecha'];
-               $arreglo[$i]['placa'] = $resul['placa'];
-               $arreglo[$i]['tipo'] = $resul['tipo'];
+            $arreglo[$i]['id'] = $resul['id'];
+            $arreglo[$i]['orden'] = $resul['orden'];
+            $arreglo[$i]['fecha'] = $resul['fecha'];
+            $arreglo[$i]['placa'] = $resul['placa'];
+            $arreglo[$i]['tipo'] = $resul['tipo'];
                $arreglo[$i]['estado'] = $resul['estado'];
                $arreglo[$i]['kilometraje'] = $resul['kilometraje'];
                $arreglo[$i]['observaciones'] = $resul['observaciones'];
                $i++;
+            }
+            return $arreglo;
+            
         }
-        return $arreglo;
-        
+        public function actualizarOrdenId($request)
+        {
+            $sql = "update ordenes set 
+            estado = '".$request['idEstadoOrden']."'
+            where id = '".$request['id']."'
+            ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            echo 'Orden Actualizada ';  
+            
     }
 
 }

@@ -202,6 +202,7 @@ function iraCraerOrden(){
 				// alert(respuesta[0]+' '+ respuesta[1]);
          //		document.getElementById("tipooperacion").text = respuesta[1];
            document.getElementById("div_mostrar_ordenes").innerHTML  = this.responseText;
+           document.getElementById("divBotonFormuCreacionOrden").style.display = 'none';
            
         }
     };
@@ -250,21 +251,37 @@ function pintarOrdenesNew(){
 }
 
 function buscarPlacaPeritajeDesdeOrden(){
-    var placa = document.getElementById("placaPeritaje").value;
-    const http=new XMLHttpRequest();
-	const url = '../vehiculos/vehiculos.php';
-	http.onreadystatechange = function(){
-		if(this.readyState == 4 && this.status ==200){
-			console.log(this.responseText);
-			document.getElementById("divResultadobusqueda").innerHTML = this.responseText;
-		}
-	};
-	http.open("POST",url);
-	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	http.send("opcion=buscarPlacaDesdeOrden"+ "&placa="+placa);
-    verificarPlacaRespuestaJson();
+    var validaPLaca = validaPlaca(); 
+    if(validaPlaca)
+    {
+        var placa = document.getElementById("placaPeritaje").value;
+        const http=new XMLHttpRequest();
+        const url = '../vehiculos/vehiculos.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                console.log(this.responseText);
+                document.getElementById("divResultadobusqueda").innerHTML = this.responseText;
+            }
+        };
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=buscarPlacaDesdeOrden"+ "&placa="+placa);
+
+        verificarPlacaRespuestaJson();
+    }
 }
 
+function validaPlaca()
+{
+    
+    if(document.getElementById("placaPeritaje").value=='')
+    {
+        alert('por favor digite una placa');
+        document.getElementById("placaPeritaje").focus();
+        return 0;
+    }
+    return 1;
+}
 function verificarPlacaRespuestaJson(){
     var placa = document.getElementById("placaPeritaje").value;
     const http=new XMLHttpRequest();
@@ -272,15 +289,18 @@ function verificarPlacaRespuestaJson(){
 	http.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status ==200){
             respu = JSON.parse(this.responseText);
-			console.log(respu);
+			console.log('filas'+respu);
 
             if(parseInt(respu) > 0){
-                crearBoton();
+                //  crearBoton();
+                console.log('existePlaca');
+                document.getElementById("divBotonFormuCreacionOrden").style.display = 'block';
             }
             else{
-                var  divCreacionOrden = document.querySelector('#fomularioCracionOrden');
-                divCreacionOrden.innerHTML='';
-            }
+                 document.getElementById("divBotonFormuCreacionOrden").style.display = 'none';
+                 var  divCreacionOrden = document.querySelector('#fomularioCracionOrden');
+                 divCreacionOrden.innerHTML='';
+             }
 			// console.log(this.responseText);
 			// document.getElementById("divResultadobusqueda").innerHTML = this.responseText;
 		}
@@ -290,17 +310,18 @@ function verificarPlacaRespuestaJson(){
 	http.send("opcion=verificarPlacaRespuestaJson"+ "&placa="+placa);
 }
 
-function crearBoton(){
-    var  divCreacionOrden = document.querySelector('#fomularioCracionOrden');
-    var btnCreacion = document.createElement('button');
-    btnCreacion.setAttribute('id','btn_mostrar_formulario_creacion_orden');
-    btnCreacion.setAttribute('onclick','mostrarFormularioCreacionOrden();');
-    btnCreacion.setAttribute('class','btn btn-primary btn-lg');
-    btnCreacion.setAttribute('data-toggle','modal');
-    btnCreacion.setAttribute('data-target','#myModalDdatosOrden');
-    btnCreacion.textContent = 'Formulario Creacion de Orden';
-    divCreacionOrden.appendChild(btnCreacion);
-}
+
+// function crearBoton(){
+//     var  divCreacionOrden = document.querySelector('#fomularioCracionOrden');
+//     var btnCreacion = document.createElement('button');
+//     btnCreacion.setAttribute('id','btn_mostrar_formulario_creacion_orden');
+//     btnCreacion.setAttribute('onclick','mostrarFormularioCreacionOrden();');
+//     btnCreacion.setAttribute('class','btn btn-primary btn-lg');
+//     btnCreacion.setAttribute('data-toggle','modal');
+//     btnCreacion.setAttribute('data-target','#myModalDdatosOrden');
+//     btnCreacion.textContent = 'Formulario Creacion de Orden';
+//     divCreacionOrden.appendChild(btnCreacion);
+// }
 
 function mostrarFormularioCreacionOrden(){
     var placa = document.getElementById("placaPeritaje").value;
@@ -571,7 +592,7 @@ function busqueCodigosConFiltroOrdenes()
     var placa = document.getElementById("txtPlacaBuscar").value;
     // var nombre = document.getElementById("txtBuscarNombre").value;
     var idEstado = document.getElementById("idEstadoOrden").value;
-
+    
     // console.log(referencia);
     // divResultadosInventarios
     const http=new XMLHttpRequest();
@@ -581,7 +602,7 @@ function busqueCodigosConFiltroOrdenes()
             document.getElementById("div_mostrar_ordenes").innerHTML = this.responseText;
         }
     };
-
+    
     http.open("POST",url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=busqueOrdenesConFiltro"
@@ -589,4 +610,25 @@ function busqueCodigosConFiltroOrdenes()
     // + "&nombre="+nombre
     + "&idEstado="+idEstado
     );
+}
+
+function actualizarInfoOrden(id)
+{
+    // alert('buenas'+id);
+    var idEstadoOrden =  document.getElementById("idEstadoOrden").value;
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModal").innerHTML = this.responseText;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=actualizarOrden"
+    + "&id="+id
+    + "&idEstadoOrden="+idEstadoOrden
+    );
+    pintarOrdenesNew();
 }

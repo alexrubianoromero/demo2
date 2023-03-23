@@ -318,7 +318,46 @@ class OrdenesVista extends vista {
                     </div>
             </div>
             <div>
-                <div class="row">
+                <div style="color:black;">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <label>Estado:</label>
+                        </div>
+                        <div class="col-xs-5">
+                        
+                            <select id="idEstadoOrden"
+                                class="form-control"
+                            >    
+                                <option value = "0"  
+                                    <?php if($arregloOrden['estado']==0){ echo 'selected'; } ?>
+                                    >En Proceso</option>
+                                    <option value = "1"
+                                    <?php if($arregloOrden['estado']==1){ echo 'selected'; } ?>
+                                    
+                                    >Lista</option>
+                                    <option value = "2"
+                                    <?php if($arregloOrden['estado']==2){ echo 'selected'; } ?>
+                                    
+                                    >Facturada</option>
+                                    <option value = "3"
+                                    <?php if($arregloOrden['estado']==3){ echo 'selected'; } ?>
+                                
+                                    >Entregada</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <?php
+                            echo '<button 
+                                        class="btn btn-primary"
+                                        onclick="actualizarInfoOrden('.$arregloOrden['id'].'); "
+                                        data-dismiss="modal"
+                                        >
+                                        Actualizar Orden</button>';
+                            ?>
+                        </div>
+                    </div>    
+                </div>
+                <br><br>
                     <div class="col-xs-12">
                
                         <button class="btn btn-primary" onclick="pregunteItems();">Agregar Item</button>
@@ -416,11 +455,23 @@ class OrdenesVista extends vista {
             onkeyup="convertMayusculas();"
             > 
         <!-- <button class="btn btn-primary" id = "consultarOrden" onclick="buscarPlacaPeritaje();"> -->
+            <br><br>
         <button class="btn btn-primary" id = "consultarOrden" onclick="buscarPlacaPeritajeDesdeOrden();">
         BUSCAR PLACA <i class="fas fa-search"></i>
         </button>
         <div id = "divResultadobusqueda" >
 
+        </div>
+        <div id="divBotonFormuCreacionOrden">
+                <button
+                    id= "btn_mostrar_formulario_creacion_orden"
+                    onclick = "mostrarFormularioCreacionOrden();"
+                    class = "btn btn-primary btn-lg"
+                    data-toggle="modal" 
+                    data-target="#myModalDdatosOrden"
+                >
+                    Formulario Creacion de Orden
+                </button>
         </div>
         
       <?php
@@ -484,7 +535,7 @@ class OrdenesVista extends vista {
   public function pregunteNuevoItem($id){
     ?> 
     <div>
-        <button ><i class="fas fa-search"></i></button>
+        <button  ><i class="fas fa-search" ></i> BUSCAR CODIGO</button>
         <br>
         <input type = "hidden" value= "<?php echo $id ?>">
         <div class="row form-group">

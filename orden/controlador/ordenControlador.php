@@ -112,6 +112,9 @@ class ordenControlador
         if($_REQUEST['opcion']=='busqueOrdenesConFiltro'){
             $this->busqueOrdenesConFiltro($_REQUEST);
         }
+        if($_REQUEST['opcion']=='actualizarOrden'){
+            $this->actualizarOrden($_REQUEST);
+        }
     }
 
 
@@ -332,7 +335,15 @@ class ordenControlador
         $ordenes = $this->modeloOrden->busqueOrdenesConFiltroNew($request);
         $this->vistaOrden->pintarOrdenesNew($ordenes);
     }
-
+    public function actualizarOrden($request)
+    {
+        
+//    echo '<pre>';
+//    print_r($request);
+//    echo '</pre>';
+//    die();
+        $ordenes = $this->modeloOrden->actualizarOrdenId($request);
+    }
 
 }
 ?>

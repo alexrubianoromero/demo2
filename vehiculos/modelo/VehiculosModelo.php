@@ -111,8 +111,8 @@ class VehiculosModelo extends Conexion
         // $respuesta['filas']= $filas;
 
         // $respuesta['datos']=  $datos;  
-
-        echo  json_encode($filas); 
+        return $filas;
+        // echo  json_encode($filas); 
 
     }
 
