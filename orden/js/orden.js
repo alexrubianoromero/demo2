@@ -434,7 +434,10 @@ function grabarVehiculoDesdeOrden()
            );
         }
         
-        
+        function cerrarventanaItems()
+        {
+            document.getElementById("divPregunteNuevoItem").innerHTML = '';
+        }
         function grabarNuevoItem(idOrden)
         {
             $valida =  validacionCamposItem();
@@ -616,6 +619,7 @@ function actualizarInfoOrden(id)
 {
     // alert('buenas'+id);
     var idEstadoOrden =  document.getElementById("idEstadoOrden").value;
+    var observacionestecnico = document.getElementById("txtobservacionestecnico").value;
     const http=new XMLHttpRequest();
     const url = '../orden/ordenes.php';
     http.onreadystatechange = function(){
@@ -629,6 +633,7 @@ function actualizarInfoOrden(id)
     http.send("opcion=actualizarOrden"
     + "&id="+id
     + "&idEstadoOrden="+idEstadoOrden
+    + "&observacionestecnico="+observacionestecnico
     );
     pintarOrdenesNew();
 }

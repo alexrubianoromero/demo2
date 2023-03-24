@@ -337,9 +337,20 @@ class OrdenesVista extends vista {
                              </tr>
                              <tr>
                                  <td colspan="2">
-                                             <?php echo $arregloOrden['observaciones']; ?>
+                                     <?php echo $arregloOrden['observaciones']; ?>
+                                 </td>
+                            </tr>
+                            <tr>
+                                <td colspan= "2" align="center">Observaciones Tecnico</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <textarea id="txtobservacionestecnico" class = "form-control">
+                                        <?php echo $arregloOrden['observacionestecnico']; ?>
+                                    </textarea>
                                 </td>
-                             </tr>
+                           </tr>
+                                
                          </table>
                     </div>
             </div>
@@ -561,14 +572,33 @@ class OrdenesVista extends vista {
   public function pregunteNuevoItem($id){
     ?> 
     <div>
-        <button  
-            onclick="filtroBuscarCodigoIngresoOrden();"
+        <div class="row">
+            <div class="col-xs-2">
+            </div>   
+            <div class="col-xs-4">
+                <button  
+                onclick="filtroBuscarCodigoIngresoOrden();"
+                class="btn btn-primary" 
+                data-toggle="modal" data-target="#myModalFiltrosCodigos"
+                >
+                <i class="fas fa-search" ></i> 
+                BUSCAR CODIGO
+            </button>
+            
+        </div>
+        <div class="col-xs-4">
+            <button
             class="btn btn-primary" 
-            data-toggle="modal" data-target="#myModalFiltrosCodigos"
-        >
-            <i class="fas fa-search" ></i> 
-            BUSCAR CODIGO
-        </button>
+                onclick= "cerrarventanaItems();"
+            >
+                CERRAR 
+            </button>
+        </div>    
+        <div class="col-xs-2">
+            </div>  
+
+
+        </div>
         <br>
         <input type = "hidden" value= "<?php echo $id ?>">
         <div class="row form-group">

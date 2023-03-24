@@ -60,7 +60,7 @@ Class OrdenesModelo extends Conexion
 
      public function traerOrdenId($id,$conexion){
         $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico,o.id 
-                 ,o.estado
+                 ,o.estado,o.observacionestecnico
                  FROM ordenes o 
                  LEFT JOIN carros c on c.placa = o.placa
                  LEFT JOIN cliente0 cli on cli.idcliente = c.propietario 
@@ -237,6 +237,7 @@ Class OrdenesModelo extends Conexion
         {
             $sql = "update ordenes set 
             estado = '".$request['idEstadoOrden']."'
+            , observacionestecnico = '".$request['observacionestecnico']."'
             where id = '".$request['id']."'
             ";
             $consulta = mysql_query($sql,$this->connectMysql()); 
