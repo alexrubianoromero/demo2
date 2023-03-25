@@ -61,6 +61,8 @@ class movilVista{
     <script src="../inventario_codigos/js/movimientos.js"></script>
     <script src="../caja/js/caja.js"></script>
     <script src="../tecnicos/js/tecnicos.js"></script>
+    <script src="../ayudas_financieras/js/ayudasfinancieras.js"></script>
+    <script src="../ayudas_financieras/js/conceptos.js"></script>
     <?php
   }
   public function htmlLogueo(){
