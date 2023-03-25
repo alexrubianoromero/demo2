@@ -13,20 +13,27 @@ class ConceptoModel extends Conexion
         $this->conexion = $this->connectMysql();
     }
 
-        public function grabarConcepto($request)
-        {
-             $sql = "insert into conceptos (concepto) values ('".$request['concepto']."')";    
-             $consulta = mysql_query($sql,$this->conexion);
-            }
+    public function grabarConcepto($request)
+    {
+        $sql = "insert into conceptos (concepto) values ('".$request['concepto']."')";    
+        $consulta = mysql_query($sql,$this->conexion);
+    }
             
-            public function traerConceptos()
-            {
-                $sql ="select * from conceptos order by idConcepto desc"; 
-                $consulta = mysql_query($sql,$this->conexion);
-                $conceptos = $this->get_table_assoc($consulta);
-                return $conceptos;  
-
-        }
+    public function traerConceptos()
+    {
+        $sql ="select * from conceptos order by idConcepto desc"; 
+        $consulta = mysql_query($sql,$this->conexion);
+        $conceptos = $this->get_table_assoc($consulta);
+        return $conceptos;  
+    }
+    
+    public function traerConceptoConId($id)
+    {
+        $sql = "select conceptos where idConcepto = '".$id."'  "; 
+        $consulta = mysql_query($sql,$this->conexion);
+        $arr = mysql_fetch_assoc($consulta);
+        return $arr['concepto'];  
+    }
 }
 
 

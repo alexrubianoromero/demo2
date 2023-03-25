@@ -1,7 +1,16 @@
 <?php
+$raiz = dirname(dirname(dirname(__file__)));
+require_once($raiz.'/caja/model/ConceptoModel.php');
 
 class cajaVista
 {
+    protected $modeloConcep; 
+
+    public function __contruct()
+    {
+        $this->modeloConcep = new ConceptoModel(); 
+    }
+
     public function cajaVistaPrincipal($saldoActual)
     {
         ?>
@@ -104,7 +113,7 @@ class cajaVista
         <?php
     }
 
-    public function formuCajaEntrada($request)
+    public function formuCajaEntrada($request,$conceptos=[],$tecnicos = [])
     {
         if($request['tipo']==1){
             $titulo = 'Entrada';
@@ -128,7 +137,68 @@ class cajaVista
             </div>
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control">Concepto:</label></div>
-                <div class="col-xs-8"><input type="text" id="txtConcepto" class ="form-control"></div>
+                <div class="col-xs-8">
+                    <!-- <input type="text" id="txtConcepto" class ="form-control"> -->
+                    <select  id="txtConcepto" 
+                        class = "form-control"
+                    >
+                        <option value="0">Seleccione Concepto</option>
+                        <?php $this->mostrarConceptos($conceptos); ?>
+                    </select>
+                </div>
+            </div>
+            <div id="divPregunteTecnico" class="row">
+                <div class ="col-xs-4"><label class ="form-control">Tecnico:</label></div>
+                <div class="col-xs-8">
+                    <!-- <input type="text" id="txtConcepto" class ="form-control"> -->
+                    <select  id="idTecnico" 
+                        class = "form-control"
+                    >
+                        <option value="0">Seleccione Tecnico</option>
+                            <?php $this->mostrarTecnicos($tecnicos); ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class ="col-xs-4"><label class ="form-control">Observaciones:</label></div>
+                <div class="col-xs-8"><input type="text" id="txtObservacion" class ="form-control"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12"><button  class ="btn btn-primary" onclick="grabarRecibo();">Registrar</button></div>
+            </div>
+        </div>
+
+        <?php
+    }
+
+    public function formuCajaEntrada_ante($request)
+    {
+        if($request['tipo']==1){
+            $titulo = 'Entrada';
+            $dequien = 'Recibido de:';
+        }
+        else{
+            $titulo = 'Salida';
+            $dequien = 'Pagado a:';
+        }
+        ?>
+        <div style="color:black">
+        <h3><?php  echo $titulo;  ?></h3>
+            <input type="hidden" id="tipo" value = "<?php echo $request['tipo']   ?>" >
+            <div class="row">
+                <div class ="col-xs-4"><label class ="form-control">Valor:</label></div>
+                <div class="col-xs-8"><input type="text" id="txtValor" class ="form-control"></div>
+            </div>
+            <div class="row">
+                <div class ="col-xs-4"><label class ="form-control"><?php  echo  $dequien;  ?></label></div>
+                <div class="col-xs-8"><input type="text" id="txtAquien" class ="form-control"></div>
+            </div>
+            <div class="row">
+                <div class ="col-xs-4"><label class ="form-control">Concepto:</label></div>
+                <div class="col-xs-8">
+                    <input type="text" id="txtConcepto" class ="form-control">
+                </div>
             </div>
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control">Observaciones:</label></div>
@@ -145,13 +215,14 @@ class cajaVista
     public function mostrarRecibos($recibos)
     {
         
-           echo '<div class="row">';
+        echo '<div class="row">';
         echo '<table class="table" >';
         echo '<tbody>';
         echo '<tr>';
         echo '<th>Fecha</th>';
         echo '<th>Tipo</th>';
         echo '<th>Nombre</th>';
+        echo '<th>Concepto</th>';
         echo '<th>Valor</th>';
         // echo '<th>Descontar</th>';
         echo '</tr>';
@@ -163,6 +234,11 @@ class cajaVista
             echo '<td>'.$recibo['fecha_recibo'].'</td>';
             echo '<td>'.$recibo['tipo_recibo'].'</td>';
             echo '<td>'.$recibo['dequienoaquin'].'</td>';
+            echo '<td>';
+            // $concepto = $this->modeloConcep->traerConceptoConId($recibo['idConcepto']); 
+            echo $recibo['idConcepto'];
+            // echo $concepto;
+            echo '</td>';
             echo '<td align="right">'.number_format($recibo['lasumade'],0,",",".").'</td>';
             echo '</tr>';
 
@@ -170,13 +246,29 @@ class cajaVista
 
         }
         echo '<tr>';
-        echo '<td colspan= "2"></td>';
+        echo '<td colspan= "3"></td>';
         echo '<td>Total:</td>';
         echo '<td align="right">'.number_format($total,0,",",".").'</td>';
         echo '</tr>';
         
         echo '</table>';
         echo '</div>';
+    }
+    public function mostrarConceptos($conceptos)
+    {
+            foreach($conceptos as $concepto)
+            {
+                echo '<option value = "'.$concepto['idConcepto'].'">'.$concepto['concepto'].'</option>';
+            }
+    }
+        
+    public function mostrarTecnicos($tecnicos)
+    {
+        foreach($tecnicos as $tecnico)
+        {
+            echo '<option value = "'.$tecnico['idcliente'].'">'.$tecnico['nombre'].'</option>';
+        }
+            
     }
 }
 

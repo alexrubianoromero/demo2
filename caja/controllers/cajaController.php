@@ -2,15 +2,22 @@
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/caja/vista/cajaVista.php');
 require_once($raiz.'/caja/model/ReciboCajaModelo.php');
+require_once($raiz.'/caja/model/ConceptoModel.php');
+require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
 
 class cajaController
 {
     protected $vista;
     protected $model;
+    protected $modelConcepto;  
+    protected $modelTecnico;
+
     public function __construct()
     {
         $this->vista = new cajaVista(); 
         $this->model = new ReciboCajaModelo();
+        $this->modelConcepto = new ConceptoModel();
+        $this->modelTecnico = new TecnicosModelo(); 
 
         if($_REQUEST['opcion']=='menuPrincipalCaja')
         {
@@ -18,7 +25,9 @@ class cajaController
         }
         if($_REQUEST['opcion']=='pregunteEntradaCaja')
         {
-            $this->vista->formuCajaEntrada($_REQUEST);
+            $conceptos = $this->modelConcepto->traerConceptos();
+            $tecnicos = $this->modelTecnico->traerTecnicosNew();
+            $this->vista->formuCajaEntrada($_REQUEST,$conceptos,$tecnicos);
         }
         if($_REQUEST['opcion']=='grabarRecibo')
         {
