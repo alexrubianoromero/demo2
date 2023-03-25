@@ -60,6 +60,7 @@ class movilVista{
     <script src="../inventario_codigos/js/codigosInventario.js"></script>
     <script src="../inventario_codigos/js/movimientos.js"></script>
     <script src="../caja/js/caja.js"></script>
+    <script src="../tecnicos/js/tecnicos.js"></script>
     <?php
   }
   public function htmlLogueo(){
@@ -97,8 +98,12 @@ class movilVista{
     
             <input type="hidden" id="usuario" value ="<?php  echo $_REQUEST['username']?>">
             <input type="hidden" id="clave" value ="<?php  echo $_REQUEST['clave']?>">
+
+            <button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
+                    <!-- <i class="far fa-user"></i> -->
+            </button>
+            <br><br>
             <button class = "btn btn-primary bontonesmenu"  onclick="pantallaClientes();">CLIENTES 
-                    <!-- <i class="fas fa-layer-group"></i> -->
                     <i class="far fa-user"></i>
             </button>
             <br><br>
