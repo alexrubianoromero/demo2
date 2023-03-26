@@ -171,7 +171,7 @@ class OrdenesVista extends vista
             if($orden['estado']==0){ $nombreEstado = 'En Proceso'; }
             if($orden['estado']==1){ $nombreEstado = 'Lista'; }
             if($orden['estado']==2){ $nombreEstado = 'Facturada';}
-            if($orden['estado']==3){}
+            if($orden['estado']==3){ $nombreEstado = 'Entregada';}
             echo '<td>'.$nombreEstado.'</td>';
             echo '</tr>';
         
@@ -425,11 +425,14 @@ class OrdenesVista extends vista
                         </div>
                         <div class="col-xs-5">
                                     <?php  
-                                        // if($arregloOrden['estado']==2)
-                                        // { 
-
-                                        // }  
-
+                                      if($arregloOrden['estado']==0){ $nombreEstado = 'En Proceso'; }
+                                      if($arregloOrden['estado']==1){ $nombreEstado = 'Lista'; }
+                                      if($arregloOrden['estado']==2){ $nombreEstado = 'Facturada';}
+                                      if($arregloOrden['estado']==3){ $nombreEstado = 'Entregada';}
+                                      if($arregloOrden['estado']==2)
+                                        { 
+                                           echo '<label>'.$nombreEstado.'</label>';          
+                                        }else{
                                     ?>
 
                                 <select 
@@ -453,6 +456,10 @@ class OrdenesVista extends vista
                                     
                                         >Entregada</option>
                                 </select>
+                                <?php
+                                   } 
+                                ?>
+
                         </div>
                         <div class="col-xs-4">
                             <?php
