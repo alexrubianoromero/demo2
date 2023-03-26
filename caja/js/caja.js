@@ -77,6 +77,8 @@ function grabarRecibo()
                 + "&txtCredito="+txtCredito 
                 + "&idOrden="+idOrden 
         );
+
+        //si hay valor en idOrden se debe cerrar el modal on la info de la orden 
     }   
 }
 

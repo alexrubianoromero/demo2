@@ -296,9 +296,10 @@ class cajaVista
             echo '<td>'.$recibo['tipo_recibo'].'</td>';
             echo '<td>'.$recibo['dequienoaquin'].'</td>';
             echo '<td>';
+            $concepto =  $this->modeloConcep->traerConceptoConId($recibo['idConcepto']);
             // $concepto = $this->modeloConcep->traerConceptoConId($recibo['idConcepto']); 
-            echo $recibo['idConcepto'];
-            // echo $concepto;
+            // echo $recibo['idConcepto'];
+            echo $concepto;
             echo '</td>';
             echo '<td align="right">'.number_format($recibo['lasumade'],0,",",".").'</td>';
             echo '</tr>';

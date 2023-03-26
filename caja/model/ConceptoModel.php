@@ -29,7 +29,7 @@ class ConceptoModel extends Conexion
     
     public function traerConceptoConId($id)
     {
-        $sql = "select conceptos where idConcepto = '".$id."'  "; 
+        $sql = "select concepto from conceptos where idConcepto = '".$id."'  "; 
         $consulta = mysql_query($sql,$this->conexion);
         $arr = mysql_fetch_assoc($consulta);
         return $arr['concepto'];  
