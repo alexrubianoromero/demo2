@@ -1,8 +1,14 @@
 <?php
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/vista/vista.php');
-class OrdenesVista extends vista {
-
+require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
+class OrdenesVista extends vista 
+{
+    protected $modelOrden;
+    public function __construct()
+    {
+        $this->modelOrden = new OrdenesModelo(); 
+    }
   
     public function pantallaInicial($arregloOrdenes){
         ?>
@@ -160,9 +166,13 @@ class OrdenesVista extends vista {
             </td>';
             echo '<td>'.$orden['fecha'].'</td>';
             echo '<td>'.$orden['placa'].'</td>';
-            echo '<td>'.$orden['linea'].'</td>';
+            echo '<td>'.$orden['tipo'].'</td>';
             echo '<td>'.substr($orden['observaciones'],0,30).'</td>';
-            echo '<td>'.$orden['estado'].'</td>';
+            if($orden['estado']==0){ $nombreEstado = 'En Proceso'; }
+            if($orden['estado']==1){ $nombreEstado = 'Lista'; }
+            if($orden['estado']==2){ $nombreEstado = 'Facturada';}
+            if($orden['estado']==3){}
+            echo '<td>'.$nombreEstado.'</td>';
             echo '</tr>';
         
             // echo '<td class="success">'.$orden['orden'].'</button></td>';
@@ -414,38 +424,50 @@ class OrdenesVista extends vista {
                             <label>Estado:</label>
                         </div>
                         <div class="col-xs-5">
-                        
-                            <select 
-                                id="idEstadoOrden"
-                                class="form-control"
-                                onchange = "mostrarFormuRecibo('<?php echo $arregloOrden['id'] ?>')"; 
-                            >    
-                                <option value = "0"  
-                                    <?php if($arregloOrden['estado']==0){ echo 'selected'; } ?>
-                                    >En Proceso</option>
-                                    <option value = "1"
-                                    <?php if($arregloOrden['estado']==1){ echo 'selected'; } ?>
+                                    <?php  
+                                        // if($arregloOrden['estado']==2)
+                                        // { 
+
+                                        // }  
+
+                                    ?>
+
+                                <select 
+                                    id="idEstadoOrden"
+                                    class="form-control"
+                                    onchange = "mostrarFormuRecibo('<?php echo $arregloOrden['id'] ?>')"; 
+                                >    
+                                    <option value = "0"  
+                                        <?php if($arregloOrden['estado']==0){ echo 'selected'; } ?>
+                                        >En Proceso</option>
+                                        <option value = "1"
+                                        <?php if($arregloOrden['estado']==1){ echo 'selected'; } ?>
+                                        
+                                        >Lista</option>
+                                        <option value = "2"
+                                        <?php if($arregloOrden['estado']==2){ echo 'selected'; } ?>
+                                        
+                                        >Facturada</option>
+                                        <option value = "3"
+                                        <?php if($arregloOrden['estado']==3){ echo 'selected'; } ?>
                                     
-                                    >Lista</option>
-                                    <option value = "2"
-                                    <?php if($arregloOrden['estado']==2){ echo 'selected'; } ?>
-                                    
-                                    >Facturada</option>
-                                    <option value = "3"
-                                    <?php if($arregloOrden['estado']==3){ echo 'selected'; } ?>
-                                
-                                    >Entregada</option>
-                            </select>
+                                        >Entregada</option>
+                                </select>
                         </div>
                         <div class="col-xs-4">
                             <?php
-                            echo '<button 
-                                        class="btn btn-primary"
+                            $boton = '<button'; 
+                                      if($arregloOrden['estado']==2)
+                                      { $boton .= ' disabled '; }      
+                                        
+                            $boton .=  ' class="btn btn-primary"
                                         onclick="actualizarInfoOrden('.$arregloOrden['id'].'); "
                                         data-dismiss="modal"
                                         >
                                         Actualizar Orden</button>';
+                            echo $boton;
                             ?>
+
                         </div>
                     </div>    
                 </div>
