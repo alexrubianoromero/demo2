@@ -610,7 +610,7 @@ class OrdenesVista extends vista {
                 <input class ="form-control" 
                         type="text" 
                         id = "codNuevoItem" 
-                        onblur="verificarSiExisteCodigo();"
+                        onkeyup="verificarSiExisteCodigo();"
                 >
             </div>
         </div>
@@ -639,7 +639,7 @@ class OrdenesVista extends vista {
                 <input class ="form-control" 
                     type="text" 
                     id = "cantipan" 
-                    onblur="generarTotalItem();"
+                    onkeyup="generarTotalItem();"
                 >
             </div>
         </div>
