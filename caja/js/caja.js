@@ -34,6 +34,7 @@ function entradaCaja(tipo)
 }
 function grabarRecibo()
 {
+    // alert('grabar recibo '); 
     var valida = validacionesRecibo();
     if(valida)
     {
@@ -43,6 +44,10 @@ function grabarRecibo()
         var txtObservacion = document.getElementById("txtObservacion").value;
         var tipo = document.getElementById("tipo").value;
         var idTecnico = document.getElementById("idTecnico").value;
+        var txtEfectivo = document.getElementById("txtEfectivo").value;
+        var txtDebito = document.getElementById("txtDebito").value;
+        var txtCredito = document.getElementById("txtCredito").value;
+
         const http=new XMLHttpRequest();
         const url = '../caja/caja.php';
         http.onreadystatechange = function(){
@@ -60,13 +65,26 @@ function grabarRecibo()
                 + "&txtObservacion="+txtObservacion 
                 + "&tipo="+tipo 
                 + "&idTecnico="+idTecnico 
+                + "&txtEfectivo="+txtEfectivo 
+                + "&txtDebito="+txtDebito 
+                + "&txtCredito="+txtCredito 
         );
     }   
 }
 
 function validacionesRecibo()
 {
-        if(document.getElementById("txtValor").value=='')
+ 
+       if(document.getElementById("txtEfectivo").value=='' 
+            &&  document.getElementById("txtDebito").value=='' 
+            &&  document.getElementById("txtCredito").value==''
+            )
+        {
+            alert('Por favor digite valor en  efectivo o debito o credito ');
+            document.getElementById("txtEfectivo").focus();
+            return false;
+        }
+       if(document.getElementById("txtValor").value=='')
         {
             alert('Por favor digite Valor ');
             document.getElementById("txtValor").focus();
@@ -112,4 +130,20 @@ function mostrarMovimientosDia(tipoInforme)
     http.send('opcion=informeCaja'
             + "&tipoInforme="+tipoInforme 
     );
+}
+
+function sumarTotalRecibo()
+{
+    var txtEfectivo = document.getElementById("txtEfectivo").value;
+    var txtDebito = document.getElementById("txtDebito").value;
+    var txtCredito = document.getElementById("txtCredito").value;
+    var txtValor  = document.getElementById("txtValor").value;
+    if(txtEfectivo==''){ txtEfectivo='0'}
+    if(txtDebito==''){ txtDebito='0'}
+    if(txtCredito==''){ txtCredito='0'}
+
+    var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito) ;
+    document.getElementById("txtValor").value = suma;
+
+
 }

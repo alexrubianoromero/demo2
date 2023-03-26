@@ -1,14 +1,20 @@
 <?php
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/caja/model/ConceptoModel.php');
+require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
+require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 
 class cajaVista
 {
     protected $modeloConcep; 
+    protected $modelItem; 
+    protected $modelOrden; 
 
-    public function __contruct()
+    public function __construct()
     {
         $this->modeloConcep = new ConceptoModel(); 
+        $this->modelItem = new itemsOrdenModelo();
+        $this->modelOrden =  new OrdenesModelo();
     }
 
     public function cajaVistaPrincipal($saldoActual)
@@ -123,13 +129,38 @@ class cajaVista
             $titulo = 'Salida';
             $dequien = 'Pagado a:';
         }
+        if(isset($request['idOrden']))
+        {
+            //traer info de orden 
+            $sumaItems =  $this->modelItem->sumarItemsIdOrden($request['idOrden']);
+            $datosOrden = $this->modelOrden->traerOrdenId($request['idOrden']); 
+            $titulo = 'Pago Orden No '.$datosOrden['orden'].' valor: '.number_format($sumaItems, 0, '.', '');
+        }
         ?>
         <div style="color:black">
         <h3><?php  echo $titulo;  ?></h3>
             <input type="hidden" id="tipo" value = "<?php echo $request['tipo']   ?>" >
             <div class="row">
-                <div class ="col-xs-4"><label class ="form-control">Valor:</label></div>
-                <div class="col-xs-8"><input type="text" id="txtValor" class ="form-control"></div>
+                <div class ="col-xs-4"><label class ="form-control" >Valor Total:</label></div>
+                <div class="col-xs-8">
+                    <input type="text" id="txtValor" class ="form-control"  onfocus="blur();">
+                </div>
+            </div>
+            <div class = row>
+                <div class="col-xs-4">
+                    <input 
+                        class= "form-control" 
+                        type="text" id="txtEfectivo" 
+                        placeholder="Efectivo"
+                        onkeyup = "sumarTotalRecibo(); ";
+                    >
+                </div>
+                <div class="col-xs-4">
+                    <input class= "form-control" type="text" id="txtDebito" placeholder="Debito" onkeyup = "sumarTotalRecibo(); ";>
+                </div>
+                <div class="col-xs-4">
+                    <input class= "form-control" type="text" id="txtCredito" placeholder="Credito" onkeyup = "sumarTotalRecibo(); ";>
+                </div>
             </div>
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control"><?php  echo  $dequien;  ?></label></div>

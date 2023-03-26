@@ -57,6 +57,8 @@ class OrdenesVista extends vista {
                <?php  $this->modalDatosOrden(); ?>
                <?php  $this->modalFiltrosOrdenes(); ?>
                <?php  $this->modalFiltrosCodigos(); ?>
+               <?php  $this->modalReciboCaja(); ?>
+               
 
 
            </body>
@@ -185,6 +187,30 @@ class OrdenesVista extends vista {
                   </div>
                   <div id="cuerpoModal" class="modal-body">
                       el modal 
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalReciboCaja (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div class="modal fade" id="myModalReciboCaja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Recibo de Caja</h4>
+                  </div>
+                  <div id="cuerpoModalReciboCaja" class="modal-body">
                       
                   </div>
                   <div class="modal-footer">
@@ -362,8 +388,10 @@ class OrdenesVista extends vista {
                         </div>
                         <div class="col-xs-5">
                         
-                            <select id="idEstadoOrden"
+                            <select 
+                                id="idEstadoOrden"
                                 class="form-control"
+                                onchange = "mostrarFormuRecibo('<?php echo $arregloOrden['id'] ?>')"; 
                             >    
                                 <option value = "0"  
                                     <?php if($arregloOrden['estado']==0){ echo 'selected'; } ?>

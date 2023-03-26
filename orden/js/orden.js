@@ -670,7 +670,7 @@ function busqueCodigosConFiltroOrden()
             document.getElementById("divMuestreCodigosaBuscar").innerHTML = this.responseText;
         }
     };
-
+    
     http.open("POST",url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=busqueCodigosConFiltroOrden"
@@ -694,10 +694,45 @@ function colocarInfoCodigoEnItem(idCod)
             document.getElementById("valorUnitpan").value = resp.valor_unit;
         }
     };
-
+    
     http.open("POST",url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=traerInfoCodeJson"
     + "&idCod="+idCod
     );
+}
+
+function mostrarFormuRecibo(idOrden)
+{
+    var idEstadoOrden = document.getElementById("idEstadoOrden").value;
+    if(idEstadoOrden==2)
+    {
+        $('#myModalReciboCaja').modal('show'); 
+        
+        setTimeout(() => {
+                const http=new XMLHttpRequest();
+                const url = '../caja/caja.php';
+                http.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        // var resp = JSON.parse(this.responseText);
+                        // console.log(resp.descripcion); 
+                        // alert(resp.descripcion); 
+                        document.getElementById("cuerpoModalReciboCaja").innerHTML = this.responseText;
+                        // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+                        // document.getElementById("descripan").value = resp.descripcion;
+                        // document.getElementById("valorUnitpan").value = resp.valor_unit;
+                    }
+                };
+                
+                http.open("POST",url);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.send("opcion=pregunteEntradaCaja"
+                + "&idOrden="+idOrden
+                + "&tipo=1"
+                );
+            
+          }, "500");
+
+
+    }
 }

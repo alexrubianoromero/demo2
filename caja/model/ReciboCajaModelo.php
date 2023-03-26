@@ -21,7 +21,7 @@ class ReciboCajaModelo extends Conexion
         // print_r($request); 
         // echo '</pre>';
         $sql = "insert into recibos_de_caja  (dequienoaquin,lasumade,porconceptode,observaciones,
-        fecha_recibo,tipo_recibo,idTecnico,idConcepto)   
+        fecha_recibo,tipo_recibo,idTecnico,idConcepto,efectivo,t_debito,t_credito)   
                 values('".$request['txtAquien']."'
                     ,'".$request['txtValor']."'
                     ,'".$request['txtConcepto']."'
@@ -30,6 +30,9 @@ class ReciboCajaModelo extends Conexion
                     ,'".$request['tipo']."'
                     ,'".$request['idTecnico']."'
                     ,'".$request['txtConcepto']."'
+                    ,'".$request['txtEfectivo']."'
+                    ,'".$request['txtDebito']."'
+                    ,'".$request['txtCredito']."'
                 ) ";
          $consulta = mysql_query($sql,$this->conexion );    
          echo 'Registro grabado<br>';    

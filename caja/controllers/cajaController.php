@@ -4,6 +4,7 @@ require_once($raiz.'/caja/vista/cajaVista.php');
 require_once($raiz.'/caja/model/ReciboCajaModelo.php');
 require_once($raiz.'/caja/model/ConceptoModel.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
+// require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 
 class cajaController
 {
@@ -11,6 +12,7 @@ class cajaController
     protected $model;
     protected $modelConcepto;  
     protected $modelTecnico;
+    protected $modelItem;
 
     public function __construct()
     {
@@ -18,6 +20,7 @@ class cajaController
         $this->model = new ReciboCajaModelo();
         $this->modelConcepto = new ConceptoModel();
         $this->modelTecnico = new TecnicosModelo(); 
+        // $this->modelItem = new itemsOrdenModelo();
 
         if($_REQUEST['opcion']=='menuPrincipalCaja')
         {
@@ -25,9 +28,8 @@ class cajaController
         }
         if($_REQUEST['opcion']=='pregunteEntradaCaja')
         {
-            $conceptos = $this->modelConcepto->traerConceptos();
-            $tecnicos = $this->modelTecnico->traerTecnicosNew();
-            $this->vista->formuCajaEntrada($_REQUEST,$conceptos,$tecnicos);
+            $this->pregunteEntradaCaja($_REQUEST);
+
         }
         if($_REQUEST['opcion']=='grabarRecibo')
         {
@@ -47,6 +49,10 @@ class cajaController
     }
     public function grabarRecibo($request)
     {
+        // echo '<pre>'; 
+        // print_r($request); 
+        // echo '</pre>';
+        // die(); 
         $this->model->grabarRecibo($request);
     }
     
@@ -56,7 +62,18 @@ class cajaController
         $this->vista->mostrarRecibos($recibos);
         
     }
-
+    public function  pregunteEntradaCaja($request)
+    {
+        // echo '<pre>'; 
+        // print_r($request); 
+        // echo '</pre>';
+        // die();
+        // $sumaItems =  $this->modelItem->sumarItemsIdOrden($request['idOrden']);
+        // die($sumaItems);
+        $conceptos = $this->modelConcepto->traerConceptos();
+        $tecnicos = $this->modelTecnico->traerTecnicosNew();
+        $this->vista->formuCajaEntrada($request,$conceptos,$tecnicos);
+    }
 }
 ?>
 

@@ -12,6 +12,15 @@ class itemsOrdenModelo extends Conexion
     public function __construct()
     {
     }
+    
+    public function sumarItemsIdOrden($idOrden)
+    {
+        $conexion = $this->connectMysql();
+        $sql = "select sum(total_item) as suma from item_orden where 1=1  and anulado = '0' and no_factura = '".$idOrden."' "; 
+        $consulta = mysql_query($sql,$conexion);
+        $arr = mysql_fetch_assoc($consulta); 
+        return $arr['suma']; 
+    }
 
     public function verifiqueCodigo($codigo)
     {
