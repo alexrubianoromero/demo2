@@ -39,7 +39,7 @@ function grabarRecibo()
     if(valida)
     {
         var txtAquien = document.getElementById("txtAquien").value;
-        var txtValor = document.getElementById("txtValor").value;
+        // var txtValor = document.getElementById("txtValor").value;
         var txtConcepto = document.getElementById("txtConcepto").value;
         var txtObservacion = document.getElementById("txtObservacion").value;
         var tipo = document.getElementById("tipo").value;
@@ -47,6 +47,13 @@ function grabarRecibo()
         var txtEfectivo = document.getElementById("txtEfectivo").value;
         var txtDebito = document.getElementById("txtDebito").value;
         var txtCredito = document.getElementById("txtCredito").value;
+        var idOrden = document.getElementById("idOrden").value;
+
+        if(txtEfectivo==''){ txtEfectivo='0'}
+        if(txtDebito==''){ txtDebito='0'}
+        if(txtCredito==''){ txtCredito='0'}
+
+        var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito) ;
 
         const http=new XMLHttpRequest();
         const url = '../caja/caja.php';
@@ -60,7 +67,7 @@ function grabarRecibo()
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send('opcion=grabarRecibo'
                 + "&txtAquien="+txtAquien 
-                + "&txtValor="+txtValor 
+                + "&txtValor="+suma 
                 + "&txtConcepto="+txtConcepto 
                 + "&txtObservacion="+txtObservacion 
                 + "&tipo="+tipo 
@@ -68,6 +75,7 @@ function grabarRecibo()
                 + "&txtEfectivo="+txtEfectivo 
                 + "&txtDebito="+txtDebito 
                 + "&txtCredito="+txtCredito 
+                + "&idOrden="+idOrden 
         );
     }   
 }
@@ -143,7 +151,7 @@ function sumarTotalRecibo()
     if(txtCredito==''){ txtCredito='0'}
 
     var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito) ;
-    document.getElementById("txtValor").value = suma;
+    document.getElementById("txtValor").innerHTML=suma;
 
 
 }

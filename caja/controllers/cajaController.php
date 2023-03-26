@@ -4,6 +4,7 @@ require_once($raiz.'/caja/vista/cajaVista.php');
 require_once($raiz.'/caja/model/ReciboCajaModelo.php');
 require_once($raiz.'/caja/model/ConceptoModel.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
+require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
 // require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 
 class cajaController
@@ -13,6 +14,7 @@ class cajaController
     protected $modelConcepto;  
     protected $modelTecnico;
     protected $modelItem;
+    protected $modelOrden;
 
     public function __construct()
     {
@@ -20,6 +22,7 @@ class cajaController
         $this->model = new ReciboCajaModelo();
         $this->modelConcepto = new ConceptoModel();
         $this->modelTecnico = new TecnicosModelo(); 
+        $this->modelOrden = new OrdenesModelo(); 
         // $this->modelItem = new itemsOrdenModelo();
 
         if($_REQUEST['opcion']=='menuPrincipalCaja')
@@ -49,11 +52,15 @@ class cajaController
     }
     public function grabarRecibo($request)
     {
+        // echo 'entonces debe cambiar el estado de la orden '; 
         // echo '<pre>'; 
         // print_r($request); 
         // echo '</pre>';
         // die(); 
         $this->model->grabarRecibo($request);
+        if($request['idOrden'] !=''){
+             $this->modelOrden->actualizarEstadoOrdenId($request['idOrden']);   
+        }
     }
     
     public function informeCaja($request)

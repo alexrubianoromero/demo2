@@ -707,7 +707,7 @@ function mostrarFormuRecibo(idOrden)
     var idEstadoOrden = document.getElementById("idEstadoOrden").value;
     if(idEstadoOrden==2)
     {
-        $('#myModalReciboCaja').modal('show'); 
+        $('#myModalCaja').modal('show'); 
         
         setTimeout(() => {
                 const http=new XMLHttpRequest();
@@ -717,7 +717,7 @@ function mostrarFormuRecibo(idOrden)
                         // var resp = JSON.parse(this.responseText);
                         // console.log(resp.descripcion); 
                         // alert(resp.descripcion); 
-                        document.getElementById("cuerpoModalReciboCaja").innerHTML = this.responseText;
+                        document.getElementById("cuerpoModalCaja").innerHTML = this.responseText;
                         // document.getElementById("codNuevoItem").value = resp.codigo_producto;
                         // document.getElementById("descripan").value = resp.descripcion;
                         // document.getElementById("valorUnitpan").value = resp.valor_unit;

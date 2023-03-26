@@ -129,21 +129,24 @@ class cajaVista
             $titulo = 'Salida';
             $dequien = 'Pagado a:';
         }
-        if(isset($request['idOrden']))
+        if(isset($request['idOrden'])) //significa que es un recibo de una orden facturada 
         {
             //traer info de orden 
             $sumaItems =  $this->modelItem->sumarItemsIdOrden($request['idOrden']);
             $datosOrden = $this->modelOrden->traerOrdenId($request['idOrden']); 
+            $textoInfoOrden = 'Pago Orden No '.$datosOrden['orden'];
             $titulo = 'Pago Orden No '.$datosOrden['orden'].' valor: '.number_format($sumaItems, 0, '.', '');
         }
         ?>
+        <input type = "hidden"  id="idOrden"  value ="<?php echo $request['idOrden']; ?>" > 
         <div style="color:black">
-        <h3><?php  echo $titulo;  ?></h3>
+        <h3 ><?php  echo $titulo;  ?></h3>
             <input type="hidden" id="tipo" value = "<?php echo $request['tipo']   ?>" >
-            <div class="row">
-                <div class ="col-xs-4"><label class ="form-control" >Valor Total:</label></div>
-                <div class="col-xs-8">
-                    <input type="text" id="txtValor" class ="form-control"  onfocus="blur();">
+            <div class="row" style="font-size:20px;">
+                <div class ="col-xs-4"><label align="right" >Valor Total: $</label></div>
+                <div class="col-xs-8" align="left" style="color:green; ">
+                    <label id="txtValor" align="left"></label>
+                    <!-- <input type="text" id="txtValor" class ="form-control"  onfocus="blur();"> -->
                 </div>
             </div>
             <div class = row>
@@ -164,7 +167,19 @@ class cajaVista
             </div>
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control"><?php  echo  $dequien;  ?></label></div>
-                <div class="col-xs-8"><input type="text" id="txtAquien" class ="form-control"></div>
+                <div class="col-xs-8">
+                    <?php
+                        if(isset($request['idOrden'])) //significa que es un recibo de una orden facturada 
+                        {
+                            echo '<input type="text" id="txtAquien" 
+                                    class ="form-control"
+                                    value = "'.$textoInfoOrden.'"
+                                  >';
+                        }else{
+                            echo '<input type="text" id="txtAquien" class ="form-control">';
+                        }
+                    ?>
+                </div>
             </div>
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control">Concepto:</label></div>
@@ -193,7 +208,22 @@ class cajaVista
 
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control">Observaciones:</label></div>
-                <div class="col-xs-8"><input type="text" id="txtObservacion" class ="form-control"></div>
+                <div class="col-xs-8">
+                    <?php
+                            if(isset($request['idOrden'])) //significa que es un recibo de una orden facturada 
+                            {
+                                echo '<input 
+                                        type="text" 
+                                        id="txtObservacion" 
+                                        class ="form-control"
+                                        value = "'.$titulo.'"
+                                      >';
+                            }    
+                            else{
+                                echo '<input type="text" id="txtObservacion" class ="form-control">';
+                            }
+                            ?>
+                </div>
             </div>
             <div class="row">
                 <div class="col-xs-12"><button  class ="btn btn-primary" onclick="grabarRecibo();">Registrar</button></div>

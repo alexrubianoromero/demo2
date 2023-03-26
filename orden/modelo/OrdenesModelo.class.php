@@ -243,7 +243,13 @@ Class OrdenesModelo extends Conexion
             $consulta = mysql_query($sql,$this->connectMysql()); 
             echo 'Orden Actualizada ';  
             
-    }
+        }
+        
+        public function actualizarEstadoOrdenId($idOrden)
+        {
+            $sql = "update ordenes set estado = '2'  where id = '".$idOrden."'    ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+        }
 
 }
 
