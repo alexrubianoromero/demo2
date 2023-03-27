@@ -107,7 +107,7 @@ function validacionesRecibo()
             document.getElementById("txtAquien").focus();
             return false;
         }
-        if(document.getElementById("txtConcepto").value=='0')
+        if(document.getElementById("txtConcepto").value=='0' || document.getElementById("txtConcepto").value=='' )
         {
             alert('Por favor escoja un concepto');
             document.getElementById("txtConcepto").focus();

@@ -185,25 +185,47 @@ class cajaVista
                 <div class ="col-xs-4"><label class ="form-control">Concepto:</label></div>
                 <div class="col-xs-8">
                     <!-- <input type="text" id="txtConcepto" class ="form-control"> -->
+                   <?php
+                     if($request['tipo']==1){
+                   ?>
                     <select  id="txtConcepto" 
                         class = "form-control"
                     >
                         <option value="0">Seleccione Concepto</option>
                         <?php $this->mostrarConceptos($conceptos); ?>
                     </select>
+                    <?php
+                    }
+                    else{
+                        echo ' <input type="text" id="txtConcepto" class ="form-control"> ';  
+                    }
+                    ?>
                 </div>
             </div>
             <div id="divPregunteTecnico" class="row">
-                <div class ="col-xs-4"><label class ="form-control">Tecnico:</label></div>
-                <div class="col-xs-8">
-                    <!-- <input type="text" id="txtConcepto" class ="form-control"> -->
-                    <select  id="idTecnico" 
-                        class = "form-control"
-                    >
-                        <option value="0">Seleccione Tecnico</option>
-                            <?php $this->mostrarTecnicos($tecnicos); ?>
-                    </select>
+                <div class ="col-xs-4">
+                <?php
+                     if($request['tipo']==1){
+                     echo  '<label class ="form-control">Tecnico:</label>'; }
+                 ?>   
                 </div>
+                <?php
+                     if($request['tipo']==1)
+                     {
+                  ?>        
+                    <div class="col-xs-8">
+                        <select  id="idTecnico" 
+                            class = "form-control"
+                        >
+                            <option value="0">Seleccione Tecnico</option>
+                                <?php $this->mostrarTecnicos($tecnicos); ?>
+                        </select>
+                    </div>
+                   <?php
+                    }else {
+                        echo '<input type="hidden" id="idTecnico" value = "0" >'; 
+                    }
+                   ?>     
             </div>
 
             <div class="row">
