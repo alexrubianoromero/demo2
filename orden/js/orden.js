@@ -323,7 +323,8 @@ function verificarPlacaRespuestaJson(){
 //     divCreacionOrden.appendChild(btnCreacion);
 // }
 
-function mostrarFormularioCreacionOrden(){
+function mostrarFormularioCreacionOrden()
+{
     var placa = document.getElementById("placaPeritaje").value;
     const http=new XMLHttpRequest();
     const url = '../orden/ordenes.php';
@@ -369,7 +370,7 @@ function grabarVehiculoDesdeOrden()
          http.onreadystatechange = function(){
              if(this.readyState == 4 && this.status ==200){
                  console.log(this.responseText);
-                //  document.getElementById("divResultadosVehiculos").innerHTML = this.responseText;
+                  document.getElementById("divResultadobusqueda").innerHTML = this.responseText;
              }
          };
 
@@ -390,6 +391,11 @@ function grabarVehiculoDesdeOrden()
              ///aqui deberia venir el resto del codigo para crear orden 
              //esta es la gran diferencia con relacion al otro guardar vehiculo
              buscarPlacaPeritajeDesdeOrden();
+             //activar la ventana de creacion de orden 
+             $('#myModalDdatosOrden').modal('show');
+             mostrarFormularioCreacionOrden();
+
+
              
      }
      //debe ir a validar placa o algo asi 

@@ -577,7 +577,7 @@ class VehiculoVista extends vista
 
                             </select>
 
-                            <button data-toggle="modal" data-target="#myModalClientes" onclick= "nuevoPropietarioDesdeVehiculo();" class="btn btn-primary"><i class="fas fa-plus-square"></i></button>
+                            <button data-toggle="modal" data-target="#myModalClientes" onclick= "nuevoPropietarioDesdeVehiculo();" class="btn btn-primary">Crear Persona <i class="fas fa-plus-square"></i></button>
 
                         </td>
 
@@ -705,7 +705,7 @@ class VehiculoVista extends vista
                             <select style="background:transparent; background-color:white;" name="selectPropietario" id="selectPropietario" class="form-control">
                             <?php  funciones::select_general($propietarios,'idcliente','nombre'); ?>
                             </select>
-                            <button data-toggle="modal" data-target="#myModalClientes" onclick= "nuevoPropietarioDesdeVehiculo();" class="btn btn-primary"><i class="fas fa-plus-square"></i></button>
+                            <button data-toggle="modal" data-target="#myModalClientes" onclick= "nuevoPropietarioDesdeVehiculo();" class="btn btn-primary">Crear Persona <i class="fas fa-plus-square"></i></button>
                         </td>
                     </tr>
                     <tr>

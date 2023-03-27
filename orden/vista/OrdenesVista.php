@@ -171,7 +171,7 @@ class OrdenesVista extends vista
             if($orden['estado']==0){ $nombreEstado = 'En Proceso'; }
             if($orden['estado']==1){ $nombreEstado = 'Lista'; }
             if($orden['estado']==2){ $nombreEstado = 'Facturada';}
-            if($orden['estado']==3){ $nombreEstado = 'Entregada';}
+            // if($orden['estado']==3){ $nombreEstado = 'Entregada';}
             echo '<td>'.$nombreEstado.'</td>';
             echo '</tr>';
         
@@ -428,7 +428,7 @@ class OrdenesVista extends vista
                                       if($arregloOrden['estado']==0){ $nombreEstado = 'En Proceso'; }
                                       if($arregloOrden['estado']==1){ $nombreEstado = 'Lista'; }
                                       if($arregloOrden['estado']==2){ $nombreEstado = 'Facturada';}
-                                      if($arregloOrden['estado']==3){ $nombreEstado = 'Entregada';}
+                                    //   if($arregloOrden['estado']==3){ $nombreEstado = 'Entregada';}
                                       if($arregloOrden['estado']==2)
                                         { 
                                            echo '<label>'.$nombreEstado.'</label>';          
@@ -451,10 +451,13 @@ class OrdenesVista extends vista
                                         <?php if($arregloOrden['estado']==2){ echo 'selected'; } ?>
                                         
                                         >Facturada</option>
-                                        <option value = "3"
-                                        <?php if($arregloOrden['estado']==3){ echo 'selected'; } ?>
-                                    
-                                        >Entregada</option>
+
+                                        <!-- <option value = "3"
+                                             <?php 
+                                                //   if($arregloOrden['estado']==3){ echo 'selected'; } 
+                                              ?>
+                                        >Entregada
+                                       </option> -->
                                 </select>
                                 <?php
                                    } 
@@ -800,7 +803,7 @@ class OrdenesVista extends vista
                                 <option value = "0">En Proceso</option>
                                 <option value = "1">Lista</option>
                                 <option value = "2">Facturada</option>
-                                <option value = "3">Entregada</option>
+                                <!-- <option value = "3">Entregada</option> -->
                             </select>
                     </div>        
                       
