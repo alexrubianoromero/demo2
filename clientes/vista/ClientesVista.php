@@ -43,14 +43,14 @@ class CLientesVista extends vista
          <div id="div_clientes" class="container"  align="center">
              <div id=" row divBotonesClientes">
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                     CLIENTES
-                 </div>
-                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                     <button class="btn btn-primary" onclick="mostrarClientes();">Listar</button>
+                     CLIENTES..
                  </div>
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
                      <button class="btn btn-primary" onclick="btnNuevoPropietario();"  data-toggle="modal" data-target="#myModalClientes">Nuevo</button>
-                 </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <!-- <button class="btn btn-primary" onclick="mostrarClientes();">Listar</button> -->
+                    </div>
              </div>
 
              <div align = "center" id="divResultadosClientes">
@@ -128,17 +128,15 @@ class CLientesVista extends vista
 
                  </div>
 
+                 
                  <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
-
-                     <button class="btn btn-primary" onclick="mostrarClientes();">Listar</button>
-
-                 </div>
-
-                 <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
-
+                     
                      <button class="btn btn-primary" onclick="btnNuevoPropietario();"  data-toggle="modal" data-target="#myModalClientes">Nuevo</button>
-
-                 </div>
+                </div>
+                     
+                <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                         <!-- <button class="btn btn-primary" onclick="mostrarClientes();">Listar</button> -->
+                </div>
 
              </div>
 
@@ -366,11 +364,8 @@ class CLientesVista extends vista
                 </tr>
 
                 <tr>
-
-                    <td><label>Observaciones</label></td>
-
-                    <td> <input type="text" id="observaciones"></td>
-
+                    <!-- <td><label>Observaciones</label></td> -->
+                    <td> <input type="hidden" id="observaciones" value="Sin Info"></td>
                 </tr>
 
                 <tr>

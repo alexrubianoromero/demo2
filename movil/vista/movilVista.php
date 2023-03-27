@@ -90,48 +90,48 @@ class movilVista{
                                                 
                 </div>
             </div>  
-            </div>   
+        </div>   
         <?php
     }  
     public function menuPrincipal()
     {
         ?>
             <br><br>
-    
+            
             <input type="hidden" id="usuario" value ="<?php  echo $_REQUEST['username']?>">
             <input type="hidden" id="clave" value ="<?php  echo $_REQUEST['clave']?>">
-
-            <button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
-                    <!-- <i class="far fa-user"></i> -->
+            <button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 
+                <i class="fas fa-list"></i>
             </button>
+            
             <br><br>
             <button class = "btn btn-primary bontonesmenu"  onclick="pantallaClientes();">CLIENTES 
                     <i class="far fa-user"></i>
-            </button>
-            <br><br>
-            <button class = "btn btn-primary bontonesmenu"  onclick="pantallaMotos();"><span align="left">MOTOS<span> 
+                </button>
+                <br><br>
+                <button class = "btn btn-primary bontonesmenu"  onclick="pantallaMotos();"><span align="left">MOTOS<span> 
                     <i class="fas fa-biking"></i>
-            </button>
-
-        <br><br>
-        <button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
-            <!-- <i class="fas fa-boxes"></i> -->
-            <i class="fas fa-tools"></i>
-        </button>
-        <br><br>
-        <button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
-            <i class="fas fa-list"></i>
-        </button>
-        <br><br>
-        <button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 
-            <i class="fas fa-list"></i>
-        </button>
-        <br><br>
-    
-        <button class = "btn btn-default bontonsalir" id="btn_salir" onclick="salirSistema();">SALIR <i class="fas fa-sign-out-alt"></i></button>
-        </div>
-
-        <?php
+                </button>
+                
+                <br><br>
+                <button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
+                    <!-- <i class="fas fa-boxes"></i> -->
+                    <i class="fas fa-tools"></i>
+                </button>
+                <br><br>
+                <button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
+                    <i class="fas fa-list"></i>
+                </button>
+                <br><br>
+                    <button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
+                            <!-- <i class="far fa-user"></i> -->
+                    </button>
+                <br><br>
+                
+                <button class = "btn btn-default bontonsalir" id="btn_salir" onclick="salirSistema();">SALIR <i class="fas fa-sign-out-alt"></i></button>
+            </div>
+            
+            <?php
   }   
-
+  
 }

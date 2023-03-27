@@ -737,12 +737,20 @@ class VehiculoVista extends vista
                         <td> <input type="date" id="revision" style="background-color:gray;" ></td>
                     </tr>
                     <tr>
-                        <td><label>Chasis</label></td>
-                        <td> <input type="text" id="chasis" style="background-color:gray;" ></td>
+                        <td>
+                            <!-- <label>Chasis</label> -->
+                        </td>
+                        <td> 
+                            <input type="hidden" id="chasis" style="background-color:gray;" >
+                        </td>
                     </tr>
                     <tr>
-                        <td><label>Motor</label></td>
-                        <td> <input type="text" id="motor" style="background-color:gray;" ></td>
+                        <td>
+                            <!-- <label>Motor</label> -->
+                        </td>
+                        <td> 
+                            <input type="hidden" id="motor" style="background-color:gray;" >
+                        </td>
                     </tr>
                 </table>
             </div>

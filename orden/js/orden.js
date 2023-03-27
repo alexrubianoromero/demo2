@@ -528,10 +528,10 @@ function grabarVehiculoDesdeOrden()
                         if(resp.filas == 1)
                         {    
                             document.getElementById("descripan").value = resp.data.descripcion;
-                            document.getElementById("valorUnitpan").value = resp.data.precio_compra;
+                            document.getElementById("valorUnitpan").value = resp.data.valorventa;
                             document.getElementById("existencias").innerHTML = resp.data.cantidad;
                             document.getElementById("inputexistencias").value = resp.data.cantidad;
-                            document.getElementById("valorUnitpan").value = resp.data.valor_unit;
+                            document.getElementById("valorUnitpan").value = resp.data.valorventa;
                         }
                     }
                 };
@@ -691,7 +691,7 @@ function colocarInfoCodigoEnItem(idCod)
             // document.getElementById("divMuestreCodigosaBuscar").innerHTML = this.responseText;
             document.getElementById("codNuevoItem").value = resp.codigo_producto;
             document.getElementById("descripan").value = resp.descripcion;
-            document.getElementById("valorUnitpan").value = resp.valor_unit;
+            document.getElementById("valorUnitpan").value = resp.valorventa;
         }
     };
     
