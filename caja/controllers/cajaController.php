@@ -5,7 +5,7 @@ require_once($raiz.'/caja/model/ReciboCajaModelo.php');
 require_once($raiz.'/caja/model/ConceptoModel.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
 require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
-// require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
+require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 
 class cajaController
 {
@@ -23,7 +23,7 @@ class cajaController
         $this->modelConcepto = new ConceptoModel();
         $this->modelTecnico = new TecnicosModelo(); 
         $this->modelOrden = new OrdenesModelo(); 
-        // $this->modelItem = new itemsOrdenModelo();
+        $this->modelItem = new itemsOrdenModelo();
 
         if($_REQUEST['opcion']=='menuPrincipalCaja')
         {
@@ -38,9 +38,14 @@ class cajaController
         {
             $this->grabarRecibo($_REQUEST);
         }
+
         if($_REQUEST['opcion']=='informeCaja')
         {
             $this->informeCaja($_REQUEST);
+        }
+        if($_REQUEST['opcion']=='informeSalario')
+        {
+            $this->informeSalario();
         }
     }
 
@@ -59,14 +64,20 @@ class cajaController
         // die(); 
         $this->model->grabarRecibo($request);
         if($request['idOrden'] !=''){
-             $this->modelOrden->actualizarEstadoOrdenId($request['idOrden']);   
+            $this->modelOrden->actualizarEstadoOrdenId($request['idOrden']);   
         }
     }
     
     public function informeCaja($request)
     {
+        // echo '<pre>'; 
+        // print_r($request); 
+        // echo '</pre>';
+        // die(); 
+        
         $recibos = $this->model->informeCaja($request);
-        $this->vista->mostrarRecibos($recibos);
+        // $this->vista->mostrarRecibos($recibos);
+        $this->vista->mostrarRecibosNew($recibos);
         
     }
     public function  pregunteEntradaCaja($request)
@@ -80,6 +91,14 @@ class cajaController
         $conceptos = $this->modelConcepto->traerConceptos();
         $tecnicos = $this->modelTecnico->traerTecnicosNew();
         $this->vista->formuCajaEntrada($request,$conceptos,$tecnicos);
+    }
+    public function informeSalario()
+    {
+        $valores=[];
+        $valores['tipoInforme'] =='1';
+        $recibos = $this->model->informeCaja($valores);
+        $this->vista->muestreSalario($recibos);
+        // echo 'llego a funcion salario '; 
     }
 }
 ?>

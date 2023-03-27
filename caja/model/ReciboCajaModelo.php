@@ -72,15 +72,19 @@ class ReciboCajaModelo extends Conexion
 
         $sql = "select * from recibos_de_caja where 1=1   ";
 
-        if(isset($request['tipoInforme']))
+        if(isset($request['tipoInforme']) && $request['tipoInforme']=='1' )
         {
             $sql .= "  and  fecha_recibo =  '".$fechapan."'  " ;  
+            
         }
-
+        $sql .= " order by tipo_recibo  ASC";
+        // die($sql); 
         $consulta = mysql_query($sql,$this->conexion);
-        return $consulta;
+        $recibos = $this->get_table_assoc($consulta);
+        return $recibos;
     }
 
+    
 
 }
 

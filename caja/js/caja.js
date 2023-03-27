@@ -157,3 +157,20 @@ function sumarTotalRecibo()
 
 
 }
+
+function muestresalarioDiario()
+{
+    const http=new XMLHttpRequest();
+    const url = '../caja/caja.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalCajaMovimientos").innerHTML  = '';
+        document.getElementById("cuerpoModalCajaMovimientos").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=informeSalario'
+            // + "&tipoInforme="+tipoInforme 
+    );
+}

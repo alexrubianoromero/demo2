@@ -60,7 +60,7 @@ Class OrdenesModelo extends Conexion
 
      public function traerOrdenId($id,$conexion =  '' ){
         $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico,o.id 
-                 ,o.estado,o.observacionestecnico
+                 ,o.estado,o.observacionestecnico,o.mecanico as idmecanico
                  FROM ordenes o 
                  LEFT JOIN carros c on c.placa = o.placa
                  LEFT JOIN cliente0 cli on cli.idcliente = c.propietario 

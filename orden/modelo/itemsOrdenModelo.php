@@ -106,6 +106,19 @@ class itemsOrdenModelo extends Conexion
         return $result['id'];
     }
 
+    public function traerItemsOrdenManoObraIdOrden($idOrden,$tipoCod)
+    {
+        $sql = "select it.codigo as codigo ,it.total_item as valor
+                from item_orden it   
+                inner join productos p on p.codigo_producto = it.codigo
+                where it.no_factura =  '".$idOrden."'
+                and p.repman = '".$tipoCod."'
+                ";
+        $consulta = mysql_query($sql,$this->connectMysql());    
+        $result = mysql_fetch_assoc($consulta);
+        return $result;
+    }
+
 }
 
 

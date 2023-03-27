@@ -3,18 +3,21 @@ $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/caja/model/ConceptoModel.php');
 require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
 require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
+require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
 
 class cajaVista
 {
     protected $modeloConcep; 
     protected $modelItem; 
     protected $modelOrden; 
+    protected $modelTecnico; 
 
     public function __construct()
     {
         $this->modeloConcep = new ConceptoModel(); 
         $this->modelItem = new itemsOrdenModelo();
         $this->modelOrden =  new OrdenesModelo();
+        $this->modelTecnico  = new TecnicosModelo(); 
     }
 
     public function cajaVistaPrincipal($saldoActual)
@@ -338,6 +341,129 @@ class cajaVista
         echo '</table>';
         echo '</div>';
     }
+    public function mostrarRecibosNew($recibos)
+    {
+        //mostrar las entradas 
+        //mostrar las salidas
+        ?>
+            <div class="row">
+                <div class="col-xs-6"><h2>RECAUDO DIARIO</h2> </div>
+                <div class="col-xs-6"><h2>
+                    </h2><button 
+                            class="btn btn-primary"
+                            onclick="muestresalarioDiario();"
+                        >
+                        SALARIO</button></h2></></div>
+                </div>
+          
+        <div>
+            <div>
+                <label>
+                    Entradas 
+                </label>
+
+                <?php $totalIngreso =$this->mostrarRecibosResumido($recibos,'1'); ?>
+            </div>
+            <div>
+                <label>
+                    Salidas
+                </label>
+                <?php $totalEgreso = $this->mostrarRecibosResumido($recibos,'2'); ?>
+
+            </div>
+            <div>
+                <div class="row">
+                    <table class = "table table-bordered">
+                        <tr>
+                            <td>Total Ingresos</td>
+                            <td>Total Egresos</td>
+                        </tr>
+                        <tr>
+                            <td align="right"><?php echo number_format($totalIngreso, 0, ',', '.');  ?></td>
+                            <td align="right"><?php echo number_format($totalEgreso, 0, ',', '.');  ?></td>
+                        </tr>
+                        <?php $recaudoReal = $totalIngreso - $totalEgreso; ?>
+                        <tr>
+                            <td>Recaudo Real del Dia</td>
+                            <td align="right"  style="color:green"><?php echo number_format($recaudoReal, 0, ',', '.'); ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <?php 
+    }
+
+    public function mostrarRecibosResumido($recibos,$tipo )
+    {
+        echo '<table class="table" >';
+        echo '<tbody>';
+        echo '<tr>';
+        echo '<th>Concepto</th>';
+        echo '<th >Efectivo</th>';
+        echo '<th >Debito</th>';
+        echo '<th >Credito</th>';
+        echo '<th >Total</th>';
+        echo '</tr>';
+        echo '<tbody>';
+        $efectivo=0;
+        $debito = 0;
+        $credito = 0;
+        $total = 0;
+        foreach($recibos as $recibo)
+        {
+            if($recibo['tipo_recibo'] == $tipo)
+            {
+            echo '<tr>';
+                if($tipo=='1')
+                {
+                    $concepto =  $this->modeloConcep->traerConceptoConId($recibo['idConcepto']);
+                    //si es un pago de orden de servicio buscar el numero de la orden
+                    if($recibo['idOrden']>0)
+                    {
+                        //busque el numero de la orden
+                       $infoOrden =  $this->modelOrden->traerOrdenId($$recibo['idOrden']); 
+                       $concepto = $concepto.' '.$infoOrden['orden'];
+                    }
+
+                }
+                if($tipo=='2')
+                {
+                    $concepto =  $recibo['idConcepto'];
+                }
+
+                
+            
+            echo '<td>'.$concepto.'</td>';
+            echo '<td align="right">'.number_format($recibo['efectivo'], 0, ',', '.').'</td>';
+            echo '<td align="right"> '.number_format($recibo['t_debito'], 0, ',', '.').'</td>';
+            echo '<td align="right">'.number_format($recibo['t_credito'], 0, ',', '.').'</td>';
+            echo '<td align="right">'.number_format($recibo['lasumade'], 0, ',', '.').'</td>';
+            echo '</tr>';
+            $efectivo += $recibo['efectivo'];
+            $debito   += $recibo['t_debito'];
+            $credito  += $recibo['t_credito'];
+            $total    += $recibo['lasumade'];
+            echo '</tr>';
+            }
+        }
+        echo '<tr>';
+        echo '<td align="right">Totales:</td>';
+        echo '<td align="right">'.number_format($efectivo, 0, ',', '.').'</td>';
+        echo '<td align="right">'.number_format($debito, 0, ',', '.').'</td>';
+        echo '<td align="right">'.number_format($credito, 0, ',', '.').'</td>';
+        echo '<td align="right" style="color:green">'.number_format($total, 0, ',', '.').'</td>';
+        echo '</tr>';
+        echo '</tbody>';
+        echo '</table>';
+        return $total ;
+
+    }
+
+
+    
+
+
     public function mostrarConceptos($conceptos)
     {
             foreach($conceptos as $concepto)
@@ -354,6 +480,57 @@ class cajaVista
         }
             
     }
+
+    public function muestreSalario($recibos)
+    {
+        echo 'Salario';
+
+        echo '<table class="table" >';
+        echo '<tr>';
+        echo '<th>Concepto</th>';
+        echo '<th >Valor</th>';
+        echo '<th >Nombre</th>';
+        echo '<th >Valor a PAgar</th>';
+        echo '</tr>';
+        $totalPagos= 0;
+        foreach($recibos as $recibo)
+        {
+
+            if($recibo['tipo_recibo'] == '1')
+            {
+                echo '<tr>';
+                    $concepto =  $this->modeloConcep->traerConceptoConId($recibo['idConcepto']);
+                    echo '<td>'.$concepto.'</td>';
+                    if($recibo['id_orden'] > '0') //es el pago de una orden 
+                    {
+                        //debe traer solo la parte de mano de obra busque mano de obra de este orden
+                        $infoOrden =  $this->modelOrden->traerOrdenId($recibo['id_orden'],'');
+                        $infoTecnico =  $this->modelTecnico->traerTecnicoPorId($infoOrden['idmecanico']); 
+                        $sumaItemsMano = $this->modelItem->traerItemsOrdenManoObraIdOrden($recibo['id_orden'],'M');
+                        // $concepto = $concepto .' '.$infoOrden['orden'];
+                        $tecnico = $infoOrden['mecanico'];
+                        echo '<td align="right">'.number_format($sumaItemsMano['valor'], 0, ',', '.').'</td>';
+                        echo '<td>'.$infoTecnico['nombre'].'-'.$infoTecnico['porcentaje_nomina'].'%</td>';
+                        $valorPagar = ($sumaItemsMano['valor'] * $infoTecnico['porcentaje_nomina'])/100;
+                        echo '<td align="right">'.number_format($valorPagar, 0, ',', '.').'</td>';
+                    }
+                    if($recibo['idTecnico'] >'0') //osea si es lavada 
+                    {
+                        echo '<td align="right">'.number_format($recibo['lasumade'], 0, ',', '.').'</td>';
+                        $tecnico = $this->modelTecnico->traerTecnicoPorId($recibo['idTecnico']); 
+                        echo '<td>'.$tecnico['nombre'].'</td>';
+                        $valorPagar = ($recibo['lasumade'] * $tecnico['porcentaje_nomina'])/100;
+                        echo '<td align="right">'.number_format($valorPagar, 0, ',', '.').'</td>';
+                    }    
+                echo '</tr>';
+            }    
+            $totalPagos  = $totalPagos + $valorPagar; 
+        }
+        echo '<tr><td></td><td></td><td></td><td align="right">'.number_format($totalPagos, 0, ',', '.').'</td></tr>';
+        echo '</table>';
+    }
+
+
 }
 
 
