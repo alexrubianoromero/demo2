@@ -8,7 +8,6 @@ class PDF extends FPDF
     // Cabecera de p�gina
     function Header()
     {
-        
         // Logo
         $this->Image('speeddesign.jpeg',23,8,33);
         // Arial bold 15
@@ -39,53 +38,9 @@ class PDF extends FPDF
 	$this->Cell(22,6,'Cll 22 # 96f-35 ',0,1,'C');
 	$this->Cell(17);
 	$this->Cell(22,6,'Nit: 12345678 ',0,1,'C');
-	// Salto de l�nea
-	$this->Ln(5);
-	$this->Cell(15);
-	$this->Cell(22,6,'Fecha',1,0,'C');
-	$this->Cell(22,6,'Factura',1,0,'C');
-	$this->Cell(20);
-	$this->Cell(22,6,'Moto',1,0,'C');
-	$this->Cell(22,6,'placa',1,0,'C');
-	$this->Cell(22,6,'Kilometraje',1,1,'C');
-    $this->Cell(15);
-	$this->Cell(22,6,'27-03-2022',1,0,'C');
-	$this->Cell(22,6,'F-123',1,0,'C');
-	$this->Cell(20);
-	$this->Cell(22,6,'Yamaha',1,0,'C');
-	$this->Cell(22,6,'ASD123',1,0,'C');
-	$this->Cell(22,6,'15.000',1,1,'C');
-    
-    $this->SetFont('Arial','B',9);
-	$this->Ln(5);
-	$this->Cell(5);
-	$this->Cell(50,6,'Referencia',1,0,'C');
-	$this->Cell(50,6,'Descripcion',1,0,'C');
-	$this->Cell(20,6,'Cantidad',1,0,'C');
-	$this->Cell(22,6,'Vr. Unitario',1,0,'C');
-	$this->Cell(22,6,'Total',1,1,'C');
-    
-    $this->SetFont('Arial','',9);
-    for($i=1;$i<=2;$i++)
-    {
-        $this->Cell(5);
-        $this->Cell(50,6,'Referencia',1,0,'C');
-        $this->Cell(50,6,'Descripcion',1,0,'C');
-        $this->Cell(20,6,'Cantidad',1,0,'C');
-        $this->Cell(22,6,'Vr. Unitario',1,0,'C');
-        $this->Cell(22,6,'100.000.000',1,1,'C');
-    }
-    
-    $this->Ln(5);
-    $this->Cell(5);
-    $this->Cell(50,6,'Recibido__',0,0,'C');
-    $this->Cell(40,6,'___________________',0,1,'C');
-    $this->Cell(5);
-    $this->Cell(50,6,'Observaciones______',0,0,'C');
-    
-    
 }
-    
+
+
 
 
 
@@ -105,9 +60,57 @@ function Footer()
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Times','',12);
-// for($i=1;$i<=40;$i++)
-// 	$pdf->Cell(0,10,'Imprimiendo l�nea n�mero '.$i,0,1);
+
+$pdf->Ln(5);
+$pdf->Cell(15);
+$pdf->Cell(22,6,'Fecha',1,0,'C');
+$pdf->Cell(22,6,'Factura',1,0,'C');
+$pdf->Cell(20);
+$pdf->Cell(22,6,'Moto',1,0,'C');
+$pdf->Cell(22,6,'placa',1,0,'C');
+$pdf->Cell(22,6,'Kilometraje',1,1,'C');
+$pdf->Cell(15);
+$pdf->Cell(22,6,'27-03-2022',1,0,'C');
+$pdf->Cell(22,6,'F-123',1,0,'C');
+$pdf->Cell(20);
+$pdf->Cell(22,6,'Yamaha',1,0,'C');
+$pdf->Cell(22,6,'ASD123',1,0,'C');
+$pdf->Cell(22,6,'15.000',1,1,'C');
+
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Ln(5);
+$pdf->Cell(5);
+$pdf->Cell(50,6,'Referencia',1,0,'C');
+$pdf->Cell(50,6,'Descripcion',1,0,'C');
+$pdf->Cell(20,6,'Cantidad',1,0,'C');
+$pdf->Cell(22,6,'Vr. Unitario',1,0,'C');
+$pdf->Cell(22,6,'Total',1,1,'C');
+
+$pdf->SetFont('Arial','',9);
+for($i=1;$i<=2;$i++)
+{
+	$pdf->Cell(5);
+	$pdf->Cell(50,6,'Referencia',1,0,'C');
+	$pdf->Cell(50,6,'Descripcion',1,0,'C');
+	$pdf->Cell(20,6,'Cantidad',1,0,'C');
+	$pdf->Cell(22,6,'Vr. Unitario',1,0,'C');
+	$pdf->Cell(22,6,'100.000.000',1,1,'C');
+}
+
+
+
+
+
+	$pdf->Ln(5);
+	$pdf->Cell(5);
+	$pdf->Cell(50,6,'Recibido',0,0,'');
+	$pdf->Cell(40,6,'___________________',0,1,'');
+	$pdf->Ln(5);
+	$pdf->Cell(5);
+	$pdf->Cell(50,6,'Observaciones',0,1,'');
+	$pdf->Cell(5);
+	$pdf->Cell(100,6,'aqui van las observaciones',0,1,'');
 
 
 $pdf->Output();
