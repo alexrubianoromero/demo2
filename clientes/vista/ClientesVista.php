@@ -282,6 +282,7 @@ class CLientesVista extends vista
                         <th>IDENTI</th>
                         <th>NOMBRE</th>
                         <th>TELEFONO</th>
+                        <th>WatsApp</th>
                         <!-- <th>DIRECCION</th>
                         <th>EMAIL</th> -->
                     </tr>
@@ -299,6 +300,7 @@ class CLientesVista extends vista
                             echo '</button></td>';
                             echo '<td>'.strtoupper($cli['nombre']).'</td>';
                             echo '<td>'.strtoupper($cli['telefono']).'</td>';
+                            echo '<td><a href="https://web.whatsapp.com/" target="_blank"><img src="../logos/iconowatsapp.jpg" width="25px"></a></td>';
                             // echo '<td>'.strtoupper($vehi['direccion']).'</td>';
                             // echo '<td>'.$vehi['email'].'</td>';
                             echo '</tr>';
