@@ -488,9 +488,15 @@ class OrdenesVista extends vista
                 </div>
                 <br><br>
                     <div class="col-xs-12">
-               
-                        <button class="btn btn-primary" onclick="pregunteItems();">Agregar Item</button>
-                    
+                       <?php 
+                        $boton = '<button ';
+                        if($arregloOrden['estado']==2)
+                        { $boton .= ' disabled '; }      
+                        $boton .= 'class="btn btn-primary" onclick="pregunteItems();"
+                        >
+                        Agregar Item</button>';
+                        echo $boton;
+                        ?>           
                     </div>
                    
                 </div>
@@ -501,7 +507,7 @@ class OrdenesVista extends vista
                     // echo $resultados['filas'] ;
                     // die();
                         if($resultadoItems['filas'] > 0){
-                            $this->mostrarItemsOrden($arregloOrden['id'],$resultadoItems['datos']);  
+                            $this->mostrarItemsOrden($arregloOrden['id'],$resultadoItems['datos'],$arregloOrden['estado']);  
                         }
 
                     ?>
@@ -509,7 +515,7 @@ class OrdenesVista extends vista
         <?php
 
    }
-   public function mostrarItemsOrden($id,$items){
+   public function mostrarItemsOrden($id,$items,$estadoOrden='10'){
     // $items =  $this->itemsOrden->traerItemsOrdenId( $id,$conexion);
    // echo '<pre>';
    // print_r($items);
@@ -525,7 +531,12 @@ class OrdenesVista extends vista
                    <td>Vr.Unit</td>
                    <td>Cant.</td>
                    <td>Vr.Total</td>
-                   <td><i class="fas fa-trash"></i></td>
+                   <?php 
+                       if($estadoOrden<2)
+                       {
+                         echo '<td><i class="fas fa-trash"></i></td>';
+                       }
+                   ?>
                </tr>
            </thead>
            <tbody>
@@ -550,7 +561,10 @@ class OrdenesVista extends vista
                     else{
                         echo '<td></td>';
                     }
-                    echo '<td><i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
+                    if($estadoOrden<2)
+                    {
+                        echo '<td><i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
+                    }
 
                     echo '</tr>';
                     $sumaItems += $items[$i]["total_item"];
