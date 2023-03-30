@@ -65,9 +65,7 @@ class OrdenesVista extends vista
                <?php  $this->modalFiltrosCodigos(); ?>
                <?php  $this->modalReciboCaja(); ?>
                <?php  $this->modalCaja(); ?>
-
-               
-               
+               <?php  $this->modalReversionFacturada(); ?>
 
 
            </body>
@@ -205,6 +203,30 @@ class OrdenesVista extends vista
                   </div>
                   <div id="cuerpoModal" class="modal-body">
                       el modal 
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalReversionFacturada(){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div class="modal fade" id="myModalReversionFacturada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Reversar Facturada</h4>
+                  </div>
+                  <div id="cuerpoModalReversionFacturada" class="modal-body">
                       
                   </div>
                   <div class="modal-footer">
@@ -436,7 +458,16 @@ class OrdenesVista extends vista
                                     //   if($arregloOrden['estado']==3){ $nombreEstado = 'Entregada';}
                                       if($arregloOrden['estado']==2)
                                         { 
-                                           echo '<label>'.$nombreEstado.'</label>';          
+                                           echo '<label>'.$nombreEstado.'</label>';     
+                                           if($arregloOrden['estado']==2)
+                                           {
+                                               echo '<button 
+                                                        data-toggle="modal" data-target="#myModalReversionFacturada"
+                                                        onclick = "preguntarSeguroReversarFacturada('.$arregloOrden['id'].');"
+                                                    > 
+                                                    Rerversar Facturada</button>'; 
+                                           } 
+
                                         }else{
                                     ?>
 
@@ -456,14 +487,16 @@ class OrdenesVista extends vista
                                         <?php if($arregloOrden['estado']==2){ echo 'selected'; } ?>
                                         
                                         >Facturada</option>
+                                
 
                                         <!-- <option value = "3"
                                              <?php 
                                                 //   if($arregloOrden['estado']==3){ echo 'selected'; } 
-                                              ?>
+                                                ?>
                                         >Entregada
                                        </option> -->
                                 </select>
+                                             
                                 <?php
                                    } 
                                 ?>

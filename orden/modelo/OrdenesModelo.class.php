@@ -249,6 +249,24 @@ Class OrdenesModelo extends Conexion
         {
             $sql = "update ordenes set estado = '2'  where id = '".$idOrden."'    ";
             $consulta = mysql_query($sql,$this->connectMysql()); 
+            $this->crearRegistroFacturada($idOrden);
+        }
+        
+        public function crearRegistroFacturada($idOrden)
+        {
+            $sql = "insert into registrofacturadas (idOrden,fecha,observacion,tipo)  
+            values ('".$idOrden."',now(),'Facturada','1')"; 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+        }
+        public function traigaultimoRegistroFacturadaIdOrden($idOrden)
+        {
+            $sql = "select max(id),fecha from registrofacturadas 
+                    where idOrden = '".$idOrden."' 
+                    and tipo = '1'
+                    ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            $arreglo = mysql_fetch_assoc($consulta); 
+            return $arreglo; 
         }
         
         public function traerDatosCarroConPlaca($placa)

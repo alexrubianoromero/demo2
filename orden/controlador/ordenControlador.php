@@ -121,7 +121,9 @@ class ordenControlador
         if($_REQUEST['opcion']=='busqueCodigosConFiltroOrden'){
             $this->busqueCodigosConFiltroOrden($_REQUEST);
         }
-        
+        if($_REQUEST['opcion']=='reversarFacturada'){
+            $this->reversarFacturada($_REQUEST);
+        }
     }
 
 
@@ -350,6 +352,9 @@ class ordenControlador
         //    echo '</pre>';
         //    die();
         $ordenes = $this->modeloOrden->actualizarOrdenId($request);
+        //crear el registro de facturada
+        // $registro = $this->modeloOrden->crearRegistroFacturada($request);
+            
     }
     public function formuFiltrosInventarioOrden()
     {
@@ -361,6 +366,18 @@ class ordenControlador
         $codigos = $this->codigosModelo->getInfoCodeFiltros($request);
         $this->vistaOrden->mostrarCodigosBucadosFiltro($codigos);
     }
+    public function reversarFacturada($request)
+    {
+        $ultimoestadoFactu = $this->modeloOrden->traigaultimoRegistroFacturadaIdOrden($request['idOrden']);
+        //comparar las fechas haber sin son del mismo dia 
+        $fechapan =  time();
+        $fechapan = date ( "Y/m/j" , $fechapan );
+
+        echo '<br>'.$fechapan; 
+        echo '<br>'.$ultimoestadoFactu['fecha'];
+    }
+
+    
 
 }
 ?>
