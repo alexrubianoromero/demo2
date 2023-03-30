@@ -738,7 +738,29 @@ function mostrarFormuRecibo(idOrden)
                 );
             
           }, "500");
-
-
     }
+}
+
+function muestrePdfOrden(idOrden)
+{
+    // alert(idOrden); 
+    const http=new XMLHttpRequest();
+    const url = '../orden/pdf/ordenPdf2.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            // var resp = JSON.parse(this.responseText);
+            // console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            // document.getElementById("divMuestreCodigosaBuscar").innerHTML = this.responseText;
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valorventa;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("idOrden=idOrden"
+    // + "&idOrden="+idOrden
+    );
 }

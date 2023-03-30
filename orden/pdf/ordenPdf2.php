@@ -2,9 +2,22 @@
 $raiz= $_SERVER['DOCUMENT_ROOT'];
 date_default_timezone_set('America/Bogota');
 require_once($raiz.'/fpdf/fpdf.php');
+$ruta = dirname(dirname(__FILE__));
+// die($ruta);
+require_once($ruta .'/modelo/OrdenesModelo.class.php');
+$orden = new OrdenesModelo();
 
+$datoOrden = $orden->traerOrdenId($_REQUEST['idOrden']);
+$_REQUEST['nombrecli'] = $datoOrden['nombrecli']; 
+// die($datoOrden['nombrecli']);
 class PDF extends FPDF
 {
+	// protected $modelOrden;
+
+	public function __construct()
+	{
+		// $this->modelOrden = new OrdenesModelo();
+	}
     // Cabecera de p�gina
     function Header()
     {
@@ -15,7 +28,9 @@ class PDF extends FPDF
         // Movernos a la derecha
         $this->Cell(80);
         // T�tulo
-        $this->Cell(60,10,'ORDEN DE SERVICIO',1,1,'C');
+        $this->Cell(60,10,'ORDEN DE SERVICIO',1,0,'C');
+        $this->Cell(10,10,$_REQUEST['idOrden'],1,1,'C');
+
         $this->SetFont('Arial','',10);
         $this->Ln(5);
 	$this->Cell(80);
@@ -25,7 +40,7 @@ class PDF extends FPDF
 	$this->Cell(25,6,'Telefono',1,1,'C');
     
 	$this->Cell(80);
-	$this->Cell(40,6,'Alex Eduardo Rubiano',1,0,'C');
+	$this->Cell(40,6,$_REQUEST['nombrecli'],1,0,'C');
 	$this->Cell(25,6,'79566096',1,0,'C');
 	$this->Cell(25,6,'3124551226',1,1,'C');
 	$this->Cell(80);

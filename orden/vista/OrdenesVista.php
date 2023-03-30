@@ -126,6 +126,7 @@ class OrdenesVista extends vista
         echo '<thead>'; 
         echo '<tr  class="bontonesmenuinternos">'; 
         echo '<th>ORDEN</th>';
+        echo '<th>PDF</th>';
         echo '<th>FECHA</th>';
         echo '<th>PLACA</th>';
         echo '<th>LINEA</th>';
@@ -164,6 +165,10 @@ class OrdenesVista extends vista
                 
             </button>
             </td>';
+            echo '<td>';
+ 
+            echo '<a href="../orden/pdf/ordenPdf3.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
+            echo '</td>';
             echo '<td>'.$orden['fecha'].'</td>';
             echo '<td>'.$orden['placa'].'</td>';
             echo '<td>'.$orden['tipo'].'</td>';

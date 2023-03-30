@@ -211,6 +211,14 @@ class VehiculosModelo extends Conexion
                     // die();
                     return $historiales;
                 }
+                
+                public function traerInfoCarroConPlaca($placa)
+                {
+                    $sql = "select * from carros where placa =  '".$placa ."'   "; 
+                    $consulta = mysql_query($sql,$this->connectMysql()); 
+                    $infoCarro = $this->get_table_assoc($consulta);
+                    return $infoCarro;
+                }
 
 
         

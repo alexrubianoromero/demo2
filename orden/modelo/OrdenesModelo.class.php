@@ -60,7 +60,7 @@ Class OrdenesModelo extends Conexion
 
      public function traerOrdenId($id,$conexion =  '' ){
         $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico,o.id 
-                 ,o.estado,o.observacionestecnico,o.mecanico as idmecanico
+                 ,o.estado,o.observacionestecnico,o.mecanico as idmecanico,cli.nombre as nombrecli, o.placa
                  FROM ordenes o 
                  LEFT JOIN carros c on c.placa = o.placa
                  LEFT JOIN cliente0 cli on cli.idcliente = c.propietario 
@@ -250,6 +250,33 @@ Class OrdenesModelo extends Conexion
             $sql = "update ordenes set estado = '2'  where id = '".$idOrden."'    ";
             $consulta = mysql_query($sql,$this->connectMysql()); 
         }
+        
+        public function traerDatosCarroConPlaca($placa)
+        {
+            $sql = "select * from carros where placa = '".$placa."' "; 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            $arrCarro = mysql_fetch_assoc($consulta);
+            return $arrCarro;  
+        }
+        
+        public function traerDatosPropietarioConPlaca($id)
+        {
+            $sql = "select * from cliente0 where idcliente = '".$id."'   "; 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            $arrCliente = mysql_fetch_assoc($consulta);
+            return $arrCliente; 
+            
+        }
+        
+        public function traerItemsAsociadosOrdenPorIdOrden($idOrden)
+        {
+            $sql = "select * from item_orden where no_factura = '".$idOrden."'  "; 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            $arreglo = $this->get_table_assoc($consulta); 
+            return $arreglo; 
+
+        }
+
 
 }
 
