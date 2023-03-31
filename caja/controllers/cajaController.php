@@ -94,12 +94,20 @@ class cajaController
     }
     public function informeSalario()
     {
-        $valores=[];
-        $valores['tipoInforme'] =='1';
-        $recibos = $this->model->informeCaja($valores);
-        $this->vista->muestreSalario($recibos);
+        // $valores=[];
+        // $valores['tipoInforme'] =='1';
+        // $recibos123 = $this->model->informeCaja($valores);
+        // $recibosDia = $this->model->traerLosRecibosDelDia();
+        // foreach($recibosDia as $recibo )
+        // {
+        //     echo 'controller<br>'.$recibo['id_recibo'];
+        // }
+        // die();
+        // $this->vista->muestreSalario($recibosDia);
+        $this->vista->mustreSalarioDiario();
         // echo 'llego a funcion salario '; 
     }
+
 }
 ?>
 

@@ -47,13 +47,19 @@ function grabarRecibo()
         var txtEfectivo = document.getElementById("txtEfectivo").value;
         var txtDebito = document.getElementById("txtDebito").value;
         var txtCredito = document.getElementById("txtCredito").value;
+        var txtBancolombia = document.getElementById("txtBancolombia").value;
+        var txtBolt = document.getElementById("txtBolt").value;
+
+
         var idOrden = document.getElementById("idOrden").value;
 
         if(txtEfectivo==''){ txtEfectivo='0'}
         if(txtDebito==''){ txtDebito='0'}
         if(txtCredito==''){ txtCredito='0'}
+        if(txtBancolombia==''){ txtBancolombia='0'}
+        if(txtBolt==''){ txtBolt='0'}
 
-        var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito) ;
+        var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito)  + parseInt(txtBancolombia)  + parseInt(txtBolt) ;
 
         const http=new XMLHttpRequest();
         const url = '../caja/caja.php';
@@ -75,6 +81,8 @@ function grabarRecibo()
                 + "&txtEfectivo="+txtEfectivo 
                 + "&txtDebito="+txtDebito 
                 + "&txtCredito="+txtCredito 
+                + "&txtBancolombia="+txtBancolombia 
+                + "&txtBolt="+txtBolt 
                 + "&idOrden="+idOrden 
         );
 
@@ -147,12 +155,18 @@ function sumarTotalRecibo()
     var txtEfectivo = document.getElementById("txtEfectivo").value;
     var txtDebito = document.getElementById("txtDebito").value;
     var txtCredito = document.getElementById("txtCredito").value;
+    var txtBancolombia = document.getElementById("txtBancolombia").value;
+    var txtBolt = document.getElementById("txtBolt").value;
+
+
     var txtValor  = document.getElementById("txtValor").value;
     if(txtEfectivo==''){ txtEfectivo='0'}
     if(txtDebito==''){ txtDebito='0'}
     if(txtCredito==''){ txtCredito='0'}
+    if(txtBancolombia==''){ txtBancolombia='0'}
+    if(txtBolt==''){ txtBolt='0'}
 
-    var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito) ;
+    var suma  = parseInt(txtEfectivo) + parseInt(txtDebito) + parseInt(txtCredito) + parseInt(txtBancolombia) + parseInt(txtBolt)  ;
     document.getElementById("txtValor").innerHTML=suma;
 
 

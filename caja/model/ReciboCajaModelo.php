@@ -23,7 +23,7 @@ class ReciboCajaModelo extends Conexion
         if($request['idOrden']==''){ $request['idOrden']=0;}
 
         $sql = "insert into recibos_de_caja  (dequienoaquin,lasumade,porconceptode,observaciones,
-        fecha_recibo,tipo_recibo,idTecnico,idConcepto,efectivo,t_debito,t_credito,id_orden)   
+        fecha_recibo,tipo_recibo,idTecnico,idConcepto,efectivo,t_debito,t_credito,id_orden,bancolombia,bolt)   
                 values('".$request['txtAquien']."'
                     ,'".$request['txtValor']."'
                     ,'".$request['txtConcepto']."'
@@ -36,6 +36,8 @@ class ReciboCajaModelo extends Conexion
                     ,'".$request['txtDebito']."'
                     ,'".$request['txtCredito']."'
                     ,'".$request['idOrden']."'
+                    ,'".$request['txtBancolombia']."'
+                    ,'".$request['bolt']."'
                 ) ";
          $consulta = mysql_query($sql,$this->conexion );    
          echo 'Registro grabado<br>';    
@@ -78,13 +80,55 @@ class ReciboCajaModelo extends Conexion
             
         }
         $sql .= " order by tipo_recibo  ASC";
-        // die($sql); 
+        //  die($sql); 
         $consulta = mysql_query($sql,$this->conexion);
         $recibos = $this->get_table_assoc($consulta);
-        return $recibos;
-    }
+        // foreach($recibos as $recibo )
+        // {
+            //     echo 'model<br>'.$recibo['id_recibo'];
+            // }
+            // die();
+            return $recibos;
+        }
+        
+        public function traerLosRecibosDelDia()
+        {
+            $fechapan =  time();
+            $fechapan =  date ( "Y/m/j" , $fechapan );
+            $sql = "select * from recibos_de_caja where  fecha_recibo =   '".$fechapan."' order by idTecnico ";
+            $consulta = mysql_query($sql,$this->conexion);
+            $arreglo = $this->get_table_assoc($consulta); 
+            return $arreglo;
+        }
+        
+        public function traerIdTecnicosRecibosDiaQueTenganIdTecnico()
+        {
+            $fechapan =  time();
+            $fechapan =  date ( "Y/m/j" , $fechapan );
+            $sql = "select distinct(idTecnico) from recibos_de_caja 
+                    where  fecha_recibo =   '".$fechapan."' 
+                    and idTecnico > 0 
+                    group by idTecnico ";
+            // die($sql); 
+            $consulta = mysql_query($sql,$this->conexion);
+            $arreglo = $this->get_table_assoc($consulta); 
+            return $arreglo;
+        }
+        
+        public function traerRecibosDiaPorIdTecnico($idTecnico)
+        {
+            $fechapan =  time();
+            $fechapan =  date ( "Y/m/j" , $fechapan );
+            $sql = "select * from  recibos_de_caja 
+                    where  idTecnico =   '".$idTecnico."'
+                    and fecha_recibo = '".$fechapan."' 
+                    and id_orden = 0 ";
+            // die($sql); 
+            $consulta = mysql_query($sql,$this->conexion);
+            $arreglo = $this->get_table_assoc($consulta); 
+            return $arreglo;
+        }
 
-    
 
 }
 

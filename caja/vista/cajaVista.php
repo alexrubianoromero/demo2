@@ -4,6 +4,7 @@ require_once($raiz.'/caja/model/ConceptoModel.php');
 require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
 require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
+require_once($raiz.'/caja/model/ReciboCajaModelo.php');
 
 class cajaVista
 {
@@ -11,13 +12,15 @@ class cajaVista
     protected $modelItem; 
     protected $modelOrden; 
     protected $modelTecnico; 
-
+    protected $modelRecibo;
     public function __construct()
     {
         $this->modeloConcep = new ConceptoModel(); 
         $this->modelItem = new itemsOrdenModelo();
         $this->modelOrden =  new OrdenesModelo();
         $this->modelTecnico  = new TecnicosModelo(); 
+        $this->modelRecibo  = new ReciboCajaModelo(); 
+
     }
 
     public function cajaVistaPrincipal($saldoActual)
@@ -153,7 +156,7 @@ class cajaVista
                 </div>
             </div>
             <div class = row>
-                <div class="col-xs-4">
+                <div class="col-xs-3">
                     <input 
                         class= "form-control" 
                         type="text" id="txtEfectivo" 
@@ -161,13 +164,23 @@ class cajaVista
                         onkeyup = "sumarTotalRecibo(); ";
                     >
                 </div>
-                <div class="col-xs-4">
-                    <input class= "form-control" type="text" id="txtDebito" placeholder="Debito" onkeyup = "sumarTotalRecibo(); ";>
+                <div class="col-xs-3">
+                    <input class= "form-control" type="text" id="txtDebito" placeholder="Nequi" onkeyup = "sumarTotalRecibo(); ">
                 </div>
-                <div class="col-xs-4">
-                    <input class= "form-control" type="text" id="txtCredito" placeholder="Credito" onkeyup = "sumarTotalRecibo(); ";>
+                <div class="col-xs-3">
+                    <input class= "form-control" type="text" id="txtCredito" placeholder="Daviplata" onkeyup = "sumarTotalRecibo(); ">
                 </div>
             </div>
+            <div class = row>
+                <div class="col-xs-3">
+                    <input class= "form-control" type="text" id="txtBancolombia" placeholder="Bancolombia" onkeyup = "sumarTotalRecibo(); ">
+                </div>
+                <div class="col-xs-3">
+                    <input class= "form-control" type="text" id="txtBolt" placeholder="Bolt" onkeyup = "sumarTotalRecibo(); ">
+                </div>
+                <div class="col-xs-3">
+                </div>
+            </div>    
             <div class="row">
                 <div class ="col-xs-4"><label class ="form-control"><?php  echo  $dequien;  ?></label></div>
                 <div class="col-xs-8">
@@ -403,12 +416,17 @@ class cajaVista
         echo '<th >Efectivo</th>';
         echo '<th >Debito</th>';
         echo '<th >Credito</th>';
+        echo '<th >Bancolombia</th>';
+        echo '<th >Bolt</th>';
         echo '<th >Total</th>';
         echo '</tr>';
         echo '<tbody>';
         $efectivo=0;
         $debito = 0;
         $credito = 0;
+        $credito = 0;
+        $bancolombia = 0;
+        $bolt = 0;
         $total = 0;
         foreach($recibos as $recibo)
         {
@@ -438,11 +456,15 @@ class cajaVista
             echo '<td align="right">'.number_format($recibo['efectivo'], 0, ',', '.').'</td>';
             echo '<td align="right"> '.number_format($recibo['t_debito'], 0, ',', '.').'</td>';
             echo '<td align="right">'.number_format($recibo['t_credito'], 0, ',', '.').'</td>';
+            echo '<td align="right">'.number_format($recibo['bancolombia'], 0, ',', '.').'</td>';
+            echo '<td align="right">'.number_format($recibo['bolt'], 0, ',', '.').'</td>';
             echo '<td align="right">'.number_format($recibo['lasumade'], 0, ',', '.').'</td>';
             echo '</tr>';
             $efectivo += $recibo['efectivo'];
             $debito   += $recibo['t_debito'];
             $credito  += $recibo['t_credito'];
+            $bancolombia  += $recibo['bancolombia'];
+            $bolt  += $recibo['bolt'];
             $total    += $recibo['lasumade'];
             echo '</tr>';
             }
@@ -452,6 +474,8 @@ class cajaVista
         echo '<td align="right">'.number_format($efectivo, 0, ',', '.').'</td>';
         echo '<td align="right">'.number_format($debito, 0, ',', '.').'</td>';
         echo '<td align="right">'.number_format($credito, 0, ',', '.').'</td>';
+        echo '<td align="right">'.number_format($bancolombia, 0, ',', '.').'</td>';
+        echo '<td align="right">'.number_format($bolt, 0, ',', '.').'</td>';
         echo '<td align="right" style="color:green">'.number_format($total, 0, ',', '.').'</td>';
         echo '</tr>';
         echo '</tbody>';
@@ -483,13 +507,20 @@ class cajaVista
 
     public function muestreSalario($recibos)
     {
+        // foreach($recibos as $recibo )
+        // {
+        //     echo '<br>'.$recibo['id_recibo'];
+        // }
+        // die();
         echo 'Salario';
 
         echo '<table class="table" >';
         echo '<tr>';
         echo '<th>Concepto</th>';
+        echo '<th>Obse</th>';
         echo '<th >Valor</th>';
         echo '<th >Nombre</th>';
+        echo '<th >%</th>';
         echo '<th >Valor a PAgar</th>';
         echo '</tr>';
         $totalPagos= 0;
@@ -500,37 +531,91 @@ class cajaVista
             {
                 echo '<tr>';
                     $concepto =  $this->modeloConcep->traerConceptoConId($recibo['idConcepto']);
-                    echo '<td>'.$concepto.'</td>';
-                    if($recibo['id_orden'] > '0') //es el pago de una orden 
+                    if($recibo['id_orden'] != '0') //es el pago de una orden 
                     {
+                        // die('entro a que existe idOrden'.$recibo['id_orden']);
                         //debe traer solo la parte de mano de obra busque mano de obra de este orden
+                        
                         $infoOrden =  $this->modelOrden->traerOrdenId($recibo['id_orden'],'');
                         $infoTecnico =  $this->modelTecnico->traerTecnicoPorId($infoOrden['idmecanico']); 
                         $sumaItemsMano = $this->modelItem->traerItemsOrdenManoObraIdOrden($recibo['id_orden'],'M');
+                        //si la suma de manos de obra es mayor a cero se mostrara informacion de lo contrario no 
+                        
+                        echo '<td>'.$concepto.'</td>';
                         // $concepto = $concepto .' '.$infoOrden['orden'];
                         $tecnico = $infoOrden['mecanico'];
+                        $concepto .= $infoOrden['orden']; 
+                        echo '<td>'.$concepto.'</td>';
                         echo '<td align="right">'.number_format($sumaItemsMano['valor'], 0, ',', '.').'</td>';
-                        echo '<td>'.$infoTecnico['nombre'].'-'.$infoTecnico['porcentaje_nomina'].'%</td>';
+                        echo '<td>'.$infoTecnico['nombre'].'</td>';
+                        echo '<td>'.$infoTecnico['porcentaje_nomina'].'%</td>';
                         $valorPagar = ($sumaItemsMano['valor'] * $infoTecnico['porcentaje_nomina'])/100;
                         echo '<td align="right">'.number_format($valorPagar, 0, ',', '.').'</td>';
                     }
                     if($recibo['idTecnico'] >'0') //osea si es lavada 
                     {
+                        echo '<td>'.$concepto.'</td>';
+                        echo '<td></td>';
                         echo '<td align="right">'.number_format($recibo['lasumade'], 0, ',', '.').'</td>';
                         $tecnico = $this->modelTecnico->traerTecnicoPorId($recibo['idTecnico']); 
                         echo '<td>'.$tecnico['nombre'].'</td>';
+                        echo '<td>'.$tecnico['porcentaje_nomina'].'%</td>';
+                        
                         $valorPagar = ($recibo['lasumade'] * $tecnico['porcentaje_nomina'])/100;
                         echo '<td align="right">'.number_format($valorPagar, 0, ',', '.').'</td>';
                     }    
-                echo '</tr>';
-            }    
-            $totalPagos  = $totalPagos + $valorPagar; 
+                    echo '</tr>';
+                }    
+                $totalPagos  = $totalPagos + $valorPagar; 
+            }
+            echo '<tr><td></td><td></td><td></td><td></td><td>Total: </td><td align="right">'.number_format($totalPagos, 0, ',', '.').'</td></tr>';
+            echo '</table>';
         }
-        echo '<tr><td></td><td></td><td></td><td align="right">'.number_format($totalPagos, 0, ',', '.').'</td></tr>';
-        echo '</table>';
-    }
-
-
+        public function mustreSalarioDiario()
+        {
+            $granTotal = 0; 
+            echo '<h2>REPORTE SALARIO DIARIO</h2>';
+            $idTecnicosRecibosDia = $this->modelRecibo->traerIdTecnicosRecibosDiaQueTenganIdTecnico();
+            echo '<table class="table" >';
+            foreach($idTecnicosRecibosDia as $tecnicoRecibo)
+            {
+                $totalTecnico = 0;
+                $tecnico = $this->modelTecnico->traerTecnicoPorId($tecnicoRecibo['idTecnico']); 
+                echo '<tr><th colspan="6">'.$tecnico['nombre'].'</th></tr>';
+                echo '<tr>';
+                echo '<th>Concepto</th>';
+                echo '<th>Obse</th>';
+                echo '<th align="right">Valor</th>';
+                echo '<th >%</th>';
+                echo '<th align="right">Valor a Pagar</th>';
+                echo '</tr>';
+                // echo '<br>'.$tecnicoRecibo['idTecnico'];
+                $recibosDia = $this->modelRecibo->traerRecibosDiaPorIdTecnico($tecnicoRecibo['idTecnico']);
+                foreach($recibosDia as $recibo)
+                {
+                    //mostrar recibos del dia de este tecnico
+                    $concepto =  $this->modeloConcep->traerConceptoConId($recibo['idConcepto']);
+                    echo '<tr>'; 
+                    echo '<td>'.$concepto.'</td>'; 
+                    echo '<td></td>'; 
+                    echo '<td align="right">'.number_format($recibo['lasumade'], 0, ',', '.').'</td>'; 
+                    echo '<td>'.$tecnico['porcentaje_nomina'].'%</td>'; 
+                    $valorPagar = ($recibo['lasumade'] * $tecnico['porcentaje_nomina'])/100;
+                    echo '<td align="right">'.number_format($valorPagar, 0, ',', '.').'</td>';
+                    echo '</tr>';
+                    $totalTecnico = $totalTecnico + $valorPagar; 
+                }
+                $granTotal += $totalTecnico; 
+                echo '<tr><td colspan = "3"></td><td>Total:</td><td align="right">'.number_format($totalTecnico, 0, ',', '.').'</td></tr>';
+            }
+            echo '<tr><td></td></tr>';
+            echo '<tr><td colspan = "3"></td><td>Gran Total:</td><td align="right">'.number_format($granTotal, 0, ',', '.').'</td></tr>';
+            echo '</table>';
+            
+            
+        }
+        
+        
 }
 
 
