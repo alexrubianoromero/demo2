@@ -117,6 +117,7 @@ class ReciboCajaModelo extends Conexion
         
         public function traerRecibosDiaPorIdTecnico($idTecnico)
         {
+            //solo recibos que no sean de ordenes de servicio osea id_orden = 0
             $fechapan =  time();
             $fechapan =  date ( "Y/m/j" , $fechapan );
             $sql = "select * from  recibos_de_caja 
@@ -128,6 +129,37 @@ class ReciboCajaModelo extends Conexion
             $arreglo = $this->get_table_assoc($consulta); 
             return $arreglo;
         }
+        public function traerIdordenRecibosPorOrdenesDeServicioDiario()
+        {
+            //solo recibos que no sean de ordenes de servicio osea id_orden = 0
+            $fechapan =  time();
+            $fechapan =  date ( "Y/m/j" , $fechapan );
+            $sql = "select distinct(id_orden) from  recibos_de_caja 
+                    where  id_orden > 0
+                    and fecha_recibo = '".$fechapan."' 
+                    and idTecnico =  0 
+                    group by id_orden";
+            //  die($sql); 
+            $consulta = mysql_query($sql,$this->conexion);
+            $arreglo = $this->get_table_assoc($consulta); 
+            return $arreglo;
+        }
+        public function traerReciboPorIdOrden($idOrden)
+        {
+            //solo recibos que no sean de ordenes de servicio osea id_orden = 0
+            $fechapan =  time();
+            $fechapan =  date ( "Y/m/j" , $fechapan );
+            $sql = "select * from  recibos_de_caja 
+                    where  id_orden = '".$idOrden."'
+                    and fecha_recibo = '".$fechapan."' 
+                    and idTecnico =  0 
+                    ";
+            //  die($sql); 
+            $consulta = mysql_query($sql,$this->conexion);
+            $arreglo = mysql_fetch_assoc($consulta); 
+            return $arreglo;
+        }
+
 
 
 }

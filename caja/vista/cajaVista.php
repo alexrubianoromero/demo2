@@ -606,15 +606,63 @@ class cajaVista
                     $totalTecnico = $totalTecnico + $valorPagar; 
                 }
                 $granTotal += $totalTecnico; 
-                echo '<tr><td colspan = "3"></td><td>Total:</td><td align="right">'.number_format($totalTecnico, 0, ',', '.').'</td></tr>';
+                echo '<tr><td colspan = "3"></td><td>Subtotal :</td><td align="right">'.number_format($totalTecnico, 0, ',', '.').'</td></tr>';
             }
             echo '<tr><td></td></tr>';
             echo '<tr><td colspan = "3"></td><td>Gran Total:</td><td align="right">'.number_format($granTotal, 0, ',', '.').'</td></tr>';
+            $totalPorIngresoOrdenes = $this->muestreIngresoDiarioPorOrdenes();
+            $granTotalFinal = $granTotal + $totalPorIngresoOrdenes; 
+            echo '<tr><td><Gran colspan = "1">Gran Total:</td><td align="right">'.number_format($granTotalFinal, 0, ',', '.').'</td></tr>';
+            
             echo '</table>';
             
             
         }
         
+        public function muestreIngresoDiarioPorOrdenes()
+        {
+            $totalPorOrdenes = 0; 
+            echo '<tr><td>Ingreso Por Ordenes</td></tr>';
+            $idOrdenRecibos = $this->modelRecibo->traerIdordenRecibosPorOrdenesDeServicioDiario();
+            foreach($idOrdenRecibos as $idOrdenRecibo)
+            {
+                
+                $infoRecibo = $this->modelRecibo->traerReciboPorIdOrden($idOrdenRecibo['id_orden']);
+                $infoOrden =  $this->modelOrden->traerOrdenId($idOrdenRecibo['id_orden'],'');
+                $tecnico = $this->modelTecnico->traerTecnicoPorId($infoOrden['idmecanico']); 
+                $concepto =  $this->modeloConcep->traerConceptoConId($infoRecibo['idConcepto']);
+                $concepto .= ' Orden '.$infoOrden['orden']; 
+                //traer los codigos de nomina de esa orden 
+                $itemsManosObraOrden = $this->modelItem->traerItemsOrdenManoObraIdOrden($idOrdenRecibo['id_orden'],'M');
+                // foreach($itemsManosObraOrden as $arr)
+                // {
+                //         echo '<br>valores'.$arr['valor'];
+                // }
+                echo'<tr>';
+                echo '<td>'.$tecnico['nombre'].'</td>';
+                echo '</tr>';
+                $totalPorTecnico = 0; 
+                foreach($itemsManosObraOrden as $itemManoObraOrden)
+                {
+                    echo'<tr>';
+                    echo '<td>'.$concepto.'</td>';
+                    echo '<td></td>';
+                    echo '<td align="right">'.number_format($itemManoObraOrden['valor'], 0, ',', '.').'</td>';
+                    echo '<td>'.$tecnico['porcentaje_nomina'].'%</td>';
+                    $valorPagar = ($itemManoObraOrden['valor'] * $tecnico['porcentaje_nomina'])/100;
+                    echo '<td align="right">'.number_format($valorPagar, 0, ',', '.').'</td>';
+                    echo '</tr>';
+                    $totalPorTecnico +=  $valorPagar;
+                }
+
+                $totalPorOrdenes += $totalPorTecnico;
+
+            }
+            echo '<tr>'; 
+            echo '<td colspan ="3"></td><td>Subtotal </td><td align="right">'.number_format($totalPorOrdenes, 0, ',', '.').'</td>';
+            echo '</tr>';
+            return $totalPorOrdenes;
+        }
         
 }
 

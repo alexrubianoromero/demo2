@@ -115,7 +115,7 @@ class itemsOrdenModelo extends Conexion
                 and p.repman = '".$tipoCod."'
                 ";
         $consulta = mysql_query($sql,$this->connectMysql());    
-        $result = mysql_fetch_assoc($consulta);
+        $result = $this->get_table_assoc($consulta);
         return $result;
     }
 
