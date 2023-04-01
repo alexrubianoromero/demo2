@@ -219,7 +219,10 @@ class OrdenesVista extends vista
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
          Launch demo modal
          </button> -->
-          <div class="modal fade" id="myModalReversionFacturada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade" id="myModalReversionFacturada" tabindex="-1" 
+                role="dialog" aria-labelledby="myModalLabel"
+                style="color:black;"
+            >
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                   <div class="modal-header">
@@ -227,10 +230,12 @@ class OrdenesVista extends vista
                       <h4 class="modal-title" id="myModalLabel">Reversar Facturada</h4>
                   </div>
                   <div id="cuerpoModalReversionFacturada" class="modal-body">
-                      
+                      <div id="divAviso"></div>
                   </div>
                   <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal"
+                        onclick = "cerraMymodalYpintarOrdenes();"
+                      >Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                   </div>
                   </div>

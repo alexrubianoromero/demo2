@@ -260,7 +260,7 @@ Class OrdenesModelo extends Conexion
         }
         public function traigaultimoRegistroFacturadaIdOrden($idOrden)
         {
-            $sql = "select max(id),fecha from registrofacturadas 
+            $sql = "select max(id),DATE_FORMAT(Fecha,'%Y/%m/%d') as fecha from registrofacturadas 
                     where idOrden = '".$idOrden."' 
                     and tipo = '1'
                     ";
@@ -294,7 +294,25 @@ Class OrdenesModelo extends Conexion
             return $arreglo; 
 
         }
+        public function realizarReversionFacturadaIdOrden($idOrden)
+        {
+            $sql =  "update ordenes set estado = '1' where id = '".$idOrden."'  "; 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            
+        }
+        public function crearRegistroDesfacturadaId($idOrden)
+        {
+            $sql = "insert into registrofacturadas (idOrden,fecha,observacion,tipo)  
+            values ('".$idOrden."',now(),'DesFacturada','2')"; 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+        }
+        
+        public function eliminarReciboDeCajaReversionFacturaIdOrden($idOrden)
+        {
+            $sql = "delete from recibos_de_caja where id_orden = '".$idOrden."' ";  
+            $consulta = mysql_query($sql,$this->connectMysql()); 
 
+        }
 
 }
 

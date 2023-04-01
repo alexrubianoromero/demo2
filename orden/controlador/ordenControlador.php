@@ -373,11 +373,21 @@ class ordenControlador
         $fechapan =  time();
         $fechapan = date ( "Y/m/j" , $fechapan );
 
-        echo '<br>'.$fechapan; 
-        echo '<br>'.$ultimoestadoFactu['fecha'];
+        // echo '<br>'.$fechapan; 
+        // echo '<br>'.$ultimoestadoFactu['fecha'];
+        if($fechapan = $ultimoestadoFactu['fecha'])
+        {
+            echo 'si se puede reversar'; 
+            //llamar funcion del modelo y hacer el cambio 
+            $this->modeloOrden->realizarReversionFacturadaIdOrden($request['idOrden']);
+            $this->modeloOrden->crearRegistroDesfacturadaId($request['idOrden']);
+            $this->modeloOrden->eliminarReciboDeCajaReversionFacturaIdOrden($request['idOrden']);
+            echo 'Facturacion reversada'; 
+        }
+        else {
+            echo 'no se puede reversar , no es del mismo dia ';
+        }
     }
-
-    
 
 }
 ?>

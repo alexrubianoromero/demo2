@@ -768,23 +768,38 @@ function muestrePdfOrden(idOrden)
 function preguntarSeguroReversarFacturada(idOrden)
 {
     // alert(idOrden);
-    const http=new XMLHttpRequest();
-    const url = '../orden/ordenes.php';
-    http.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status ==200){
-            var resp = JSON.parse(this.responseText);
-            console.log(resp.descripcion); 
-            // alert(resp.descripcion); 
-            document.getElementById("cuerpoModalReversionFacturada").innerHTML = this.responseText;
-            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
-            // document.getElementById("descripan").value = resp.descripcion;
-            // document.getElementById("valorUnitpan").value = resp.valorventa;
-        }
-    };
-    
-    http.open("POST",url);
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send("opcion=reversarFacturada"
-    + "&idOrden="+idOrden
-    );
+//    var confirmacion = confirm('Esta seguro de reversar ');
+//    alert(confirmacion);
+//    if(confirmacion='true')
+//    {
+        const http=new XMLHttpRequest();
+        const url = '../orden/ordenes.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                // var resp = JSON.parse(this.responseText);
+                // console.log(resp.descripcion); 
+                // alert(resp.descripcion); 
+                // document.getElementById("cuerpoModalReversionFacturada").innerHTML = this.responseText;
+                document.getElementById("cuerpoModalReversionFacturada").innerHTML = '';
+                // document.getElementById("divAviso").innerHTML = 'Facturacion Reversada';
+
+                // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+                // document.getElementById("descripan").value = resp.descripcion;
+                // document.getElementById("valorUnitpan").value = resp.valorventa;
+            }
+        };
+        
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=reversarFacturada"
+        + "&idOrden="+idOrden
+        );
+        cerraMymodalYpintarOrdenes();
+    // }
+}
+function cerraMymodalYpintarOrdenes()
+{
+    // $('#myModalReversionFacturada').modal('hide');  
+    $('#myModal2').modal('hide');  
+    pintarOrdenes();
 }
