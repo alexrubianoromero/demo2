@@ -128,3 +128,48 @@ function pantallaTecnicos12()
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send('opcion=pantallaPrincipalTecnicos');
 }
+
+function actualizarInfoTecnico()
+{
+    
+    var idcliente = document.getElementById("idcliente").value;
+    var cedula = document.getElementById("txtCedula").value;
+    var nombre = document.getElementById("txtNombre").value;
+    var telefono = document.getElementById("txtTelefono").value;
+    var porcentaje = document.getElementById("txtPorcentaje").value;
+    var idLabor = document.getElementById("idLabor").value;
+    const http=new XMLHttpRequest();
+    const url = '../tecnicos/tecnicosmovil.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+        document.getElementById("cuerpoModalTecnicos").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=actualizarTecnico'
+    + "&idcliente="+idcliente
+    + "&cedula="+cedula
+    + "&nombre="+nombre
+    + "&telefono="+telefono
+    + "&porcentaje="+porcentaje
+    + "&idLabor="+idLabor
+    );
+
+}
+
+function eliminarTecnico(idCliente)
+{
+    const http=new XMLHttpRequest();
+    const url = '../tecnicos/tecnicosmovil.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+        document.getElementById("cuerpoModalTecnicos").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=eliminarTecnico'
+    + "&idcliente="+idCliente
+    );
+}

@@ -34,6 +34,7 @@ class TecnicosVista extends vista
                             <td>Telefono</td>
                             <td>Labor</td>
                             <td>%</td>
+                            <td>Eliminar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +64,10 @@ class TecnicosVista extends vista
                                 echo $cargo; 
                                 echo '</td>';
                                 echo '<td>'.$tecnico['porcentaje_nomina'].'</td>';
+                                echo '<td><button
+                                        class = "btn btn-primary"
+                                        data-toggle="modal" data-target="#myModalTecnicos" 
+                                        onclick = "eliminarTecnico('.$tecnico['idcliente'].')">Eliminar</button></td>';
                                 echo '</tr>';
                             }
 
@@ -98,7 +103,7 @@ class TecnicosVista extends vista
                       
                   </div>
                   <div class="modal-footer" id="footerNuevoCliente">
-                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="verTalleres();">Cerrar</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pantallaTecnicos12();">Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                   </div>
                   </div>
@@ -152,17 +157,21 @@ class TecnicosVista extends vista
     public function pantallaDatosTecnico($tecnico)
     {
         echo $tecnico['nombre'];
+
+
     }
-    public function formuNuevoTecnico()
+    public function formuNuevoTecnico($tecnico=[])
     {
+        
         ?>
+            <input type="hidden"  id="idcliente" value = "<?php echo $tecnico['idcliente'];  ?>">
             <div>
                 <div class = "form-group">
                     <div class = "col-xs-3">
                          <label for="">Cedula:</label>   
                     </div>
                     <div class="col-xs-9">
-                        <input class ="form-control" type="text" id="txtCedula">
+                        <input class ="form-control" type="text" id="txtCedula" value = "<?php  echo $tecnico['identi']  ?>">
                     </div>
                 </div>
                 <div class = "form-group">
@@ -170,7 +179,7 @@ class TecnicosVista extends vista
                          <label for="">Nombre:</label>   
                     </div>
                     <div class="col-xs-9">
-                        <input class ="form-control" type="text" id="txtNombre">
+                        <input class ="form-control" type="text" id="txtNombre" value = "<?php  echo $tecnico['nombre']  ?>">
                     </div>
                 </div>
                 <div class = "form-group">
@@ -178,7 +187,7 @@ class TecnicosVista extends vista
                          <label for="">Telefono:</label>   
                     </div>
                     <div class="col-xs-9">
-                        <input class ="form-control" type="text" id="txtTelefono">
+                        <input class ="form-control" type="text" id="txtTelefono" value = "<?php  echo $tecnico['telefono']  ?>">
                     </div>
                 </div>
                 <div class = "form-group">
@@ -190,9 +199,12 @@ class TecnicosVista extends vista
                             id="idLabor"
                             class ="form-control" 
                         >
+                            
                             <option value="0">...</option>
-                            <option value="1">Mecanico</option>
-                            <option value="2">Lavador</option>
+                            <option 
+                                value="1" <?php if($tecnico['idlabor'] == 1) {echo 'selected';} ?> 
+                            ></option>>Mecanico</option>
+                            <option value="2" <?php if($tecnico['idlabor'] == 2 ) {echo 'selected';} ?>>Lavador</option>
                         </select>
                     </div>
                 </div>
@@ -201,16 +213,37 @@ class TecnicosVista extends vista
                          <label for="">Porcentaje:</label>   
                     </div>
                     <div class="col-xs-4">
-                        <input class ="form-control" type="text" id="txtPorcentaje" placeholder ="%">
+                        <input class ="form-control" type="text" id="txtPorcentaje" placeholder ="%" 
+                        value = "<?php  echo $tecnico['porcentaje_nomina']  ?>"
+                        >
                     </div>
                     <div class="col-xs-5"></div>
                 </div>
 
                 <div>
-                    <button 
-                        class = "btn btn-primary"
-                        onclick="grabarTecnico();"
-                    >Grabar</button>
+                    <?php  
+                    if($tecnico['idcliente']>0)
+                        {
+                            echo '<button 
+                                    class = "btn btn-primary"
+                                    onclick="actualizarInfoTecnico();"
+                                    >
+                                    Actualizar
+                                    </button>';
+
+                        }
+                        else{
+                    
+                    echo '<button 
+                            class = "btn btn-primary"
+                            onclick="grabarTecnico();"
+                            >
+                            Grabar
+                            </button>';
+                        }    
+                    ?>
+                        
+
                 </div>
             </div>
         <?php       

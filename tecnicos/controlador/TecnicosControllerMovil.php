@@ -25,6 +25,12 @@ class  TecnicosControllerMovil
         if($_REQUEST['opcion']=='grabarTecnico'){
             $this->grabarTecnico($_REQUEST); 
         }
+        if($_REQUEST['opcion']=='actualizarTecnico'){
+            $this->actualizarTecnico($_REQUEST); 
+        }
+        if($_REQUEST['opcion']=='eliminarTecnico'){
+            $this->eliminarTecnico($_REQUEST); 
+        }
 
     }
 
@@ -38,7 +44,8 @@ class  TecnicosControllerMovil
     public function editarTecnico($request)
     {
         $tecnico = $this->model->traerTecnicoPorId($request['idcliente']);
-        $this->vista->pantallaDatosTecnico($tecnico);
+        // $this->vista->pantallaDatosTecnico($tecnico);
+        $this->vista->formuNuevoTecnico($tecnico);
         
     }
     
@@ -52,6 +59,15 @@ class  TecnicosControllerMovil
     {
         $this->model->grabarTecnico($request);
     }
+    public function actualizarTecnico($request)
+    {
+        $this->model->actualizarTecnico($request);
+    }
+    public function eliminarTecnico($request)
+    {
+        $this->model->eliminarTecnico($request['idcliente']);
+    }
+
 }
 
 

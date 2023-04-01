@@ -43,6 +43,26 @@ class TecnicosModelo extends Conexion
         
         echo 'Tecnico grabado';
     }
+    public function actualizarTecnico($request)
+    {
+        $sql = "update tecnicos set 
+        identi = '".$request['cedula']."'
+        ,nombre = '".$request['nombre']."'
+        ,telefono = '".$request['telefono']."'
+        ,porcentaje_nomina = '".$request['porcentaje']."'
+        ,idlabor = '".$request['idLabor']."'
+        where idcliente = '".$request['idcliente']."'  ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        echo 'Informacion Actualizada';
+        
+    }
+    
+    public function eliminarTecnico($idcliente)
+    {
+        $sql ="delete from tecnicos where idcliente = '".$idcliente."'   ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        echo 'Informacion Eliminada';
+    }
 
 }
 
