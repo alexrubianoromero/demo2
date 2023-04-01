@@ -121,12 +121,12 @@ function validacionesRecibo()
             document.getElementById("txtConcepto").focus();
             return false;
         }
-        if(document.getElementById("txtObservacion").value=='')
-        {
-            alert('Por digite observacion');
-            document.getElementById("txtObservacion").focus();
-            return false;
-        }
+        // if(document.getElementById("txtObservacion").value=='')
+        // {
+        //     alert('Por digite observacion');
+        //     document.getElementById("txtObservacion").focus();
+        //     return false;
+        // }
       
         return true;
 }
