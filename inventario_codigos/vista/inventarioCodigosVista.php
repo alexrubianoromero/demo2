@@ -71,6 +71,7 @@ class inventarioCodigosVista extends vista
         echo '<th>P.Venta</th>';
         echo '<th>Can/Mov</th>';
         echo '<th>Accion</th>';
+        echo '<th>Eliminar</th>';
         // echo '<th>Descontar</th>';
         echo '</tr>';
         echo '</tbody>';
@@ -90,6 +91,12 @@ class inventarioCodigosVista extends vista
                 </button>
             </td>';
             // echo '<td><button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button></td>';
+            echo '<td><button
+                        class="btn btn-primary" 
+                        data-toggle="modal" data-target="#myModalProducto" 
+                        onclick = "eliminarCodigo('.$codigo['id_codigo'].');"
+                        >Eliminar
+                      </button></td>';
             echo '</tr>';
         }
         echo '</table>';

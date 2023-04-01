@@ -164,8 +164,16 @@ require_once($raiz.'/conexion/Conexion.php');
                 ";
                 $consulta = mysql_query($sql,$this->connectMysql()); 
                 // die($sql);
-
+                
                 echo 'Producto Actualizado';
+                
+            }
+            
+            public function eliminarCodigo($idCodigo)
+            {
+                $sql = "delete from productos where id_codigo = '".$idCodigo."'  "; 
+                $consulta = mysql_query($sql,$this->connectMysql()); 
+                echo 'Producto Eliminado';
 
         }
 

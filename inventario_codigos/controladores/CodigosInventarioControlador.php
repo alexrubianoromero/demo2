@@ -70,6 +70,10 @@ class CodigosInventarioControlador{
       
                 $this->traerInfoCodeJson($_REQUEST);
             }
+            if($_REQUEST['opcion'] == 'eliminarCodigo'){
+      
+                $this->eliminarCodigo($_REQUEST);
+            }
 
 
 
@@ -156,6 +160,10 @@ class CodigosInventarioControlador{
         public function traerInfoCodeJson($request)
         {
             $this->modelo->traerInfoCodeJson($request['idCod']);
+        }
+        public function eliminarCodigo($request)
+        {
+            $this->modelo->eliminarCodigo($request['idCodigo']);
         }
     }
     
