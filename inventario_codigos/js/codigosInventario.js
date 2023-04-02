@@ -145,9 +145,9 @@ function verifiqueCodigo()
     }
     function actualizarProducto()
     {
-        // var valida = validacionesNuevoCodigo();
-        // if(valida)
-        // {
+        var valida = validacionesNuevoCodigo();
+        if(valida)
+        {
             var idCodigo = document.getElementById("inputIdCodigo").value;
             var codigo = document.getElementById("inputCodigo").value;
             var descripcion = document.getElementById("inputDescripcion").value;
@@ -184,7 +184,7 @@ function verifiqueCodigo()
             );
 
             // pantallaInventario();
-        // }
+        }
     }
 
     
@@ -264,6 +264,8 @@ function verifiqueCodigo()
         + "&tipoMov=1"
         );
     }
+
+
     function disminuirInventario(id){
         const http=new XMLHttpRequest();
         const url = '../inventario_codigos/codigosInventario.php';

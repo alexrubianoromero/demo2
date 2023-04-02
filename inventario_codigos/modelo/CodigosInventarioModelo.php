@@ -113,15 +113,23 @@ require_once($raiz.'/conexion/Conexion.php');
 
         public function saveMoreLessInvent($request)
         {
+            //1 y 3 son entradas y suma al inventario 
+            //1 es entrada de inventario realizada desde el modulo de inventario osea suma al inventario
+            //3 es es la eliminacion del un item del inventario osea se suma al inventario porque vuelve 
+            //2 y 4 son salidas y resta al inventario 
+            //2 es una salida de inventario desde el modulo de inventarios osea resta del inventario
+            //4 es un item agregado a una orden osea resta del inventario
+
             $infoCode = $this->getInfoCodeById($request['id']);
             $conexion = $this->connectMysql();
             $infoActual = $this->getInfoCodeById($request['id']);
-            if($request['tipo']==1 || $request['tipo']==3 ){
-                $saldo = $infoActual['cantidad'] -  $request['cantidad'];
-            }
-            if($request['tipo']==2 || $request['tipo']==4 )
+            if($request['tipo']==1 || $request['tipo']==3 ) //lo que suma al inventario
             {
                 $saldo = $infoActual['cantidad'] +  $request['cantidad'];
+            }
+            if($request['tipo']==2 || $request['tipo']==4 ) //lo que resta al inventario 
+            {
+                $saldo = $infoActual['cantidad'] -  $request['cantidad'];
             }
 
             $sql = "update productos set cantidad = '".$saldo ."' 

@@ -295,6 +295,10 @@ class inventarioCodigosVista extends vista
                     <div align="left" class="col-xs-4 col-md-3">Precio_de_compra</div>    
                     <div align="left"  class="col-xs-8 col-md-9"><?php echo  number_format($datosCodigo['precio_compra'], 0, ',', ' ') ?></div>
                 </div>
+                <div class="form-group" >
+                    <div align="left" class="col-xs-4 col-md-3">Precio Venta</div>    
+                    <div align="left"  class="col-xs-8 col-md-9"><?php echo  number_format($datosCodigo['valorventa'], 0, ',', ' ') ?></div>
+                </div>
                 <br>    
                 <div class="form-group" >
                     <div align="left" class="col-xs-4 col-md-3">Tipo</div>    

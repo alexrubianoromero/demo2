@@ -281,11 +281,11 @@ class ordenControlador
         $infoOrden = $this->modeloOrden->traerOrdenId($infoItem['no_factura'],''); 
         //si se esta adicionando se debe restar del inventario si existe
         $request['id']= $infoCodigo['id_codigo'];
-        $request['tipo'] = 3;
+        $request['tipo'] = 4;
         $request['cantidad'] =  $infoItem['cantidad']; 
         //actualizar inventario  
         $this->codigosModelo->saveMoreLessInvent($request);
-        $data['tipo']= 3;
+        $data['tipo']= 4;
         $data['cantidad'] = $infoItem['cantidad'];
         $data['factura'] = ''; 
         $data['id'] = $infoCodigo['id_codigo'];
@@ -321,12 +321,12 @@ class ordenControlador
         $infoOrden = $this->modeloOrden->traerOrdenId($infoItem['no_factura'],''); 
         //si se esta eliminado se debe volver a sumar al inventario si existe
         $request['id']= $infoCodigo['id_codigo'];
-        $request['tipo'] = 4;
+        $request['tipo'] = 3;
         $request['cantidad'] =  $infoItem['cantidad']; 
         //aqui actualiza el inventario 
         $this->codigosModelo->saveMoreLessInvent($request);
         //ahora graba el registro del movimiento
-        $data['tipo']=4;
+        $data['tipo']=3;
         $data['cantidad'] = $infoItem['cantidad'];
         $data['factura'] = ''; 
         $data['id'] = $infoCodigo['id_codigo'];
