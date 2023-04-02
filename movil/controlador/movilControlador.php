@@ -45,13 +45,20 @@ class movilControlador{
              $this->verificarCredenciales($_REQUEST);
 
         }          
+        if($_REQUEST['opcion']=='preguntarNuevaClave'){
+             $this->preguntarNuevaClave($_REQUEST);
+        }          
 
         if($_REQUEST['opcion']=='salirSistema'){
 
              $this->salirSistema();
 
         }  
+        if($_REQUEST['opcion']=='actualizarClave'){
 
+             $this->actualizarClave($_REQUEST);
+
+        }  
     }
 
     public function pantallaLogueo(){
@@ -76,16 +83,58 @@ class movilControlador{
     public function verificarCredenciales($request){
 
        $validacion =  $this->model->verificarCredenciales($request);
-       $validacion = 1;
-       if($validacion == 1)
+       //    $validacion['valida'] = 1;
+       if($validacion['valida'] == 1)
        {
-        $this->menuPrincipal();
-       }
-       else{
-        $this->vista->htmlLogueo();
-       }
-
+           //aqui se define si las credenciales estan bien 
+           // echo '<br>estatus de sesion '.session_status().'<br>';
+           // echo '<pre>';
+           // print_r($_SESSION);
+           // echo '</pre>';
+           if (!isset($_SESSION)) { session_start(); }
+           
+           $_SESSION['id_usuario'] = $validacion['datos']['id_usuario'];
+           $_SESSION['usuario'] = $validacion['datos']['login'];
+           $_SESSION['nivel'] = $validacion['datos']['nivel'];
+           // echo '<br>despues de iniciada '.session_status().'<br>';
+           // echo '<pre>';
+           // print_r($_SESSION);
+           // echo '</pre>';
+           // echo '<br>estadus'.session_status().'<br>';
+           // session_destroy();
+           // echo '<br>estatus despues de destroy'.session_status().'<br>';
+           // die();
+           $this->menuPrincipal();
+           
+        }
+        else{
+            $this->vista->htmlLogueo();
+        }
+        
     } 
+public function preguntarNuevaClave($request)
+{
+    $this->vista->preguntarNuevaClave($request);
+    
+}
+
+public function actualizarClave($request)
+{
+    $infoUser =  $this->model->verificarClaveActual($request);
+        //  echo '<pre>';
+        //    print_r($infoUser);
+        //    echo '</pre>';
+        //    die(); 
+    if($infoUser['clave'] == $request['claveAnterior'])
+    {
+        $this->model->actualizarClave($request);
+        echo 'Clave Actualizada'; 
+    }
+    else {
+        echo 'Clave anterior Incorrecta'; 
+    }
+    
+}
 
 }
 

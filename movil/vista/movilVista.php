@@ -1,6 +1,10 @@
 <?php
 class movilVista{
 
+  public function __construct()
+  {
+    session_start();
+  } 
   public function pantallaLogueo()
   {
     ?>
@@ -100,38 +104,130 @@ class movilVista{
             
             <input type="hidden" id="usuario" value ="<?php  echo $_REQUEST['username']?>">
             <input type="hidden" id="clave" value ="<?php  echo $_REQUEST['clave']?>">
-            <button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 
-                <i class="fas fa-list"></i>
-            </button>
+            <?php
+            if($_SESSION['nivel'] > 2)
+            {
+              echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 
+                    <i class="fas fa-list"></i>
+                </button>';
+
+            }  
             
-            <br><br>
-            <button class = "btn btn-primary bontonesmenu"  onclick="pantallaClientes();">CLIENTES 
+            if($_SESSION['nivel'] > 2)
+            {
+                echo '<br><br>';
+                echo '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaClientes();">CLIENTES 
                     <i class="far fa-user"></i>
-                </button>
-                <br><br>
-                <button class = "btn btn-primary bontonesmenu"  onclick="pantallaMotos();"><span align="left">MOTOS<span> 
+                </button>';
+            }    
+            
+            if($_SESSION['nivel'] > 2)
+            {
+                echo     '<br><br>';
+             echo '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaMotos();"><span align="left">MOTOS<span> 
                     <i class="fas fa-biking"></i>
-                </button>
+                </button>';
+            }    
                 
-                <br><br>
-                <button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
+            echo  '<br><br>';
+
+            echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
                     <!-- <i class="fas fa-boxes"></i> -->
                     <i class="fas fa-tools"></i>
-                </button>
-                <br><br>
-                <button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
+                </button>';
+                if($_SESSION['nivel'] > 2)
+                {
+                echo    '<br><br>';
+             echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
                     <i class="fas fa-list"></i>
-                </button>
-                <br><br>
-                    <button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
-                            <!-- <i class="far fa-user"></i> -->
-                    </button>
-                <br><br>
-                
-                <button class = "btn btn-default bontonsalir" id="btn_salir" onclick="salirSistema();">SALIR <i class="fas fa-sign-out-alt"></i></button>
-            </div>
+                </button>';
+            }
+
             
-            <?php
+            if($_SESSION['nivel'] > 2)
+            {
+                 echo    '<br><br>';
+                echo     '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
+                            <!-- <i class="far fa-user"></i> -->
+                    </button>';
+             }       
+             echo    '<br><br>';
+
+            echo        '<button 
+                        class = "btn btn-primary bontonesmenu"  
+                        data-toggle="modal" data-target="#myModalCambioClave"
+                        onclick="preguntarNuevaClave('.$_SESSION['id_usuario'].');"
+                    >
+                    CAMBIO DE CLAVE
+                            <!-- <i class="far fa-user"></i> -->
+                    </button>';
+            echo     '<br><br>';
+                
+            echo    '<button class = "btn btn-default bontonsalir" id="btn_salir" onclick="salirSistema();">SALIR <i class="fas fa-sign-out-alt"></i></button>
+            </div>';
+
+            $this->modalCambioClave();
   }   
+
+  public function modalCambioClave(){
+    ?>
+     <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+     Launch demo modal
+     </button> -->
+      <div style="color:black;" class="modal fade " id="myModalCambioClave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header" id="headerNuevoCliente">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Cambio de Clave </h4>
+              </div>
+              <div id="cuerpoModalCambioClave" class="modal-body">
+              </div>
+              <div class="modal-footer" id="footerNuevoCliente">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+              </div>
+          </div>
+      </div>
+    <?php
+}
+
+public function preguntarNuevaClave($request)
+{
+    ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="color:black;">
+    <input type="hidden" id="input_id_usuario" value="<?php   echo $_SESSION['id_usuario'];  ?>">
+    <div class ="form-group">
+        <div class="col-xs-3">
+            <label>Clave Anterior:</label>
+        </div>
+        <div class="col-xs-9">
+            <input type = "text" id="txtClaveAnterior" class="form-control">
+        </div>
+    </div>
+    <div class ="form-group">
+        <div class="col-xs-3">
+            <label>Nueva Clave:</label>
+        </div>
+        <div class="col-xs-9">
+            <input type = "text" id="txtNuevaClave" class="form-control">
+        </div>
+    </div>
+    <button class="btn btn-primary" onclick="actualizarClave();">Actuallizar Clave</button>
+    </div> 
+</body>
+</html>
+<?php
+}
   
 }

@@ -241,3 +241,42 @@ function pantallaOrdenes(){
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send('opcion=pantallaPrincipalTecnicos');
     }
+function preguntarNuevaClave(idUsuario)
+{
+    // alert('cambio de clave '+ idUsuario);
+    const http=new XMLHttpRequest();
+    const url = '../movil/index.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalCambioClave").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=preguntarNuevaClave'
+    + "&idUsuario="+idUsuario
+    );
+    
+}
+function actualizarClave()
+{
+    var idUsuario = document.getElementById("input_id_usuario").value;
+    var claveAnterior = document.getElementById("txtClaveAnterior").value;
+    var claveNueva = document.getElementById("txtNuevaClave").value;
+    const http=new XMLHttpRequest();
+    const url = '../movil/index.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalCambioClave").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=actualizarClave'
+    + "&idUsuario="+idUsuario
+    + "&claveAnterior="+claveAnterior
+    + "&claveNueva="+claveNueva
+    );
+    
+    
+}
