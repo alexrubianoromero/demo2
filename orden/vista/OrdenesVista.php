@@ -441,7 +441,7 @@ class OrdenesVista extends vista
                             <tr>
                                 <td colspan="2">
                                     <textarea id="txtobservacionestecnico" class = "form-control">
-                                        <?php echo $arregloOrden['observacionestecnico']; ?>
+                                        <?php echo trim($arregloOrden['observacionestecnico']); ?>
                                     </textarea>
                                 </td>
                            </tr>
@@ -507,21 +507,24 @@ class OrdenesVista extends vista
                                 ?>
 
                         </div>
+
                         <div class="col-xs-4">
                             <?php
                             $boton = '<button'; 
                                       if($arregloOrden['estado']==2)
                                       { $boton .= ' disabled '; }      
                                         
-                            $boton .=  ' class="btn btn-primary"
-                                        onclick="actualizarInfoOrden('.$arregloOrden['id'].'); "
-                                        data-dismiss="modal"
-                                        >
-                                        Actualizar Orden</button>';
-                            echo $boton;
+
+                                $boton .=  ' class="btn btn-primary"
+                                            onclick="actualizarInfoOrden('.$arregloOrden['id'].'); "
+                                            data-dismiss="modal"
+                                            >
+                                            Actualizar Orden</button>';
+                                echo $boton;
                             ?>
 
                         </div>
+
                     </div>    
                 </div>
                 <br><br>
@@ -572,7 +575,10 @@ class OrdenesVista extends vista
                    <?php 
                        if($estadoOrden<2)
                        {
-                         echo '<td><i class="fas fa-trash"></i></td>';
+                            if($_SESSION['nivel'] >2)
+                            {
+                                echo '<td><i class="fas fa-trash"></i></td>';
+                            }
                        }
                    ?>
                </tr>
@@ -601,7 +607,10 @@ class OrdenesVista extends vista
                     }
                     if($estadoOrden<2)
                     {
-                        echo '<td><i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
+                            if($_SESSION['nivel'] >2)
+                            {
+                                echo '<td>'.$_SESSION['nivel'].'<i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
+                            }    
                     }
 
                     echo '</tr>';

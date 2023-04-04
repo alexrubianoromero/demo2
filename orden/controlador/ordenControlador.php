@@ -44,6 +44,7 @@ class ordenControlador
 
     public function __construct($conexion)
     {
+        session_start();
         // $this->vista = new orden_captura_honda_nueva();
         $this->vistaOrden = new OrdenesVista();
         $this->modeloOrden = new OrdenesModelo();

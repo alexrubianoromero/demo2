@@ -43,7 +43,7 @@ class ClientesControlador{
 
             // die('llego aca '); 
 
-            $this->pantallainicialClientes($conexion);
+            $this->pantallainicialClientes($conexion = '');
 
           }
 

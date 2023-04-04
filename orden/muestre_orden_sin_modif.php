@@ -32,7 +32,7 @@ estado,
 mecanico,
 pagada,
 saldo
- from $tabla14  where id_empresa = '".$_SESSION['id_empresa']."' and tipo_orden < '2'   order by id desc";
+ from $tabla14  where 1=1  and tipo_orden < '2'   order by id desc";
 
 //echo '<br>'.$sql_muestre_ordenes.'<br>';
 $consulta_ordenes = mysql_query($sql_muestre_ordenes,$conexion);

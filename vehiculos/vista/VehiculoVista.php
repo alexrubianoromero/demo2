@@ -420,7 +420,7 @@ class VehiculoVista extends vista
                         placeholder = "PLACA"
 
                         >
-
+                    BUSCAR PLACA
                     <i class="fas fa-search"></i>
 
                     <!-- <i class="fas fa-search"></i> -->
