@@ -18,6 +18,15 @@ require_once($raiz.'/conexion/Conexion.php');
         }
 
 
+       public function traerCodigos()
+        {
+            $sql = "select * from productos order by id_codigo ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $arrCodigo = $this->get_table_assoc($consulta);
+            return $arrCodigo;
+        }
+
+
         public function traerIdCodeConCode($code)
         {
             $sql ="select id_codigo from productos   where codigo_producto = '".$code."'  ";

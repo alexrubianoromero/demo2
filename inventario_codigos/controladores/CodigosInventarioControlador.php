@@ -74,6 +74,10 @@ class CodigosInventarioControlador{
       
                 $this->eliminarCodigo($_REQUEST);
             }
+            if($_REQUEST['opcion'] == 'generarExcelInventario'){
+      
+                $this->generarExcelInventario($_REQUEST);
+            }
 
 
 
@@ -147,12 +151,12 @@ class CodigosInventarioControlador{
             $infoCode = $this->modelo->getInfoCodeById($request['idCodigo']);
             $this->vista->pantallaPregunteCodigo($infoCode,1);    
         }
-
+        
         public function verifiqueCodigo($request)
         {
             $infoCode =  $this->modelo->verifiqueCodigoSiExiste($request['codigo']);
         }
-
+        
         public function actualizarCodigo($request)
         {
             $this->modelo->actualizarCodigo($request);
@@ -165,6 +169,14 @@ class CodigosInventarioControlador{
         {
             $this->modelo->eliminarCodigo($request['idCodigo']);
         }
+        
+        
+        public function generarExcelInventario()
+        {
+            $codigos = $this->modelo->traerCodigos();
+            $this->vista->generarExcelInventario($codigos);    
+        }
+        
     }
     
     
