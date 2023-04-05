@@ -105,6 +105,13 @@ class movilVista{
             <input type="hidden" id="usuario" value ="<?php  echo $_REQUEST['username']?>">
             <input type="hidden" id="clave" value ="<?php  echo $_REQUEST['clave']?>">
             <?php
+            // if($_SESSION['nivel'] > 2)
+            // {
+            //   echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaVentas();">VENTAS
+            //         <i class="fas fa-list"></i>
+            //     </button>';
+
+            // }  
             if($_SESSION['nivel'] > 2)
             {
               echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 

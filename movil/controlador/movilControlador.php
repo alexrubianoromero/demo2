@@ -83,7 +83,7 @@ class movilControlador{
     public function verificarCredenciales($request){
 
        $validacion =  $this->model->verificarCredenciales($request);
-       //    $validacion['valida'] = 1;
+        //   $validacion['valida'] = 1;
        if($validacion['valida'] == 1)
        {
            //aqui se define si las credenciales estan bien 
