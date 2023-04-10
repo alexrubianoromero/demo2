@@ -22,7 +22,7 @@ $datosItems = $orden->traerItemsAsociadosOrdenPorIdOrden($_REQUEST['idOrden']);
 $pdf=new FPDF();
 
 $pdf->AddPage();
-    $pdf->Image('speeddesign.jpeg',23,8,33);
+    $pdf->Image('../../logos/speeddesign.jpg',5,8,80);
 
     $pdf->SetFont('Arial','B',15);
     // Movernos a la derecha
@@ -47,13 +47,13 @@ $pdf->Cell(25,6,$datosCliente['telefono'],1,1,'C');
 $pdf->Cell(80);
 $pdf->Cell(90,6,$datosCliente['direccion'],1,1,'C');
 $pdf->Cell(17);
-$pdf->Cell(22,6,'  Speed design motolavado taller',0,0,'C');
+$pdf->Cell(22,6,'BIKE PERFORMANCE',0,0,'C');
 $pdf->Cell(41);
-$pdf->Cell(90,6,'Cra 30 No 20-65',1,1,'C');
+$pdf->Cell(90,6,'Dir CLiente',1,1,'C');
 $pdf->Cell(17);
-$pdf->Cell(22,6,'Cll 22 # 96f-35 ',0,1,'C');
+$pdf->Cell(22,6,'Carrera 27 No 74A-39',0,1,'C');
 $pdf->Cell(17);
-$pdf->Cell(22,6,'Nit: 12345678 ',0,1,'C');
+$pdf->Cell(22,6,'Nit:',0,1,'C');
 
 
 $kilometraje = $datoOrden['kilometraje'];
@@ -113,8 +113,9 @@ $pdf->Cell(40,6,'___________________',0,1,'');
 $pdf->Ln(5);
 $pdf->Cell(5);
 $pdf->Cell(50,6,'Observaciones',0,1,'');
+$pdf->SetFont('Arial','',6);
 $pdf->Cell(5);
-$pdf->MultiCell(180,8,'Despues de terminada la orden de servicio, trabajo o reparacion realizada a la motocicleta y notificada al cliente, tendra como plazo maximo 3 dias habiles para recoger la motocicleta. despues de este tiempo se cobrara un bodegaje por dia de 15.000 pesos',0,1,'');
+$pdf->MultiCell(180,8,'TODA REPARACION DEBE SER CANCELADA ESTRICTAMENTE DE CONTADO. NUESTRO REPUESTO NO CONSTITUYE UNA OBLIGACION DE NUESTRA PARTE YA QUE, YA QUE AL INICIAR LOS TRABAJOS PUEDEN APARECER NUEVAS REPARACIONES QUE NO SON EVIDENTES EN LA PRIMERA INSPECCION',0,1,'');
 $pdf->Output();
 
 ?>
