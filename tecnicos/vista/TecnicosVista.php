@@ -201,10 +201,12 @@ class TecnicosVista extends vista
                         >
                             
                             <option value="0">...</option>
+                        
                             <option 
                                 value="1" <?php if($tecnico['idlabor'] == 1) {echo 'selected';} ?> 
-                            ></option>>Mecanico</option>
+                            >Mecanico</option>
                             <option value="2" <?php if($tecnico['idlabor'] == 2 ) {echo 'selected';} ?>>Lavador</option>
+                        
                         </select>
                     </div>
                 </div>
