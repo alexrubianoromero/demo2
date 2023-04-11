@@ -489,10 +489,20 @@ class OrdenesVista extends vista
                                         <?php if($arregloOrden['estado']==1){ echo 'selected'; } ?>
                                         
                                         >Lista</option>
+                                        <?php 
+                                        if($_SESSION['nivel']>2)
+                                        {
+                                        ?>        
                                         <option value = "2"
-                                        <?php if($arregloOrden['estado']==2){ echo 'selected'; } ?>
-                                        
-                                        >Facturada</option>
+                                            <?php 
+                                                if($arregloOrden['estado']==2)
+                                                { echo 'selected'; } 
+                                            ?>
+                                        >Facturada
+                                        </option>
+                                        <?php
+                                        }
+                                        ?>
                                 
 
                                         <!-- <option value = "3"
@@ -610,7 +620,7 @@ class OrdenesVista extends vista
                     {
                             if($_SESSION['nivel'] >2)
                             {
-                                echo '<td>'.$_SESSION['nivel'].'<i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
+                                echo '<td><i class="fas fa-trash" onclick = "eliminarItemOrden('.$items[$i]["id_item"].');"></i></td>';
                             }    
                     }
 
@@ -869,7 +879,11 @@ class OrdenesVista extends vista
                                 <option value = "">Seleccione...</option>
                                 <option value = "0">En Proceso</option>
                                 <option value = "1">Lista</option>
-                                <option value = "2">Facturada</option>
+                             <?php   
+                              if($_SESSION['nivel']>2){
+                                  echo '<option value = "2">Facturada</option>';
+                              }
+                            ?>    
                                 <!-- <option value = "3">Entregada</option> -->
                             </select>
                     </div>        
