@@ -21,7 +21,9 @@ class movilControlador{
                 //   echo '</pre>';
 
                 //   die();    
-
+        session_start();
+        // $valor = session_status();
+        // echo '<br>estatus session '.$valor.'<br>';
         $this->vista =  new movilVista();
         $this->model =  new UsuarioModel();
 
@@ -37,7 +39,7 @@ class movilControlador{
 
         if($_REQUEST['opcion']=='menuPrincipal'){
 
-             $this->menuPrincipal();
+             $this->menuPrincipal($_REQUEST);
 
         }          
         if($_REQUEST['opcion']=='verificarCredenciales'){
@@ -58,7 +60,11 @@ class movilControlador{
 
              $this->actualizarClave($_REQUEST);
 
-        }  
+        }
+        if($_REQUEST['opcion']=='verificarCredencialesRespJson'){
+
+             $this->verificarCredencialesRespJson($_REQUEST);
+        }
     }
 
     public function pantallaLogueo(){
@@ -67,16 +73,16 @@ class movilControlador{
 
     }
 
-    public function menuPrincipal(){
+    public function menuPrincipal($request){
 
-        $this->vista->menuPrincipal();
+        $this->vista->menuPrincipal($request);
 
     } 
 
    
 
     public function salirSistema(){
-
+        session_destroy();
         $this->vista->pantallaLogueo();
 
     } 
@@ -91,6 +97,8 @@ class movilControlador{
            // echo '<pre>';
            // print_r($_SESSION);
            // echo '</pre>';
+        //    $valor = session_status();
+        //    echo '<br>estatus session desde validacion '.$valor.'<br>';
            if (!isset($_SESSION)) { session_start(); }
            
            $_SESSION['id_usuario'] = $validacion['datos']['id_usuario'];
@@ -104,14 +112,26 @@ class movilControlador{
            // session_destroy();
            // echo '<br>estatus despues de destroy'.session_status().'<br>';
            // die();
-           $this->menuPrincipal();
+
+        
+        //    $this->menuPrincipal();
            
         }
         else{
+            session_destroy();
             $this->vista->htmlLogueo();
         }
         
     } 
+    public function verificarCredencialesRespJson($request){
+
+       $validacion =  $this->model->verificarCredenciales($request);
+    //    $resultado = $validacion['valida'];
+         echo json_encode($validacion);
+    } 
+
+
+
 public function preguntarNuevaClave($request)
 {
     $this->vista->preguntarNuevaClave($request);

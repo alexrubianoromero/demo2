@@ -1,8 +1,8 @@
 
 function verifiqueCredeciales()
 {
-    var user = document.getElementById("usuario").value;
-    var clave = document.getElementById("clave").value;
+    var user = document.getElementById("txtUsuario").value;
+    var clave = document.getElementById("txtClave").value;
     const http=new XMLHttpRequest();
     const url = '../movil/index.php';
     http.onreadystatechange = function(){
@@ -18,8 +18,39 @@ function verifiqueCredeciales()
     + "&clave="+clave
     );
 
+    verificarCredencialesJsonAsignarSessionStorage(user,clave);
 }
 
+function verificarCredencialesJsonAsignarSessionStorage(user,clave)
+{
+    //  alert(user+ '--'+ clave);
+    
+    const http=new XMLHttpRequest();
+    const url = '../movil/index.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            var  resp = JSON.parse(this.responseText); 
+            if(resp.valida == 1)
+            {    
+                // alert('respuesta: '+ resp.valida + 'usuario '+ resp.datos.login+ ' '+resp.datos.id_usuario+ ' '+resp.datos.nivel);
+                sessionStorage.id_usuario = resp.datos.id_usuario;
+                sessionStorage.usuario = resp.datos.login;
+                sessionStorage.nivel = resp.datos.nivel;
+                menuPrincipal();
+            }
+            else{
+                alert('Usuario o Clave incorrectos '); 
+            }
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=verificarCredencialesRespJson"
+    + "&user="+user
+    + "&clave="+clave
+    );
+}
 function menuPrincipal(){
 
     document.getElementById("imagenInicial").style.display = 'block';
@@ -33,7 +64,13 @@ function menuPrincipal(){
     http.onreadystatechange = function(){
 
         if(this.readyState == 4 && this.status ==200){
-
+            var id_usuario = sessionStorage.id_usuario;
+            var usuario = sessionStorage.usuario;
+            var nivel =  sessionStorage.nivel;
+            // alert(nivel);
+            document.getElementById("id_usuario").value = id_usuario;
+             document.getElementById("usuario").value = usuario;
+            document.getElementById("nivel").value = nivel;
             //  console.log(this.responseText);
 
              //var respuesta = JSON.parse(this.responseText);
@@ -57,7 +94,7 @@ function menuPrincipal(){
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     http.send('opcion=menuPrincipal'
-
+    + "&nivel="+ sessionStorage.nivel
     );
 
 }
@@ -298,4 +335,8 @@ function actualizarClave()
     );
     
     
+}
+function mostrarMensaje()
+{
+    alert('mensaje de prueba ');
 }

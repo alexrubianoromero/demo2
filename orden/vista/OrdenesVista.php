@@ -7,6 +7,7 @@ class OrdenesVista extends vista
     protected $modelOrden;
     public function __construct()
     {
+        session_start();
         $this->modelOrden = new OrdenesModelo(); 
     }
   

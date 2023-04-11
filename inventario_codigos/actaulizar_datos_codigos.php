@@ -61,7 +61,7 @@ ubicacion  = '".$_POST['ubicacion']."' ,
 valorventaconiva  = '".$_POST['valorconiva']."' 
 
 where id_codigo = '".$_POST['id_codigo']."'  
-and id_empresa = '".$_SESSION['id_empresa']."'
+
 ";
 //echo 'consulta<br>'.$sql_atualizar_datos_codigos;
 //exit();

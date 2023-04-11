@@ -4,6 +4,9 @@ class movilVista{
   public function __construct()
   {
     session_start();
+    // echo '<pre>';
+    // print_r($_SESSION);
+    // echo '</pre>';
   } 
   public function pantallaLogueo()
   {
@@ -30,11 +33,16 @@ class movilVista{
     </head>
     <body class="fondoPrograma">
         <div id="divTotal" align="center" class="container">
+            <input type="hidden" id="id_usuario" style="color:black">
+             <input type="hidden" id="usuario" style="color:black">
+            <input type="hidden" id="nivel"  style="color:black">
         <div id="imagenInicial" >
             <img class="imagenesinicio" src="imagen/logonuevo.png">
         </div>
         <p id="slogankaymo">TECNOLOGIA VERDADERA</p>
         <div id="divBotonesPrincipales">
+
+
             <button onclick="menuPrincipal();" class = "bontonesmenuinternos"> MENU PRINCIPAL
             <i class="fas fa-bars"></i>
         </button>
@@ -81,11 +89,11 @@ class movilVista{
             <!-- <img src="planeta.png"> -->
             <div class="row" id="div_botones_inicio"> 
                 <div class = "form_group ">
-                    <input value="" type = "text" class = "form-control botoninicio " id="usuario" placeholder = "Usuario" > 
+                    <input value="" type = "text" class = "form-control botoninicio " id="txtUsuario" placeholder = "Usuario" > 
                 </div>
                 <br><br><br>
                 <div class = "form_group ">
-                    <input  value="" type = "password" class = "form-control botoninicio" id="clave" placeholder = "Clave"> 
+                    <input  value="" type = "password" class = "form-control botoninicio" id="txtClave" placeholder = "Clave"> 
                 </div>
                 <br><br><br><br>
                 <div class = "form_group ">
@@ -97,13 +105,16 @@ class movilVista{
         </div>   
         <?php
     }  
-    public function menuPrincipal()
+    public function menuPrincipal($request)
     {
+        // echo '<pre>'; 
+        // print_r($request['nivel']); 
+        // echo '</pre>';
+        // die(); 
         ?>
             <br><br>
             
-            <input type="hidden" id="usuario" value ="<?php  echo $_REQUEST['username']?>">
-            <input type="hidden" id="clave" value ="<?php  echo $_REQUEST['clave']?>">
+           
             <?php
             // if($_SESSION['nivel'] > 2)
             // {
@@ -112,15 +123,15 @@ class movilVista{
             //     </button>';
 
             // }  
-            if($_SESSION['nivel'] > 2)
+            if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
               echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 
-                    <i class="fas fa-list"></i>
-                </button>';
-
+              </button>';
+            //   <i class="fas fa-list"></i>
+              
             }  
             
-            if($_SESSION['nivel'] > 2)
+            if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
                 echo '<br><br>';
                 echo '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaClientes();">CLIENTES 
@@ -128,7 +139,7 @@ class movilVista{
                 </button>';
             }    
             
-            if($_SESSION['nivel'] > 2)
+            if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
                 echo     '<br><br>';
              echo '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaMotos();"><span align="left">MOTOS<span> 
@@ -142,7 +153,7 @@ class movilVista{
                     <!-- <i class="fas fa-boxes"></i> -->
                     <i class="fas fa-tools"></i>
                 </button>';
-                if($_SESSION['nivel'] > 2)
+                if($_SESSION['nivel'] > 2 || $request['nivel']>2 )
                 {
                 echo    '<br><br>';
              echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
@@ -151,7 +162,7 @@ class movilVista{
             }
 
             
-            if($_SESSION['nivel'] > 2)
+            if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
                  echo    '<br><br>';
                 echo     '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
