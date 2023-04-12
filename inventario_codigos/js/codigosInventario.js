@@ -254,6 +254,7 @@ function verifiqueCodigo()
         http.onreadystatechange = function(){
             if(this.readyState == 4 && this.status ==200){
                 document.getElementById("cuerpoModalAumentarProducto").innerHTML = this.responseText;
+                document.getElementById("cantidad").focus();
             }
         };
 
@@ -263,6 +264,12 @@ function verifiqueCodigo()
         + "&id="+id
         + "&tipoMov=1"
         );
+        colocarFoco();
+    }
+
+    function colocarFoco()
+    {
+        document.getElementById("cantidad").focus();
     }
 
 
@@ -314,24 +321,24 @@ function verifiqueCodigo()
     
     function validacionesGrabarMovInventario()
     {
-        if(document.getElementById("factura").value=='')
-        {
-            alert('Por favor digite un documento o factura de compra o de venta segun el caso  ');
-            document.getElementById("factura").focus();
-            return false;
-        }
+        // if(document.getElementById("factura").value=='')
+        // {
+        //     alert('Por favor digite un documento o factura de compra o de venta segun el caso  ');
+        //     document.getElementById("factura").focus();
+        //     return false;
+        // }
         if(document.getElementById("cantidad").value=='')
         {
             alert('Por favor digite cantidad ');
             document.getElementById("cantidad").focus();
             return false;
         }
-        if(document.getElementById("observaciones").value=='')
-        {
-            alert('Por favor digite observaciones ');
-            document.getElementById("observaciones").focus();
-            return false;
-        }
+        // if(document.getElementById("observaciones").value=='')
+        // {
+        //     alert('Por favor digite observaciones ');
+        //     document.getElementById("observaciones").focus();
+        //     return false;
+        // }
 
         return true;
     } 

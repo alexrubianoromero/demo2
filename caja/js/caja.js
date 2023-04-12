@@ -96,9 +96,11 @@ function validacionesRecibo()
        if(document.getElementById("txtEfectivo").value=='' 
             &&  document.getElementById("txtDebito").value=='' 
             &&  document.getElementById("txtCredito").value==''
+            &&  document.getElementById("txtBancolombia").value==''
+            &&  document.getElementById("txtBolt").value==''
             )
         {
-            alert('Por favor digite valor en  efectivo o debito o credito ');
+            alert('Por favor digite valor en  efectivo o debito o credito Bancolombia o Bolt');
             document.getElementById("txtEfectivo").focus();
             return false;
         }

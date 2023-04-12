@@ -192,7 +192,7 @@ class cajaVista
                                     value = "'.$textoInfoOrden.'"
                                   >';
                         }else{
-                            echo '<input type="text" id="txtAquien" class ="form-control">';
+                            echo '<input type="text" id="txtAquien" class ="form-control" value="Clientes Varios">';
                         }
                     ?>
                 </div>

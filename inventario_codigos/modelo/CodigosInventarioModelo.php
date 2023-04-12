@@ -58,7 +58,7 @@ require_once($raiz.'/conexion/Conexion.php');
 
         public function mostrarCodigosInventarios(){
             $conexion = $this->connectMysql();
-            $sql = "select * from productos order by id_codigo desc ";
+            $sql = "select * from productos order by id_codigo asc ";
             $consulta = mysql_query($sql,$conexion);
             return $consulta; 
         } 
