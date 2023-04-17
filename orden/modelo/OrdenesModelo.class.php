@@ -68,6 +68,7 @@ Class OrdenesModelo extends Conexion
                  WHERE  o.id = '".$id."'
                  ORDER BY  o.id DESC 
         ";
+        // echo '<br>'.$sql; 
         // $consulta = mysql_query($sql,$conexion);
         $consulta = mysql_query($sql,$this->connectMysql());  
         $arreglo= mysql_fetch_assoc($consulta);
@@ -238,6 +239,7 @@ Class OrdenesModelo extends Conexion
             $sql = "update ordenes set 
             estado = '".$request['idEstadoOrden']."'
             , observacionestecnico = '".$request['observacionestecnico']."'
+            , mecanico = '".$request['idMecanico']."'
             where id = '".$request['id']."'
             ";
             $consulta = mysql_query($sql,$this->connectMysql()); 

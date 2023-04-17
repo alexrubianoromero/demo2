@@ -63,6 +63,20 @@ class TecnicosModelo extends Conexion
         $consulta = mysql_query($sql,$this->connectMysql());
         echo 'Informacion Eliminada';
     }
+    public function traerTecnicoAsignadoIdOrden($idOrden)
+    {
+        $sql = 'select mecanico from ordenes where id='.$idOrden;
+        // echo '<br>'.$sql.'<br>';
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $arrOrden = mysql_fetch_assoc($consulta);
+        
+        $sql = "select * from tecnicos where idcliente = ".$arrOrden['mecanico']."    ";
+        // echo '<br>'.$sql;
+        // die();
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $arrTecnico = mysql_fetch_assoc($consulta);
+        return $arrTecnico; 
+    }
 
 }
 

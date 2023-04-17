@@ -2,13 +2,18 @@
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/vista/vista.php');
 require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
+require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
 class OrdenesVista extends vista 
 {
     protected $modelOrden;
+    protected $tecnicosModelo;
+
     public function __construct()
     {
         session_start();
         $this->modelOrden = new OrdenesModelo(); 
+        $this->tecnicosModelo = new TecnicosModelo();
+
     }
   
     public function pantallaInicial($arregloOrdenes){
@@ -396,10 +401,14 @@ class OrdenesVista extends vista
     public function mostrarInfoOrden($arregloOrden,$conexion,$resultadoItems){
         //  echo $arregloOrden['observaciones'];
         //  die();
-    //     echo '<pre>';
-    // print_r($arregloOrden);
-    // echo '</pre>';
-    // die();
+        // echo '<pre>';
+        // print_r($arregloOrden['id']);
+        // echo '</pre>';
+        $infoTecnico =   $this->tecnicosModelo->traerTecnicoAsignadoIdOrden($arregloOrden['id']); 
+        // echo '<pre>';
+        // print_r($tecnico);
+        // echo '</pre>';
+        // die();
         ?>
             <div id = "div_detalle_orden" >
                     <input type="hidden" id = "idOrden" value ="<?php echo $arregloOrden['id'];   ?>">
@@ -426,7 +435,33 @@ class OrdenesVista extends vista
                              </tr>
                              <tr>
                                  <td>Mecanico</td>
-                                 <td><?php echo $arregloOrden['mecanico']; ?></td>
+                                 <td>
+                                    <?php
+                                    if($_SESSION['nivel']>2)
+                                    {
+                                        // echo $arregloOrden['idmecanico'];
+                                        $tecnicos=[];
+                                       $tecnicos = $this->tecnicosModelo->traerTecnicosNew();  
+                                       echo '<select class ="form-control" id = "idMecanicoAsignado" >';
+                                       foreach($tecnicos as $tecnico)
+                                       {
+                                           if($tecnico['idcliente'] == $arregloOrden['idmecanico'])
+                                           {
+
+                                               echo '<option selected value="'.$tecnico['idcliente'].'" >'.$tecnico['nombre'].'</option>'; 
+                                           }
+                                           else{
+                                               echo '<option value="'.$tecnico['idcliente'].'" >'.$tecnico['nombre'].'</option>'; 
+                                           }
+                                       }
+                                       echo '</select>';     
+                                    }
+                                    else{
+                                        echo '<input type = "hidden"  id="idMecanicoAsignado" value = "'.$infoTecnico['idcliente'].'"  >';
+                                        echo $arregloOrden['mecanico'];
+                                    }
+                                    ?>
+                                </td>
                              </tr>
                              <tr>
                                  <td colspan= "2" align="center">Observaciones</td>

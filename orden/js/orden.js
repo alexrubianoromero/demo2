@@ -625,7 +625,9 @@ function actualizarInfoOrden(id)
 {
     // alert('buenas'+id);
     var idEstadoOrden =  document.getElementById("idEstadoOrden").value;
+    var idMecanico =  document.getElementById("idMecanicoAsignado").value;
     var observacionestecnico = document.getElementById("txtobservacionestecnico").value;
+    // alert (idMecanico);
     const http=new XMLHttpRequest();
     const url = '../orden/ordenes.php';
     http.onreadystatechange = function(){
@@ -640,6 +642,7 @@ function actualizarInfoOrden(id)
     + "&id="+id
     + "&idEstadoOrden="+idEstadoOrden
     + "&observacionestecnico="+observacionestecnico
+    + "&idMecanico="+idMecanico
     );
     pintarOrdenesNew();
 }
