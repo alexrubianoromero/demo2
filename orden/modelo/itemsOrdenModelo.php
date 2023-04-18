@@ -88,7 +88,7 @@ class itemsOrdenModelo extends Conexion
     {
         $sql = "delete from item_orden where id_item =  '".$idItem."'   ";
         $consulta = mysql_query($sql,$this->connectMysql());
-        echo 'Item Eliminado'; 
+        // echo 'Item Eliminado'; 
     }
     
     public function traerInfoItemConIdItem($idItem)

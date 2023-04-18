@@ -147,7 +147,7 @@ require_once($raiz.'/conexion/Conexion.php');
     
             $consulta = mysql_query($sql,$conexion);   
 
-            echo 'Saldo actualizado !!!!'; 
+            // echo 'Saldo actualizado !!!!'; 
         }
 
         function codigosConAlertaInventario()

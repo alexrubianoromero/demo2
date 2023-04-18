@@ -94,6 +94,10 @@ class ordenControlador
             $this->pregunteNuevoItemOrden($_REQUEST['idOrden'],$conexion);
         }
         
+        if($_REQUEST['opcion']=='pregunteNuevoItemOrdenNew'){
+            $this->pregunteNuevoItemOrdenNew($_REQUEST['idOrden'],$conexion);
+        }
+        
         if($_REQUEST['opcion']=='grabarNuevoItemOrden'){
             $this->grabarNuevoItemOrden($_REQUEST);
          }
@@ -273,6 +277,11 @@ class ordenControlador
         $this->vistaOrden->pregunteNuevoItem($id);
         
     }
+    public function pregunteNuevoItemOrdenNew($id){
+
+        $this->vistaOrden->pregunteNuevoItemNew($id);
+        
+    }
     
     public function grabarNuevoItemOrden($request){
         $this->itemsOrdenModelo->grabarNuevoItem($request);
@@ -332,7 +341,10 @@ class ordenControlador
         $data['factura'] = ''; 
         $data['id'] = $infoCodigo['id_codigo'];
         $data['observaciones'] = 'Entrada Anulacion Item de orden '.$infoOrden['orden']; 
+        //aqui viene el id del idItem
         $this->movimientosModelo->registerMov($data);
+        //aqui hay que enviarle el id pero de la orden
+        $request['idOrden'] = $infoItem['no_factura'];
         $this->mostrarItemsOrden($request);
     }
     public function formuFiltrosOrdenes()

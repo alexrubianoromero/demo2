@@ -401,6 +401,8 @@ function grabarVehiculoDesdeOrden()
      //debe ir a validar placa o algo asi 
      
     }
+
+
     function pregunteItems(){
     //    alert('digfame el item ');
        //muestre ventana apara introducir nuevo item 
@@ -420,6 +422,29 @@ function grabarVehiculoDesdeOrden()
         + "&idOrden="+idOrden
         );
     }
+
+    function pregunteItemsNew(){
+    //    alert('digfame el item ');
+       //muestre ventana apara introducir nuevo item 
+       var idOrden =  document.getElementById("idOrden").value;
+       const http=new XMLHttpRequest();
+       const url = '../orden/ordenes.php';
+       http.onreadystatechange = function(){
+           if(this.readyState == 4 && this.status ==200){
+               document.getElementById("cuerpoModalAgregarItems").innerHTML = this.responseText;
+            }
+        };
+        
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("opcion=pregunteNuevoItemOrdenNew"
+        + "&idOrden="+idOrden
+        );
+    }
+
+
+
+
     function mostrarItemsOrden(id){
         //    alert('digfame el item ');
         //muestre ventana apara introducir nuevo item 
@@ -463,6 +488,42 @@ function grabarVehiculoDesdeOrden()
                     if(this.readyState == 4 && this.status ==200){
                         document.getElementById("divPregunteNuevoItem").innerHTML = '';
                         document.getElementById("div_items_orden").innerHTML = this.responseText;
+                    }
+                };
+                
+                http.open("POST",url);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.send("opcion=grabarNuevoItemOrden"
+                + "&idOrden="+idOrden
+                + "&codigo="+codigo
+                + "&descripcion="+descripcion
+                + "&valorUnit="+valorUnit
+                + "&cantidad="+cantidad
+                + "&total="+total
+                );
+            }        
+        }
+        function grabarNuevoItemNew(idOrden)
+        {
+            $valida =  validacionCamposItem();
+            if($valida)
+            { 
+                // alert('agregart item');
+                //falta hacer el desarrollo
+                var codigo = document.getElementById("codNuevoItem").value;
+                var descripcion = document.getElementById("descripan").value;
+                var valorUnit = document.getElementById("valorUnitpan").value;
+                var cantidad = document.getElementById("cantipan").value;
+                var total = document.getElementById("totalItem").value;
+                
+                const http=new XMLHttpRequest();
+                const url = '../orden/ordenes.php';
+                http.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        document.getElementById("divPregunteNuevoItem").innerHTML = '';
+                        document.getElementById("div_items_orden").innerHTML = this.responseText;
+                        //cerrar ventanas 
+                        //para que deje ver la edicion de orden con sus datos
                     }
                 };
                 
@@ -654,6 +715,22 @@ function filtroBuscarCodigoIngresoOrden()
     http.onreadystatechange = function(){
         if(this.readyState == 4 && this.status ==200){
             document.getElementById("cuerpoModalFiltrosCodigos").innerHTML = this.responseText;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=formuFiltrosInventarioOrden"
+    // + "&nombre="+nombre
+    );
+}
+function filtroBuscarCodigoIngresoOrdenNew()
+{
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalFiltrosCodigosNew").innerHTML = this.responseText;
         }
     };
     

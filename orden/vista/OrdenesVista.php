@@ -72,7 +72,9 @@ class OrdenesVista extends vista
                <?php  $this->modalReciboCaja(); ?>
                <?php  $this->modalCaja(); ?>
                <?php  $this->modalReversionFacturada(); ?>
-
+               <?php  $this->modalAgregarItems(); ?>
+               <?php  $this->modalFiltrosCodigosNew(); ?>
+              
 
            </body>
            </html>
@@ -347,6 +349,31 @@ class OrdenesVista extends vista
           </div>
         <?php
     }
+    public function modalFiltrosCodigosNew (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div class="modal fade" id="myModalFiltrosCodigosNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Filtros Codigos New</h4>
+                  </div>
+                  <div id="cuerpoModalFiltrosCodigosNew" class="modal-body">
+         
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
     public function modalClientes (){
         ?>
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
@@ -390,6 +417,31 @@ class OrdenesVista extends vista
                   </div>
                   <div class="modal-footer" id="footerNuevoCliente">
                       <button onclick="pintarOrdenes();"  type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalAgregarItems (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade" id="myModalAgregarItems" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevaOrden">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">CREACION DE ORDEN </h4>
+                  </div>
+                  <div id="cuerpoModalAgregarItems" class="modal-body">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button  type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                   </div>
                   </div>
@@ -576,10 +628,13 @@ class OrdenesVista extends vista
                 <br><br>
                     <div class="col-xs-12">
                        <?php 
-                        $boton = '<button ';
+                        $boton = '<button 
+                        data-toggle="modal" data-target="#myModalAgregarItems" ';
                         if($arregloOrden['estado']==2)
-                        { $boton .= ' disabled '; }      
-                        $boton .= 'class="btn btn-primary" onclick="pregunteItems();"
+                        { $boton .= ' disabled '; }     
+                         
+                            $boton .= 'class="btn btn-primary" onclick="pregunteItemsNew();"
+
                         >
                         Agregar Item</button>';
                         echo $boton;
@@ -768,7 +823,8 @@ class OrdenesVista extends vista
 
       <?php
   }
-  public function pregunteNuevoItem($id){
+  public function pregunteNuevoItem($id)
+  {
     ?> 
     <div>
         <div class="row">
@@ -858,6 +914,109 @@ class OrdenesVista extends vista
             </div>
             <div class="col-xs-6">
                 <button class="btn btn-primary" id = "grabarNuevoItem" onclick="grabarNuevoItem(<?php echo $id ?>);">Grabar Item</button>
+            </div>
+        </div>
+    </div>
+    <?php
+  }
+  public function pregunteNuevoItemNew($id)
+  {
+    ?> 
+    <div  style="color:black">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>   
+            <div class="col-xs-4">
+                <button  
+                onclick="filtroBuscarCodigoIngresoOrdenNew();"
+                class="btn btn-primary" 
+                data-toggle="modal" data-target="#myModalFiltrosCodigosNew"
+                >
+                <i class="fas fa-search" ></i> 
+                BUSCAR CODIGO
+            </button>
+            
+        </div>
+        <div class="col-xs-4">
+            <button
+            class="btn btn-primary" 
+                onclick= "cerrarventanaItems();"
+            >
+                CERRAR 
+            </button>
+        </div>    
+        <div class="col-xs-2">
+            </div>  
+
+
+        </div>
+        <br>
+        <input type = "hidden" value= "<?php echo $id ?>">
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label >Codigo:</label>
+            </div>
+            <div class="col-xs-7">
+                <!-- Codigo:<input type="text" id = "codNuevoItem" onblur="verifiqueCodigo();"> -->
+                <input class ="form-control" 
+                        type="text" 
+                        id = "codNuevoItem" 
+                        onkeyup="verificarSiExisteCodigo();"
+                >
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label >Descripcion:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "descripan" ">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label > Valor Unit:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "valorUnitpan" ">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label > Cantidad: <span id="existencias" style="color:green;"></span><input type ="hidden" id="inputexistencias"></label>
+            </div>
+            <div class="col-xs-7">
+
+                <input class ="form-control" 
+                    type="text" 
+                    id = "cantipan" 
+                    onkeyup="generarTotalItem();"
+                >
+            </div>
+        </div>
+    
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label > Total:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "totalItem" onfocus="blur();" >
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-6">
+                <button class="btn btn-primary"  
+                        data-dismiss="modal"
+                        onclick="cerrarVentanaNuevoItem();"
+                >Cancelar</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary" 
+                        id = "grabarNuevoItem" 
+                        data-dismiss="modal"
+                        onclick="grabarNuevoItemNew(<?php echo $id ?>);"
+                >Grabar Item</button>
             </div>
         </div>
     </div>
@@ -989,6 +1148,7 @@ class OrdenesVista extends vista
         echo '<tr>';
         echo '<th>Codigo</th>';
         echo '<th>Referencia</th>';
+        echo '<th>Descripcion</th>';
         echo '<th>P.Venta</th>';
         echo '<th>Can/Mov</th>';
         // echo '<th>Descontar</th>';
@@ -1004,7 +1164,8 @@ class OrdenesVista extends vista
                     >'.$codigo['codigo_producto'].
                     '</button></td>';
             echo '<td>'.$codigo['referencia'].'</td>';
-            echo '<td>'.number_format($codigo['valorventa'], 0, '.', '').'</td>';
+            echo '<td>'.$codigo['descripcion'].'</td>';
+            echo '<td>'.number_format($codigo['valorventa'],0,",",".").'</td>';
 
             echo '<td>'.$codigo['cantidad'].'</td>';
             // echo '<td><button id="btnRetirarExistencias" class="btn btn-info"><i class="fas fa-minus"></i></button></td>';
