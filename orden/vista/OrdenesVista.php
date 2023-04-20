@@ -74,6 +74,9 @@ class OrdenesVista extends vista
                <?php  $this->modalReversionFacturada(); ?>
                <?php  $this->modalAgregarItems(); ?>
                <?php  $this->modalFiltrosCodigosNew(); ?>
+               <?php  $this-> modalImagenes(); ?>
+
+              
               
 
            </body>
@@ -132,6 +135,7 @@ class OrdenesVista extends vista
         echo '<thead>'; 
         echo '<tr  class="bontonesmenuinternos">'; 
         echo '<th>ORDEN</th>';
+        // echo '<th>IMA</th>';
         echo '<th>PDF</th>';
         echo '<th>FECHA</th>';
         echo '<th>PLACA</th>';
@@ -175,6 +179,14 @@ class OrdenesVista extends vista
  
             echo '<a href="../orden/pdf/ordenPdf3.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
             echo '</td>';
+            // echo '<td>'; 
+            // echo '<button 
+            //         class="btn btn-default" 
+            //         onclick ="mostrarImagenesOrden('.$orden['id'].'); "
+            //         data-toggle="modal" data-target="#myModalImagenes"
+            //       >IMA</button>';
+            
+            // echo '</td>';
             echo '<td>'.$orden['fecha'].'</td>';
             echo '<td>'.$orden['placa'].'</td>';
             echo '<td>'.$orden['tipo'].'</td>';
@@ -264,6 +276,31 @@ class OrdenesVista extends vista
                       <h4 class="modal-title" id="myModalLabel">Recibo de Caja</h4>
                   </div>
                   <div id="cuerpoModalReciboCaja" class="modal-body">
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalImagenes()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div class="modal fade" id="myModalImagenes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Imagenes Orden</h4>
+                  </div>
+                  <div id="cuerpoModalImagenes" class="modal-body">
                       
                   </div>
                   <div class="modal-footer">
@@ -450,7 +487,7 @@ class OrdenesVista extends vista
         <?php
     }
 
-    public function mostrarInfoOrden($arregloOrden,$conexion,$resultadoItems){
+    public function mostrarInfoOrden($arregloOrden,$conexion,$resultadoItems,$request){
         //  echo $arregloOrden['observaciones'];
         //  die();
         // echo '<pre>';
@@ -463,6 +500,8 @@ class OrdenesVista extends vista
         // die();
         ?>
             <div id = "div_detalle_orden" >
+
+                    <input type="text" id = "nivel" value ="<?php echo $request['nivelStorage'];   ?>">
                     <input type="hidden" id = "idOrden" value ="<?php echo $arregloOrden['id'];   ?>">
                     <div id="div_info_moto">
                     </div>
@@ -489,7 +528,7 @@ class OrdenesVista extends vista
                                  <td>Mecanico</td>
                                  <td>
                                     <?php
-                                    if($_SESSION['nivel']>2)
+                                    if($_SESSION['nivel']>2 ||  $request['nivelStorage']>2)
                                     {
                                         // echo $arregloOrden['idmecanico'];
                                         $tecnicos=[];
@@ -577,7 +616,7 @@ class OrdenesVista extends vista
                                         
                                         >Lista</option>
                                         <?php 
-                                        if($_SESSION['nivel']>2)
+                                        if($_SESSION['nivel']>2 || $request['nivelStorage']>2)
                                         {
                                         ?>        
                                         <option value = "2"
@@ -649,7 +688,7 @@ class OrdenesVista extends vista
                     // echo $resultados['filas'] ;
                     // die();
                         if($resultadoItems['filas'] > 0){
-                            $this->mostrarItemsOrden($arregloOrden['id'],$resultadoItems['datos'],$arregloOrden['estado']);  
+                            $this->mostrarItemsOrden($arregloOrden['id'],$resultadoItems['datos'],$arregloOrden['estado'],$request);  
                         }
 
                     ?>
@@ -657,7 +696,7 @@ class OrdenesVista extends vista
         <?php
 
    }
-   public function mostrarItemsOrden($id,$items,$estadoOrden='10'){
+   public function mostrarItemsOrden($id,$items,$estadoOrden='10',$request = []){
     // $items =  $this->itemsOrden->traerItemsOrdenId( $id,$conexion);
    // echo '<pre>';
    // print_r($items);
@@ -676,7 +715,7 @@ class OrdenesVista extends vista
                    <?php 
                        if($estadoOrden<2)
                        {
-                            if($_SESSION['nivel'] >2)
+                            if($_SESSION['nivel'] >2 || $request['nivelStorage'] > 2)
                             {
                                 echo '<td><i class="fas fa-trash"></i></td>';
                             }
@@ -1175,6 +1214,23 @@ class OrdenesVista extends vista
         echo '</div>';
     }
 
+    public function pantallaImagenes($idOrden,$imagenes = [])
+    {
+        ?>
+        <div id="div_principal_imagenes">
+            <div id="div_nueva_imagen">
+                <form action="subearchivo.php" method="post" enctype="multipart/form-data">
+                    <input name="imagen" id="imagen" type="file">
+                    <br><br><br><br>
+                        <input type="submit" value="Enviar">
+                </form>
+            </div>
+            <div id="muestre_imagenes">
+
+            </div>
+        </div>
+        <?php
+    }
 
 
 }

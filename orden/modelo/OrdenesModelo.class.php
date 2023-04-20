@@ -313,6 +313,15 @@ Class OrdenesModelo extends Conexion
         {
             $sql = "delete from recibos_de_caja where id_orden = '".$idOrden."' ";  
             $consulta = mysql_query($sql,$this->connectMysql()); 
+            
+        }
+        
+        public function traerImagenesOrdenId($idOrden)
+        {
+            $sql = "select * from imagenes_ordenes where idorden =  $idOrden  ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            $imagenes = $this->get_table_assoc($consulta);
+            return $imagenes;  
 
         }
 
