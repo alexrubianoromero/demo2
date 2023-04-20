@@ -582,12 +582,17 @@ function grabarVehiculoDesdeOrden()
                     alert('Por favor digitar total');
                     return 0;
                 }
-                
+                //aqui se deberia incluir una validacion para revisar si el inventario no es inferior a lo que se esta vendiendo 
+
                 return 1;
                 
             }
             
-            
+            function validarCantVentaVsExistencias()
+            {
+                var cantidadVenta = document.getElementById("cantipan").value;
+                
+            }
             function cerrarVentanaNuevoItem()
             {
                 document.getElementById("divPregunteNuevoItem").innerHTML = '';
@@ -609,6 +614,16 @@ function grabarVehiculoDesdeOrden()
                             document.getElementById("existencias").innerHTML = resp.data.cantidad;
                             document.getElementById("inputexistencias").value = resp.data.cantidad;
                             document.getElementById("valorUnitpan").value = resp.data.valorventa;
+                            document.getElementById("referenciapan").value = resp.data.referencia;
+                        }
+                        else{
+                            document.getElementById("descripan").value = '';
+                            document.getElementById("valorUnitpan").value = '';
+                            document.getElementById("existencias").innerHTML = '';
+                            document.getElementById("inputexistencias").value = '';
+                            document.getElementById("valorUnitpan").value = '';
+                            document.getElementById("referenciapan").value = '';
+
                         }
                     }
                 };
@@ -788,6 +803,10 @@ function colocarInfoCodigoEnItem(idCod)
             document.getElementById("codNuevoItem").value = resp.codigo_producto;
             document.getElementById("descripan").value = resp.descripcion;
             document.getElementById("valorUnitpan").value = resp.valorventa;
+            document.getElementById("referenciapan").value = resp.referencia;
+            document.getElementById("referenciapan").value = resp.referencia;
+            document.getElementById("inputexistencias").value = resp.cantidad;
+            document.getElementById("existencias").innerHTML = resp.cantidad;
         }
     };
     

@@ -42,29 +42,18 @@ class itemsOrdenModelo extends Conexion
 
     public function traerItemsOrdenId($id)
     {
-                // die('llego al modelo ');
-                $conexion = $this->connectMysql();
-                $sql = "SELECT i.no_factura,i.id_item, i.codigo,i.descripcion,i.cantidad,i.total_item,i.valor_unitario
+        // die('llego al modelo ');
+        $conexion = $this->connectMysql();
+        $sql = "SELECT i.no_factura,i.id_item, i.codigo,i.descripcion,i.cantidad,i.total_item,i.valor_unitario,p.referencia 
                 FROM item_orden i 
                 LEFT OUTER JOIN  productos p on p.codigo_producto = i.codigo 
                 WHERE  i.no_factura = '".$id."'  order by id_item asc";
-                $consulta = mysql_query($sql,$conexion);
-                $filas = mysql_num_rows($consulta);
-                $arreglo= '';
-                $i=0;
-                while($resul = mysql_fetch_assoc($consulta)){
-                    $arreglo[$i]['no_factura'] = $resul['no_factura'];
-                    $arreglo[$i]['id_item'] = $resul['id_item'];
-                    $arreglo[$i]['codigo'] = $resul['codigo'];
-                    $arreglo[$i]['descripcion'] = $resul['descripcion'];
-                    $arreglo[$i]['cantidad'] = $resul['cantidad'];
-                    $arreglo[$i]['valor_unitario'] = $resul['valor_unitario'];
-                    $arreglo[$i]['total_item'] = $resul['total_item'];
-                    $i++;
-             }
-             $resultado['datos'] = $arreglo; 
-             $resultado['filas'] = $filas;  
-             return $resultado; 
+        $consulta = mysql_query($sql,$conexion);
+        $filas = mysql_num_rows($consulta);
+        $arreglo = $this->get_table_assoc($consulta);
+        $resultado['datos'] = $arreglo; 
+        $resultado['filas'] = $filas;  
+        return $resultado; 
     }
 
     public function grabarNuevoItem($request)

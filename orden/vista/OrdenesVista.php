@@ -708,6 +708,7 @@ class OrdenesVista extends vista
 
                <tr>
                    <td>Codigo</td>
+                   <td>Referencia</td>
                    <td>Descripcion</td>
                    <td>Vr.Unit</td>
                    <td>Cant.</td>
@@ -730,6 +731,7 @@ class OrdenesVista extends vista
                {
                     echo '<tr>';
                     echo '<td>'.$items[$i]["codigo"].'</td>';
+                    echo '<td>'.$items[$i]["referencia"].'</td>';
                     echo '<td>'.$items[$i]["descripcion"].'</td>';
                     if($items[$i]["valor_unitario"] !=''){
                         echo '<td align="right">'.number_format($items[$i]["valor_unitario"], 0, ',', '.').'</td>';
@@ -760,6 +762,7 @@ class OrdenesVista extends vista
                echo '<td></td>';
                echo '<td></td>';
                echo '<td align="right">Total</td>';
+               echo '<td></td>';
                echo '<td></td>';
                echo '<td align="right">'.number_format($sumaItems, 0, ',', '.').'</td>';
                echo '</tr>';
@@ -1002,6 +1005,14 @@ class OrdenesVista extends vista
                         id = "codNuevoItem" 
                         onkeyup="verificarSiExisteCodigo();"
                 >
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <label >Referencia:</label>
+            </div>
+            <div class="col-xs-7">
+                <input class ="form-control" type="text" id = "referenciapan" >
             </div>
         </div>
         <div class="row form-group">

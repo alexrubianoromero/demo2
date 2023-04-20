@@ -213,24 +213,24 @@ Class OrdenesModelo extends Conexion
                 ";        
 
 
-        // die($sql); 
+        //  die($sql); 
         $consulta = mysql_query($sql,$this->connectMysql());  
+        $arreglo = $this->get_table_assoc($consulta);
+        // $arreglo= '';
         
-        $arreglo= '';
+        // $i=0;
         
-        $i=0;
-        
-        while($resul = mysql_fetch_assoc($consulta)){
-            $arreglo[$i]['id'] = $resul['id'];
-            $arreglo[$i]['orden'] = $resul['orden'];
-            $arreglo[$i]['fecha'] = $resul['fecha'];
-            $arreglo[$i]['placa'] = $resul['placa'];
-            $arreglo[$i]['tipo'] = $resul['tipo'];
-               $arreglo[$i]['estado'] = $resul['estado'];
-               $arreglo[$i]['kilometraje'] = $resul['kilometraje'];
-               $arreglo[$i]['observaciones'] = $resul['observaciones'];
-               $i++;
-            }
+        // while($resul = mysql_fetch_assoc($consulta)){
+        //     $arreglo[$i]['id'] = $resul['id'];
+        //     $arreglo[$i]['orden'] = $resul['orden'];
+        //     $arreglo[$i]['fecha'] = $resul['fecha'];
+        //     $arreglo[$i]['placa'] = $resul['placa'];
+        //     $arreglo[$i]['tipo'] = $resul['tipo'];
+        //        $arreglo[$i]['estado'] = $resul['estado'];
+        //        $arreglo[$i]['kilometraje'] = $resul['kilometraje'];
+        //        $arreglo[$i]['observaciones'] = $resul['observaciones'];
+        //        $i++;
+        //     }
             return $arreglo;
             
         }
