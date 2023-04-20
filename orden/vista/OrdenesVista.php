@@ -501,7 +501,7 @@ class OrdenesVista extends vista
         ?>
             <div id = "div_detalle_orden" >
 
-                    <input type="text" id = "nivel" value ="<?php echo $request['nivelStorage'];   ?>">
+                    <input type="hidden" id = "nivel" value ="<?php echo $request['nivelStorage'];   ?>">
                     <input type="hidden" id = "idOrden" value ="<?php echo $arregloOrden['id'];   ?>">
                     <div id="div_info_moto">
                     </div>
