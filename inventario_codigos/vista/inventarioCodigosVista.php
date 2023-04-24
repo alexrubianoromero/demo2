@@ -590,7 +590,34 @@ class inventarioCodigosVista extends vista
 
     public function mostrarAlertas($codigosAlertas)
     {
-        $this->draw_table($codigosAlertas);
+        // $this->draw_table($codigosAlertas);
+        ?>
+        <div>
+            <table class="table">
+            <tr>
+                <th>COD</th>
+                <th>REF</th>
+                <th>DESCRIPCION</th>
+                <th>PROD_MIN</th>
+                <th>CANT.</th>
+
+            </tr>
+            <?php
+            foreach($codigosAlertas as $codigoAlerta)
+            {
+                if($codigoAlerta['cantidad']< $codigoAlerta['producto_minimo'] )
+                {
+                    echo '<tr>'; 
+                    echo '<td>'.$codigoAlerta['codigo_producto'].'</td>';
+                    echo '<td>'.$codigoAlerta['referencia'].'</td>';
+                    echo '<td>'.$codigoAlerta['descripcion'].'</td>';
+                    echo '<td align="center">'.$codigoAlerta['producto_minimo'].'</td>';
+                    echo '<td>'.$codigoAlerta['cantidad'].'</td>';
+                    echo '</tr>';
+                }
+            }
+        echo '</table>';    
+        echo '</div>';
     }
     public function generarExcelInventario($codigos)
     {

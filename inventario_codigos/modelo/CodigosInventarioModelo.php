@@ -152,10 +152,11 @@ require_once($raiz.'/conexion/Conexion.php');
 
         function codigosConAlertaInventario()
         {
-            $sql = "select codigo_producto as COD,referencia as REF, descripcion as DESCRIPCION, producto_minimo as PRODUCTO_MININO, cantidad as CANT from productos 
+            //traer todos los codigos y mas bien los controlo desde la vista 
+            $sql = "select * 
+            from productos 
             where 1=1 
-            and alerta = 'SI'
-            and cantidad <= producto_minimo";
+            and alerta = 'SI'";
             $consulta = mysql_query($sql,$this->connectMysql()); 
             $codigosAlerta = $this->get_table_assoc($consulta); 
             // echo 'desde el modelo<pre>'; 
