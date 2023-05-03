@@ -1,9 +1,13 @@
 <?php
+$raiz = dirname(dirname(dirname(__file__)));
+require_once($raiz.'/movil/model/UsuarioModel.php');
+require_once($raiz.'/movil/model/EmpresaModel.php');
 class movilVista{
-
+  private $empresaModel;   
   public function __construct()
   {
     session_start();
+    $this->empresaModel = new EmpresaModel(); 
     // echo '<pre>';
     // print_r($_SESSION);
     // echo '</pre>';
@@ -75,6 +79,7 @@ class movilVista{
     <script src="../tecnicos/js/tecnicos.js"></script>
     <script src="../ayudas_financieras/js/ayudasfinancieras.js"></script>
     <script src="../ayudas_financieras/js/conceptos.js"></script>
+    <script src="../ventas/js/ventas.js"></script>
     <?php
   }
   public function htmlLogueo(){
@@ -116,13 +121,25 @@ class movilVista{
             
            
             <?php
-            // if($_SESSION['nivel'] > 2)
-            // {
-            //   echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaVentas();">VENTAS
-            //         <i class="fas fa-list"></i>
-            //     </button>';
+            //esta funcion me trae la info de empresa 
+            //con el campo recibe_tarjetas == 1 se mostrara el modulo de ventas 
+            $infoEmpresa = $this->empresaModel->traerInfoEmpresa();
+        //     echo '<pre>'; 
+        // print_r($infoEmpresa); 
+        // echo '</pre>';
+        // die(); 
+            if($_SESSION['nivel'] > 2 || $request['nivel']>2)
+            {
+                if($infoEmpresa['recibe_tarjetas']==1)
+                {
+                    echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaVentas();">VENTAS
+                        <i class="fas fa-list"></i>
+                    </button>';
+                }
 
-            // }  
+            }  
+
+            
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
               echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaAyudasFinancieras();">AYUDAS FINANCIERAS 
@@ -224,21 +241,20 @@ public function preguntarNuevaClave($request)
 </head>
 <body>
     <div style="color:black;">
-    <input type="hidden" id="input_id_usuario" value="<?php   echo $_SESSION['id_usuario'];  ?>">
+    <input type="hidden" id="input_id_usuario" value="<?php   echo $request['idUsuarioSessionStorage']  ?>">
+
     <div class ="form-group">
-        <div class="col-xs-3">
-            <label>Clave Anterior:</label>
-        </div>
-        <div class="col-xs-9">
-            <input type = "text" id="txtClaveAnterior" class="form-control">
+      
+        <div class="col-xs-12">
+            <input type = "text" id="txtClaveAnterior" class="form-control" placeholder="Clave Anterior">
         </div>
     </div>
+
+    <br><br>
     <div class ="form-group">
-        <div class="col-xs-3">
-            <label>Nueva Clave:</label>
-        </div>
-        <div class="col-xs-9">
-            <input type = "text" id="txtNuevaClave" class="form-control">
+ 
+        <div class="col-xs-12">
+            <input type = "text" id="txtNuevaClave" class="form-control" placeholder="Clave Actual">
         </div>
     </div>
     <button class="btn btn-primary" onclick="actualizarClave();">Actuallizar Clave</button>

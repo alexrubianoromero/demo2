@@ -49,9 +49,9 @@ function grabarRecibo()
         var txtCredito = document.getElementById("txtCredito").value;
         var txtBancolombia = document.getElementById("txtBancolombia").value;
         var txtBolt = document.getElementById("txtBolt").value;
-
-
+        
         var idOrden = document.getElementById("idOrden").value;
+        var idVenta = document.getElementById("idVenta").value;
 
         if(txtEfectivo==''){ txtEfectivo='0'}
         if(txtDebito==''){ txtDebito='0'}
@@ -66,7 +66,9 @@ function grabarRecibo()
         http.onreadystatechange = function(){
             if(this.readyState == 4 && this.status ==200){
                 document.getElementById("cuerpoModalCaja").innerHTML  = '';
-            document.getElementById("cuerpoModalCaja").innerHTML  = this.responseText;
+                document.getElementById("cuerpoModalCaja").innerHTML  = this.responseText;
+                document.getElementById("cuerpoModalCajaVentas").innerHTML  = '';
+                document.getElementById("cuerpoModalCajaVentas").innerHTML  = this.responseText;
             }
         };
         http.open("POST",url);
@@ -84,6 +86,7 @@ function grabarRecibo()
                 + "&txtBancolombia="+txtBancolombia 
                 + "&txtBolt="+txtBolt 
                 + "&idOrden="+idOrden 
+                + "&idVenta="+idVenta 
         );
 
         //si hay valor en idOrden se debe cerrar el modal on la info de la orden 

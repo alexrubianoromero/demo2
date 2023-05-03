@@ -49,7 +49,6 @@ class UsuarioModel extends Conexion
         clave = '".$request['claveNueva']."'
         where id_usuario = '".$request['idUsuario']."'  ";
         $consulta = mysql_query($sql,$this->connectMysql());
-
     }
 }
 

@@ -122,12 +122,21 @@ require_once($raiz.'/conexion/Conexion.php');
 
         public function saveMoreLessInvent($request)
         {
+        //             echo '<pre>'; 
+        // print_r($request);
+        // echo '</pre>';
+        //     die('buenas ');
+            //En el request deben llegar tres parametros 
+            //id  el id del codigo 
+            //tipo  es la razon de la entrada o el descuento si es por aplicar el codigo a una orden o por venta o por simple cuadre
+            //cantidad la cantidad que se va a 
             //1 y 3 son entradas y suma al inventario 
             //1 es entrada de inventario realizada desde el modulo de inventario osea suma al inventario
             //3 es es la eliminacion del un item del inventario osea se suma al inventario porque vuelve 
             //2 y 4 son salidas y resta al inventario 
             //2 es una salida de inventario desde el modulo de inventarios osea resta del inventario
             //4 es un item agregado a una orden osea resta del inventario
+            //6 es una venta de mostrador
 
             $infoCode = $this->getInfoCodeById($request['id']);
             $conexion = $this->connectMysql();
@@ -136,14 +145,14 @@ require_once($raiz.'/conexion/Conexion.php');
             {
                 $saldo = $infoActual['cantidad'] +  $request['cantidad'];
             }
-            if($request['tipo']==2 || $request['tipo']==4 ) //lo que resta al inventario 
+            if($request['tipo']==2 || $request['tipo']==4 || $request['tipo']==6  ) //lo que resta al inventario 
             {
                 $saldo = $infoActual['cantidad'] -  $request['cantidad'];
             }
 
             $sql = "update productos set cantidad = '".$saldo ."' 
             where id_codigo = '".$request['id']."'   "; 
-            // die($sql);
+            //   die($sql);
     
             $consulta = mysql_query($sql,$conexion);   
 

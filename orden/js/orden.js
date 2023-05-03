@@ -588,7 +588,7 @@ function grabarVehiculoDesdeOrden()
                 
             }
             
-            function validarCantVentaVsExistencias()
+    function validarCantVentaVsExistencias()
             {
                 var cantidadVenta = document.getElementById("cantipan").value;
                 

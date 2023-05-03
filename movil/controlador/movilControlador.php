@@ -144,9 +144,13 @@ public function actualizarClave($request)
         //  echo '<pre>';
         //    print_r($infoUser);
         //    echo '</pre>';
+
+        //    echo '<br>'.$infoUser['clave'];
+        //    echo '<br>'.$request['claveAnterior'];
         //    die(); 
     if($infoUser['clave'] == $request['claveAnterior'])
     {
+        // echo ('son iguales');
         $this->model->actualizarClave($request);
         echo 'Clave Actualizada'; 
     }

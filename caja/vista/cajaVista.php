@@ -5,12 +5,14 @@ require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
 require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
 require_once($raiz.'/caja/model/ReciboCajaModelo.php');
+require_once($raiz.'/ventas/model/VentasModel.php');
 
 class cajaVista
 {
     protected $modeloConcep; 
     protected $modelItem; 
     protected $modelOrden; 
+    protected $ventasModel; 
     protected $modelTecnico; 
     protected $modelRecibo;
     public function __construct()
@@ -18,6 +20,7 @@ class cajaVista
         $this->modeloConcep = new ConceptoModel(); 
         $this->modelItem = new itemsOrdenModelo();
         $this->modelOrden =  new OrdenesModelo();
+        $this->ventasModel =  new ventasModel();
         $this->modelTecnico  = new TecnicosModelo(); 
         $this->modelRecibo  = new ReciboCajaModelo(); 
 
@@ -143,9 +146,19 @@ class cajaVista
             $textoInfoOrden = 'Pago Orden No '.$datosOrden['orden'];
             $titulo = 'Pago Orden No '.$datosOrden['orden'].' valor: '.number_format($sumaItems, 0, '.', '');
         }
+        if(isset($request['idVenta'])) //significa que es un recibo de una venta de mostrador
+        {
+            //traer info venta
+            $sumaItems = $this->ventasModel->sumarItemsVentaId($request['idVenta']);
+            // $sumaItems =  $this->modelItem->sumarItemsIdOrden($request['idOrden']);
+            // $datosOrden = $this->modelOrden->traerOrdenId($request['idOrden']); 
+            $textoInfoOrden = 'Pago Venta No '.$request['idVenta'];
+            $titulo = 'Pago Venta No '.$request['idVenta'].' valor: '.number_format($sumaItems,0,",",".");
+        }
         ?>
-        <input type = "hidden"  id="idOrden"  value ="<?php echo $request['idOrden']; ?>" > 
         <div style="color:black">
+        <input type = "hidden"  id="idOrden"  value ="<?php echo $request['idOrden']; ?>" > 
+        <input type = "hidden"  id="idVenta"  value ="<?php echo $request['idVenta']; ?>" > 
         <h3 ><?php  echo $titulo;  ?></h3>
             <input type="hidden" id="tipo" value = "<?php echo $request['tipo']   ?>" >
             <div class="row" style="font-size:20px;">
@@ -248,7 +261,8 @@ class cajaVista
                 <div class ="col-xs-4"><label class ="form-control">Observaciones:</label></div>
                 <div class="col-xs-8">
                     <?php
-                            if(isset($request['idOrden'])) //significa que es un recibo de una orden facturada 
+                           
+                           if(isset($request['idOrden']) || isset($request['idVenta'])) //significa que es un recibo de una orden facturada 
                             {
                                 echo '<input 
                                         type="text" 

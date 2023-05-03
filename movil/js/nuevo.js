@@ -299,7 +299,8 @@ function pantallaOrdenes(){
 
 function preguntarNuevaClave(idUsuario)
 {
-    // alert('cambio de clave '+ idUsuario);
+    //  alert('cambio de clave '+ sessionStorage.id_usuario);
+    var claveSessionStorage =  sessionStorage.id_usuario;
     const http=new XMLHttpRequest();
     const url = '../movil/index.php';
     http.onreadystatechange = function(){
@@ -311,6 +312,7 @@ function preguntarNuevaClave(idUsuario)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send('opcion=preguntarNuevaClave'
     + "&idUsuario="+idUsuario
+    + "&idUsuarioSessionStorage="+claveSessionStorage
     );
     
 }

@@ -317,12 +317,12 @@ class OrdenesVista extends vista
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
          Launch demo modal
          </button> -->
-          <div class="modal fade" id="myModalCaja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade" id="myModalCaja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="color:black">
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Recibo de Caja</h4>
+                      <h4 class="modal-title" id="myModalLabel">Recibo de Caja Orden</h4>
                   </div>
                   <div id="cuerpoModalCaja" class="modal-body">
                       
