@@ -1,11 +1,11 @@
 <?php
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/caja/vista/cajaVista.php');
-// require_once($raiz.'/caja/model/ReciboCajaModelo.php');
-// require_once($raiz.'/caja/model/ConceptoModel.php');
-// require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
-// require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
-// require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
+require_once($raiz.'/caja/model/ReciboCajaModelo.php');
+require_once($raiz.'/caja/model/ConceptoModel.php');
+require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
+require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
+require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 
 class cajaController
 {
