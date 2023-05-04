@@ -51,7 +51,8 @@ class VehiculosModelo extends Conexion
     }
     public function traerVehiculosPlaca($placa){
 
-        $sql = "SELECT  c.placa,c.marca,c.tipo,c.color,c.idcarro,cli.nombre  as nombre
+        $sql = "SELECT  c.placa,c.marca,c.tipo,c.color,c.idcarro,cli.nombre  as nombre, 
+                c.propietario as idpropietario,c.modelo,c.idcarro 
                 FROM  carros  c
                 LEFT OUTER JOIN cliente0 cli ON cli.idcliente = c.propietario 
                 where placa like '%".$placa."%'
@@ -69,23 +70,14 @@ class VehiculosModelo extends Conexion
     public function buscarPlaca($conexion,$placa){
 
         $sql = "select * from carros where placa = '".$placa ."'  ";
-
         // echo '<br>'.$sql;
-
         // die();
-
         $consulta = mysql_query($sql,$conexion); 
-
         $filas = mysql_num_rows($consulta);
-
         $datos = $this->get_table_assoc($consulta);
-
         $respuesta['filas']= $filas;
-
         $respuesta['datos']=  $datos;  
-
         return $respuesta; 
-
     }    
 
 
@@ -219,9 +211,24 @@ class VehiculosModelo extends Conexion
                     $infoCarro = $this->get_table_assoc($consulta);
                     return $infoCarro;
                 }
-
-
+        public function actualizarDatosVehiculoNew($request)
+        {
+            $sql = "update carros set 
+            placa = '".$request['placaNueva']."'                 
+            ,marca = '".$request['marca']."'                 
+            ,tipo = '".$request['tipo']."'                 
+            ,modelo = '".$request['modelo']."'                 
+            where idcarro = '".$request['idcarro']."' 
+             ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+        }   
         
+        public function actualizarPlacaOrdenes($anterior,$nueva)
+        {
+            $sql ="update ordenes set placa = '".$nueva."'  
+            where placa = '".$anterior."'   ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+        } 
     }
 
 

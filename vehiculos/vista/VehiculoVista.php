@@ -109,8 +109,7 @@ class VehiculoVista extends vista
                 <?php  $this->modalClientes(); ?>
                 <?php  $this->modalHistoriales(); ?>
                 <?php  $this->modalItems(); ?>
-                
-
+                <?php  $this->modalInfoVehiculo(); ?>
             </div>
 
             </body>
@@ -178,6 +177,38 @@ class VehiculoVista extends vista
         <?php
 
     }
+    public function modalInfoVehiculo(){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div style="color:black;" class="modal fade" id="myModalInfoVehiculo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Informacion</h4>
+                  </div>
+                  <div id="cuerpoModalInfoVehiculo" class="modal-body">
+
+                </div>
+                  <div class="modal-footer">
+                      <button 
+                        type="button" 
+                        class="btn btn-default" 
+                        data-dismiss="modal"
+                        onclick ="mostrarVehiculos();"
+                       >
+                       Cerrar
+                       </button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+
     public function modalHistoriales(){
 
         ?>
@@ -327,7 +358,7 @@ class VehiculoVista extends vista
 
                         <th>PLACA</th>
 
-                        <th>MARCA</th>
+                        <th>MARCA/MODIF</th>
 
                         <th>LINEA</th>
 
@@ -349,7 +380,11 @@ class VehiculoVista extends vista
                                  onclick = "verHistorialVehiculo(\''.$vehi['placa'].'\');"
                                     >'.$vehi['placa'].'</button>';
                             echo '</td>';
-                            echo '<td>'.strtoupper($vehi['marca']).'</td>';
+                            echo '<td><button  
+                                        class="btn btn-primary"
+                                        data-toggle="modal" data-target="#myModalInfoVehiculo" 
+                                        onclick= "muestreInfoVehiculo(\''.$vehi['placa'].'\');"
+                                        >'.strtoupper($vehi['marca']).'</button></td>';
                             echo '<td>'.strtoupper($vehi['tipo']).'</td>';
                             echo '<td>'.strtoupper($vehi['nombre']).'</td>';
                             echo '</tr>';
@@ -448,7 +483,34 @@ class VehiculoVista extends vista
     }
 
 
-
+    public function mostrarDatosPlacaNew($datosPlaca,$datosCliente0)
+    {
+        ?>
+        <div style="color:black;">
+        <input type="hidden" id="placaoripan" value = "<?php  echo $datosPlaca['placa'] ?>">
+        <input type="hidden" id="idcarro" value = "<?php  echo $datosPlaca['idcarro'] ?>">
+            <div class="form-group row">
+                <div class ="col-xs-12">
+                    <label>Placa:</label><input type="text" id="placapan" value = "<?php  echo $datosPlaca['placa'] ?>">
+                </div>
+                <div class ="col-xs-12">
+                    <label>Marca:</label><input type="text" id="marcapan" value = "<?php  echo $datosPlaca['marca'] ?>">
+                </div>
+                <div class ="col-xs-12">
+                    <label>Tipo:</label><input type="text" id="tipopan" value = "<?php  echo $datosPlaca['tipo'] ?>">
+                </div>
+                <div class ="col-xs-12">
+                    <label>Modelo:</label><input type="text" id="modelopan" value = "<?php  echo $datosPlaca['modelo'] ?>">
+                </div>
+            </div>
+            <br>
+            <button 
+                class="btn btn-primary"  
+                onclick="actualizarVehiculoNew();"
+            >Actualizar Vehiculo</button>
+        </div>
+        <?php
+    }
     
 
     public function mostrarDatosPlaca($datosPlaca,$datosCliente0)

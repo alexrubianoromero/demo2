@@ -188,15 +188,15 @@ class ClientesModelo extends Conexion
 
 
 
-          public function buscarCliente0Id($conexion,$id){
+          public function buscarCliente0Id($conexion='',$id){
 
             $sql="select * from cliente0 where idcliente = '".$id."'  "; 
 
             // echo '<br>'.$sql;
 
             // die();
-
-            $consulta = mysql_query($sql,$conexion); 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            // $consulta = mysql_query($sql,$conexion); 
 
             $filas = mysql_num_rows($consulta);
 

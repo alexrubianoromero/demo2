@@ -38,7 +38,7 @@ class vehiculoControlador{
 
         
 
-        if(!isset($_REQUEST['opcion']) ){
+        if(!isset($_REQUEST['opcion'])){
 
           $this->pantallainicialVehiculos($conexion);
 
@@ -86,8 +86,12 @@ class vehiculoControlador{
         if($_REQUEST['opcion']=='mostrarHistorialVehiculo'){
             $this->mostrarHistorialVehiculo($_REQUEST);
         }
-
-    
+        if($_REQUEST['opcion']=='muestreInfoVehiculo'){
+            $this->muestreInfoVehiculo($_REQUEST);
+        }
+        if($_REQUEST['opcion']=='actualizarDatosVehiculoNew'){
+            $this->actualizarDatosVehiculoNew($_REQUEST);
+        }
 
     }
 
@@ -207,6 +211,34 @@ class vehiculoControlador{
     {
         $datosVehiculos = $this->vehiculoModelo->traerVehiculosPlaca($request['placa']);
         $this->vehiculoVista->verVehiculos($datosVehiculos);
+    }
+    public function muestreInfoVehiculo($request)
+    {
+        $datosPlaca = $this->vehiculoModelo->traerVehiculosPlaca($request['placa']);
+        //   echo '<pre>';
+        //   print_r($datosPlaca['datos'][0]);
+        //   echo '</pre>';
+        //   die();
+        
+        // $this->vehiculoVista->verVehiculos($datosVehiculos);
+        $datosCliente0 = $this->clientesModelo->buscarCliente0Id('',$datosPlaca['datos'][0]['idpropietario']);
+        //  echo '<pre>';
+        //       print_r($datosCliente0);
+        //       echo '</pre>';
+        //       die();
+        $this->vehiculoVista->mostrarDatosPlacaNew($datosPlaca['datos'][0],$datosCliente0['datos'][0]);
+    }
+    
+    public function actualizarDatosVehiculoNew($request)
+    {
+        $datosPlaca = $this->vehiculoModelo->actualizarDatosVehiculoNew($request);
+        if($request['placaAnterior'] != $request['placaNueva'] )
+        {
+            $this->vehiculoModelo->actualizarPlacaOrdenes($request['placaAnterior'],$request['placaNueva'] );
+            
+        }
+        echo 'Informacion Actualizada'; 
+
     }
 }
 
