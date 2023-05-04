@@ -270,6 +270,14 @@ class ClientesModelo extends Conexion
     $respuesta['datos']=  $datos;  
     return $respuesta; 
   }
+  public function filtrarPropietariosNombre($nombreCliente)
+  {
+      $sql = "select * from cliente0 where nombre like '%".$nombreCliente."%'     ";
+      // die($sql); 
+      $consulta = mysql_query($sql,$this->connectMysql()); 
+      $arreglo = $this->get_table_assoc($consulta); 
+      return $arreglo;
+  }
 
 
 }

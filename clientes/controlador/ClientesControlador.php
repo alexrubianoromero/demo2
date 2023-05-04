@@ -7,7 +7,6 @@ $raiz = dirname(dirname(dirname(__file__)));
 // die();
 
 require_once($raiz.'/clientes/vista/ClientesVista.php');
-
 require_once($raiz.'/clientes/modelo/ClientesModelo.class.php');
 require_once($raiz.'/vehiculos/modelo/VehiculosModelo.php');
 
@@ -24,32 +23,22 @@ class ClientesControlador{
 
 
 
-    public function __construct($conexion){
-
-
-
+    public function __construct($conexion)
+    {
         $this->modelo = new ClientesModelo();
-
         $this->vista = new ClientesVista();
         $this->modelCar = new VehiculosModelo();
-
         $this->conexion = $conexion;
 
-
-
-
-
         if(!isset($_REQUEST['opcion'])){
-
             // die('llego aca '); 
-
             $this->pantallainicialClientes($conexion = '');
-
           }
 
-        if($_REQUEST['opcion']=='verClientes'){
+        if($_REQUEST['opcion']=='verClientes')
+        {
             $this->verClientes($conexion);
-          }
+        }
           
           if($_REQUEST['opcion']=='nuevoPropietario'){
               
@@ -100,6 +89,9 @@ class ClientesControlador{
             }
             if($_REQUEST['opcion']=='buscarPorFiltros'){
                 $this->buscarPorFiltros($_REQUEST);
+            }
+            if($_REQUEST['opcion']=='filtrarPropietariosNombre'){
+                $this->filtrarPropietariosNombre($_REQUEST);
             }
 
 
@@ -204,7 +196,12 @@ class ClientesControlador{
                     // die();
         $clientes = $this->modelo->buscarClientePorFiltros($request);
         $this->vista->verClientes($clientes);
-
+        
+    }
+    public function filtrarPropietariosNombre($request)
+    {
+        $clientesFiltrados = $this->modelo->filtrarPropietariosNombre($request['nombreCliente']);
+        $this->vista->mostrarOpcionesCLientesFiltrados($clientesFiltrados);
     }
     
 }

@@ -573,7 +573,7 @@ class VehiculoVista extends vista
 
                             <select style="background:transparent;" name="selectPropietario" id="selectPropietario" class="form-control">
 
-                            <?php  funciones::select_general($propietarios,'idcliente','nombre'); ?>
+                                <?php  funciones::select_general($propietarios,'idcliente','nombre'); ?>
 
                             </select>
 
@@ -700,10 +700,18 @@ class VehiculoVista extends vista
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Propietario</label></td>
+                        <td><label>Propietario..</label></td>
                         <td>
+                            <input 
+                                id="nombrePropietarioAFiltrar"
+                                style="background-color:white; color:black;" 
+                                type="text" id="buscador" 
+                                class ="form-control"
+                                placeholder="Buscar Nombre"
+                                onkeyup="filtrarPropietariosNombre();"
+                                >
                             <select style="background:transparent; background-color:white;" name="selectPropietario" id="selectPropietario" class="form-control">
-                            <?php  funciones::select_general($propietarios,'idcliente','nombre'); ?>
+                                <?php  funciones::select_general($propietarios,'idcliente','nombre'); ?>
                             </select>
                             <button data-toggle="modal" data-target="#myModalClientes" onclick= "nuevoPropietarioDesdeVehiculo();" class="btn btn-primary">Crear Persona <i class="fas fa-plus-square"></i></button>
                         </td>

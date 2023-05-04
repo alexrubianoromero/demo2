@@ -610,6 +610,14 @@ class CLientesVista extends vista
         </div>
         <?php
     }
+
+    public function mostrarOpcionesCLientesFiltrados($clientes)
+    {
+        foreach($clientes as $cliente)
+        {
+            echo '<option value="'.$cliente['idcliente'].'">'.$cliente['nombre'].'</option>';
+        }
+    }
 }
 
 

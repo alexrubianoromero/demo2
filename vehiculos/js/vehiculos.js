@@ -305,7 +305,7 @@ function prueba(e)
 }
 function muestreItemsOrden123(id)
 {
-     
+    
     // var placa = document.getElementById("histoPlaca").value 
     // alert('orden'+id);
     const http=new XMLHttpRequest();
@@ -322,3 +322,20 @@ function muestreItemsOrden123(id)
     );
 }
 
+function filtrarPropietariosNombre()
+{
+    // alert('filtro de propietarios');
+    var nombreCliente =  document.getElementById("nombrePropietarioAFiltrar").value;
+    const http=new XMLHttpRequest();
+    const url = '../clientes/clientesResponsivo.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("selectPropietario").innerHTML = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=filtrarPropietariosNombre"
+    + "&nombreCliente="+nombreCliente
+    );
+}
