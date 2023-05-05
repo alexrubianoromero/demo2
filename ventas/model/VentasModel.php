@@ -69,6 +69,14 @@ class VentasModel extends Conexion
         return $arreglo['total'];
     }
 
+    public function traerVentas()
+    {
+        $sql = " select * from  ventas ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $arreglo = $this->get_table_assoc($consulta);
+        return $arreglo;
+    }
+
 }
 
 

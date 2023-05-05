@@ -48,6 +48,14 @@ class ventasController
         if($_REQUEST['opcion']=='grabarVenta'){
             $this->grabarVenta($_REQUEST);
        }   
+        if($_REQUEST['opcion']=='verItemsVenta'){
+            $this->verItemsVenta($_REQUEST);
+       }   
+        if($_REQUEST['opcion']=='muestreVentas'){
+            $this->muestreVentas();
+       }   
+
+
 
        
        
@@ -86,7 +94,7 @@ class ventasController
         $itemsVentaTemporal =  $this->ventasTemporalModel->traerItemsVentaTemporal($request['idTemp']);
         $this->vista->muestreItemsTemporales($request['idTemp'],$itemsVentaTemporal);
     }
-
+    
     public function grabarVenta($request)
     {
         $this->ventasModel->grabarventa($request['idTemp']);
@@ -100,7 +108,7 @@ class ventasController
         echo json_encode($respu);
         exit();
     }
-
+    
     public function relizarDescuentosInventario($itemsTemp)
     {
         foreach($itemsTemp as $itemTemp)
@@ -124,7 +132,19 @@ class ventasController
             $this->movimientosModelo->registerMov($data);
         }    
     }
+    public function verItemsVenta($request)
+    {
+        $itemsVenta =$this->ventasModel->traerItemsVentaIdVenta($request['idVenta']);
+        $this->vista->verItemsVenta($itemsVenta);
+        
+    }
+    public function muestreVentas()
+    {
+        $this->vista->muestreVentas();
+        
+    }
 
+    
     
 }
 

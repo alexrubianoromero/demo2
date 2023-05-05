@@ -255,6 +255,10 @@ function pregunteItemsNewVentas(){
         http.send('opcion=grabarVenta'
                 + "&idTemp="+idTemp
         );
+        setTimeout(() => {
+            muestreVentas();
+        }, "500");   
+
     }
 
     function mostrarFormuReciboVentas(idVenta)
@@ -288,6 +292,51 @@ function pregunteItemsNewVentas(){
             
           }, "500");
     // }
+}
+function verItemsVenta(idVenta)
+{
+    // alert('ver items venta'+idVenta);
+    const http=new XMLHttpRequest();
+    const url = '../ventas/ventas.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            // var resp = JSON.parse(this.responseText);
+            // console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            document.getElementById("cuerpoModalMuestreItemsVenta").innerHTML = this.responseText;
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=verItemsVenta"
+    + "&idVenta="+idVenta
+    );
+
+}
+function muestreVentas()
+{
+    const http=new XMLHttpRequest();
+    const url = '../ventas/ventas.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            // var resp = JSON.parse(this.responseText);
+            // console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            document.getElementById("div_resultado_ventas").innerHTML = this.responseText;
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=muestreVentas"
+    );
 }
 
     

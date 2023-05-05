@@ -1,14 +1,18 @@
 <?php
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/inventario_codigos/modelo/CodigosInventarioModelo.php');
+require_once($raiz.'/ventas/model/VentasModel.php');
+
 
 class ventasVista
 {
     protected $codigosModelo; 
+    protected $ventasModel;
 
     public function __construct()
     {
         $this->codigosModelo = new CodigosInventarioModelo();
+        $this->ventasModel = new VentasModel();
     }
 
 
@@ -30,18 +34,21 @@ class ventasVista
                 <div class ="col-md-3"></div>
                 <div class ="col-md-3"></div>
             </div>
+            <br><br>
             <div id="div_resultado_ventas">
-
+                <?php  $this->muestreVentas();  ?>
             </div>
             <?php  $this->modalFiltrosCodigosNew(); ?>
             <?php  $this->modalCajaVentas(); ?>
             <?php  $this->modalNuevaVenta(); ?>
             <?php  $this->modalAgregarItemsNew(); ?>
             <?php  $this->modalFiltrosCodigosNew2(); ?>
+            <?php  $this->modalMuestreItemsVenta(); ?>
         </div>
         <?php
     }
-    public function modalNuevaVenta (){
+    public function modalNuevaVenta ()
+    {
         ?>
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
          Launch demo modal
@@ -53,7 +60,35 @@ class ventasVista
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Nueva Venta Mostrador </h4>
                   </div>
+                  
                   <div id="cuerpoModalNuevaVenta" class="modal-body">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button  type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+
+    public function modalMuestreItemsVenta ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div style="color:black;" class="modal fade" id="myModalMuestreItemsVenta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevaOrden">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Items</h4>
+                  </div>
+                  <div id="cuerpoModalMuestreItemsVenta" class="modal-body">
                       
                       
                   </div>
@@ -460,6 +495,62 @@ class ventasVista
         
     }
     
+    public function muestreVentas()
+    {
+        $ventas = $this->ventasModel->traerVentas();
+
+        echo '<table class="table">';
+        echo '<tr>';
+        echo '<th>Venta</th>';
+        echo '<th>Fecha</th>';
+        echo '<th>Total</th>';
+        echo '</tr>';
+        foreach($ventas as $venta)
+        {
+            $sumaItems = $this->ventasModel->sumarItemsVentaId($venta['idVenta']);
+            echo '<tr>';
+            echo '<td>
+            <button 
+            class="btn btn-primary" 
+            data-toggle="modal" data-target="#myModalMuestreItemsVenta" 
+            onclick="verItemsVenta('.$venta['idVenta'].');">'.$venta['idVenta'].'</button></td>';
+            echo '<td>'.$venta['fecha'].'</td>';
+            echo '<td align="right" >'.number_format($sumaItems,0,",",".").'</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    } 
+    
+    public function verItemsVenta($itemsVenta)
+    {
+        echo '<table class="table">';
+        echo '<tr>';
+        echo '<th>Codigo</th>';
+        echo '<th>Descripcion</th>';
+        echo '<th>Referencia</th>';
+        echo '<th>Vr.Unit</th>';
+        echo '<th>Vr.Cant</th>';
+        echo '<th>TotalItem</th>';
+        echo '</tr>';
+        $suma=0;
+        foreach($itemsVenta as $item)
+        {
+            echo '<tr>';
+            echo '<td>'.$item['codigo'].'</td>';
+            echo '<td>'.$item['descripcion'].'</td>';
+            echo '<td>'.$item['referencia'].'</td>';
+            echo '<td align="right">'.number_format($item['valor_unitario'],0,",",".").'</td>';
+            echo '<td>'.$item['cantidad'].'</td>';
+            echo '<td align="right">'.number_format($item['total_item'],0,",",".").'</td>';
+            echo '</tr>';
+            $suma = $suma+$item['total_item'];
+        }
+        echo '<tr>';
+        echo '<td></td><td></td><td></td><td></td><td>Total</td><td align="right">'.number_format($suma,0,",",".").'</td>';
+        echo '</tr>';
+        echo '</table>';
+        
+    }
     
 }
 
