@@ -253,14 +253,14 @@ function pregunteItemsNewVentas(){
         http.open("POST",url);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send('opcion=grabarVenta'
-                + "&idTemp="+idTemp
+        + "&idTemp="+idTemp
         );
         setTimeout(() => {
             muestreVentas();
         }, "500");   
-
+        
     }
-
+    
     function mostrarFormuReciboVentas(idVenta)
     {
     // var idEstadoOrden = document.getElementById("idEstadoOrden").value;
@@ -269,31 +269,55 @@ function pregunteItemsNewVentas(){
         // alert('idVenta '+idVenta);
         $('#myModalCaja').modal('show'); 
         setTimeout(() => {
-                const http=new XMLHttpRequest();
-                const url = '../caja/caja.php';
-                http.onreadystatechange = function(){
-                    if(this.readyState == 4 && this.status ==200){
-                        // var resp = JSON.parse(this.responseText);
-                        // console.log(resp.descripcion); 
-                        // alert(resp.descripcion); 
-                        document.getElementById("cuerpoModalCaja").innerHTML = this.responseText;
-                        // document.getElementById("codNuevoItem").value = resp.codigo_producto;
-                        // document.getElementById("descripan").value = resp.descripcion;
-                        // document.getElementById("valorUnitpan").value = resp.valor_unit;
-                    }
-                };
-                
-                http.open("POST",url);
-                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                http.send("opcion=pregunteEntradaCaja"
-                + "&idVenta="+idVenta
-                + "&tipo=1"
-                );
+            const http=new XMLHttpRequest();
+            const url = '../caja/caja.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    // var resp = JSON.parse(this.responseText);
+                    // console.log(resp.descripcion); 
+                    // alert(resp.descripcion); 
+                    document.getElementById("cuerpoModalCaja").innerHTML = this.responseText;
+                    // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+                    // document.getElementById("descripan").value = resp.descripcion;
+                    // document.getElementById("valorUnitpan").value = resp.valor_unit;
+                }
+            };
             
-          }, "500");
-    // }
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("opcion=pregunteEntradaCaja"
+            + "&idVenta="+idVenta
+            + "&tipo=1"
+            );
+            
+        }, "500");
+        // }
+    }
+    function verItemsVenta(idVenta)
+    {
+        // alert('ver items venta'+idVenta);
+        const http=new XMLHttpRequest();
+        const url = '../ventas/ventas.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                // var resp = JSON.parse(this.responseText);
+                // console.log(resp.descripcion); 
+                // alert(resp.descripcion); 
+                document.getElementById("cuerpoModalMuestreItemsVenta").innerHTML = this.responseText;
+                // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+                // document.getElementById("descripan").value = resp.descripcion;
+                // document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=verItemsVenta"
+    + "&idVenta="+idVenta
+    );
+    
 }
-function verItemsVenta(idVenta)
+function verItemsVentaEliminar(idVenta)
 {
     // alert('ver items venta'+idVenta);
     const http=new XMLHttpRequest();
@@ -303,7 +327,7 @@ function verItemsVenta(idVenta)
             // var resp = JSON.parse(this.responseText);
             // console.log(resp.descripcion); 
             // alert(resp.descripcion); 
-            document.getElementById("cuerpoModalMuestreItemsVenta").innerHTML = this.responseText;
+            document.getElementById("cuerpoModalEliminarVenta").innerHTML = this.responseText;
             // document.getElementById("codNuevoItem").value = resp.codigo_producto;
             // document.getElementById("descripan").value = resp.descripcion;
             // document.getElementById("valorUnitpan").value = resp.valor_unit;
@@ -314,8 +338,9 @@ function verItemsVenta(idVenta)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=verItemsVenta"
     + "&idVenta="+idVenta
+    + "&eliminar=1"
     );
-
+    
 }
 function muestreVentas()
 {
@@ -338,44 +363,134 @@ function muestreVentas()
     http.send("opcion=muestreVentas"
     );
 }
-
+function eliminarVenta(idVenta)
+{
+    // alert('eliminar venta'+idVenta);
+    const http=new XMLHttpRequest();
+    const url = '../ventas/ventas.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            // var resp = JSON.parse(this.responseText);
+            // console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            document.getElementById("cuerpoModalEliminarVenta").innerHTML = this.responseText;
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
     
-    // function grabarNuevoItemNewVenta(idOrden)
-    // {
-        //     $valida =  validacionCamposItem();
-        //     if($valida)
-        //     { 
-            //         // alert('agregart item');
-            //         //falta hacer el desarrollo
-            //         var codigo = document.getElementById("codNuevoItem").value;
-            //         var descripcion = document.getElementById("descripan").value;
-            //         var valorUnit = document.getElementById("valorUnitpan").value;
-            //         var cantidad = document.getElementById("cantipan").value;
-                //         var total = document.getElementById("totalItem").value;
-                //         var nivelStorage = sessionStorage.nivel;
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=eliminarVenta"
+    + "&idVenta="+idVenta
+    + "&eliminar=1"
+    );
+}
+
+function confirmarEliminarVenta(idVenta)
+{
+    var confirmaEliminar =  confirm('Esta seguro de eliminar esta venta ');
+    if(confirmaEliminar)
+    {
+        pedirClaveEliminar(idVenta)
+    }
+    else{
+        alert('no confirmo');
+   }
+}
+function pedirClaveEliminar(idVenta)
+{
+    const http=new XMLHttpRequest();
+    const url = '../ventas/ventas.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            // var resp = JSON.parse(this.responseText);
+            // console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            document.getElementById("cuerpoModalEliminarVenta").innerHTML = this.responseText;
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=pedirClaveEliminar"
+    + "&idVenta="+idVenta
+    );
+}
+
+function verificarClaveEliminar(idVenta)
+{
+    // alert( 'nuemro de venta'+idVenta)
+    var clavePan =  document.getElementById("claveEliminar").value;
+    const http=new XMLHttpRequest();
+    const url = '../ventas/ventas.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            var resp = JSON.parse(this.responseText);
+            console.log(resp); 
+            // alert(resp); 
+            if(resp)
+            {
+                eliminarVenta(idVenta)
+
+            }
+            else{
+                alert('Clave incorrecta ');
+            }
+
+            // document.getElementById("cuerpoModalEliminarVenta").innerHTML = this.responseText;
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valor_unit;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=verificarClaveEliminar"
+    + "&clavePan="+clavePan
+    );
+}
+// function grabarNuevoItemNewVenta(idOrden)
+// {
+    //     $valida =  validacionCamposItem();
+    //     if($valida)
+    //     { 
+        //         // alert('agregart item');
+        //         //falta hacer el desarrollo
+        //         var codigo = document.getElementById("codNuevoItem").value;
+        //         var descripcion = document.getElementById("descripan").value;
+        //         var valorUnit = document.getElementById("valorUnitpan").value;
+        //         var cantidad = document.getElementById("cantipan").value;
+        //         var total = document.getElementById("totalItem").value;
+        //         var nivelStorage = sessionStorage.nivel;
+        
+        //         const http=new XMLHttpRequest();
+        //         const url = '../orden/ordenes.php';
+        //         http.onreadystatechange = function(){
+            //             if(this.readyState == 4 && this.status ==200){
+                //                 document.getElementById("divPregunteNuevoItem").innerHTML = '';
+                //                 document.getElementById("div_items_orden").innerHTML = this.responseText;
+                //                 //cerrar ventanas 
+                //                 //para que deje ver la edicion de orden con sus datos
+                //             }
+                //         };
                 
-                //         const http=new XMLHttpRequest();
-                //         const url = '../orden/ordenes.php';
-                //         http.onreadystatechange = function(){
-                    //             if(this.readyState == 4 && this.status ==200){
-                        //                 document.getElementById("divPregunteNuevoItem").innerHTML = '';
-                        //                 document.getElementById("div_items_orden").innerHTML = this.responseText;
-                        //                 //cerrar ventanas 
-                        //                 //para que deje ver la edicion de orden con sus datos
-                        //             }
-                        //         };
-                        
-                        //         http.open("POST",url);
-                        //         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                        //         http.send("opcion=grabarNuevoItemOrden"
-                        //         + "&idOrden="+idOrden
-                        //         + "&codigo="+codigo
-                        //         + "&descripcion="+descripcion
-                        //         + "&valorUnit="+valorUnit
-                        //         + "&cantidad="+cantidad
-                        //         + "&total="+total
-                        //         + "&nivelStorage="+nivelStorage
-                        
-                        //         );
+                //         http.open("POST",url);
+                //         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //         http.send("opcion=grabarNuevoItemOrden"
+                //         + "&idOrden="+idOrden
+                //         + "&codigo="+codigo
+                //         + "&descripcion="+descripcion
+                //         + "&valorUnit="+valorUnit
+                //         + "&cantidad="+cantidad
+                //         + "&total="+total
+                //         + "&nivelStorage="+nivelStorage
+                
+                //         );
                         //     }        
                         // }

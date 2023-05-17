@@ -80,6 +80,7 @@ class movilVista{
     <script src="../ayudas_financieras/js/ayudasfinancieras.js"></script>
     <script src="../ayudas_financieras/js/conceptos.js"></script>
     <script src="../ventas/js/ventas.js"></script>
+    <script src="../cambiosdeaceite/js/cambiosdeaceite.js"></script>
     <?php
   }
   public function htmlLogueo(){
@@ -128,6 +129,16 @@ class movilVista{
         // print_r($infoEmpresa); 
         // echo '</pre>';
         // die(); 
+            if($_SESSION['nivel'] > 2 || $request['nivel']>2)
+            {
+                if($infoEmpresa['cambiosdeaceite']==1)
+                {
+                    echo   '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaCambiosDeAceite();">CAMBIOS DE ACEITE
+                        
+                    </button>';
+                }
+
+            }  
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
                 if($infoEmpresa['recibe_tarjetas']==1)

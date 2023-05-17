@@ -44,6 +44,7 @@ class ventasVista
             <?php  $this->modalAgregarItemsNew(); ?>
             <?php  $this->modalFiltrosCodigosNew2(); ?>
             <?php  $this->modalMuestreItemsVenta(); ?>
+            <?php  $this->modalEliminarVenta(); ?>
         </div>
         <?php
     }
@@ -67,6 +68,33 @@ class ventasVista
                   </div>
                   <div class="modal-footer" id="footerNuevoCliente">
                       <button  type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalEliminarVenta ()
+    {
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  style="color:black;"  class="modal fade" id="myModalEliminarVenta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevaOrden">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Nueva Venta Mostrador </h4>
+                  </div>
+                  
+                  <div id="cuerpoModalEliminarVenta" class="modal-body">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button onclick="muestreVentas();" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                       <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                   </div>
                   </div>
@@ -504,6 +532,7 @@ class ventasVista
         echo '<th>Venta</th>';
         echo '<th>Fecha</th>';
         echo '<th>Total</th>';
+        echo '<th>Eliminar</th>';
         echo '</tr>';
         foreach($ventas as $venta)
         {
@@ -516,12 +545,17 @@ class ventasVista
             onclick="verItemsVenta('.$venta['idVenta'].');">'.$venta['idVenta'].'</button></td>';
             echo '<td>'.$venta['fecha'].'</td>';
             echo '<td align="right" >'.number_format($sumaItems,0,",",".").'</td>';
+            echo '<td>
+            <button 
+            class="btn btn-primary" 
+            data-toggle="modal" data-target="#myModalEliminarVenta" 
+            onclick="verItemsVentaEliminar('.$venta['idVenta'].');">Eliminar</button></td>';
             echo '</tr>';
         }
         echo '</table>';
     } 
     
-    public function verItemsVenta($itemsVenta)
+    public function verItemsVenta($itemsVenta,$request)
     {
         echo '<table class="table">';
         echo '<tr>';
@@ -548,8 +582,27 @@ class ventasVista
         echo '<tr>';
         echo '<td></td><td></td><td></td><td></td><td>Total</td><td align="right">'.number_format($suma,0,",",".").'</td>';
         echo '</tr>';
+        if(isset($request['eliminar']) && $request['eliminar']==1)
+        {
+            
+            echo '<tr>';
+
+            echo '<td><button class="btn btn-primary" onclick="confirmarEliminarVenta('.$request['idVenta'].');">Eliminar Venta</button></td>';
+            echo '</tr>';
+        }
         echo '</table>';
         
+    }
+    public function pedirClaveEliminar($idVenta)
+    {
+        ?>
+        <div>
+            <input type="hidden" id="idVenta" value = <?php echo  $idVenta  ?>>
+            <label>Digite clave para eliminar</label>
+            <input type="password" id="claveEliminar">
+            <button class ="btn btn-primary" onclick ="verificarClaveEliminar('<?php echo $idVenta ?>');" >Verificar</button>  
+        </div>
+        <?php
     }
     
 }

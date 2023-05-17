@@ -54,10 +54,18 @@ class ventasController
         if($_REQUEST['opcion']=='muestreVentas'){
             $this->muestreVentas();
        }   
+       if($_REQUEST['opcion']=='eliminarVenta'){
+        $this->eliminarVenta($_REQUEST);
+        } 
+       if($_REQUEST['opcion']=='pedirClaveEliminar'){
+        $this->pedirClaveEliminar($_REQUEST);
+        } 
+        
+       if($_REQUEST['opcion']=='verificarClaveEliminar'){
+        $this->verificarClaveEliminar($_REQUEST);
+        } 
 
 
-
-       
        
     }
 
@@ -135,7 +143,7 @@ class ventasController
     public function verItemsVenta($request)
     {
         $itemsVenta =$this->ventasModel->traerItemsVentaIdVenta($request['idVenta']);
-        $this->vista->verItemsVenta($itemsVenta);
+        $this->vista->verItemsVenta($itemsVenta,$request);
         
     }
     public function muestreVentas()
@@ -143,7 +151,59 @@ class ventasController
         $this->vista->muestreVentas();
         
     }
+    public function eliminarVenta($request)
+    {
+        
+        $itemsVenta =$this->ventasModel->traerItemsVentaIdVenta($request['idVenta']);
+        
+        $this->relizarDevolucionInventario($itemsVenta);
+        $this->registrarMovimientosInventarioReversionVenta($request['idVenta'],$itemsVenta);
+        $this->ventasModel->eliminarItemsVentaId($request['idVenta']);
+        $this->ventasModel->eliminarVentaId($request['idVenta']);
+        echo 'Eliminacion Realizada';
+    }
+    public function relizarDevolucionInventario($itemsTemp)
+    {
+        
+        foreach($itemsTemp as $itemTemp)
+        {
+            $parametros['id'] = $itemTemp['idCode'];
+            $parametros['tipo'] = 5;
+            $parametros['cantidad']= $itemTemp['cantidad'];
+            $this->codigosModelo->saveMoreLessInvent($parametros);
+        }
+    }
+    
+    public function registrarMovimientosInventarioReversionVenta($idVenta,$itemsTemp)
+    {
+        foreach($itemsTemp as $itemTemp)
+        {
+            $data['tipo']= 5;
+            $data['cantidad'] = $itemTemp['cantidad'];
+            $data['factura'] = ''; 
+            $data['id'] = $itemTemp['idCode'];
+            $data['observaciones'] = 'Reversion en Venta '.$idVenta; 
+            //ahora graba el registro del movimiento 
+            $this->movimientosModelo->registerMov($data);
+        }    
+    }
+    public function pedirClaveEliminar($request)
+    {
+        $this->vista->pedirClaveEliminar($request['idVenta']);
+    }
 
+    public function verificarClaveEliminar($request)
+    {
+        if($request['clavePan']=='A123456b*')
+        {
+            $validacion = 1;
+        }
+        else{
+            $validacion = 0;
+        }
+        echo json_encode($validacion);
+        exit();
+    }
     
     
 }

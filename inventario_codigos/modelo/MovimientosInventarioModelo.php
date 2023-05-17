@@ -45,6 +45,13 @@
                 $obseTipo= '';
                 $campo = 'facturacompra';
             }        
+            
+            if($data['tipo']==5)
+            { 
+                $obseTipo= '';
+                $campo = 'facturacompra';
+            }        
+
             if($data['tipo']==3)
             { 
                 $obseTipo= '';

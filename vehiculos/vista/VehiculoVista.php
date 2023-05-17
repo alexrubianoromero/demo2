@@ -123,6 +123,7 @@ class VehiculoVista extends vista
             <script src="../vehiculos/js/vehiculos.js"></script>
 
             <script src="../orden/js/orden.js"></script>
+            <script src="../canbiosdeaceite/js/cambiosdeaceite.js"></script>
 
         <?php        
 
@@ -512,6 +513,38 @@ class VehiculoVista extends vista
         <?php
     }
     
+    public function mostrarDatosPlacaNewCambioAceite($datosPlaca,$datosCliente0)
+    {
+        ?>
+        <div style="color:black;">
+        <input type="hidden" id="placaoripan" value = "<?php  echo $datosPlaca['placa'] ?>">
+        <input type="hidden" id="idcarro" value = "<?php  echo $datosPlaca['idcarro'] ?>">
+            <div class="form-group row">
+                <div class ="col-xs-3">
+                    <label>Placa:</label> 
+                    <?php  
+                    echo $datosPlaca['placa'] 
+                    ?>
+                </div>
+                <div class ="col-xs-3">
+                    <label>Marca:</label><?php  echo $datosPlaca['marca'] ?>
+                </div>
+                <div class ="col-xs-3">
+                    <label>Tipo:</label><?php  echo $datosPlaca['tipo'] ?>
+                </div>
+                <div class ="col-xs-3">
+                    <label>Modelo:</label><?php  echo $datosPlaca['modelo'] ?>
+                </div>
+            </div>
+            <br>
+            <!-- <button 
+                class="btn btn-primary"  
+                onclick="actualizarVehiculoNew();"
+            >Actualizar Vehiculo</button> -->
+        </div>
+        <?php
+    }
+    
 
     public function mostrarDatosPlaca($datosPlaca,$datosCliente0)
 
@@ -739,7 +772,7 @@ class VehiculoVista extends vista
 
     }
 
-    public function preguntarDatosPlacaDesdeOrden($placa,$propietarios){
+    public function preguntarDatosPlacaDesdeOrden($placa,$propietarios,$desdeDonde=0){
 
         ?>
         <!DOCTYPE html>
@@ -825,7 +858,30 @@ class VehiculoVista extends vista
                 </table>
             </div>
             <div>
-                <button class = "btn btn-primary btn-block btn-lg" onclick="grabarVehiculoDesdeOrden();" >Grabar </button>
+               <?php
+               if($desdeDonde == '0')
+               {
+                   echo   '<button 
+                           class = "btn btn-primary btn-block btn-lg" 
+                           onclick="grabarVehiculoDesdeOrden();" 
+                           >
+                           Grabar 
+                           </button>';
+                           
+                        }
+                if($desdeDonde == '1')
+                {
+                            echo   '<button 
+                                    class = "btn btn-primary btn-block btn-lg" 
+                                    onclick="grabarVehiculoDesdeCambioDeAceite();" 
+                                    >
+                                    Grabar 
+                                    </button>';
+                            
+                }
+                        
+
+               ?>
             </div>
         </div>
         </body>

@@ -1,7 +1,7 @@
 <?php
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/conexion/Conexion.php');
-require_once('../funciones/funciones.class.php');
+require_once($raiz.'/funciones/funciones.class.php');
 
 
 
@@ -73,6 +73,17 @@ class VehiculosModelo extends Conexion
         // echo '<br>'.$sql;
         // die();
         $consulta = mysql_query($sql,$conexion); 
+        $filas = mysql_num_rows($consulta);
+        $datos = $this->get_table_assoc($consulta);
+        $respuesta['filas']= $filas;
+        $respuesta['datos']=  $datos;  
+        return $respuesta; 
+    }    
+    
+    public function buscarPlacaSimple($placa){
+
+        $sql = "select * from carros where placa = '".$placa ."'  ";
+        $consulta = mysql_query($sql,$this->connectMysql()); 
         $filas = mysql_num_rows($consulta);
         $datos = $this->get_table_assoc($consulta);
         $respuesta['filas']= $filas;

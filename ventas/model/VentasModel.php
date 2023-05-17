@@ -68,13 +68,26 @@ class VentasModel extends Conexion
         $arreglo = mysql_fetch_assoc($consulta ); 
         return $arreglo['total'];
     }
-
+    
     public function traerVentas()
     {
         $sql = " select * from  ventas ";
         $consulta = mysql_query($sql,$this->connectMysql());
         $arreglo = $this->get_table_assoc($consulta);
         return $arreglo;
+    }
+    
+    public function eliminarItemsVentaId($id)
+    {
+        $sql = "delete from ventas_items   where  no_factura = '".$id."'   ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        
+    }
+    
+    public function eliminarVentaId($id)
+    {
+        $sql ="delete from ventas where idVenta =  '".$id."'  "; 
+        $consulta = mysql_query($sql,$this->connectMysql());
     }
 
 }

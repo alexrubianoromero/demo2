@@ -92,6 +92,23 @@ class vehiculoControlador{
         if($_REQUEST['opcion']=='actualizarDatosVehiculoNew'){
             $this->actualizarDatosVehiculoNew($_REQUEST);
         }
+        if($_REQUEST['opcion']=='buscarPlacaSimple'){
+
+            $this->buscarPlacaSimple($_REQUEST);
+        } 
+        if($_REQUEST['opcion']=='buscarPlacaDesdeCambio'){
+
+            $this->buscarPlacaDesdeCambio($_REQUEST);
+        } 
+        if($_REQUEST['opcion']=='mostrarDatosPlacaNewCambioAceite'){
+
+            $this->mostrarDatosPlacaNewCambioAceite($_REQUEST);
+        } 
+        if($_REQUEST['opcion']=='preguntarDatosPlacaDesdeCambio'){
+
+            $this->preguntarDatosPlacaDesdeCambio($_REQUEST);
+        } 
+
 
     }
 
@@ -181,7 +198,35 @@ class vehiculoControlador{
         }
 
     }
+    public function mostrarDatosPlacaNewCambioAceite($request)
+    {
+        //esto es solamente si la placa existe
+        $datosPlaca = $this->vehiculoModelo->buscarPlacaSimple($request['placa']);
+        $datosCliente0 = $this->clientesModelo->buscarCliente0Id('',$datosPlaca['datos'][0]['idpropietario']);
+        $this->vehiculoVista->mostrarDatosPlacaNewCambioAceite($datosPlaca['datos'][0],$datosCliente0['datos'][0]);
+    }
+    public function preguntarDatosPlacaDesdeCambio($request)
+    {
+        $propietarios = $this->clientesModelo->traerDatosCliente0('');
+        $propietarios = $propietarios['datos'];
+        $desdeDonde = 1;  //esto es para identificar que viene de  cambioaceite y que el boton de grabar realice acciones diferentes sea diferente
+        $this->vehiculoVista->preguntarDatosPlacaDesdeOrden($request['placa'],$propietarios,$desdeDonde);
+    }
 
+    public function buscarPlacaDesdeCambio($request){
+        $datosPlaca = $this->vehiculoModelo->buscarPlacaSimple($request['placa']);
+        
+        if($datosPlaca['filas']>0){
+            $datosCliente0 = $this->clientesModelo->buscarCliente0Id('',$datosPlaca['datos'][0]['idpropietario']);
+            $this->vehiculoVista->mostrarDatosPlacaNewCambioAceite($datosPlaca['datos'][0],$datosCliente0['datos'][0]);
+        }
+        else{
+            $propietarios = $this->clientesModelo->traerDatosCliente0('');
+            $propietarios = $propietarios['datos'];
+            $desdeDonde = 1;  //esto es para identificar que viene de  cambioaceite y que el boton de grabar realice acciones diferentes sea diferente
+            $this->vehiculoVista->preguntarDatosPlacaDesdeOrden($request['placa'],$propietarios,$desdeDonde);
+        }
+    }
 
 
     // public function grabarPeritaje($conexion,$request){
@@ -212,20 +257,11 @@ class vehiculoControlador{
         $datosVehiculos = $this->vehiculoModelo->traerVehiculosPlaca($request['placa']);
         $this->vehiculoVista->verVehiculos($datosVehiculos);
     }
+
     public function muestreInfoVehiculo($request)
     {
         $datosPlaca = $this->vehiculoModelo->traerVehiculosPlaca($request['placa']);
-        //   echo '<pre>';
-        //   print_r($datosPlaca['datos'][0]);
-        //   echo '</pre>';
-        //   die();
-        
-        // $this->vehiculoVista->verVehiculos($datosVehiculos);
         $datosCliente0 = $this->clientesModelo->buscarCliente0Id('',$datosPlaca['datos'][0]['idpropietario']);
-        //  echo '<pre>';
-        //       print_r($datosCliente0);
-        //       echo '</pre>';
-        //       die();
         $this->vehiculoVista->mostrarDatosPlacaNew($datosPlaca['datos'][0],$datosCliente0['datos'][0]);
     }
     
@@ -238,8 +274,19 @@ class vehiculoControlador{
             
         }
         echo 'Informacion Actualizada'; 
-
     }
+
+    /**
+     * Esta funcion indica simplemente si un vehiculo existe o no en la base de datos 
+     */
+    public function buscarPlacaSimple($request)
+    {
+            $datosPlaca = $this->vehiculoModelo->buscarPlacaSimple($request['placa']);
+            echo json_encode($datosPlaca);
+            exit();
+    }
+
+   
 }
 
 

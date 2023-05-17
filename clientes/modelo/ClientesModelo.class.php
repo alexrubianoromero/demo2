@@ -4,7 +4,7 @@ $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/conexion/Conexion.php');
 // require_once('../../valotablapc.php');  
 
-require_once('../funciones/funciones.class.php');
+require_once($raiz.'/funciones/funciones.class.php');
 
 class ClientesModelo extends Conexion 
 {
@@ -29,25 +29,17 @@ class ClientesModelo extends Conexion
             return  $infoCLiente;
           } 
           
-    
-        public function traerDatosCliente0($conexion)
-
-        {
-
-              $sql = "SELECT * FROM cliente0 ORDER BY idcliente DESC ";
-
-              $consulta = mysql_query($sql,$conexion); 
-
+          
+          public function traerDatosCliente0($conexion="")
+          {
+            $sql = "SELECT * FROM cliente0 ORDER BY idcliente DESC ";
+            // $consulta = mysql_query($sql,$conexion); 
+            $consulta = mysql_query($sql,$this->connectMysql()); 
               $filas = mysql_num_rows($consulta);
-
               $datos = funciones::table_assoc($consulta);
-
               $resp['filas'] = $filas;
-
               $resp['datos'] = $datos;
-
               return $resp; 
-
         }
 
 
