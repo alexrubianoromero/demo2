@@ -31,11 +31,24 @@ class cambiosdeaceiteVista
                         <!-- data-toggle="modal" data-target="#myModalNuevoCambioAceite"    -->
                         <!-- onclick = "pregunteNuevoCambioAceite() -->
                     </div>
+                    <div class ="col-md-4 col-xs-6">
+                        <button 
+                        class="btn btn-primary"
+                        data-toggle="modal" data-target="#myModalHistoriales"
+                        onclick = "buscarHistorialPlaca();"
+                        >HISTORIAL</button>
+                        <!-- data-toggle="modal" data-target="#myModalNuevoCambioAceite"    -->
+                        <!-- onclick = "pregunteNuevoCambioAceite() -->
+                    </div>
+
+
                 <div id="div_resultados_cambiosDeAceite">
                     <?php $this->mostrarCambiosAceite(); ?>
                 </div>
                 <?php   $this->modalNuevoCambioAceite(); ?>
                 <?php   $this->modalClientes(); ?>
+                <?php   $this->modalHistoriales(); ?>
+                <?php   $this->modalHistorialFecha(); ?>
             </div>
         <?
     }
@@ -85,6 +98,64 @@ class cambiosdeaceiteVista
                       <h4 class="modal-title" id="myModalLabel">Informacion</h4>
                   </div>
                   <div id="cuerpoModalClientes" class="modal-body">
+
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalHistoriales(){
+
+        ?>
+
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+
+         Launch demo modal
+
+         </button> -->
+
+          <div style="color:black;"class="modal fade" id="myModalHistoriales" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Informacion</h4>
+                  </div>
+                  <div id="cuerpoModalHistoriales" class="modal-body">
+
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
+    public function modalHistorialFecha(){
+
+        ?>
+
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+
+         Launch demo modal
+
+         </button> -->
+
+          <div style="color:black;"class="modal fade" id="myModalHistorialFecha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Informacion Fecha</h4>
+                  </div>
+                  <div id="cuerpoModalHistorialFecha" class="modal-body">
 
                   </div>
                   <div class="modal-footer">
@@ -252,6 +323,102 @@ class cambiosdeaceiteVista
                echo '</tr>';
         } 
         echo '</table>';
+    }
+
+    public function historialCambiosDeAceite($datosVehiculo,$historiales)
+    {
+        echo '<table class ="table">';
+        echo '<tr>';
+        echo '<th>Fecha</th>'; 
+        echo '<th>Placa</th>'; 
+        echo '<th>Kilometraje</th>'; 
+        echo '</tr>';
+        foreach($historiales as $historial)
+        {
+            echo '<tr>'; 
+            echo '<td><button
+                        onclick = "verHistorialFecha('.$historial['id'].');" 
+                        data-toggle="modal" data-target="#myModalHistorialFecha"
+                        >'.substr($historial['fecha'],0,10).'</button></td>';
+            echo '<td>'.$historial['placa'].'</td>';
+            echo '<td align="right">'.number_format($historial['kilometraje'],0,",",".").'</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+
+    public function mostrarInfoCambioAceite($infoCambio)
+    {
+       ?>
+       <table class="table">
+        <tr>
+            <td>Fecha</td>
+            <td><?php  echo substr($infoCambio['fecha'],0,10) ?></td>
+        </tr>
+        <tr>
+            <td>Placa</td>
+            <td><?php  echo $infoCambio['placa'] ?></td>
+        </tr>
+        <tr>
+            <td>Kilometraje</td>
+            <td><?php  echo $infoCambio['kilometraje'] ?></td>
+        </tr>
+        <tr>
+            <td>Kilometraje Prox Cambio</td>
+            <td><?php  echo $infoCambio['kilometrajecambio'] ?></td>
+        </tr>
+        <tr>
+            <td>Filtro Aceite </td>
+            <td><?php  echo $infoCambio['filtroaceite'] ?></td>
+        </tr>
+        <tr>
+            <td>Filtro Aire</td>
+            <td><?php  echo $infoCambio['filtroaire'] ?></td>
+        </tr>
+        <tr>
+            <td>Filtro Aire Acondicionado</td>
+            <td><?php  echo $infoCambio['filtroaireaconcidionado'] ?></td>
+        </tr>
+        <tr>
+            <td>Filtro Combustible</td>
+            <td><?php  echo $infoCambio['filtrocombustible'] ?></td>
+        </tr>
+        <tr>
+            <td>Filtro Combustible No 2</td>
+            <td><?php  echo $infoCambio['filtrocombustibleno2'] ?></td>
+        </tr>
+        <tr>
+            <td>Valbulina Caja </td>
+            <td><?php  echo $infoCambio['valvulinacaja'] ?></td>
+        </tr>
+        <tr>
+            <td>Valbulina Transmision </td>
+            <td><?php  echo $infoCambio['valvulinatransmision'] ?></td>
+        </tr>
+        <tr>
+            <td>Engrase</td>
+            <td><?php  echo $infoCambio['engrase'] ?></td>
+        </tr>
+        <tr>
+            <td>Marca Aceite</td>
+            <td><?php  echo $infoCambio['marcaceite'] ?></td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td><?php  echo $infoCambio['cantidad'] ?></td>
+        </tr>
+        <tr>
+            <td>Tipo Aceite </td>
+            <td><?php  echo $infoCambio['tipoaceite'] ?></td>
+        </tr>
+        <tr>
+            <td>Valor</td>
+            <td><?php  echo $infoCambio['valor'] ?></td>
+        </tr>
+       </table>
+       
+
+       <?php
     }
 }
 

@@ -43,6 +43,13 @@ class CambiosDeAceiteModel extends Conexion
         $cambio = mysql_fetch_assoc($consulta);
         return $cambio;  
     }
+    public function traerHistorialPlaca($placa)
+    {
+        $sql = "select * from cambiosdeaceite where placa =  '".$placa."' order by id desc   ";
+        $consulta = mysql_query($sql,$this->connectMysql());
+        $historial = $this->get_table_assoc($consulta); 
+        return $historial; 
+    }
 
 
 }

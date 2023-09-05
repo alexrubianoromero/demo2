@@ -71,7 +71,7 @@ class VentasModel extends Conexion
     
     public function traerVentas()
     {
-        $sql = " select * from  ventas ";
+        $sql = " select * from  ventas order by idVenta desc";
         $consulta = mysql_query($sql,$this->connectMysql());
         $arreglo = $this->get_table_assoc($consulta);
         return $arreglo;

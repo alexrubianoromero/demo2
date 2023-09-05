@@ -1,12 +1,13 @@
 <?php
 
 class Conexion{
-    private $host = "localhost";
-    private $user = "root";
-    private $password = "";
-    private $db = "motorcycleroom";
-    private $conect;
-
+    // private $host = "localhost";
+    // private $user = "root";
+    // private $password = "";
+    // private $db = "motorcycleroom";
+    // private $conect;
+    
+       
         // private $conect;
 
     public function __construct(){

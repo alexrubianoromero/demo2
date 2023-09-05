@@ -242,3 +242,36 @@ function preguntarDatosPlacaDesdeCambio(placa)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("opcion=preguntarDatosPlacaDesdeCambio"+ "&placa="+placa);
 }
+function buscarHistorialPlaca()
+{
+    var placa = document.getElementById("placaPeritajecambio").value;
+    var valida = validaPlacaCambio();
+    if(valida)
+    {
+            const http=new XMLHttpRequest();
+            const url = '../cambiosdeaceite/cambiosdeaceite.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    document.getElementById("cuerpoModalHistoriales").innerHTML  = this.responseText;
+                }
+            };
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("opcion=historialCambiosDeAceite"+ "&placa="+placa);
+    }
+}
+
+function verHistorialFecha(id)
+{
+    // alert('ID'+id); 
+    const http=new XMLHttpRequest();
+    const url = '../cambiosdeaceite/cambiosdeaceite.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            document.getElementById("cuerpoModalHistorialFecha").innerHTML  = this.responseText;
+        }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=historialCambiosDeAceiteFecha"+ "&id="+id);
+}

@@ -935,3 +935,27 @@ function mostrarImagenesOrden(idOrden)
     + "&idOrden="+idOrden
     );
 }
+
+function enviarCorreoAvance(idOrden)
+{
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            var resp = JSON.parse(this.responseText);
+            // console.log(resp.descripcion); 
+            // alert(resp.descripcion); 
+            // document.getElementById("cuerpoModalEnviarCorreo").innerHTML = this.responseText;
+            document.getElementById("cuerpoModalEnviarCorreo").innerHTML = 'Correo Enviado';
+            // document.getElementById("codNuevoItem").value = resp.codigo_producto;
+            // document.getElementById("descripan").value = resp.descripcion;
+            // document.getElementById("valorUnitpan").value = resp.valorventa;
+        }
+    };
+    
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("opcion=enviarCorreoAvance"
+    + "&idOrden="+idOrden
+    );
+}

@@ -152,17 +152,31 @@ class ReciboCajaModelo extends Conexion
             $fechapan =  time();
             $fechapan =  date ( "Y/m/j" , $fechapan );
             $sql = "select * from  recibos_de_caja 
-                    where  id_orden = '".$idOrden."'
-                    and fecha_recibo = '".$fechapan."' 
-                    and idTecnico =  0 
-                    ";
+            where  id_orden = '".$idOrden."'
+            and fecha_recibo = '".$fechapan."' 
+            and idTecnico =  0 
+            ";
             //  die($sql); 
             $consulta = mysql_query($sql,$this->conexion);
             $arreglo = mysql_fetch_assoc($consulta); 
             return $arreglo;
         }
-
-
+        
+        public function traerRecibosDeCaja()
+        {
+            $sql = 'select * from recibos_de_caja order by id_recibo desc ';
+            $consulta = mysql_query($sql,$this->conexion);
+            $arreglo = $this->get_table_assoc($consulta); 
+            return $arreglo;
+        }
+        
+        public function traerReciboPorId($id)
+        {
+            $sql = "select * from recibos_de_caja where id_recibo  = '".$id."'  "; 
+            $consulta = mysql_query($sql,$this->conexion);
+            $recibo = mysql_fetch_assoc($consulta); 
+            return $recibo; 
+        }
 
 }
 

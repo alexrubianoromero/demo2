@@ -301,6 +301,7 @@ class CLientesVista extends vista
                             echo '<td>'.strtoupper($cli['nombre']).'</td>';
                             echo '<td>'.strtoupper($cli['telefono']).'</td>';
                             echo '<td><a href="https://web.whatsapp.com/" target="_blank"><img src="../logos/iconowatsapp.jpg" width="25px"></a></td>';
+                            // echo '<td><a href="https://api.whatsapp.com/send?phone=57'.$cli['telefono'].'" target="_blank"><img src="../logos/iconowatsapp.jpg" width="25px">NUevo</a></td>';
                             // echo '<td>'.strtoupper($vehi['direccion']).'</td>';
                             // echo '<td>'.$vehi['email'].'</td>';
                             echo '</tr>';

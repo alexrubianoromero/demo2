@@ -22,7 +22,11 @@ $datosItems = $orden->traerItemsAsociadosOrdenPorIdOrden($_REQUEST['idOrden']);
 $pdf=new FPDF();
 
 $pdf->AddPage();
-    $pdf->Image('../../logos/speeddesign.jpg',5,8,80);
+    $pdf->Ln(5);
+    $pdf->Ln(5);
+    $pdf->Ln(5);
+    $pdf->Ln(5);
+    $pdf->Image('../../logos/logokaymo.png',15,20,50);
 
     $pdf->SetFont('Arial','B',15);
     // Movernos a la derecha
@@ -47,13 +51,13 @@ $pdf->Cell(25,6,$datosCliente['telefono'],1,1,'C');
 $pdf->Cell(80);
 $pdf->Cell(90,6,$datosCliente['direccion'],1,1,'C');
 $pdf->Cell(17);
-$pdf->Cell(22,6,'BIKE PERFORMANCE',0,0,'C');
+$pdf->Cell(22,6,'KAYMO SOFTWARE',0,0,'C');
 $pdf->Cell(41);
 $pdf->Cell(90,6,'Dir CLiente',1,1,'C');
 $pdf->Cell(17);
-$pdf->Cell(22,6,'Carrera 27 No 74A-39',0,1,'C');
+$pdf->Cell(22,6,'Bogota',0,1,'C');
 $pdf->Cell(17);
-$pdf->Cell(22,6,'Nit:',0,1,'C');
+$pdf->Cell(22,6,'Nit:12345678-4',0,1,'C');
 
 
 $kilometraje = $datoOrden['kilometraje'];

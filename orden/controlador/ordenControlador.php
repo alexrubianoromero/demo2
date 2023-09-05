@@ -41,6 +41,7 @@ class ordenControlador
     private $movimientosModelo;
     private $tecnicos;
     private $enviarCorreo;
+    private $correo;
 
     public function __construct($conexion)
     {
@@ -52,6 +53,7 @@ class ordenControlador
         $this->codigosModelo = new CodigosInventarioModelo();
         $this->movimientosModelo = new MovimientosInventarioModelo();
         $this->tecnicos = new TecnicosModelo(); 
+     
         
 
         if($_REQUEST['opcion']=='ordenes'){
@@ -132,7 +134,9 @@ class ordenControlador
         if($_REQUEST['opcion']=='mostrarImagenesOrden'){
             $this->mostrarImagenesOrden($_REQUEST);
         }
-       
+        if($_REQUEST['opcion']=='enviarCorreoAvance'){
+            $this->enviarCorreoAvance($_REQUEST);
+        }
     }
 
 
@@ -215,15 +219,10 @@ class ordenControlador
     public function grabarOrden($conexion,$datos){
 
         $orden =  $this->modeloOrden->grabarOrden($conexion,$datos);
-
         $email = $this->modeloOrden->traerEmailCLiente($datos['placa'],$conexion);
-
         $body = $this->traerBody($datos,$orden,$conexion);
-
         $this->enviarCorreo = new enviarCorreoPhpMailer($email,$body);
-
         echo 'La orden '.$orden .' fue creada para la placa '.$datos['placa'];
-
     }
 
 
@@ -413,5 +412,14 @@ class ordenControlador
         $this->vistaOrden->pantallaImagenes($request['idOrden'],$imagenes); 
     }
 
+    public function enviarCorreoAvance($request){
+        $datosOrden = $this->modeloOrden->traerOrdenId($request['idOrden']);
+        $email = $datosOrden['email'];
+        $encabezado = 'Por favor da click en el siguiente link para ver el avance de tu reparacion <br> '; 
+        $url = 'https://www.alexrubiano.com/demo2/avance/'.$request['idOrden'];
+        $body = $encabezado.$url; 
+        $this->correo = new EnviarCorreoPhpMailer($email,$body);
+        echo 'Correo Enviado con el avance '; 
+    }
 }
 ?>

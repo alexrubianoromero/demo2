@@ -40,8 +40,8 @@ class movilControlador{
         if($_REQUEST['opcion']=='menuPrincipal'){
 
              $this->menuPrincipal($_REQUEST);
-
         }          
+        
         if($_REQUEST['opcion']=='verificarCredenciales'){
 
              $this->verificarCredenciales($_REQUEST);

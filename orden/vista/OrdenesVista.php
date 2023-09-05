@@ -75,9 +75,8 @@ class OrdenesVista extends vista
                <?php  $this->modalAgregarItems(); ?>
                <?php  $this->modalFiltrosCodigosNew(); ?>
                <?php  $this-> modalImagenes(); ?>
+               <?php  $this-> modalEnviarCorreo(); ?>
 
-              
-              
 
            </body>
            </html>
@@ -142,6 +141,7 @@ class OrdenesVista extends vista
         echo '<th>LINEA</th>';
         echo '<th>OBSERVACIONES</th>';
         echo '<th>ESTADO</th>';
+        echo '<th>WatsApp</th>';
         echo '</tr>';
         echo '</thead>';
         
@@ -196,6 +196,7 @@ class OrdenesVista extends vista
             if($orden['estado']==2){ $nombreEstado = 'Facturada';}
             // if($orden['estado']==3){ $nombreEstado = 'Entregada';}
             echo '<td>'.$nombreEstado.'</td>';
+            echo '<td><a href="https://web.whatsapp.com/" target="_blank"><img src="../logos/iconowatsapp.jpg" width="25px"></a></td>';
             echo '</tr>';
         
             // echo '<td class="success">'.$orden['orden'].'</button></td>';
@@ -486,6 +487,31 @@ class OrdenesVista extends vista
           </div>
         <?php
     }
+    public function modalEnviarCorreo (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div  class="modal fade" id="myModalEnviarCorreo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevaOrden">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">ENVIO DE CORREO  </h4>
+                  </div>
+                  <div id="cuerpoModalEnviarCorreo" class="modal-body">
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button  type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
 
     public function mostrarInfoOrden($arregloOrden,$conexion,$resultadoItems,$request){
         //  echo $arregloOrden['observaciones'];
@@ -507,6 +533,13 @@ class OrdenesVista extends vista
                     </div>
                     <div id="div_info_orden">
                          <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <button
+                                        data-toggle="modal" data-target="#myModalEnviarCorreo" '; 
+                                        onclick ="enviarCorreoAvance('<?php  echo $arregloOrden['id'];  ?>'); "  align="left" class="btn btn-success">Enviar Correo con el avance</button>
+                                </td>
+                            </tr>
                              <tr>
                                  <td>Orden No</td>
                                  <td><?php echo $arregloOrden['orden']; ?></td>

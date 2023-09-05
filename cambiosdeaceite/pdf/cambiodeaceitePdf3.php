@@ -67,7 +67,7 @@ $pdf->Cell(22,6,'Moto',1,0,'C');
 $pdf->Cell(22,6,'placa',1,0,'C');
 $pdf->Cell(22,6,'Kilometraje',1,1,'C');
 $pdf->Cell(25);
-$pdf->Cell(22,6,$datoCambio['fecha'],1,0,'C');
+$pdf->Cell(22,6,substr($datoCambio['fecha'],0,10),1,0,'C');
 $pdf->Cell(22,6,$datoCambio['id'],1,0,'C');
 $pdf->Cell(20);
 $pdf->Cell(22,6,$datosCarro['marca'],1,0,'C');

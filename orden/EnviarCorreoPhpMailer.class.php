@@ -27,13 +27,9 @@ class EnviarCorreoPhpMailer
     public function __construct($email,$body){
 
         $this->email = $email;
-
         $this->body = $body;
-
         $this->mail = new PHPMailer(true);
-
         $this->enviarCorreoPhpMailer();
-
     }
 
 
@@ -54,9 +50,9 @@ class EnviarCorreoPhpMailer
 
             $this->mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 
-            $this->mail->Username   = 'prueba2@arsolutiontechnology.com';                     //SMTP username
+            $this->mail->Username   = 'correo@arsolutiontechnology.com';                     //SMTP username
 
-            $this->mail->Password   = 'Prueba24680*';                               //SMTP password
+            $this->mail->Password   = 'estecorreosisaldra';                               //SMTP password
 
             $this->mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
 
@@ -66,9 +62,9 @@ class EnviarCorreoPhpMailer
 
             //Recipients
 
-            $this->mail->setFrom('prueba2@arsolutiontechnology.com', 'KAYMO Software para Talleres');
-
+            $this->mail->setFrom('correo@arsolutiontechnology.com', 'KAYMO Software para Talleres');
             $this->mail->addAddress($this->email);     //Add a recipient
+            
 
             //Attachments
 
@@ -80,7 +76,7 @@ class EnviarCorreoPhpMailer
 
             $this->mail->isHTML(true);                                  //Set email format to HTML
 
-            $this->mail->Subject = 'Bienvenido a KAYMO SOFTWARE';
+            $this->mail->Subject = 'KAYMO SOFTWARE';
 
             $this->mail->Body    = $this->body;
 

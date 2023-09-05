@@ -82,7 +82,7 @@ try {
 
     $mail->isHTML(true);                                  //Set email format to HTML
 
-    $mail->Subject = 'Bienvenido a KAYMO SOFTWARE';
+    $mail->Subject = 'Avance Reparacion KAYMO SOFTWARE';
 
     $mail->Body    = $body;
 

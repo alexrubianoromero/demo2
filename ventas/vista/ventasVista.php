@@ -530,6 +530,7 @@ class ventasVista
         echo '<table class="table">';
         echo '<tr>';
         echo '<th>Venta</th>';
+        echo '<th>Pdf</th>';
         echo '<th>Fecha</th>';
         echo '<th>Total</th>';
         echo '<th>Eliminar</th>';
@@ -543,6 +544,7 @@ class ventasVista
             class="btn btn-primary" 
             data-toggle="modal" data-target="#myModalMuestreItemsVenta" 
             onclick="verItemsVenta('.$venta['idVenta'].');">'.$venta['idVenta'].'</button></td>';
+            echo '<td><a href="../ventas/pdf/pdfVenta.php?idVenta='.$venta['idVenta'].'" target="_blank" >PDF</a></td>';
             echo '<td>'.$venta['fecha'].'</td>';
             echo '<td align="right" >'.number_format($sumaItems,0,",",".").'</td>';
             echo '<td>

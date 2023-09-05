@@ -60,7 +60,8 @@ Class OrdenesModelo extends Conexion
 
      public function traerOrdenId($id,$conexion =  '' ){
         $sql = " SELECT o.orden,o.fecha,cli.telefono,o.kilometraje,o.observaciones,t.nombre as mecanico,o.id 
-                 ,o.estado,o.observacionestecnico,o.mecanico as idmecanico,cli.nombre as nombrecli, o.placa
+                 ,o.estado,o.observacionestecnico,o.mecanico as idmecanico,cli.nombre as nombrecli, o.placa,
+                 cli.email as email
                  FROM ordenes o 
                  LEFT JOIN carros c on c.placa = o.placa
                  LEFT JOIN cliente0 cli on cli.idcliente = c.propietario 
@@ -178,7 +179,8 @@ Class OrdenesModelo extends Conexion
     public function traerEmailCLiente($placa,$conexion){
 
           $sql  = "SELECT  cli.email as email FROM  carros ca 
-                   INNER JOIN cliente0 cli ON  cli.idcliente = ca.propietario ";
+                   INNER JOIN cliente0 cli ON  cli.idcliente = ca.propietario 
+                   WHERE ca.placa = '".$placa."' ";
           $consulta = mysql_query($sql,$conexion);
           $arreglo = mysql_fetch_assoc($consulta);
           $email = $arreglo['email']; 
