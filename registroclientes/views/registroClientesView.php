@@ -49,6 +49,7 @@ class registroClientesView extends vista
             <div class="row">
                 <span style="color:red; font-size:30px;" id="spanmensaje"></span>
             </div>
+
             <div class="row">
                 <div class="col-lg-6">
                     <label>Identi: </label>
@@ -66,11 +67,8 @@ class registroClientesView extends vista
                     <label>Email: </label>
                     <input type="text"  id="email" class="form-control">
                 </div>
-                <!-- <div class="col-lg-6">
-                    <label>clave: </label>
-                    <input type="password"  id="clave" class="form-control">
-                </div> -->
             </div>
+
             <div class="row">
                 <button id="btnRegistrar" class="btn btn-primary mt-3" onclick = "registrarCliente();">Registrar </button>
             </div>
@@ -86,6 +84,7 @@ class registroClientesView extends vista
             <div class="row">
                 
             </div>
+            <input type="hidden" id="idcliente" value="<?php  echo $infoCliente['idcliente'] ?>">
             <div class="row">
                 <div class="col-lg-6">
                     <label>Identi: </label>
@@ -103,14 +102,78 @@ class registroClientesView extends vista
                     <label>Email: </label>
                     <span><?php echo $infoCliente['email']   ?></span>
                 </div>
-               
             </div>
             <div class="row">
+                <span  style="color:blue;" >INFORMACION MOTO</span>
             </div>
-        </div>
+            <div id="div_mostrar_moto">
+
+                        <div class="row">
+                        <span style="color:red; font-size:30px;" id="spanmensajeplaca"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>Placa: </label>
+                                <input type="text"  id="placa" class="form-control" onkeyup="revisePlaca();">
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Marca: </label>
+                                <input type="text"  id="marca" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Linea: </label>
+                                <input type="text"  id="linea" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Modelo: </label>
+                                <input type="text"  id="modelo" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Color: </label>
+                                <input type="text"  id="color" class="form-control">
+                            </div>
+                        </div>
+                        <div>
+                            <button  
+                                id="btnRegistrarPlaca" 
+                                class="btn btn-primary mt-3" 
+                                onclick = "registrarMoto();"
+                                >Grabar Moto
+                            </button>
+                        </div>
+                    
+                </div>
+                
+            </div>
             
             <?php
     }
 
-
+    public function muestreInfoMoto($infoMoto)
+    {
+        ?>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>Placa: </label>
+                    <span><?php echo $infoMoto['placa']   ?></span>
+                </div>
+                <div class="col-lg-6">
+                    <label>Marca: </label>
+                    <span><?php echo $infoMoto['marca']   ?></span>
+                </div>
+                <div class="col-lg-6">
+                    <label>Linea: </label>
+                    <span><?php echo $infoMoto['tipo']   ?></span>
+                </div>
+                <div class="col-lg-6">
+                    <label>Modelo: </label>
+                    <span><?php echo $infoMoto['modelo']   ?></span>
+                </div>
+                <div class="col-lg-6">
+                    <label>Color: </label>
+                    <span><?php echo $infoMoto['color']   ?></span>
+                </div>
+            </div>
+        <?php
+    }
 }    
