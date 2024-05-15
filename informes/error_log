@@ -69,3 +69,6 @@
 [18-Jan-2023 21:03:31 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/informes/informe_ventas_por_fecha_excell.php on line 78
 [18-Jan-2023 21:04:05 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
 [18-Jan-2023 21:04:09 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[24-Mar-2023 16:36:01 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/valotablapc.php on line 51
+[24-Mar-2023 16:36:01 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/informes/informe_ventas_por_fecha.php on line 78
+[24-Mar-2023 16:36:01 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/informes/informe_ventas_por_fecha.php on line 79

@@ -9,14 +9,32 @@ require_once($raiz.'/conexion/Conexion.php');
          
         }
 
+        public function traerInfoEmpresa ()
+        {
+            $sql = "select * from empresa "; 
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $arrEmpresa = mysql_fetch_assoc($consulta);
+            return $arrEmpresa;
+        }
+        public function traerIdEmpresa()
+        {
+            $sql = "select *  from empresa "; 
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $arrEmpresa = mysql_fetch_assoc($consulta);
+            $id_empresa = $arrEmpresa['id_empresa'];
+            return $id_empresa;
+        }
+
         public function grabarCliente($request)
         {
-            $sql ="insert into cliente0 (identi,nombre,telefono,email) 
+            $idEmpresa  = $this->traerIdEmpresa(); 
+            $sql ="insert into cliente0 (identi,nombre,telefono,email,id_empresa) 
             values (
                 '".$request['identi']."'
                 ,'".$request['nombre']."'
-                ,'".$request['telefono']."'
+                ,'".$request['celular']."'
                 ,'".$request['email']."'
+                ,'".$idEmpresa ."'
             )"; 
             $consulta = mysql_query($sql,$this->connectMysql());
             $ultId =  $this->traerUltimoIdCliente0();
@@ -25,7 +43,8 @@ require_once($raiz.'/conexion/Conexion.php');
 
         public function grabarMoto($request)
         {
-            $sql ="insert into carros (propietario,placa,marca,tipo,modelo,color) 
+            $idEmpresa  = $this->traerIdEmpresa(); 
+            $sql ="insert into carros (propietario,placa,marca,tipo,modelo,color,id_empresa) 
             values (
                 '".$request['idcliente']."'
                 ,'".$request['placa']."'
@@ -33,6 +52,7 @@ require_once($raiz.'/conexion/Conexion.php');
                 ,'".$request['linea']."'
                 ,'".$request['modelo']."'
                 ,'".$request['color']."'
+                ,'".$idEmpresa ."'
             )"; 
             $consulta = mysql_query($sql,$this->connectMysql());
             $ultId =  $this->traerUltimoIdMotos();

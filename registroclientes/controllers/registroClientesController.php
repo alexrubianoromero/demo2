@@ -3,13 +3,17 @@ $raiz = dirname(dirname(dirname(__file__)));
 //  die('controller'.$raiz);
 require_once($raiz.'/registroclientes/views/registroClientesView.php');
 require_once($raiz.'/registroclientes/models/RegistroClienteModel.php');
+require_once($raiz.'/marcas/models/MarcaModel.php');
+require_once($raiz.'/lineas/models/LineaModel.php');
 // require_once($raiz.'/inventario_codigos/modelo/CodigosInventarioModelo.php');
 // require_once($raiz.'/inventario_codigos/modelo/MovimientosInventarioModelo.php');
 
 class registroClientesController
 {
-    private $vista; 
-    private $model;
+    protected $vista; 
+    protected $model;
+    protected $marcaModel;
+    protected $lineaModel;
     // private $movimientosModelo;  
 
 
@@ -22,6 +26,8 @@ class registroClientesController
         // die(); 
         $this->vista =  new registroClientesView();
         $this->model =  new RegistroClienteModel();
+        $this->marcaModel =  new MarcaModel();
+        $this->lineaModel =  new LineaModel();
 
         if(!$_REQUEST['opcion'])
         {
@@ -39,9 +45,20 @@ class registroClientesController
         if($_REQUEST['opcion'] == 'registrarMoto'){
             $this->registrarMoto($_REQUEST);
         }
+        if($_REQUEST['opcion'] == 'mostrarLineasMarca'){
+
+            $this->mostrarLineasMarca($_REQUEST);
+        }
 
     }
 
+    public function mostrarLineasMarca($request)
+    {
+        $idMarca =  $this->marcaModel->traerIdMarca($request['marca']);
+        // die('idmarca: '.$idMarca);
+        $lineas =    $this->lineaModel->traerLineasIdMarca($idMarca); 
+        $this->vista->mostrarLineasMarca($lineas);
+    }
     public function pantallaInicialRegistroCliente()
     {
         $this->vista->pantallaInicialRegistroCliente();

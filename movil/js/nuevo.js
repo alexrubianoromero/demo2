@@ -51,7 +51,6 @@ function verificarCredencialesJsonAsignarSessionStorage(user,clave)
     + "&clave="+clave
     );
 }
-
 function menuPrincipal(){
 
     document.getElementById("imagenInicial").style.display = 'block';

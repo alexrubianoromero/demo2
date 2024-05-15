@@ -666,7 +666,7 @@ class VehiculoVista extends vista
 
                         <td>
 
-                            <select style="background:transparent;" name="selectPropietario" id="selectPropietario" class="form-control">
+                            <select style="background:gray; color:white;" name="selectPropietario" id="selectPropietario" class="form-control">
 
                                 <?php  funciones::select_general($propietarios,'idcliente','nombre'); ?>
 
@@ -680,17 +680,17 @@ class VehiculoVista extends vista
 
                     <tr>
 
-                        <td><label>Marca</label></td>
+                        <td><label>Marca.</label></td>
 
-                        <td> <input type="text" id="marca" ></td>
+                        <td> <input type="text" id="marca" style="background-color:gray;" ></td>
 
                     </tr>
 
                     <tr>
 
-                        <td><label>Linea</label></td>
+                        <td><label>Linea.</label></td>
 
-                        <td> <input type="text" id="linea"></td>
+                        <td> <input type="text" id="linea" style="background-color:gray;"></td>
 
                     </tr>
 
@@ -698,7 +698,7 @@ class VehiculoVista extends vista
 
                         <td><label>Modelo</label></td>
 
-                        <td> <input type="text" id="modelo"></td>
+                        <td> <input type="text" id="modelo" style="background-color:gray;"></td>
 
                     </tr>
 
@@ -716,7 +716,7 @@ class VehiculoVista extends vista
 
                         <td><label>Color</label></td>
 
-                        <td> <input type="text" id="color"></td>
+                        <td> <input type="text" id="color" style="background-color:gray;"></td>
 
                     </tr>
 
@@ -724,7 +724,7 @@ class VehiculoVista extends vista
 
                         <td><label>Venci Soat</label></td>
 
-                        <td> <input type="date" id="vencisoat"></td>
+                        <td> <input type="date" id="vencisoat" style="background-color:gray;"></td>
 
                     </tr>
 
@@ -732,7 +732,7 @@ class VehiculoVista extends vista
 
                         <td><label>Venci Tecno</label></td>
 
-                        <td> <input type="date" id="revision"></td>
+                        <td> <input type="date" id="revision" style="background-color:gray;"></td>
 
                     </tr>
 
@@ -740,7 +740,7 @@ class VehiculoVista extends vista
 
                         <td><label>Chasis</label></td>
 
-                        <td> <input type="text" id="chasis"></td>
+                        <td> <input type="text" id="chasis" style="background-color:gray;"></td>
 
                     </tr>
 
@@ -750,7 +750,7 @@ class VehiculoVista extends vista
 
                         <td><label>Motor</label></td>
 
-                        <td> <input type="text" id="motor"></td>
+                        <td> <input type="text" id="motor" style="background-color:gray;"></td>
 
                     </tr>
 

@@ -2,12 +2,14 @@
 $raiz = dirname(dirname(dirname(__file__)));
 // die($raiz);
 require_once($raiz.'/vista/vista.php');
+require_once($raiz.'/marcas/models/MarcaModel.php');
 
 class registroClientesView extends vista
 {
+    protected $marcaModel;
 
     public function __construct(){
-
+        $this->marcaModel = new MarcaModel();
     
     }
 
@@ -23,12 +25,12 @@ class registroClientesView extends vista
             <title>Document</title>
         </head>
         <body>
-            <div class="col-lg-6 offset-3">
+            <div class="col-lg-6 offset-1 mt-3">
                     <div align="center">
-                        <img src="../logos/logokaymo.png" width="300" height="300">
+                        <img src="../logos/logokaymo.png" width="200" >
                         <h2>Registro Clientes</h2>
                     </div>
-                <div id="div_principal_registro">
+                <div id="div_principal_registro" style="padding:10px;">
                     <?php  $this->pantallaRegistro();  ?>
                 </div>
 
@@ -67,10 +69,9 @@ class registroClientesView extends vista
                     <label>Email: </label>
                     <input type="text"  id="email" class="form-control">
                 </div>
-            </div>
-
-            <div class="row">
-                <button id="btnRegistrar" class="btn btn-primary mt-3" onclick = "registrarCliente();">Registrar </button>
+                <div class="col-lg-6 mt-3" align="center">
+                    <button id="btnRegistrar" class="btn btn-primary btn-lg btn-block" onclick = "registrarCliente();">Registrar </button>
+                </div>
             </div>
         </div>
             
@@ -104,7 +105,7 @@ class registroClientesView extends vista
                 </div>
             </div>
             <div class="row">
-                <span  style="color:blue;" >INFORMACION MOTO</span>
+                <span  style="color:blue;" >INFORMACION VEHICULO</span>
             </div>
             <div id="div_mostrar_moto">
 
@@ -118,11 +119,23 @@ class registroClientesView extends vista
                             </div>
                             <div class="col-lg-6">
                                 <label>Marca: </label>
-                                <input type="text"  id="marca" class="form-control">
+                                <select class="form-control"  id="marca" onchange="mostrarLineasMarca();">
+                                   <option value="">Seleccione...</option>
+                                        <?php
+                                        $marcas =  $this->marcaModel->traerMarcas();
+                                        foreach($marcas as $marca)
+                                        {
+                                            echo '<option value ="'.$marca['marca'].'" >'.$marca['marca'].'</option>'; 
+                                        }
+                                        ?>
+
+                                </select>
+                                <!-- <input type="text"  id="marca" class="form-control"> -->
                             </div>
                             <div class="col-lg-6">
                                 <label>Linea: </label>
-                                <input type="text"  id="linea" class="form-control">
+                                <select id="linea" class="form-control"></select>
+                                <!-- <input type="text"  id="linea" class="form-control"> -->
                             </div>
                             <div class="col-lg-6">
                                 <label>Modelo: </label>
@@ -138,7 +151,7 @@ class registroClientesView extends vista
                                 id="btnRegistrarPlaca" 
                                 class="btn btn-primary mt-3" 
                                 onclick = "registrarMoto();"
-                                >Grabar Moto
+                                >Grabar 
                             </button>
                         </div>
                     
@@ -175,5 +188,13 @@ class registroClientesView extends vista
                 </div>
             </div>
         <?php
+    }
+    public function mostrarLineasMarca($lineas)
+    {
+        foreach($lineas as $linea)
+        {
+            echo '<option value="">Seleccione...</option>';
+            echo '<option value="'.$linea['linea'].'">'.$linea['linea'].'</option>';
+        }
     }
 }    

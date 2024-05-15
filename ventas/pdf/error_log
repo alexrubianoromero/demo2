@@ -1,0 +1,353 @@
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:15:02 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 92
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:15:02 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:21:41 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 96
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:21:41 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:27:13 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 96
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:27:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:27:16 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 96
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:27:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:27:40 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 98
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:27:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:28:40 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 98
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:28:40 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:29:05 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 98
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:29:05 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:29:08 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 98
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:29:08 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:30:12 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:30:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:30:29 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:30:29 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:30:43 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:30:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:31:31 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:31:31 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:32:11 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:32:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:45:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:14 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:45:14 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:45:14 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:45:14 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:45:14 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:45:16 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:45:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:45:18 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:45:18 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:45:48 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:45:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:45:53 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:45:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:46:59 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/ctwtvsxj/public_html/demo2/ventas/pdf/pdfVenta.php on line 100
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:46:59 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:48:19 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:48:48 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:49:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:50:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:50:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:51:26 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Jun-2023 22:51:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[04-Jun-2023 07:11:39 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[04-Jun-2023 07:11:44 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[04-Jun-2023 07:12:11 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[04-Jun-2023 18:23:56 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[24-Jul-2023 11:03:12 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[27-Jul-2023 11:58:13 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[19-Aug-2023 18:45:52 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[13-Sep-2023 09:21:46 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[26-Sep-2023 22:10:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[03-Nov-2023 17:34:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[07-Feb-2024 18:17:43 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[07-Feb-2024 18:18:16 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[07-Feb-2024 18:18:33 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[07-Feb-2024 18:18:53 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[07-Feb-2024 18:19:17 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203

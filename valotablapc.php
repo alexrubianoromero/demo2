@@ -44,7 +44,6 @@ $nombrebase = "base_demo";
 
 
 
-
 $conexion =mysql_connect($servidor,$usuario,$clave);
 $la_base =mysql_select_db($nombrebase,$conexion);
 

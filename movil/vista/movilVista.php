@@ -120,15 +120,21 @@ class movilVista{
         ?>
             <br><br>
             
-           
+            
             <?php
             //esta funcion me trae la info de empresa 
             //con el campo recibe_tarjetas == 1 se mostrara el modulo de ventas 
             $infoEmpresa = $this->empresaModel->traerInfoEmpresa();
-        //     echo '<pre>'; 
-        // print_r($infoEmpresa); 
-        // echo '</pre>';
-        // die(); 
+            //     echo '<pre>'; 
+            // print_r($infoEmpresa); 
+            // echo '</pre>';
+            // die(); 
+            echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
+            <!-- <i class="fas fa-boxes"></i> -->
+            <i class="fas fa-tools"></i>
+            </button>';
+            
+            echo  '<br><br>';
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
                 if($infoEmpresa['cambiosdeaceite']==1)
@@ -175,12 +181,6 @@ class movilVista{
                 </button>';
             }    
                 
-            echo  '<br><br>';
-
-            echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
-                    <!-- <i class="fas fa-boxes"></i> -->
-                    <i class="fas fa-tools"></i>
-                </button>';
                 if($_SESSION['nivel'] > 2 || $request['nivel']>2 )
                 {
                 echo    '<br><br>';

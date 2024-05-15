@@ -76,7 +76,7 @@ class EnviarCorreoPhpMailer
 
             $this->mail->isHTML(true);                                  //Set email format to HTML
 
-            $this->mail->Subject = 'KAYMO SOFTWARE';
+            $this->mail->Subject = 'Bienvenido a KAYMO SOFTWARE';
 
             $this->mail->Body    = $this->body;
 

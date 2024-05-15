@@ -48,7 +48,8 @@ class OrdenesVista extends vista
                             <button class="btn btn-primary" onclick="pintarOrdenesNew();">Listar</button>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <button class="btn btn-primary" onclick = "iraCraerOrden();"  id= "btnCrearOrden">NUEVA</button>
+                            <button class="btn btn-primary" 
+                            onclick = "iraCraerOrden();"  id= "btnCrearOrden">NUEVA</button>
                         </div>
                     </div>
                    <br><br>
@@ -136,6 +137,7 @@ class OrdenesVista extends vista
         echo '<th>ORDEN</th>';
         // echo '<th>IMA</th>';
         echo '<th>PDF</th>';
+        echo '<th>PDF2</th>';
         echo '<th>FECHA</th>';
         echo '<th>PLACA</th>';
         echo '<th>LINEA</th>';
@@ -176,8 +178,10 @@ class OrdenesVista extends vista
             </button>
             </td>';
             echo '<td>';
- 
             echo '<a href="../orden/pdf/ordenPdf3.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
+            echo '</td>';
+            echo '<td>';
+            echo '<a href="../orden/pdf/ordenPdf4.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
             echo '</td>';
             // echo '<td>'; 
             // echo '<button 

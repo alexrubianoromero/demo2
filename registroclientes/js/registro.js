@@ -29,6 +29,25 @@ function registrarCliente()
     }
 }
 
+function mostrarLineasMarca()
+{
+  
+        var marca = document.getElementById("marca").value;
+        const http=new XMLHttpRequest();
+        const url = '../registroclientes/registroclientes.php';
+        http.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                document.getElementById("linea").innerHTML  = this.responseText;
+            }
+        };
+        http.open("POST",url);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send('opcion=mostrarLineasMarca'
+        + "&marca="+marca
+        );
+    
+}
+
 function validarCampos()
 {
     if( document.getElementById("identi").value == '')
