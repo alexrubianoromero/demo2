@@ -10,6 +10,13 @@ Class OrdenesModelo extends Conexion
     }
 
 
+    public function traerInfoOrdenIdOrden($idOrden)
+    {
+        $sql = "select * from ordenes where id= '".$idOrden."'   "; 
+        $consulta = mysql_query($sql,$this->connectMysql()); 
+        $arreglo = mysql_fetch_assoc($consulta); 
+        return $arreglo; 
+    }
 
      public function traerOrdenes($conexion){
 
@@ -326,6 +333,40 @@ Class OrdenesModelo extends Conexion
             return $imagenes;  
 
         }
+
+        public function actualizarNumeroImagenesOrden($idOrden,$numero)
+        {
+            $sql = "update ordenes set 
+                    numeroImagenes = '".$numero."' 
+                    where id = '".$idOrden."' 
+            ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+        }
+
+        public function grabaregistroImagenesOrden($idOrden,$nombreIma,$ruta,$fechaSubidaImagen)
+        {
+            $sql = "insert into imagenes_ordenes(idorden,nombre,ruta_imagen,fecha) 
+            values ('".$idOrden."','".$nombreIma."','".$ruta."','".$fechaSubidaImagen."')";
+            // die($sql); 
+            $consulta = mysql_query($sql,$this->connectMysql());
+        }
+
+        public function traerInfoImagenenOrdenIdImagen($id)
+        {
+            $sql = "select * from imagenes_ordenes where id_imagen_orden ='".$id."' ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+            $infoImagen = mysql_fetch_assoc($consulta);
+            return $infoImagen;
+        }
+
+        public function deleteImagenOrden($id)
+        {
+            $sql = "delete  from imagenes_ordenes where id_imagen_orden ='".$id."' ";
+            $consulta = mysql_query($sql,$this->connectMysql());
+        }
+
+
+
 
 }
 

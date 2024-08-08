@@ -28,7 +28,10 @@ class registroClientesView extends vista
             <div class="col-lg-6 offset-1 mt-3">
                     <div align="center">
                         <img src="../logos/logokaymo.png" width="200" >
-                        <h2>Registro Clientes</h2>
+                        <h2>Registro / Consultas Clientes</h2>
+                    </div>
+                    <div>
+                        <button class="btn btn-info btn-block">Consultar</button>
                     </div>
                 <div id="div_principal_registro" style="padding:10px;">
                     <?php  $this->pantallaRegistro();  ?>
@@ -69,10 +72,10 @@ class registroClientesView extends vista
                     <label>Email: </label>
                     <input type="text"  id="email" class="form-control">
                 </div>
-                <div class="col-lg-6 mt-3" align="center">
-                    <button id="btnRegistrar" class="btn btn-primary btn-lg btn-block" onclick = "registrarCliente();">Registrar </button>
-                </div>
             </div>
+          
+                <button id="btnRegistrar" class="btn btn-primary btn-lg btn-block mt-3" onclick = "registrarCliente();">Registrar </button>
+          
         </div>
             
             <?php
@@ -119,23 +122,23 @@ class registroClientesView extends vista
                             </div>
                             <div class="col-lg-6">
                                 <label>Marca: </label>
-                                <select class="form-control"  id="marca" onchange="mostrarLineasMarca();">
+                                <!-- <select class="form-control"  id="marca" onchange="mostrarLineasMarca();">
                                    <option value="">Seleccione...</option>
                                         <?php
-                                        $marcas =  $this->marcaModel->traerMarcas();
-                                        foreach($marcas as $marca)
-                                        {
-                                            echo '<option value ="'.$marca['marca'].'" >'.$marca['marca'].'</option>'; 
-                                        }
+                                        // $marcas =  $this->marcaModel->traerMarcas();
+                                        // foreach($marcas as $marca)
+                                        // {
+                                        //     echo '<option value ="'.$marca['marca'].'" >'.$marca['marca'].'</option>'; 
+                                        // }
                                         ?>
 
-                                </select>
-                                <!-- <input type="text"  id="marca" class="form-control"> -->
+                                </select> -->
+                                <input type="text"  id="marca" class="form-control">
                             </div>
                             <div class="col-lg-6">
                                 <label>Linea: </label>
-                                <select id="linea" class="form-control"></select>
-                                <!-- <input type="text"  id="linea" class="form-control"> -->
+                                <!-- <select id="linea" class="form-control"></select> -->
+                                <input type="text"  id="linea" class="form-control">
                             </div>
                             <div class="col-lg-6">
                                 <label>Modelo: </label>

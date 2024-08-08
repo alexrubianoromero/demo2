@@ -137,8 +137,80 @@ class ordenControlador
         if($_REQUEST['opcion']=='enviarCorreoAvance'){
             $this->enviarCorreoAvance($_REQUEST);
         }
+        if($_REQUEST['opcion']=='realizarCargaArchivo')
+        {
+            $this->realizarCargaArchivo($_REQUEST);
+        }
+        if($_REQUEST['opcion']=='eliminarImagenesOrden')
+        {
+            $this->eliminarImagenesOrden($_REQUEST);
+        }
     }
 
+    public function eliminarImagenesOrden($request){
+        // die('llego aca');
+        //eliminacion fisica 
+         $this->eliminarFisicamenteImagenOrden($request['idImagenOrden']);
+         //eliminacion del registro 
+         $this->modeloOrden->deleteImagenOrden($request['idImagenOrden']); 
+        //  die('pasoo33');
+
+         echo 'Imagen Eliminada';
+
+    }
+
+    public function eliminarFisicamenteImagenOrden($idImagen)
+    {
+        $infoImagenOrden =  $this->modeloOrden->traerInfoImagenenOrdenIdImagen($idImagen);
+        unlink('../imagenes/'.$infoImagenOrden['nombre']);
+    }
+
+    public function realizarCargaArchivo($request)
+    {
+        //  echo '<pre>';  
+        // print_r($_FILES);
+        // echo '</pre>';
+        //  echo '<pre>';  
+        // print_r($_REQUEST);
+        // echo '</pre>';
+        // die(); 
+
+        //traerinfoGanado
+        // $infoGanado = $this->model->traerGanadoId($request['idGanado']); 
+        $infoOrden = $this->modeloOrden->traerInfoOrdenIdOrden($request['idOrden']); 
+        //  echo '<pre>';  
+        // print_r($infoOrden);
+        // echo '</pre>';
+        // die($infoOrden['numeroImagenes']); 
+
+        $noSigImagen = $infoOrden['numeroImagenes'] + 1; 
+        // die('<br>valor sumado 1: '.$noSigImagen); 
+        //crear el nombre del archivo
+        $nombreArchivo =  $request['idOrden'].'-'.$noSigImagen.'-'.$_FILES['archivo']['name'];
+        //actualizar el numero de imagenes en Ordenes
+        $this->modeloOrden->actualizarNumeroImagenesOrden($request['idOrden'],$noSigImagen);
+        //insertar en  la tabla de imagenes
+        $this->modeloOrden->grabaregistroImagenesOrden($request['idOrden'],$nombreArchivo,'imagenes',$request['fechaSubidaImagen']);
+        //subir el archivo
+        $this->subirArchivoDevolucion($nombreArchivo);
+   
+
+    }
+
+
+    public function subirArchivoDevolucion($nombre_archivo)
+    {
+        //  $this->printR($_FILES);
+        //  $nombre_archivo = $_FILES['archivo']['name'];
+            // if (move_uploaded_file($_FILES['archivo']['tmp_name'],  'archivos/'.$nombre_archivo)){
+            if (move_uploaded_file($_FILES['archivo']['tmp_name'],  '../imagenes/'.$nombre_archivo)){
+                echo "El archivo ha sido cargado correctamente.";
+            }else{
+                echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
+            }
+            // die('Archivo subido');
+
+    }
 
 
     public function mostrarFormularioOrden($conexion,$placa){
@@ -408,8 +480,9 @@ class ordenControlador
     
     public function  mostrarImagenesOrden($request)
     {
-        $imagenes  = $this->modeloOrden->traerImagenesOrdenId($request['idOrden']);
-        $this->vistaOrden->pantallaImagenes($request['idOrden'],$imagenes); 
+        // die('llego a controller imagenes'); 
+        // $imagenes  = $this->modeloOrden->traerImagenesOrdenId($request['idOrden']);
+        $this->vistaOrden->verImagenesModal($request['idOrden']); 
     }
 
     public function enviarCorreoAvance($request){

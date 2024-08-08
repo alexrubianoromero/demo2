@@ -731,3 +731,10 @@
 [07-Feb-2024 18:24:14 America/Bogota] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/ctwtvsxj/public_html/demo2/cambiosdeaceite/pdf/cambiodeaceitePdf3.php on line 102
 [07-Feb-2024 18:24:14 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
 [07-Feb-2024 18:24:14 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/ctwtvsxj/public_html/demo2/conexion/Conexion.php on line 21
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 910
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 923
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1165
+[11-Jun-2024 13:20:03 America/Bogota] PHP Deprecated:  Function set_magic_quotes_runtime() is deprecated in /home/ctwtvsxj/public_html/fpdf/fpdf.php on line 1203

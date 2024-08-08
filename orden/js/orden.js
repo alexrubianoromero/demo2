@@ -915,11 +915,12 @@ function cerraMymodalYpintarOrdenes()
 
 function mostrarImagenesOrden(idOrden)
 {
+    // alert('mostrar imagenes ');
     const http=new XMLHttpRequest();
     const url = '../orden/ordenes.php';
     http.onreadystatechange = function(){
         if(this.readyState == 4 && this.status ==200){
-            var resp = JSON.parse(this.responseText);
+            // var resp = JSON.parse(this.responseText);
             // console.log(resp.descripcion); 
             // alert(resp.descripcion); 
             document.getElementById("cuerpoModalImagenes").innerHTML = this.responseText;
@@ -959,3 +960,66 @@ function enviarCorreoAvance(idOrden)
     + "&idOrden="+idOrden
     );
 }
+
+function realizarCargaArchivo(idOrden)
+{
+    var validaFecha =  validaInfoNuevaImagen();
+    if(validaFecha)
+    {
+
+        var fechaSubidaImagen = document.getElementById('fechaSubidaImagen').value;
+        var inputFile = document.getElementById('archivo');
+        if (inputFile.files.length > 0) {
+            let formData = new FormData();
+            formData.append("archivo", inputFile.files[0]); // En la posición 0; es decir, el primer elemento
+            formData.append("opcion", 'realizarCargaArchivo'); // En la posición 0; es decir, el primer elemento
+            formData.append("idOrden", idOrden); // En la posición 0; es decir, el primer elemento
+            formData.append("fechaSubidaImagen", fechaSubidaImagen); // En la posición 0; es decir, el primer elemento
+            fetch("../orden/ordenes.php", {
+                method: 'POST',
+                body: formData,
+            })
+            .then(respuesta => respuesta.text())
+            .then(decodificado => {
+                console.log(decodificado.archivo);
+                document.getElementById("div_cargue_archivo").innerHTML = 'Imagen Almacenada!!';
+            });
+        } else {
+            alert("Selecciona un archivo");
+        }
+        setTimeout(() => {
+            mostrarImagenesOrden(idOrden); 
+        }, 300);
+        
+    }
+}
+    
+
+function  validaInfoNuevaImagen()
+{
+        if( document.getElementById('fechaSubidaImagen').value == ''){
+            alert('Por favor seleccionar fecha');
+            document.getElementById('fechaSubidaImagen').focus();
+            return 0;
+        }
+        return 1;
+}
+
+
+function eliminarImagenesOrden(idImagenOrden)
+{
+    const http=new XMLHttpRequest();
+    const url = '../orden/ordenes.php';
+    http.onreadystatechange = function(){
+                            
+        if(this.readyState == 4 && this.status ==200){
+                document.getElementById("cuerpoModalImagenes").innerHTML  = this.responseText;
+            }
+    };
+    http.open("POST",url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send('opcion=eliminarImagenesOrden'
+    +'&idImagenOrden='+idImagenOrden
+    );
+}
+    

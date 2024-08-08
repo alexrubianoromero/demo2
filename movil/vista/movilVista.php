@@ -134,7 +134,7 @@ class movilVista{
             <i class="fas fa-tools"></i>
             </button>';
             
-            echo  '<br><br>';
+            echo  '<br>';
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
                 if($infoEmpresa['cambiosdeaceite']==1)
@@ -167,7 +167,7 @@ class movilVista{
             
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
-                echo '<br><br>';
+                echo '<br>';
                 echo '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaClientes();">CLIENTES 
                     <i class="far fa-user"></i>
                 </button>';
@@ -175,7 +175,7 @@ class movilVista{
             
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
-                echo     '<br><br>';
+                echo     '<br>';
              echo '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaMotos();"><span align="left">MOTOS<span> 
                     <i class="fas fa-biking"></i>
                 </button>';
@@ -183,7 +183,7 @@ class movilVista{
                 
                 if($_SESSION['nivel'] > 2 || $request['nivel']>2 )
                 {
-                echo    '<br><br>';
+                echo    '<br>';
              echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaInventario();">INVENTARIOS 
                     <i class="fas fa-list"></i>
                 </button>';
@@ -192,12 +192,12 @@ class movilVista{
             
             if($_SESSION['nivel'] > 2 || $request['nivel']>2)
             {
-                 echo    '<br><br>';
+                 echo    '<br>';
                 echo     '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaTecnicos();">TECNICOS
                             <!-- <i class="far fa-user"></i> -->
                     </button>';
              }       
-             echo    '<br><br>';
+             echo    '<br>';
 
             echo        '<button 
                         class = "btn btn-primary bontonesmenu"  

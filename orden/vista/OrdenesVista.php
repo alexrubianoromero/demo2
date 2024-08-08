@@ -137,13 +137,14 @@ class OrdenesVista extends vista
         echo '<th>ORDEN</th>';
         // echo '<th>IMA</th>';
         echo '<th>PDF</th>';
-        echo '<th>PDF2</th>';
-        echo '<th>FECHA</th>';
+        // echo '<th>PDF2</th>';
+        echo '<th>IMAGEN</th>';
+        // echo '<th>FECHA</th>';
         echo '<th>PLACA</th>';
-        echo '<th>LINEA</th>';
-        echo '<th>OBSERVACIONES</th>';
-        echo '<th>ESTADO</th>';
-        echo '<th>WatsApp</th>';
+        // echo '<th>LINEA</th>';
+        // echo '<th>OBSERVACIONES</th>';
+        // echo '<th>ESTADO</th>';
+        // echo '<th>WatsApp</th>';
         echo '</tr>';
         echo '</thead>';
         
@@ -180,27 +181,33 @@ class OrdenesVista extends vista
             echo '<td>';
             echo '<a href="../orden/pdf/ordenPdf3.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
             echo '</td>';
-            echo '<td>';
-            echo '<a href="../orden/pdf/ordenPdf4.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
-            echo '</td>';
-            // echo '<td>'; 
-            // echo '<button 
-            //         class="btn btn-default" 
-            //         onclick ="mostrarImagenesOrden('.$orden['id'].'); "
-            //         data-toggle="modal" data-target="#myModalImagenes"
-            //       >IMA</button>';
-            
+            // echo '<td>';
+            // echo '<a href="../orden/pdf/ordenPdf4.php?idOrden='.$orden['id'].'" target="_blank">PDF</a>';
             // echo '</td>';
-            echo '<td>'.$orden['fecha'].'</td>';
+            // echo '<td>';
+            // echo '<button 
+            //         class="btn btn-primary btn-sm" 
+            //         data-toggle="modal" data-target="#modalImagenes"
+            //       >Imagen</button>';
+            // echo '</td>';
+            echo '<td>'; 
+            echo '<button 
+                    class="btn btn-info" 
+                    onclick ="mostrarImagenesOrden('.$orden['id'].'); "
+                    data-toggle="modal" data-target="#myModalImagenes"
+                  >IMA</button>';
+            
+            echo '</td>';
+            // echo '<td>'.$orden['fecha'].'</td>';
             echo '<td>'.$orden['placa'].'</td>';
-            echo '<td>'.$orden['tipo'].'</td>';
-            echo '<td>'.substr($orden['observaciones'],0,30).'</td>';
-            if($orden['estado']==0){ $nombreEstado = 'En Proceso'; }
-            if($orden['estado']==1){ $nombreEstado = 'Lista'; }
-            if($orden['estado']==2){ $nombreEstado = 'Facturada';}
-            // if($orden['estado']==3){ $nombreEstado = 'Entregada';}
-            echo '<td>'.$nombreEstado.'</td>';
-            echo '<td><a href="https://web.whatsapp.com/" target="_blank"><img src="../logos/iconowatsapp.jpg" width="25px"></a></td>';
+            // echo '<td>'.$orden['tipo'].'</td>';
+            // echo '<td>'.substr($orden['observaciones'],0,30).'</td>';
+            // if($orden['estado']==0){ $nombreEstado = 'En Proceso'; }
+            // if($orden['estado']==1){ $nombreEstado = 'Lista'; }
+            // if($orden['estado']==2){ $nombreEstado = 'Facturada';}
+            // // if($orden['estado']==3){ $nombreEstado = 'Entregada';}
+            // echo '<td>'.$nombreEstado.'</td>';
+            // echo '<td><a href="https://web.whatsapp.com/" target="_blank"><img src="../logos/iconowatsapp.jpg" width="25px"></a></td>';
             echo '</tr>';
         
             // echo '<td class="success">'.$orden['orden'].'</button></td>';
@@ -219,7 +226,7 @@ class OrdenesVista extends vista
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
          Launch demo modal
          </button> -->
-          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding:5px;">
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                   <div class="modal-header">
@@ -239,6 +246,7 @@ class OrdenesVista extends vista
           </div>
         <?php
     }
+ 
     public function modalReversionFacturada(){
         ?>
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
@@ -298,14 +306,15 @@ class OrdenesVista extends vista
          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
          Launch demo modal
          </button> -->
-          <div class="modal fade" id="myModalImagenes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
+          <div class="modal fade" id="myModalImagenes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin:2px;">
+          <!-- modal-sm   -->
+            <div class="modal-dialog " role="document">
                   <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Imagenes Orden</h4>
+                      <h4 class="modal-title" id="myModalLabel">Imagenes Orden.</h4>
                   </div>
-                  <div id="cuerpoModalImagenes" class="modal-body">
+                  <div id="cuerpoModalImagenes" class="modal-body" style="color:black;">
                       
                   </div>
                   <div class="modal-footer">
@@ -541,7 +550,7 @@ class OrdenesVista extends vista
                                 <td>
                                     <button
                                         data-toggle="modal" data-target="#myModalEnviarCorreo" '; 
-                                        onclick ="enviarCorreoAvance('<?php  echo $arregloOrden['id'];  ?>'); "  align="left" class="btn btn-success">Enviar Correo con el avance</button>
+                                        onclick ="enviarCorreoAvance('<?php  echo $arregloOrden['id'];  ?>'); "  align="left" class="btn btn-success">Enviar Correo avance</button>
                                 </td>
                             </tr>
                              <tr>
@@ -693,7 +702,7 @@ class OrdenesVista extends vista
                                             onclick="actualizarInfoOrden('.$arregloOrden['id'].'); "
                                             data-dismiss="modal"
                                             >
-                                            Actualizar Orden</button>';
+                                            Act. Orden</button>';
                                 echo $boton;
                             ?>
 
@@ -701,7 +710,7 @@ class OrdenesVista extends vista
 
                     </div>    
                 </div>
-                <br><br>
+                <br>
                     <div class="col-xs-12">
                        <?php 
                         $boton = '<button 
@@ -716,7 +725,7 @@ class OrdenesVista extends vista
                         echo $boton;
                         ?>           
                     </div>
-                   
+                   <br>
                 </div>
             </div>
             <div id="divPregunteNuevoItem" style="color:black"></div>
@@ -1265,7 +1274,7 @@ class OrdenesVista extends vista
     public function pantallaImagenes($idOrden,$imagenes = [])
     {
         ?>
-        <div id="div_principal_imagenes">
+        <!-- <div id="div_principal_imagenes">
             <div id="div_nueva_imagen">
                 <form action="subearchivo.php" method="post" enctype="multipart/form-data">
                     <input name="imagen" id="imagen" type="file">
@@ -1276,9 +1285,83 @@ class OrdenesVista extends vista
             <div id="muestre_imagenes">
 
             </div>
-        </div>
+        </div> -->
         <?php
     }
+
+    public function verImagenesModal($idOrden)
+    {
+        // $raiz = dirname(__FILE__); 
+        ?>
+         <!DOCTYPE html>
+         <html lang="en">
+         <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            
+         </head>
+         <body>
+
+             <div class=" col-lg-6">
+                   <div ><label>Fecha:</label></div>
+                   <input type="date" id="fechaSubidaImagen" class="form-control">
+             </div>
+             <br>
+             <div class="mt-3">
+                 <form  enctype="multipart/form-data">
+                     <input class="form-control"  name="archivo" id="archivo" type="file">
+                     <div id="div_muestre_resultado"></div>
+                     <span id="demo"></span>
+                   </div>
+                   </form>
+               </div>  
+               <br>
+           <div class="mt-4">
+               <button  class ="btn btn-primary "    onclick="realizarCargaArchivo(<?php echo $idOrden; ?>);" >SubirArchivo</button>
+           </div>
+            
+          
+        <?php
+
+        $imagenes =  $this->modelOrden->traerImagenesOrdenId($idOrden);
+        // echo 'ver fotos ganado';
+        foreach($imagenes as $imagen)
+        {
+        ?>
+        <div align="center" class="row mt-5">
+            <div class="col-lg-12" >
+                <!-- <img src = "imagenes/imagen.jpg" width="300px;" > -->
+                <br><br>
+                <img src = "../imagenes/<?php echo $imagen['nombre'] ?>" width="90%;" >
+            </div>
+            <div> 
+                <?php  
+                              $ano = substr($imagen['fecha'] , 0,4);  
+                              $mes = substr($imagen['fecha'] , 5,2);  
+                              $dia = substr($imagen['fecha'] , 8,2); 
+                            //   echo '<td>'.$dia.'-'.$mes.'-'.$ano.'</td>'; 
+                      
+                            //   echo '<td>'.$dia.'-'.$mes.'-'.$ano .'</td>'; 
+                            // echo 'Fecha:'.'$dia.'-'.$mes.'-'.$ano ; 
+                            echo '<button 
+                                        class="btn btn-primary btn-sm mt-2"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalCambiarFecha"
+                                        onclick="mostrarFormuCambiarFecha('.$imagen['id'].');"
+                                    >'.'Fecha: '.$dia.'-'.$mes.'-'.$ano.'</button>';
+                            ?></div>
+            <button class="btn btn-danger btn-sm mt-2" onclick="eliminarImagenesOrden('<?php  echo $imagen['id_imagen_orden'] ?>')">Eliminar</button>
+        </div>
+
+        </body>
+         </html> 
+        <?php
+    
+        }
+
+    }
+
 
 
 }
