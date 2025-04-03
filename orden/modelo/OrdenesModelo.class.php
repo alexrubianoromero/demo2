@@ -365,6 +365,26 @@ Class OrdenesModelo extends Conexion
             $consulta = mysql_query($sql,$this->connectMysql());
         }
 
+        public function actualizaIdSiigoOrden($idOrden,$cufe)
+        {
+            $sql = "update ordenes set 
+            cufe = '".$cufe."'
+            where id = '".$idOrden."'
+            ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            echo 'Orden Actualizada ';  
+        }
+        public function actualizarCufeIdsiigoOrden($idOrden,$cufe,$idSiigo)
+        {
+            $sql = "update ordenes set 
+            cufe = '".$cufe."',
+            idSiigo = '".$idSiigo."'
+            where id = '".$idOrden."'
+            ";
+            $consulta = mysql_query($sql,$this->connectMysql()); 
+            echo 'Orden Actualizada ';  
+        }
+
 
 
 

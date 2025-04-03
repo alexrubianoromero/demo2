@@ -2,17 +2,20 @@
 $raiz = dirname(dirname(dirname(__file__)));
 require_once($raiz.'/vista/vista.php');
 require_once($raiz.'/orden/modelo/OrdenesModelo.class.php');
+require_once($raiz.'/orden/modelo/itemsOrdenModelo.php');
 require_once($raiz.'/tecnicos/modelo/TecnicosModelo.php');
 class OrdenesVista extends vista 
 {
     protected $modelOrden;
     protected $tecnicosModelo;
+    protected $itemsOrdenModelo;
 
     public function __construct()
     {
         session_start();
         $this->modelOrden = new OrdenesModelo(); 
         $this->tecnicosModelo = new TecnicosModelo();
+        $this->itemsOrdenModelo = new itemsOrdenModelo();
 
     }
   
@@ -77,6 +80,7 @@ class OrdenesVista extends vista
                <?php  $this->modalFiltrosCodigosNew(); ?>
                <?php  $this-> modalImagenes(); ?>
                <?php  $this-> modalEnviarCorreo(); ?>
+               <?php  $this-> modalFactElectronica(); ?>
 
 
            </body>
@@ -525,13 +529,41 @@ class OrdenesVista extends vista
           </div>
         <?php
     }
+    public function modalFactElectronica (){
+        ?>
+         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+         Launch demo modal
+         </button> -->
+          <div style="color:black" class="modal fade" id="myModalFactElectronica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header" id="headerNuevaOrden">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Fact Electronica </h4>
+                  </div>
+                  <div id="cuerpoModalFactElectronica" class="modal-body" style="color:black" >
+                      
+                      
+                  </div>
+                  <div class="modal-footer" id="footerNuevoCliente">
+                      <button  type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                  </div>
+              </div>
+          </div>
+        <?php
+    }
 
     public function mostrarInfoOrden($arregloOrden,$conexion,$resultadoItems,$request){
+        $sumaItems =    $this->itemsOrdenModelo->sumarItemsIdOrden($arregloOrden['id']); 
+        $infoOrden =  $this->modelOrden->traerInfoOrdenIdOrden($arregloOrden['id']);
         //  echo $arregloOrden['observaciones'];
         //  die();
         // echo '<pre>';
-        // print_r($arregloOrden['id']);
+        // print_r($infoOrden);
         // echo '</pre>';
+        // die();
         $infoTecnico =   $this->tecnicosModelo->traerTecnicoAsignadoIdOrden($arregloOrden['id']); 
         // echo '<pre>';
         // print_r($tecnico);
@@ -553,6 +585,43 @@ class OrdenesVista extends vista
                                         onclick ="enviarCorreoAvance('<?php  echo $arregloOrden['id'];  ?>'); "  align="left" class="btn btn-success">Enviar Correo avance</button>
                                 </td>
                             </tr>
+                            <?php
+                            $facturada=2;
+                            // echo '<br>estado'.$arregloOrden['estado'];
+                            // echo '<br>idSiigo'.$infoOrden['idSiigo'];
+                            // echo '<br>suma'.$sumaItems;
+                            // die();
+                            if($arregloOrden['estado']==2 && $infoOrden['idSiigo'] ==0 && $sumaItems > 0 )
+                            {
+                            ?>
+                            <tr> 
+                                <td>
+                                    <button
+                                        data-toggle="modal" data-target="#myModalFactElectronica" '; 
+                                        onclick ="preguntarANombredeQuien('<?php  echo $arregloOrden['id'];  ?>'); "  align="left" class="btn btn-warning">Validar Nombre</button>
+                                </td>
+                                <td>
+                                    <button
+                                        data-toggle="modal" data-target="#myModalFactElectronica" '; 
+                                        onclick ="crearJsonFactura('<?php  echo $arregloOrden['id'];  ?>'); "  align="left" class="btn btn-warning">Crear Fac Electronica</button>
+                                </td>
+                            </tr>
+                            <?php
+                            }else{
+                                if($arregloOrden['estado']!=2){echo 'La orden no esta en estado facturada ';}
+                                if($infoOrden['idSiigo'] != 0)
+                                {
+                                    echo 'Factura ya registrada en siigo '.$infoOrden['idSiigo'];
+                                    echo '<br><a target="_blank" href="https://documentview.siigo.com/document?data='.$infoOrden['idSiigo'].'">Ver Factura Siigo</a>';
+                                    //consultar factura 
+                                    //https://api.siigo.com/v1/invoices/525dfd56-3463-4ef5-a1dc-82b5d8b45ee5
+                                    // echo '<br><a href="https://api.siigo.com/v1/invoices/'.$infoOrden['idSiigo'].'" target="_black">Consultar Factura Siigo</a>';
+                                    echo '<br>';
+                                    echo '<button onclick="consultarFacturaSiigo('.$infoOrden['idSiigo'].');">Consultar Factura</button>';
+                                }
+                                if($sumaItems == 0){echo 'Esta orden no tiene items asociados ';}
+                            }
+                            ?>
                              <tr>
                                  <td>Orden No</td>
                                  <td><?php echo $arregloOrden['orden']; ?></td>

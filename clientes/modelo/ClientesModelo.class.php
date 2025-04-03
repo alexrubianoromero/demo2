@@ -15,7 +15,7 @@ class ClientesModelo extends Conexion
 
               $this->tabla41 =  $tabla4;   
 
-           }
+          }
 
         public function  traerDatosClienteIdNew($idCliente)
         {
@@ -284,6 +284,31 @@ class ClientesModelo extends Conexion
         $consulta = mysql_query($sql,$this->connectMysql()); 
 
   }
+  public function actualizarClienteFacElectronica($request)
+  {
+      $sql = "update cliente0 
+              set identi = '".$request['identiFac']."'   
+              ,nombre = '".$request['nombreFac']."'   
+              ,apellido = '".$request['apellidoFac']."'   
+              ,telefono = '".$request['telefonoFac']."'   
+              ,direccion = '".$request['direccionFac']."'   
+              ,email = '".$request['emailFac']."'   
+              where idcliente = '".$request['idCliente']."'   
+              " ; 
+        $consulta = mysql_query($sql,$this->connectMysql()); 
+
+  }
+
+  public function actualizarIdSiigoCLiente($idCliente0,$idSiigo)
+  {
+      $sql = "update cliente0  
+      set idSiigo = '".$idSiigo."' 
+      where  idcliente = '".$idCliente0."'
+      ";
+      $consulta = mysql_query($sql,$this->connectMysql()); 
+      // die($sql); 
+  }
+
 
 
 }

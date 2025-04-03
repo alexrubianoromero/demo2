@@ -56,6 +56,7 @@ class cajaController
         $saldoActual = $this->model->traerSaldoActual();
         $this->vista->cajaVistaPrincipal($saldoActual);
     }
+    
     public function grabarRecibo($request)
     {
         // echo 'entonces debe cambiar el estado de la orden '; 

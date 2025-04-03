@@ -7,7 +7,10 @@ class Conexion{
     // private $db = "motorcycleroom";
     // private $conect;
     
-  
+        private $host = "localhost";
+        private $user = "ctwtvsxj_admin";
+        private $password = "ElMejorProgramador***";
+        private $db = "ctwtvsxj_base_demo";
         // private $conect;
 
     public function __construct(){

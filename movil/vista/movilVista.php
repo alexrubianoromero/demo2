@@ -81,6 +81,7 @@ class movilVista{
     <script src="../ayudas_financieras/js/conceptos.js"></script>
     <script src="../ventas/js/ventas.js"></script>
     <script src="../cambiosdeaceite/js/cambiosdeaceite.js"></script>
+    <script src="../facturacion_electronica/js/facturacionElectronica.js"></script>
     <?php
   }
   public function htmlLogueo(){
@@ -129,6 +130,11 @@ class movilVista{
             // print_r($infoEmpresa); 
             // echo '</pre>';
             // die(); 
+            echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaCalendario();">AGENDAMIENTO 
+            <!-- <i class="fas fa-boxes"></i> -->
+            <i class="fas fa-tools"></i>
+            </button>';
+            echo  '<br>';
             echo    '<button class = "btn btn-primary bontonesmenu"  onclick="pantallaOrdenes();">ORDENES 
             <!-- <i class="fas fa-boxes"></i> -->
             <i class="fas fa-tools"></i>
