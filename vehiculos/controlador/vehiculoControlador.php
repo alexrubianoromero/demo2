@@ -96,6 +96,11 @@ class vehiculoControlador{
 
             $this->buscarPlacaSimple($_REQUEST);
         } 
+        if($_REQUEST['opcion']=='buscarPlacaSimpleTraerInfoPlacaYProp'){
+
+            $this->buscarPlacaSimpleTraerInfoPlacaYProp($_REQUEST);
+            
+        } 
         if($_REQUEST['opcion']=='buscarPlacaDesdeCambio'){
 
             $this->buscarPlacaDesdeCambio($_REQUEST);
@@ -282,6 +287,12 @@ class vehiculoControlador{
     public function buscarPlacaSimple($request)
     {
             $datosPlaca = $this->vehiculoModelo->buscarPlacaSimple($request['placa']);
+            echo json_encode($datosPlaca);
+            exit();
+    }
+    public function buscarPlacaSimpleTraerInfoPlacaYProp($request)
+    {
+            $datosPlaca = $this->vehiculoModelo->buscarPlacaSimpleTraerInfoPlacaYProp($request['placa']);
             echo json_encode($datosPlaca);
             exit();
     }

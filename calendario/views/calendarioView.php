@@ -85,6 +85,7 @@ class calendarioView{
                 },
                 dateClick: function(info) {
                     let fecha = info.dateStr;
+                    
                     mostrarModal();
                     ponerFechaEnFormuEvento(fecha);
 
@@ -130,9 +131,10 @@ class calendarioView{
                 location.reload();
             });
 
-            $('#btnAgregar').click(function(){
+            // $('#btnAgregar').click(function(){
 
-            });
+            // });
+
             function updateEvent(eventData) {
                 var event = calendar.getEventById(eventData.id);
                 alert(event);
@@ -191,7 +193,29 @@ class calendarioView{
 
         function verifiquePlaca()
         {
-            alert('click en placa');
+            let placa = document.getElementById('txtPlaca').value;
+            const http=new XMLHttpRequest();
+            const url = '../vehiculos/vehiculos.php';
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    var  resp = JSON.parse(this.responseText); 
+                    // console.log(this.responseText);
+                    // alert(resp.filas);
+                    if(resp.filas){
+                        document.getElementById("divResultadosVerificacionPlaca").style.color='green';
+                        document.getElementById("divResultadosVerificacionPlaca").innerHTML = 'Placa Esta registrada en el sistema';
+                        document.getElementById("email").value = resp.datos.email;
+                    }else{
+                        document.getElementById("divResultadosVerificacionPlaca").style.color='red';
+                        document.getElementById("divResultadosVerificacionPlaca").innerHTML = 'Placa No existe puedes crearla ';
+                    }
+                }
+            };
+            http.open("POST",url);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("opcion=buscarPlacaSimpleTraerInfoPlacaYProp"
+                    + "&placa="+placa
+                );
         }
         </script>   
         <?php
@@ -234,22 +258,38 @@ class calendarioView{
     public function mostrarFormuNuevoEvento()
     {
         ?>
-          <div class="col-lg-4">
-                        <label>Fecha:</label>
-                        <input type="text" class="form-control" id ="fechaPuente" onfocus="blur();">
-          </div>
+        <div class="row">
+            <span>La franja de atencion es lunes a viernes de 8am a 5pm y Sabados de 8am a 2 pm..</span>
+            <div class="col-lg-4">
+                <label>Fecha:</label>
+                <input type="text" class="form-control" id ="fechaPuente" onfocus="blur();">
+            </div>
+
+            <div class="col-lg-4">
+            <label>Hora:</label>
+            <div class="input-group flatpickr" data-autoclose="true">
+                        <!-- <input type="text" id="txtHora" value="10:30" class="form-control"> -->
+                         <?php  
+                         $opcionesHoras60 = $this->generarOpcionesHoras(60);
+                         ?>
+                         <select name="txtHora" id="txtHora" class="form-control">
+                                <?php
+                                    echo $opcionesHoras60;
+                                ?>
+                         </select>
+                </div>
+            </div>
+            
+            <!-- <div class="col-lg-4" id="divResultadosVerificacionPlaca">
+                      
+            </div> -->
+        </div>
         <!-- <input type ="text" id="fechaPuente"> -->
-         <div id="verifiquePlaca();"></div>
+         <div class="mt-3" id="divResultadosVerificacionPlaca"></div>
          <div class="container row">
                         <div class="col-lg-4">
                         <label>Placa:</label>
-                        <input type="text" class="form-control" id ="txtPlaca">
-                        </div>
-                        <div class="col-lg-4">
-                        <label>Hora:</label>
-                        <div class="input-group flatpickr" data-autoclose="true">
-                                    <input type="text" id="txtHora" value="10:30" class="form-control">
-                            </div>
+                        <input type="text" class="form-control" id ="txtPlaca" onkeyup="verifiquePlaca();">
                         </div>
                         <div class="col-lg-12">
                         <label>Email:</label>
@@ -267,6 +307,21 @@ class calendarioView{
                     </div>
 
         <?php
+    }
+
+    public function  generarOpcionesHoras($intervaloMinutos = 30) {
+        $opciones = '';
+        $inicioDia = 0; // Representa las 00:00 en minutos
+        $finDia = 24 * 60 - 1; // Representa las 23:59 en minutos
+    
+        for ($minutos = $inicioDia; $minutos <= $finDia; $minutos += $intervaloMinutos) {
+            $hora = floor($minutos / 60);
+            $minuto = $minutos % 60;
+            $horaFormateada = sprintf('%02d:%02d', $hora, $minuto);
+            $opciones .= '<option value="' . $horaFormateada . '">' . $horaFormateada . '</option>';
+        }
+    
+        return $opciones;
     }
 }
 

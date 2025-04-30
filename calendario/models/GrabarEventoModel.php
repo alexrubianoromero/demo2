@@ -25,6 +25,18 @@ class GrabarEventoModel extends Conexion
         $consulta = mysql_query($sql,$this->connectMysql());
     }
 
+    public function traerAgendaProximosdias($dias)
+    {
+        $sql = "    SELECT * FROM citas
+                    WHERE fecha = DATE_ADD(CURDATE(), INTERVAL ".$dias." DAY)";
+         $consulta = mysql_query($sql,$this->connectMysql());
+         $filas = mysql_num_rows($consulta); 
+         $eventos = $this->get_table_assoc($consulta);
+         $respu['filas']=$filas; 
+         $respu['info']=$eventos; 
+         return $respu;
+    }
+
 }
 
 

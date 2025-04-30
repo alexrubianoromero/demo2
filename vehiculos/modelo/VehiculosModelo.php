@@ -91,6 +91,20 @@ class VehiculosModelo extends Conexion
         return $respuesta; 
     }    
 
+    public function buscarPlacaSimpleTraerInfoPlacaYProp($placa){
+        $sql = "select  * from carros c   
+        inner join cliente0 cli on cli.idcliente = c.propietario
+        where c.placa = '".$placa ."'
+        ";
+        // die($sql);
+        $consulta = mysql_query($sql,$this->connectMysql()); 
+        $filas = mysql_num_rows($consulta);
+        $datos = mysql_fetch_assoc($consulta);
+        $respuesta['filas']= $filas;
+        $respuesta['datos']=  $datos;  
+        return $respuesta; 
+    }    
+
 
 
     public function verificarPlacaRespuestaJson($conexion,$placa){
